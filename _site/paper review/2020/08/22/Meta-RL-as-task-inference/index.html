@@ -1,0 +1,1207 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Deep Learning,Meta Learning,Reinforcement Learning,Meta RL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yeonsoo Kim's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (PR-239)를 발표하신 정창훈님 영상을 보고 정리하였습니다.">
+<meta name="keywords" content="Deep Learning, Meta Learning, Reinforcement Learning, Meta RL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Meta Reinforcement Learning As Task Inference">
+<meta property="og:url" content="http://localhost:4000/paper%20review/2020/08/22/Meta-RL-as-task-inference/">
+<meta property="og:site_name" content="Yeonsoo Kim's blog">
+<meta property="og:description" content="Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (PR-239)를 발표하신 정창훈님 영상을 보고 정리하였습니다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/90916720-8c29fa80-e41c-11ea-9484-b6129a1688d3.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/90917047-170af500-e41d-11ea-9791-74d540738406.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/90917816-93520800-e41e-11ea-81ba-5cd461f513e4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/90918158-2428e380-e41f-11ea-8e6b-8803cce60db7.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/90918340-70742380-e41f-11ea-9513-7f6c21fb4280.png">
+<meta property="og:image" content="400">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/90919150-e331ce80-e420-11ea-8cc8-2c009ca75d8e.png">
+<meta property="og:image" content="400">
+<meta property="og:image" content="400">
+<meta property="og:image" content="347">
+<meta property="og:image" content="707">
+<meta property="og:image" content="196">
+<meta property="og:image" content="500">
+<meta property="og:image" content="736">
+<meta property="og:image" content="755">
+<meta property="og:image" content="736">
+<meta property="og:image" content="634">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Meta Reinforcement Learning As Task Inference">
+<meta name="twitter:description" content="Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (PR-239)를 발표하신 정창훈님 영상을 보고 정리하였습니다.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/90916720-8c29fa80-e41c-11ea-9484-b6129a1688d3.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>Meta Reinforcement Learning As Task Inference | Yeonsoo Kim's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yeonsoo Kim's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2020/08/22/Meta-RL-as-task-inference/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yeonsoo Kim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeonsoo Kim's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            Meta Reinforcement Learning As Task Inference
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-22T00:00:00+09:00">
+                2020-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Paper%20Review" itemprop="url" rel="index">
+                    <span itemprop="name">Paper Review</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (<a href="https://www.youtube.com/watch?v=phi7_QIhfJ4">PR-239</a>)를 발표하신 정창훈님 영상을 보고 정리하였습니다.</p>
+
+<hr />
+
+<h1 id="meta-reinforcement-learning-as-task-inference">Meta Reinforcement Learning As Task Inference</h1>
+
+<h2 id="overview">Overview</h2>
+<p>(You should include contents of summary and introduction.)</p>
+
+<ul>
+  <li>접근 방법 : Meta-RL을 하나의 <strong>paritally observed</strong>로 본다.
+    <ul>
+      <li>MDP의 모든 정보를 agent가 전부 받는 게 아니라 부분적으로만 관찰</li>
+      <li>RL은 하나의 control문제로 볼 수 있는데, 여기에 <strong>inference problem</strong>이 추가된 것</li>
+    </ul>
+  </li>
+  <li>즉 POMDP(Partially-Observable Markov Decision Processes)문제를 해결하는 문제가 됨.
+    <ul>
+      <li>POMDP의 솔루션 : observation trajetory를 가지고 optimal policy를 찾는 것(미래 보상이 최대가 되는 쪽으로) == Reinforcement learning
+        <ul>
+          <li>그러나 주어진 데이터가 partially observation이기 때문에 또 하나의 모듈이 필요함 -&gt; <code class="language-plaintext highlighter-rouge">belief state</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Belief State : 어떤 observation trajectory가 주어졌을 때 실제 true state의 probability
+    <ul>
+      <li>이걸 구할 수 있으면 POMDP가 구해짐
+        <ul>
+          <li>POMDP가 구해지면 Meta-RL 문제 해결!</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Observation이 주어졌을 때 optimal policy를 구하는 것은 belief state를 구할 수 있으면 문제가 풀린다!</strong>
+-&gt; 그러면 Meta-RL 문제도 풀린다.</p>
+
+<ul>
+  <li>이 논문의 key point : 두 가지 Neural Network를 사용
+    <ul>
+      <li>control하는 policy Network</li>
+      <li>belief state를 예측하는 inference Belief Module
+        <ul>
+          <li>auxilary supervised learning 로 해결 (Meta-learning때에만)</li>
+          <li>즉, belief module은 meta-learning 때 supervised learning으로 학습됨.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>off-policy 사용(Meta-RL 에서는 대개 on-policy)</li>
+</ul>
+
+<h2 id="related-work-basic-concepts">Related work (Basic concepts)</h2>
+
+<ul>
+  <li>Meta Learning : Learning to Learn</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/90916720-8c29fa80-e41c-11ea-9484-b6129a1688d3.png" alt="스크린샷 2020-08-22 오전 2 09 41" /></p>
+
+<ul>
+  <li>
+    <p>A <code class="language-plaintext highlighter-rouge">trajectory</code> is just a sequence of states and actions.</p>
+  </li>
+  <li>Meta RL
+    <ul>
+      <li>env.는 <code class="language-plaintext highlighter-rouge">MDP</code>로 표현됨. <code class="language-plaintext highlighter-rouge">M = {S,A,P,r}</code></li>
+      <li>Agent &lt;-&gt; env. : 서로 interact하면서 future reward를 Max. 시키는 세타 찾기</li>
+      <li>Meta learning : 여러 개의 task들을 sampling하여 meta-learning한 후, meta-test시 빠르게 adaption될 수 있어야 함.
+        <ul>
+          <li>RL -&gt; 그 task들 각각이 하나의 MDP로 정의 가능!</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/48315997/90917047-170af500-e41d-11ea-9791-74d540738406.png" alt="스크린샷 2020-08-22 오전 2 13 34" /></p>
+
+        <ul>
+          <li>MDP를 여러개 sampling해서 학습하고, 그걸 통해 optimal theta얻는 것이 목표</li>
+          <li>test시에는 처음 보는 태스크(전체적인 쉐잎은 비슷해야)에 잘 적용되어야 함.</li>
+        </ul>
+      </li>
+      <li><strong>접근 방법</strong>
+        <ol>
+          <li>Recurrent policies : RNN</li>
+          <li>Optimization problem : MAML</li>
+          <li><strong>partially observed RL</strong>
+            <ul>
+              <li>MDP의 모든 정보를 받는 게 아니라 부분적으로만 받는다 -&gt; inference problem 추가됨</li>
+            </ul>
+
+            <p><img src="https://user-images.githubusercontent.com/48315997/90917816-93520800-e41e-11ea-81ba-5cd461f513e4.png" alt="스크린샷 2020-08-22 오전 2 24 11" /></p>
+
+            <ul>
+              <li>z : task들의 모든 정보를 담고 있는 true information</li>
+              <li>z를 inference하면서 RL 컨트롤도 할 수 있는 해석하는 관점</li>
+            </ul>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>MDP(Markov Decision Processes) : (X,A,P,p0, R, discount factor)
+<img src="https://user-images.githubusercontent.com/48315997/90918158-2428e380-e41f-11ea-8e6b-8803cce60db7.png" alt="스크린샷 2020-08-22 오전 2 28 15" />
+    <ul>
+      <li>control이 있다 -&gt; 대표적으로 RL</li>
+      <li>state가 완전히 관측되냐, 부분적으로 관측이 되냐 -&gt; MDP/POMDP</li>
+    </ul>
+  </li>
+  <li>POMDP(Partially-Observable Markov Decision Processes)
+    <ul>
+      <li>MDP의 general한 버전</li>
+      <li>MDP에서 omega, O가 추가됨</li>
+      <li>X : state space. Agent 입장에서는 부분적으로 관측/아예 관측할 수 없게 됨.</li>
+      <li>그래서 Agent는 부분적으로 관측되는 observation state를 통해서만 학습할 수 있음.
+  <img src="https://user-images.githubusercontent.com/48315997/90918340-70742380-e41f-11ea-9513-7f6c21fb4280.png" alt="스크린샷 2020-08-22 오전 2 30 23" /></li>
+    </ul>
+  </li>
+  <li>
+    <p>off-policy algorithm : 현재 학습하는 policy가 과거에 했던 experience도 학습에 사용이 가능하고, 심지어는 해당 policy가 아니라 예를 들어 사람이 한 데이터로부터도 학습을 시킬 수가 있다.</p>
+  </li>
+  <li>on-policy : 1번이라도 학습을 해서 policy improvement를 시킨 순간, 그 policy가 했던 과거의 experience들은 모두 사용이 불가능하다.</li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<p>(Explain one of the methods that the thesis used.)</p>
+
+<ul>
+  <li>
+    <p>Solution to POMDP
+<img width="400" alt="스크린샷 2020-08-22 오전 2 35 32" src="https://user-images.githubusercontent.com/48315997/90918725-293a6280-e420-11ea-958a-b2c10565cbcc.png" /></p>
+
+    <ul>
+      <li>observed trajectory를 가지고 optimal policy를 찾는 것(미래 보상의 합이 최대가 되는 action set, policy) == RL</li>
+      <li>그러나 주어진 데이터가 <strong>partially</strong> 하기 때문에 또 하나의 모듈이 필요함</li>
+      <li><strong>Belief State</strong> 를 구할 수 있으면 위의 문제가 풀림.</li>
+      <li>Belief State -&gt; POMDP -&gt; Meta-RL 해결</li>
+    </ul>
+  </li>
+  <li>최근 Meta-RL에서의 POMDP 해석 문제
+    <ul>
+      <li>방금까지는 unobserved <strong>state</strong></li>
+      <li>But 우리는 unobserved <strong>task</strong>
+  <img src="https://user-images.githubusercontent.com/48315997/90919150-e331ce80-e420-11ea-8cc8-2c009ca75d8e.png" alt="스크린샷 2020-08-22 오전 2 40 44" /></li>
+      <li>내가 어느 task를 풀고 있는지 모르는 상태</li>
+      <li><strong>state를 완전히 관측을 못한다는 것이 아니라!! 내가 어떤 task를 풀고 있는지를 관측하지 못한다는 관점으로 문제를 푸는 것임</strong> == 어떤 task를 풀어야 하는지 task 정보를 완전하게 관측할 수 X -&gt; 그래서 <code class="language-plaintext highlighter-rouge">Task Inference</code></li>
+    </ul>
+
+    <p><img width="400" alt="스크린샷 2020-08-22 오전 2 46 36" src="https://user-images.githubusercontent.com/48315997/90919603-b5995500-e421-11ea-9939-c4dc28820f91.png" /></p>
+
+    <ul>
+      <li><strong>State, Action은 모든 MDP간에 sharing되어 있음.</strong> W가 붙은 것들은 task-specific함.
+        <ul>
+          <li>이 세가지에 접근해서 Meta RL을 푼다.</li>
+        </ul>
+      </li>
+      <li>목표 : meta-test시 처음 보는 task에도 적은 interaction으로 reward를 Max. 시키는 optimal policy 찾기</li>
+    </ul>
+  </li>
+  <li>
+    <p>Meta-RL using POMDP
+<img width="400" alt="스크린샷 2020-08-22 오전 2 50 42" src="https://user-images.githubusercontent.com/48315997/90919921-4839f400-e422-11ea-83ac-7e557be96989.png" /></p>
+  </li>
+  <li>A, S는 sharing
+      - S는 true state와 Agent 입장에서 모르는 task에 대한 w를 concat해서 만듦
+    <ul>
+      <li>나머지들은 task-specific하게 정의</li>
+      <li>w만이 agent입장에서는 unobserved state라고 정의</li>
+    </ul>
+  </li>
+  <li>
+    <p>optimal agent pi*는 아래와 같은 문제를 푼다.
+<img width="347" alt="스크린샷 2020-08-22 오전 2 55 53" src="https://user-images.githubusercontent.com/48315997/90920278-01003300-e423-11ea-803a-2b74a4d6a2d7.png" /></p>
+  </li>
+  <li>agent입장에서는 실제 task label인 w에 access 할 수 없다고 가정. (task에 대한 MDP를 다 모르는 것)
+    <ul>
+      <li>과거 observation trajectories은 LSTM, GRU등으로 agent network는 학습할 수 있음.</li>
+      <li>POMDP 문제를 해결하려면 task에 대한 belief state를 계산할 수 있어야 함.
+        <ul>
+          <li>observation trajectory가 주어졌을 때 실제 true task일 확률 (posterior)
+            <ul>
+              <li>이걸 계산할 수 있으면 POMDP 문제 해결, 그러나 계산 어려움.</li>
+            </ul>
+          </li>
+          <li>appendix)
+  <img width="707" alt="스크린샷 2020-08-22 오전 3 00 31" src="https://user-images.githubusercontent.com/48315997/90920660-a74c3880-e423-11ea-9b68-b972b3d4da7d.png" /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>belief state의 posterior는 bayes Rule과 유사</li>
+  <li><strong>policy가 식 안에 없음 -&gt; task에 대한 posterior는 policy와 independent하다.</strong></li>
+  <li>off-policy algorithm 사용 가능 (보통 meta-RL에서는 on-policy : 데이터를 모으자마자 바로 업데이트)</li>
+</ul>
+
+<h3 id="train">Train</h3>
+
+<p>어떻게 모델을 학습시키는가</p>
+
+<ul>
+  <li>
+    <p>current state <code class="language-plaintext highlighter-rouge">x</code>와 current belief <code class="language-plaintext highlighter-rouge">b_t(w)</code>만 있으면 가능
+<img width="196" alt="스크린샷 2020-08-22 오전 3 03 34" src="https://user-images.githubusercontent.com/48315997/90920902-145fce00-e424-11ea-9bf4-9fc28d3c02f7.png" /></p>
+  </li>
+  <li>앞서 언급한 z 가 여기서는 belief state(task에 대한 모든 정보를 담고 있다)</li>
+  <li>belief state estimate 가능 -&gt; optimal policy 구할 수 있다.</li>
+  <li>컴퓨팅 어려움 -&gt; 2가지 NN 모델로 approximate 해야 한다.</li>
+</ul>
+
+<ol>
+  <li>
+    <p>Control하는 Policy Network</p>
+  </li>
+  <li>
+    <p>Belief Module</p>
+  </li>
+</ol>
+
+<ul>
+  <li>어떻게 학습시키는가?
+    <ul>
+      <li>Meta-Learning 안에서는 Supervised Learning이 된다.
+        <ul>
+          <li>label 가능성
+            <ol>
+              <li><strong>Task Description : task를 잘 표현하는 representation.</strong></li>
+              <li>Expert actions</li>
+              <li>Task embeddings
+  <img width="500" alt="스크린샷 2020-08-22 오전 3 10 40" src="https://user-images.githubusercontent.com/48315997/90921367-124a3f00-e425-11ea-8784-c78d7e116bd5.png" /></li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li><strong>meta-learning 때에만 사용.</strong> 실제 우리가 원하는 meta-test에서 적은 에피소드만으로 빠르게 adapt할 때는 이 정보들을 더이상 사용하지 않음.</li>
+      <li>task를 supervised learning으로 풀었다!</li>
+      <li>w, h_t : independent of policy =&gt; belief network도 off-policy로 효율적으로 학습 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="architecture">Architecture</h3>
+
+<p><img width="736" alt="스크린샷 2020-08-22 오전 3 25 18" src="https://user-images.githubusercontent.com/48315997/90922528-1d05d380-e427-11ea-8e3a-9fe4b1417e21.png" /></p>
+
+<p>LSTM, IB : optional (IB : regularization 효과)</p>
+
+<p>A. Baseline LSTM Agent : belief network가 없는 일반 agent</p>
+
+<p>B. 논문에서 제안된 모델 : trajectory 넣어서 <strong>Belief network 학습</strong>
+    - Belief feature + trajectory 해서 <strong>policy network 학습</strong>
+    - 각자 역할에 집중</p>
+
+<p>C. Mixed : Network 하나에 합친 것</p>
+
+<h3 id="experiment">Experiment</h3>
+
+<p><img width="755" alt="스크린샷 2020-08-22 오전 3 28 30" src="https://user-images.githubusercontent.com/48315997/90922806-900f4a00-e427-11ea-8b7e-6c06f607daf5.png" /></p>
+
+<ul>
+  <li>Multi-armed bandit : 20 arms and 100 horizon.
+    <ul>
+      <li>20번 당겼을 때 reward probability =&gt; task description. (arm들의 vec.)</li>
+    </ul>
+  </li>
+  <li>Semicircle : 반원 안에서 naviagtion
+    <ul>
+      <li>task desription : 각도</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img width="736" alt="스크린샷 2020-08-22 오전 3 33 40" src="https://user-images.githubusercontent.com/48315997/90923240-483cf280-e428-11ea-9280-d01cc4fba786.png" /></p>
+
+<ul>
+  <li>cheetah : task description -&gt; velocity</li>
+</ul>
+
+<p><img width="634" alt="스크린샷 2020-08-22 오전 3 40 23" src="https://user-images.githubusercontent.com/48315997/90923769-3871de00-e429-11ea-893d-b52b23dcbb83.png" /></p>
+
+<h3 id="main-contributions">Main contributions</h3>
+
+<ol>
+  <li>Supervised Learning을 통해서 performance 높임</li>
+  <li>Belief network 학습시킬 때 off-policy 알고리즘 사용 가능</li>
+  <li>continuous, sparse rewards 환경에서도 좋았다</li>
+</ol>
+
+<h2 id="additional-studies">Additional studies</h2>
+<p>(If you have some parts that cannot understand, you have to do additional studies for them. It’s optional.)</p>
+
+<p>POMDP</p>
+
+<p>Belief State?</p>
+
+<h2 id="references">References</h2>
+<p>(References for your additional studies)</p>
+
+<p><a href="https://www.youtube.com/watch?v=phi7_QIhfJ4">https://www.youtube.com/watch?v=phi7_QIhfJ4</a> - 논문 설명</p>
+
+<p><a href="https://newsight.tistory.com/250">https://newsight.tistory.com/250</a> - policy 부분 개념</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
+          
+            
+            <a href="/tag/#/Meta%20Learning" rel="tag"># Meta Learning</a>
+          
+            
+            <a href="/tag/#/Reinforcement%20Learning" rel="tag"># Reinforcement Learning</a>
+          
+            
+            <a href="/tag/#/Meta%20RL" rel="tag"># Meta RL</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/project/2020/08/26/Handlang/" rel="next" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)">
+                <i class="fa fa-chevron-left"></i> 딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/paper%20review/2020/08/14/Model-Agnostic-Meta/" rel="prev" title="Model-Agnostic Meta-Learning for fast adaptation of deep networks">
+                Model-Agnostic Meta-Learning for fast adaptation of deep networks <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Yeonsoo Kim" />
+          <p class="site-author-name" itemprop="name">Yeonsoo Kim</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/yskim0" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="wx12348@gmail.com">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wx12348@gmail.com
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#meta-reinforcement-learning-as-task-inference"> <span class="nav-number">1</span> <span class="nav-text">Meta Reinforcement Learning As Task Inference</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#overview"> <span class="nav-number">1.1</span> <span class="nav-text">Overview</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#related-work-basic-concepts"> <span class="nav-number">1.2</span> <span class="nav-text">Related work (Basic concepts)</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#methods"> <span class="nav-number">1.3</span> <span class="nav-text">Methods</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#train"> <span class="nav-number">1.3.1</span> <span class="nav-text">Train</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#architecture"> <span class="nav-number">1.3.2</span> <span class="nav-text">Architecture</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#experiment"> <span class="nav-number">1.3.3</span> <span class="nav-text">Experiment</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#main-contributions"> <span class="nav-number">1.3.4</span> <span class="nav-text">Main contributions</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#additional-studies"> <span class="nav-number">1.4</span> <span class="nav-text">Additional studies</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#references"> <span class="nav-number">1.5</span> <span class="nav-text">References</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yeonsoo Kim</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
