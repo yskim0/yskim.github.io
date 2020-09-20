@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-20T18:40:49+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">A Style-Based Generator Architecture for Generative Adversarial Networks (StyleGAN)</title><link href="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/" rel="alternate" type="text/html" title="A Style-Based Generator Architecture for Generative Adversarial Networks (StyleGAN)" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/20/StyleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/">&lt;p&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-20T19:35:18+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks</title><link href="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/" rel="alternate" type="text/html" title="StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/20/StyleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/">&lt;p&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -208,22 +208,466 @@
   &lt;li&gt;https://towardsdatascience.com/explained-a-style-based-generator-architecture-for-gans-generating-and-tuning-realistic-6cb2be0f431&lt;/li&gt;
   &lt;li&gt;https://jayhey.github.io/deep%20learning/2019/01/16/style_based_GAN_2/&lt;/li&gt;
   &lt;li&gt;https://blog.lunit.io/2019/02/25/a-style-based-generator-architecture-for-generative-adversarial-networks/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">test</title><link href="http://localhost:4000/test/abc/2020/09/06/test/" rel="alternate" type="text/html" title="test" /><published>2020-09-06T00:00:00+09:00</published><updated>2020-09-06T00:00:00+09:00</updated><id>http://localhost:4000/test/abc/2020/09/06/test</id><content type="html" xml:base="http://localhost:4000/test/abc/2020/09/06/test/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">HarDNet:A Low Memory Traffic network</title><link href="http://localhost:4000/paper%20review/2020/09/11/HarDNet/" rel="alternate" type="text/html" title="HarDNet:A Low Memory Traffic network" /><published>2020-09-11T00:00:00+09:00</published><updated>2020-09-11T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/11/HarDNet</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/11/HarDNet/">&lt;p&gt;HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h1 id=&quot;hardnet--a-low-memory-traffic-network-iccv-2019&quot;&gt;HarDNet : A Low Memory Traffic network (ICCV 2019)&lt;/h1&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;h2 id=&quot;key-idea&quot;&gt;Key Idea&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기존의 metrics들에서의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inference time&lt;/code&gt; 측정은 부정확하다.
+    &lt;ul&gt;
+      &lt;li&gt;새로운 metric =&amp;gt; &lt;strong&gt;memory traffic for accessing intermediate feature maps 측정&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;inference latency 측정에 유용할 것, especially in such tasks as &lt;em&gt;real-time object detection and semantic segmentation of high-resolution video.&lt;/em&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CIO&lt;/code&gt; : approximation of DRAM traffic이 될 수 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;computation, energy efficiency를 위해서는 fewer MACs, less DRAM이 좋은 것임&lt;/strong&gt; -&amp;gt; 연구 방향&lt;/li&gt;
+  &lt;li&gt;각각의 레이어의 MoC에 soft constraint를 적용했음.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;low CIO network model&lt;/strong&gt; with a reasonable increase of MACs를 위해&lt;/li&gt;
+      &lt;li&gt;방법 -&amp;gt; &lt;strong&gt;avoid&lt;/strong&gt; to employ a layer with a &lt;strong&gt;very low MoC such as a Conv1x1 layer&lt;/strong&gt; that has a &lt;strong&gt;very large input/output channel ratio.&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;input/output channel ratio가 크면 low MoC를 가진다는 사실을 알 수 있음.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Densely Connected Networks에 영감을 받아 모델 빌딩함.
+    &lt;ol&gt;
+      &lt;li&gt;DenseNet의 &lt;strong&gt;다수의 layer connections들을 줄였음.&lt;/strong&gt; =&amp;gt; concatenation cost를 줄이기 위해&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;balance the input/output channel ratio by increasing the channel width&lt;/strong&gt; of a layer according to its connections.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;659&quot; alt=&quot;스크린샷 2020-09-11 오후 9 30 55&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92925832-14c51500-f476-11ea-93c3-6183adffd2e5.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DRAM traffic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;basic-concepts&quot;&gt;Basic Concepts&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MAC : number of multiply-accumulate operations or floating point operations&lt;/li&gt;
+  &lt;li&gt;DRAM : Dynamic Random-Access Memory
+    &lt;ul&gt;
+      &lt;li&gt;read/write model param. and feature maps&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CIO : Convolutional input/output
+    &lt;ul&gt;
+      &lt;li&gt;모든 conv layer에 대해 IN(C,W,H) X OUT(C,W,H) sum
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/92923605-b185b380-f472-11ea-81cc-a6d37d9bdd6c.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;MoC : MACs over CIO of a layer = MACs/CIO&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;related-works&quot;&gt;Related Works&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TREND : exploiting shortcuts&lt;/li&gt;
+  &lt;li&gt;Highway networks, Residual Networks : add shortcuts to sum up a layer with multiple preceeding layers.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DenseNet&lt;/code&gt;&lt;/strong&gt; : &lt;strong&gt;concatenates all preceeding layers as a shortcut&lt;/strong&gt; achieving more efficent deep supervision.&lt;/li&gt;
+  &lt;li&gt;그러나 shortcuts는 large memory usage, heavy DRAM traffic을 유발할 수 있다.
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;Using shortcuts elongates the lifetime of a tensor, which may result in frequent data exchanges betwwen DRAM and cache.&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DenseNet의 sparsified version : &lt;em&gt;LogDenseNet, SparseNet&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Sparse&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong&gt;The pros?&lt;/strong&gt; If you have a lot of zeros, &lt;strong&gt;you don’t have to compute some multiplications, and you don’t have to store them&lt;/strong&gt;. So you &lt;strong&gt;&lt;em&gt;may&lt;/em&gt;&lt;/strong&gt; gain on size and speed, for training and inference (more on this today).&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;The cons?&lt;/strong&gt; Of course, having all these zeros will probably have an impact on network accuracy/performance.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;increase the &lt;strong&gt;growth rate(output channel width) to recover the accuracy dropping from the connection pruning,&lt;/strong&gt; and the increase of growth rate &lt;strong&gt;can compromise the CIO reduction&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;즉 increase of growth rate는 좋게 작용된다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;harmonic-densenet&quot;&gt;Harmonic DenseNet&lt;/h2&gt;
+
+&lt;h3 id=&quot;sparsification-and-weighting&quot;&gt;Sparsification and weighting&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;let layer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt; connect to layer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k-2^n&lt;/code&gt; if 2^n divides k, where n is a non-negative integer and&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; k-2^n &amp;gt;= 0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HarDBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base_ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;growth_rate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grmul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base_ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;growth_rate&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;dv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dv&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grmul&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;in_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base_ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;growth_rate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grmul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;in_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in_channels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-\[a^2 + b^2 = c^2\]
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;2^n 개의 layer들이 이런 식으로 processed되면 layer [1 : 2^n -1]는 메모리에서 flush된다.&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;em&gt;어떻게 flush 된다는 건지 잘 이해가 되지 않음.&lt;/em&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Power-of-two-th harmonic waves가 만들어짐. 그래서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Harmonic&lt;/code&gt; 이다.&lt;/li&gt;
+&lt;/ul&gt;
 
-\[a^2 + b^2 = c^2\]
+&lt;p&gt;&lt;img width=&quot;461&quot; alt=&quot;스크린샷 2020-09-11 오후 9 52 09&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92927733-0cbaa480-f479-11ea-8194-3567f8ae83f1.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Next Theme Tutorial</title><link href="http://localhost:4000/tutorial/2017/07/20/next-tutorial/" rel="alternate" type="text/html" title="Next Theme Tutorial" /><published>2017-07-20T00:00:00+09:00</published><updated>2017-07-20T00:00:00+09:00</updated><id>http://localhost:4000/tutorial/2017/07/20/next-tutorial</id><content type="html" xml:base="http://localhost:4000/tutorial/2017/07/20/next-tutorial/">&lt;blockquote&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 방식은 concatenation cost를 눈에 띄게 감소시킨다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;layers with an index divided by a larger power of two are more influential&lt;/strong&gt; than those that divided by a smaller power of two.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;많이 connection되니까 당연히 influential 하다.&lt;/li&gt;
+      &lt;li&gt;In this model, they amplify these key layers by increasing their channels, &lt;strong&gt;which can balance the channel ratio between the input and output of a layer to avoid a low MoC.&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;이런 key layer들을 &lt;strong&gt;amplify&lt;/strong&gt; 했음(channel 수를 늘리면서)&lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;layer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;l&lt;/code&gt; has an initial growth rate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt;, we let its channel number to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k * m^n&lt;/code&gt; , where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt; is the max number satisfying that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;l&lt;/code&gt; is divided by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^n&lt;/code&gt;
+&lt;img width=&quot;442&quot; alt=&quot;스크린샷 2020-09-11 오후 10 11 01&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92929542-af742280-f47b-11ea-89b9-22e4e5e9331d.png&quot; /&gt;&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt;  은 low-dimensional compression factor 역할을 한다.&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt; 을 2보다 작게하면 input channel을 output channel보다 작게 할 수 있다.
+            &lt;ul&gt;
+              &lt;li&gt;Empirically, settin &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt; between 1.6 and 1.9&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;transition-and-bottleneck-layers&quot;&gt;Transition and Bottleneck Layers&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HDB(Harmonic Dense Block)&lt;/code&gt; : the proposed connection pattern forms a group of layers
+    &lt;ul&gt;
+      &lt;li&gt;is followed by a Conv1x1 layer as a transition&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;HDB의 depth는 2의 제곱수로 설정
+    &lt;ul&gt;
+      &lt;li&gt;HDB의 마지막 레이어가 가장 큰 채널수를 가지도록 하기 위해서&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DenseNet -&amp;gt; gradient할 때 모든 레이어를 다 pass함&lt;/li&gt;
+  &lt;li&gt;논문의 HBD with depth L -&amp;gt; pass through at most &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log L layers&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;degradation을 완화시키기위해, depth-L HDB를 layer L과 all its preceeding &lt;strong&gt;odd numbered layers&lt;/strong&gt;  를 concatenation시킨다.&lt;/li&gt;
+      &lt;li&gt;2~L-2의 all even layer들의 아웃풋은 HDB가 한번 끝날때마다 버려진다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bottleneck layer
+    &lt;ul&gt;
+      &lt;li&gt;DenseNet에서는 param. efficiency를 위해 매 Conv3x3 layer전에 bottleneck을 두었다.&lt;/li&gt;
+      &lt;li&gt;하지만 HarDnet에서는 위에서 &lt;strong&gt;이미 channel ratio(매 레이어마다 input&amp;amp;output 사이의)의 균형을 잡았으므로 bottleneck layer는 쓸모없어진다.&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;그래서 HBD에서는 Bottleneck layer없이 &lt;strong&gt;Conv3x3 for all layers&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Transition layer
+    &lt;ul&gt;
+      &lt;li&gt;&lt;img width=&quot;492&quot; alt=&quot;스크린샷 2020-09-11 오후 10 26 18&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931026-d16ea480-f47d-11ea-96df-eff3717796b9.png&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;inverted trainsition module
+        &lt;ul&gt;
+          &lt;li&gt;maps input tensor to an additional max pooling function along with the original average pooling, followed by concatenation and Conv1x1.&lt;/li&gt;
+          &lt;li&gt;50% of CIO를 감소시킴&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;483&quot; alt=&quot;스크린샷 2020-09-11 오후 10 27 05&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931109-ed724600-f47d-11ea-81a6-d3903463743b.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;CamVid Dataset&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;replace all the blocks in a FC-DenseNet with HDBs&lt;/li&gt;
+      &lt;li&gt;the architecture of FC-DenseNet with an encoder-decoder structure and block level shortcuts to create models for sematic segmentation.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;We propose FC-HarDNet84 as specified in Table 3 for comparing with FC-DenseNet103. &lt;strong&gt;The new network achieves CIO reduction by 41% and GPU inference time reduction by 35%.&lt;/strong&gt; A smaller version, FC-HarDNet68, also outperforms FC-DenseNet56 by a 65% less CIO and 52% less GPU inference time.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;1009&quot; alt=&quot;스크린샷 2020-09-11 오후 10 34 16&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931776-ee57a780-f47e-11ea-9201-93de47f4a12a.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ImageNet Datasets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;1018&quot; alt=&quot;스크린샷 2020-09-11 오후 10 34 41&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931811-fca5c380-f47e-11ea-9c47-4b9738f47a92.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Object Detection
+    &lt;ul&gt;
+      &lt;li&gt;HarDNet-68 as &lt;strong&gt;a backbone model for a Single Shot Detector (SSD) and train it with PASCAL VOC 2007 and MS COCO datasets&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;479&quot; alt=&quot;스크린샷 2020-09-11 오후 10 35 26&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931875-1810ce80-f47f-11ea-9883-8d1d9ac87947.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;discussion&quot;&gt;Discussion&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;There is an assumption with the &lt;strong&gt;CIO&lt;/strong&gt;, which is &lt;strong&gt;a CNN model that is processed layer by layer without a fusion.&lt;/strong&gt; In contrast, &lt;strong&gt;fused-layer computation for multiple convolutional layers has been proposed.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;CIO still failed&lt;/strong&gt; to predict the actual inference time &lt;strong&gt;such as comparing two network models with significantly differnent architectures&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In some of the layers CIO may dominate, but for the other layers, MACs can still be the key factor if its computational density is relatively higher. To precisely predict the inference latency of a network, we need to breakdown to each of the layers and investigate its MoC to predict the inference latency of the layer.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어쨌거나 &lt;strong&gt;DRAM traffic의 중요성&lt;/strong&gt;을 강조하고 싶어함.&lt;/li&gt;
+  &lt;li&gt;traffic reduction을 위한 가장 좋은 방법은 &lt;strong&gt;MoC를 증가시키는 것&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;which might be counter-intuitive to the widely-accepted knowledge of that using more Conv1x1 achieves a higher efficiency.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)</title><link href="http://localhost:4000/project/2020/08/26/Handlang/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
+이 포스팅에서는 수화 인식 딥러닝 모델에 대해서만 다룹니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;handlang---aslamerican-sign-language-education-by-using-deep-learning-model&quot;&gt;Handlang - ASL(American Sign Language) Education by using deep learning model&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/90604151-60015480-e237-11ea-8092-65387889b31d.png&quot; alt=&quot;home-page&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;딥러닝으로 학습된 수화 인식 모델을 바탕으로 알파벳, 숫자에 해당되는 수화를 학습 및 연습 할 수 있는 웹 어플리케이션입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;모델-정확도-개선을-위한-여러-시도들&quot;&gt;모델 정확도 개선을 위한 여러 시도들&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;[About models]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;yolo-darknet&quot;&gt;YOLO darknet&lt;/h4&gt;
+
+&lt;p&gt;YOLO is the model with excellent performance in Object detection.
+We used darkflow, not yolo darknet, to take advantage of tensorflow.&lt;/p&gt;
+
+&lt;p&gt;https://github.com/thtrieu/darkflow&lt;/p&gt;
+
+&lt;p&gt;The most attempts were made at darkflow.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;YOLO_experiment_1
+    &lt;ul&gt;
+      &lt;li&gt;[a~z] 600 images each. training 500 epochs&lt;/li&gt;
+      &lt;li&gt;acc : 0.42&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Feedback -&amp;gt; Predict performance is poor.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;YOLO_experiment_2
+    &lt;ul&gt;
+      &lt;li&gt;pretrained weight - hand tracking model (https://github.com/Abdul-Mukit/dope_with_hand_tracking)&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 140 epochs&lt;/li&gt;
+      &lt;li&gt;acc : 0.47&lt;/li&gt;
+      &lt;li&gt;&lt;img src=&quot;https://github.com/yskim0/GoogleSolutionChallenge_Handlang/raw/master/img/47.png&quot; alt=&quot;047&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;YOLO_experiment_3
+    &lt;ul&gt;
+      &lt;li&gt;pretrained weight - yolov2-tiny.weight(https://pjreddie.com/darknet/yolov2/)&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 220 epochs&lt;/li&gt;
+      &lt;li&gt;acc : 0.56&lt;/li&gt;
+      &lt;li&gt;&lt;img src=&quot;https://github.com/yskim0/GoogleSolutionChallenge_Handlang/raw/master/img/56.png&quot; alt=&quot;056&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Feedback -&amp;gt; It is still not a satisfactory performance.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;inception-v3&quot;&gt;Inception-v3&lt;/h4&gt;
+
+&lt;p&gt;We tried transfer learning by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inception-v3&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 1000 steps&lt;/li&gt;
+  &lt;li&gt;test acc. : about 88%
+    &lt;ul&gt;
+      &lt;li&gt;but not that much at real-time…&lt;/li&gt;
+      &lt;li&gt;&lt;img src=&quot;https://github.com/yskim0/GoogleSolutionChallenge_Handlang/raw/master/img/88.png&quot; alt=&quot;088&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;tensorflow-object-detection-api&quot;&gt;Tensorflow-Object-Detection-API&lt;/h4&gt;
+
+&lt;p&gt;We tried transfer learning by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast r-cnn&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 6000 steps&lt;/li&gt;
+  &lt;li&gt;test acc. : about 80%
+    &lt;ul&gt;
+      &lt;li&gt;not test by images, but test by webcam.
+        &lt;ul&gt;
+          &lt;li&gt;poor performance&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Self-feedback: It is still not a satisfactory performance.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;finally-custom-cnn-modelour-current-model&quot;&gt;Finally Custom CNN model(our current model)!&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input_shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Flatten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_classes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'softmax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optimizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'adam'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'categorical_crossentropy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;accuracy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Feedback : 위 모델을 사용하고, 웹 코드 내에서의 trick을 이용하여 조금 더 빠른 인식과 높은 정확도를 가질 수 있었음.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;datasets&quot;&gt;Datasets&lt;/h2&gt;
+
+&lt;p&gt;아래 데이터 셋들은 모델 트레이닝에 사용되었습니다.&lt;/p&gt;
+
+&lt;p&gt;참고로, 우리 모델에서는 알파벳 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i,z&lt;/code&gt; 제외했습니다. (손동작이 포함되었기 때문에)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://www.kaggle.com/grassknoted/asl-alphabet
+    &lt;ul&gt;
+      &lt;li&gt;가장 성능이 좋은 모델에 사용된 데이터 셋입니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;다른 모델에서는 아래의 데이터셋들을 사용했습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/rajarshighoshal/asltestimages&quot;&gt;https://www.kaggle.com/rajarshighoshal/asltestimages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/muhammadkhalid/sign-language-for-alphabets&quot;&gt;https://www.kaggle.com/muhammadkhalid/sign-language-for-alphabets&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/ayuraj/asl-dataset&quot;&gt;https://www.kaggle.com/ayuraj/asl-dataset&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="Education Application" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 수화 인식 딥러닝 모델에 대해서만 다룹니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)</title><link href="http://localhost:4000/project/2020/08/26/Handlang2/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang2</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang2/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
+이 포스팅에서는 웹에 관련된 것을 다룹니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;handlang---aslamerican-sign-language-education-by-using-deep-learning-model&quot;&gt;Handlang - ASL(American Sign Language) Education by using deep learning model&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;딥러닝으로 학습된 수화 인식 모델을 바탕으로 알파벳, 숫자에 해당되는 수화를 학습 및 연습 할 수 있는 웹 어플리케이션입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;wireframe---figma&quot;&gt;Wireframe - Figma&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fn8Hg1%2FbtqCPBw0VEs%2F6fRBkKw5iK71fcigASJIC0%2Fimg.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93708908-f5fd0780-fb74-11ea-950e-adbd44260edd.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Figma를 사용하여 팀원들과 홈페이지 와이어프레임을 구상하였습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;flask&quot;&gt;Flask&lt;/h2&gt;
+
+&lt;p&gt;웹 개발 초보자에게 비교적 쉬운 Flask를 사용하여 구현하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;model-deploy&quot;&gt;Model Deploy&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;학습시킨 모델을 불러오는 법&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/handlang_model_4.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 지문자 모델
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/su_adamax.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 숫자 모델
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ajax&quot;&gt;Ajax&lt;/h2&gt;
+
+&lt;p&gt;웹캠으로 받은 이미지를 실시간으로 Detect해야하기 때문에 페이지를 새로 고치지 않아도 데이터를 로드할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ajax&lt;/code&gt;를 사용하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;translation&quot;&gt;Translation&lt;/h2&gt;
+
+&lt;p&gt;한글/영어 버전의 웹페이지를 구현하기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flask_babel&lt;/code&gt;을 사용했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;study--quiz&quot;&gt;Study &amp;amp; Quiz&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709264-fa76ef80-fb77-11ea-99c2-33eccceb6f65.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709269-05ca1b00-fb78-11ea-85c1-ad523fd94f95.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709270-0cf12900-fb78-11ea-9d04-4dbf3a648ea3.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709273-12e70a00-fb78-11ea-999f-71a7f8876db6.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="Education Application" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 웹에 관련된 것을 다룹니다.</summary></entry><entry><title type="html">Next Theme Tutorial</title><link href="http://localhost:4000/tutorial/2017/07/20/next-tutorial/" rel="alternate" type="text/html" title="Next Theme Tutorial" /><published>2017-07-20T00:00:00+09:00</published><updated>2017-07-20T00:00:00+09:00</updated><id>http://localhost:4000/tutorial/2017/07/20/next-tutorial</id><content type="html" xml:base="http://localhost:4000/tutorial/2017/07/20/next-tutorial/">&lt;blockquote&gt;
   &lt;p&gt;NexT is a high quality elegant &lt;a href=&quot;https://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme ported from &lt;a href=&quot;https://github.com/iissnan/hexo-theme-next&quot;&gt;Hexo Next&lt;/a&gt;. It is crafted from scratch, with love.&lt;/p&gt;
 &lt;/blockquote&gt;
 
