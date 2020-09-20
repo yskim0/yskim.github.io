@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/opinion/2014/02/16/Mathjax-with-jekyll/</loc>
-<lastmod>2014-02-16T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/photo/2014/11/19/gallery-post/</loc>
-<lastmod>2014-11-19T00:45:20+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/tutorial/2017/07/20/next-tutorial/</loc>
-<lastmod>2017-07-20T00:00:00+09:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/project/2020/02/12/slackbot/</loc>
 <lastmod>2020-02-12T00:00:00+09:00</lastmod>
 </url>
@@ -120,8 +108,5 @@
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/page3/</loc>
 </url>
 </urlset>
