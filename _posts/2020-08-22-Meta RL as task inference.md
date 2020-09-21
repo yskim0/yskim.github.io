@@ -11,7 +11,7 @@ tags:
 
 
 
-Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference ([PR-239](https://www.youtube.com/watch?v=phi7_QIhfJ4))를 발표하신 정창훈님 영상을 보고 정리하였습니다.
+Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference ([PR-239](https://www.youtube.com/watch?v=phi7_QIhfJ4))를 발표하신 Changhoon Jeong님 영상을 보고 정리하였습니다.
 
 ---
 
