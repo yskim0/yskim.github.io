@@ -1,0 +1,1236 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Deep Learning,Computer Vision,GAN,Generative Model," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yeonsoo Kim's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Generative Adversarial Nets 를 읽고 정리한 글입니다.">
+<meta name="keywords" content="Deep Learning, Computer Vision, GAN, Generative Model">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generative Adversarial Nets">
+<meta property="og:url" content="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/08/08/GAN/">
+<meta property="og:site_name" content="Yeonsoo Kim's blog">
+<meta property="og:description" content="Generative Adversarial Nets 를 읽고 정리한 글입니다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/89702019-b5a44a00-d977-11ea-971b-f3e800d5ac7b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/89702021-b806a400-d977-11ea-87ad-6f12b78a0939.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/89702023-b937d100-d977-11ea-97d7-1245192f4975.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/89702024-bb9a2b00-d977-11ea-99ab-a850c92cf5f6.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/89702026-bd63ee80-d977-11ea-9d89-6f2b99c6b7f4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/89702260-6b709800-d97a-11ea-9553-fc2ccaddfea2.jpeg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/89702027-bf2db200-d977-11ea-85e9-4a4a6685a0da.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Generative Adversarial Nets">
+<meta name="twitter:description" content="Generative Adversarial Nets 를 읽고 정리한 글입니다.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/89702019-b5a44a00-d977-11ea-971b-f3e800d5ac7b.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>Generative Adversarial Nets | Yeonsoo Kim's blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-X7P416ZKCL', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yeonsoo Kim's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/08/08/GAN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yeonsoo Kim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeonsoo Kim's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            Generative Adversarial Nets
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-08T00:00:00+09:00">
+                2020-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Paper%20Review" itemprop="url" rel="index">
+                    <span itemprop="name">Paper Review</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Deep%20Learning" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Computer%20Vision" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Vision</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>Generative Adversarial Nets 를 읽고 정리한 글입니다.</p>
+
+<hr />
+
+<h1 id="generative-adversarial-nets">Generative Adversarial Nets</h1>
+
+<h2 id="overview">Overview</h2>
+<p>(You should include contents of summary and introduction.)</p>
+
+<p>GAN에는 두 가지 모델이 존재함.</p>
+<ul>
+  <li>Discriminator</li>
+  <li>Generator</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Image를 만들어 내는 Generator(G)가 이 만들어진 모델을 평가하는 Discriminator(D)를 최대한 속일 수 있도록, 확률 분포의 차이를 줄이는 것이 목적</strong></p>
+
+<ul>
+  <li>즉, G는 D를 최대한 속이려고 노력하고, D는 G가 만든 이미지를 최대한 감별하려고 노력함.</li>
+  <li>이 경쟁 속에서 두 모델은 모두 발전하게 되고, 결과적으로는 G가 만든 이미지를 구별할 수 없는 상태에 도달하게 됨.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/89702019-b5a44a00-d977-11ea-971b-f3e800d5ac7b.png" alt="1" /></p>
+
+<p><br /></p>
+
+<p>위의 목표를 이루기 위해서는, <em>(ref. output -&gt; [0,1] : 0==false, 1==true)</em></p>
+<ul>
+  <li>D : 진짜 이미지를 진짜 이미지라고 인식(분류)하도록 학습</li>
+  <li>G : random한 코드를 받아서 img를 생성한 후, 그 이미지가 D를 속여야 함.
+    <ul>
+      <li>즉, D(G(z)) = 1(진짜라 인식)이 나오도록 학습.
+        <ul>
+          <li>학습할수록 진짜같은 가짜 img가 만들어지는 것</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="related-work-basic-concepts">Related work (Basic concepts)</h2>
+
+<ul>
+  <li>generative model</li>
+  <li>Adversarial</li>
+  <li>VAE</li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<p>(Explain one of the methods that the thesis used.)</p>
+
+<h3 id="gan-lossobjective-function">GAN loss/objective function</h3>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/89702021-b806a400-d977-11ea-87ad-6f12b78a0939.png" alt="2" /></p>
+
+<ul>
+  <li>D 입장에서는 위 수식이 0인게 Maximize</li>
+  <li>G 입장에서는 속이는 게 좋으니 Mininmize</li>
+</ul>
+
+<p>+) G는 처음에 형편없는 이미지를 만듦.</p>
+<ul>
+  <li>D는 그 이미지를 가짜라 확신. =&gt; D(G(z))=0</li>
+  <li>하지만 위의 <code class="language-plaintext highlighter-rouge">log(1-x)</code> 로는 그때 기울기의 절댓값이 작음.</li>
+  <li>practical use : D가 가짜라 확신하는 상황을 최대한 빨리 벗어나려면, D(G(z))=0인 점에서 기울기가 거의 무한인 <code class="language-plaintext highlighter-rouge">log(x)</code>를 씀</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/89702023-b937d100-d977-11ea-97d7-1245192f4975.png" alt="3" /></p>
+
+<ul>
+  <li>모델이 생성한 이미지 분포와 실제 이미지 분포 간의 차이를 계산해주는 함수로 <code class="language-plaintext highlighter-rouge">Jenson-Shannon divergence</code> 사용함.</li>
+</ul>
+
+<h3 id="approach">Approach</h3>
+
+<ol>
+  <li>The minimax problem of GAN has a global opt. at p(g) = p(data)</li>
+</ol>
+
+<ul>
+  <li>Proposition 1.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/89702024-bb9a2b00-d977-11ea-99ab-a850c92cf5f6.png" alt="4" /></p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/89702026-bd63ee80-d977-11ea-9d89-6f2b99c6b7f4.png" alt="5" /></p>
+
+<ul>
+  <li>Main Theorem.</li>
+</ul>
+
+<p>위를 이용해서 D가 optimal 가정.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>The global minimum of the virtual training criterion C(G) is achieved if and only if p(g)=p(data). 
+At that point, C(G) achieves the value −log(4).
+</code></pre></td></tr></tbody></table></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/89702260-6b709800-d97a-11ea-9553-fc2ccaddfea2.jpeg" alt="IMG_51B0698FF18C-1" /></p>
+
+<ol>
+  <li>The proposed algorithm can find that global opt.</li>
+</ol>
+
+<ul>
+  <li>그래서 알고리즘이 위 문제를 풀 수 있는가를 확인</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/89702027-bf2db200-d977-11ea-85e9-4a4a6685a0da.png" alt="6" /></p>
+
+<p><strong>1번==&gt;minimax problem -&gt; global opt. 가진다는 증명이었음.</strong></p>
+<ul>
+  <li>global opt. -&gt; 모델의 분포 == 실제 분포</li>
+  <li>즉 우리가 풀려는 문제 C(G)가 convex문제임을 확인했음.
+    <ul>
+      <li>minimization problem이 쉬워짐.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>MLP로 충분히 가능하다.</strong></p>
+
+<h3 id="vector-arithmetic-하다">Vector arithmetic 하다.</h3>
+
+<p>안경 낀 남자 - 안경 안 낀 남자 + 안경 안 낀 여자 = 안경 낀 여자</p>
+
+<h2 id="code">Code</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33<br/>34<br/>35<br/>36<br/>37<br/>38<br/>39<br/>40<br/>41<br/>42<br/>43<br/>44<br/>45<br/>46<br/>47<br/>48<br/>49<br/>50<br/>51<br/>52<br/>53<br/>54<br/>55<br/>56<br/>57<br/>58<br/>59<br/>60<br/>61<br/>62<br/>63<br/>64<br/>65<br/>66<br/>67<br/>68<br/>69<br/>70<br/>71<br/>72<br/>73<br/>74<br/>75<br/>76<br/>77<br/>78<br/>79<br/>80<br/>81<br/>82<br/>83<br/>84<br/>85<br/>86<br/>87<br/>88<br/>89<br/>90<br/>91<br/>92<br/>93<br/>94<br/>95<br/>96<br/>97<br/>98<br/>99<br/>100<br/>101<br/>102<br/>103<br/>104<br/>105<br/>106<br/>107<br/>108<br/>109<br/>110<br/>111<br/>112<br/>113<br/>114<br/>115<br/>116<br/>117<br/>118<br/>119<br/>120<br/>121<br/>122<br/>123<br/>124<br/>125<br/>126<br/>127<br/>128<br/>129<br/>130<br/>131<br/>132<br/>133<br/>134<br/>135<br/>136<br/>137<br/>138<br/>139<br/>140<br/>141<br/>142<br/>143<br/>144<br/>145<br/>146<br/>147<br/>148<br/>149<br/>150</pre></td><td class="code"><pre class="highlight"><code><span class="c1"># https://github.com/yunjey/pytorch-tutorial/blob/master/tutorials/03-advanced/generative_adversarial_network/main.py
+</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torchvision</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
+<span class="kn">from</span> <span class="nn">torchvision.utils</span> <span class="kn">import</span> <span class="n">save_image</span>
+
+
+<span class="c1"># Device configuration
+</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">device</span><span class="p">(</span><span class="s">'cuda'</span> <span class="k">if</span> <span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s">'cpu'</span><span class="p">)</span>
+
+<span class="c1"># Hyper-parameters
+</span><span class="n">latent_size</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">image_size</span> <span class="o">=</span> <span class="mi">784</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">sample_dir</span> <span class="o">=</span> <span class="s">'samples'</span>
+
+<span class="c1"># Create a directory if not exists
+</span><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">)</span>
+
+<span class="c1"># Image processing
+# transform = transforms.Compose([
+#                 transforms.ToTensor(),
+#                 transforms.Normalize(mean=(0.5, 0.5, 0.5),   # 3 for RGB channels
+#                                      std=(0.5, 0.5, 0.5))])
+</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">.</span><span class="n">Compose</span><span class="p">([</span>
+                <span class="n">transforms</span><span class="p">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+                <span class="n">transforms</span><span class="p">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">],</span>   <span class="c1"># 1 for greyscale channels
+</span>                                     <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">])])</span>
+
+<span class="c1"># MNIST dataset
+</span><span class="n">mnist</span> <span class="o">=</span> <span class="n">torchvision</span><span class="p">.</span><span class="n">datasets</span><span class="p">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s">'../../data/'</span><span class="p">,</span>
+                                   <span class="n">train</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                   <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span>
+                                   <span class="n">download</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Data loader
+</span><span class="n">data_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">mnist</span><span class="p">,</span>
+                                          <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> 
+                                          <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Discriminator
+</span><span class="n">D</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Sigmoid</span><span class="p">())</span>
+
+<span class="c1"># Generator 
+</span><span class="n">G</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">latent_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">),</span>
+    <span class="n">nn</span><span class="p">.</span><span class="n">Tanh</span><span class="p">())</span>
+
+<span class="c1"># Device setting
+</span><span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Binary cross entropy loss and optimizer
+</span><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">BCELoss</span><span class="p">()</span>
+<span class="n">d_optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">optim</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">D</span><span class="p">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">)</span>
+<span class="n">g_optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">optim</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">denorm</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">reset_grad</span><span class="p">():</span>
+    <span class="n">d_optimizer</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">g_optimizer</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+<span class="c1"># Start training
+</span><span class="n">total_step</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_loader</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_loader</span><span class="p">):</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">images</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        
+        <span class="c1"># Create the labels which are later used as input for the BCE loss
+</span>        <span class="n">real_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">fake_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># ================================================================== #
+</span>        <span class="c1">#                      Train the discriminator                       #
+</span>        <span class="c1"># ================================================================== #
+</span>
+        <span class="c1"># Compute BCE_Loss using real images where BCE_Loss(x, y): - y * log(D(x)) - (1-y) * log(1 - D(x))
+</span>        <span class="c1"># Second term of the loss is always zero since real_labels == 1
+</span>        <span class="n">outputs</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">d_loss_real</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">real_labels</span><span class="p">)</span>
+        <span class="n">real_score</span> <span class="o">=</span> <span class="n">outputs</span>
+        
+        <span class="c1"># Compute BCELoss using fake images
+</span>        <span class="c1"># First term of the loss is always zero since fake_labels == 0
+</span>        <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">latent_size</span><span class="p">).</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">fake_images</span> <span class="o">=</span> <span class="n">G</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="n">fake_images</span><span class="p">)</span>
+        <span class="n">d_loss_fake</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">fake_labels</span><span class="p">)</span>
+        <span class="n">fake_score</span> <span class="o">=</span> <span class="n">outputs</span>
+        
+        <span class="c1"># Backprop and optimize
+</span>        <span class="n">d_loss</span> <span class="o">=</span> <span class="n">d_loss_real</span> <span class="o">+</span> <span class="n">d_loss_fake</span>
+        <span class="n">reset_grad</span><span class="p">()</span>
+        <span class="n">d_loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">d_optimizer</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
+        
+        <span class="c1"># ================================================================== #
+</span>        <span class="c1">#                        Train the generator                         #
+</span>        <span class="c1"># ================================================================== #
+</span>
+        <span class="c1"># Compute loss with fake images
+</span>        <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">latent_size</span><span class="p">).</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">fake_images</span> <span class="o">=</span> <span class="n">G</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="n">fake_images</span><span class="p">)</span>
+        
+        <span class="c1"># We train G to maximize log(D(G(z)) instead of minimizing log(1-D(G(z)))
+</span>        <span class="c1"># For the reason, see the last paragraph of section 3. https://arxiv.org/pdf/1406.2661.pdf
+</span>        <span class="n">g_loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">real_labels</span><span class="p">)</span>
+        
+        <span class="c1"># Backprop and optimize
+</span>        <span class="n">reset_grad</span><span class="p">()</span>
+        <span class="n">g_loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">g_optimizer</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">200</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'Epoch [{}/{}], Step [{}/{}], d_loss: {:.4f}, g_loss: {:.4f}, D(x): {:.2f}, D(G(z)): {:.2f}'</span> 
+                  <span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">total_step</span><span class="p">,</span> <span class="n">d_loss</span><span class="p">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">g_loss</span><span class="p">.</span><span class="n">item</span><span class="p">(),</span> 
+                          <span class="n">real_score</span><span class="p">.</span><span class="n">mean</span><span class="p">().</span><span class="n">item</span><span class="p">(),</span> <span class="n">fake_score</span><span class="p">.</span><span class="n">mean</span><span class="p">().</span><span class="n">item</span><span class="p">()))</span>
+    
+    <span class="c1"># Save real images
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">images</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">images</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+        <span class="n">save_image</span><span class="p">(</span><span class="n">denorm</span><span class="p">(</span><span class="n">images</span><span class="p">),</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s">'real_images.png'</span><span class="p">))</span>
+    
+    <span class="c1"># Save sampled images
+</span>    <span class="n">fake_images</span> <span class="o">=</span> <span class="n">fake_images</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">fake_images</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+    <span class="n">save_image</span><span class="p">(</span><span class="n">denorm</span><span class="p">(</span><span class="n">fake_images</span><span class="p">),</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">sample_dir</span><span class="p">,</span> <span class="s">'fake_images-{}.png'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="c1"># Save the model checkpoints 
+</span><span class="n">torch</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s">'G.ckpt'</span><span class="p">)</span>
+<span class="n">torch</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">D</span><span class="p">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s">'D.ckpt'</span><span class="p">)</span>
+</code></pre></td></tr></tbody></table></div></div>
+
+<h2 id="additional-studies">Additional studies</h2>
+<p>(If you have some parts that cannot understand, you have to do additional studies for them. It’s optional.)</p>
+
+<p>이후 GAN 논문들</p>
+
+<h2 id="references">References</h2>
+<p>(References for your additional studies)</p>
+
+<p><a href="https://www.youtube.com/watch?v=L3hz57whyNw">https://www.youtube.com/watch?v=L3hz57whyNw</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=odpjk7_tGY0">https://www.youtube.com/watch?v=odpjk7_tGY0</a></p>
+
+<p><a href="http://jaejunyoo.blogspot.com/2017/01/generative-adversarial-nets-2.html">http://jaejunyoo.blogspot.com/2017/01/generative-adversarial-nets-2.html</a></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
+          
+            
+            <a href="/tag/#/Computer%20Vision" rel="tag"># Computer Vision</a>
+          
+            
+            <a href="/tag/#/GAN" rel="tag"># GAN</a>
+          
+            
+            <a href="/tag/#/Generative%20Model" rel="tag"># Generative Model</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/paper%20review/deep%20learning/nlp/2020/08/10/Attention/" rel="next" title="Attention Is All You Need">
+                <i class="fa fa-chevron-left"></i> Attention Is All You Need
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/paper%20review/nlp/2020/08/05/PEGASUS/" rel="prev" title="PEGASUS:Pre-training with Extracted Gap-sentences for Abstractive Summarization">
+                PEGASUS:Pre-training with Extracted Gap-sentences for Abstractive Summarization <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Yeonsoo Kim" />
+          <p class="site-author-name" itemprop="name">Yeonsoo Kim</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/yskim0" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="wx12348@gmail.com">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wx12348@gmail.com
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#generative-adversarial-nets"> <span class="nav-number">1</span> <span class="nav-text">Generative Adversarial Nets</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#overview"> <span class="nav-number">1.1</span> <span class="nav-text">Overview</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#related-work-basic-concepts"> <span class="nav-number">1.2</span> <span class="nav-text">Related work (Basic concepts)</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#methods"> <span class="nav-number">1.3</span> <span class="nav-text">Methods</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#gan-lossobjective-function"> <span class="nav-number">1.3.1</span> <span class="nav-text">GAN loss/objective function</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#approach"> <span class="nav-number">1.3.2</span> <span class="nav-text">Approach</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#vector-arithmetic-하다"> <span class="nav-number">1.3.3</span> <span class="nav-text">Vector arithmetic 하다.</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#code"> <span class="nav-number">1.4</span> <span class="nav-text">Code</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#additional-studies"> <span class="nav-number">1.5</span> <span class="nav-text">Additional studies</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#references"> <span class="nav-number">1.6</span> <span class="nav-text">References</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yeonsoo Kim</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

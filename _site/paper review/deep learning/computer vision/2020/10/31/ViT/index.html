@@ -1,0 +1,1104 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Deep Learning,Computer Vision,Transformer," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yeonsoo Kim's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.">
+<meta name="keywords" content="Deep Learning, Computer Vision, Transformer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)">
+<meta property="og:url" content="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT/">
+<meta property="og:site_name" content="Yeonsoo Kim's blog">
+<meta property="og:description" content="An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="777">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/97794316-8da54980-1c3b-11eb-963b-2c07da280861.png">
+<meta property="og:image" content="737">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)">
+<meta name="twitter:description" content="An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.">
+<meta name="twitter:image" content="777">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT) | Yeonsoo Kim's blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-X7P416ZKCL', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yeonsoo Kim's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yeonsoo Kim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeonsoo Kim's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-31T00:00:00+09:00">
+                2020-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Paper%20Review" itemprop="url" rel="index">
+                    <span itemprop="name">Paper Review</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Deep%20Learning" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Computer%20Vision" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Vision</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</p>
+
+<hr />
+
+<h1 id="an-image-is-worth-16x16-words-transformers-for-image-recognition-at-scale">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale</h1>
+
+<h2 id="overview">Overview</h2>
+
+<ul>
+  <li>image classification task에 기존의 transformer 모델을 이용한다.
+    <ul>
+      <li>transformer의 장점들을 사용할 수 있음.</li>
+      <li>simple, computational efficiency, scalability</li>
+    </ul>
+  </li>
+  <li>Vision Transformer(ViT)
+    <ul>
+      <li>원본 이미지를 <strong>patches</strong>들로 split한다.
+        <ul>
+          <li>이 때 이미지 패치들을 NLP에서의 <strong>token(word)</strong>와 같은 역할임.</li>
+        </ul>
+      </li>
+      <li>이 패치들의 sequence of linear embedding을 Transformer의 input으로 feed한다.</li>
+    </ul>
+  </li>
+  <li>크지않은 데이터 셋에서는 ResNet보다 약간 낮은 정확도
+    <ul>
+      <li>Transformer는 CNN과 다르게 <em>translation equivariance, locality</em> 같은 <strong>inductive biases</strong>(=weight sharing)이 없기 때문에 데이터셋이 적으면 generalize되기 어려움.</li>
+    </ul>
+  </li>
+  <li>하지만 large scale 데이터에서는 CNN의 inductive bias를 능가함.
+    <ul>
+      <li>image recognition benchmarks에서 여러 SOTA 달성함.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="related-work-basic-concepts">Related work (Basic concepts)</h2>
+
+<p>제안한 모델이 최근 연구 중에서는 iGPT 논문과 유사하다고 함.</p>
+<ul>
+  <li>reducing image resolution and color space한 후 transformer를 적용</li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<p>(Explain one of the methods that the thesis used.)</p>
+
+<ul>
+  <li>
+    <p>Model overview
+  <img width="777" alt="스크린샷 2020-11-01 오전 11 51 34" src="https://user-images.githubusercontent.com/48315997/97794098-97797d80-1c38-11eb-8221-30ea0e5d6ea7.png" /></p>
+  </li>
+  <li>
+    <p>Vision Transformer(ViT)</p>
+    <ul>
+      <li>
+        <p>image를 patch 단위로 잘라서 flatten시킨 후, 그것을 linear projection하여 encoder에 feed한다.
+  <img src="https://user-images.githubusercontent.com/48315997/97794316-8da54980-1c3b-11eb-963b-2c07da280861.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>Equation
+  <img width="737" alt="스크린샷 2020-11-01 오후 12 32 37" src="https://user-images.githubusercontent.com/48315997/97794501-55ebd100-1c3e-11eb-97cd-cc00bde85b4d.png" /></p>
+      </li>
+      <li>(Eq.1) trainable linear projection은 flatten된 patch들을 <em>D</em> dimension에 <strong>mapping시킨다.</strong></li>
+      <li>(Eq.4) BERT의 <code class="language-plaintext highlighter-rouge">[class]</code> 토큰처럼, embedded patch의 sequence(image representation <code class="language-plaintext highlighter-rouge">y</code>) 전에 <strong>learnable embedding</strong>을 추가한다. (prepend)
+        <ul>
+          <li>both during pre-training and fine-tuning, a classification head is attached to $\left({z}_{L}^{0} \right)$</li>
+        </ul>
+      </li>
+      <li>Position embeddings
+        <ul>
+          <li>positional information을 유지하기 위해 patch embedding에 붙여짐. (자세한건 Appendix.D.3)</li>
+          <li>standard learnable 1D position embedding 사용</li>
+          <li>이렇게 position embedding까지 더해진 sequence of embedding vector들은 encoder의 input이 됨.</li>
+        </ul>
+      </li>
+      <li>Encoder
+        <ul>
+          <li>alternating layers of multiheaded self-attention(MSA)</li>
+          <li>MLP blocks
+            <ul>
+              <li>contains 2 layer with a GELU non-linearity</li>
+              <li>MLP 부분 code</li>
+            </ul>
+
+            <div class="language-py highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30</pre></td><td class="code"><pre class="highlight"><code>      <span class="k">class</span> <span class="nc">MlpBlock</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+      <span class="s">"""Transformer MLP / feed-forward block."""</span>
+
+  <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+              <span class="n">inputs</span><span class="p">,</span>
+              <span class="n">mlp_dim</span><span class="p">,</span>
+              <span class="n">dtype</span><span class="o">=</span><span class="n">jnp</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span>
+              <span class="n">out_dim</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+              <span class="n">dropout_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+              <span class="n">deterministic</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+              <span class="n">kernel_init</span><span class="o">=</span><span class="n">nn</span><span class="p">.</span><span class="n">initializers</span><span class="p">.</span><span class="n">xavier_uniform</span><span class="p">(),</span>
+              <span class="n">bias_init</span><span class="o">=</span><span class="n">nn</span><span class="p">.</span><span class="n">initializers</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">stddev</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)):</span>
+      <span class="s">"""Applies Transformer MlpBlock module."""</span>
+      <span class="n">actual_out_dim</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">out_dim</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">out_dim</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span>
+          <span class="n">inputs</span><span class="p">,</span>
+          <span class="n">mlp_dim</span><span class="p">,</span>
+          <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+          <span class="n">kernel_init</span><span class="o">=</span><span class="n">kernel_init</span><span class="p">,</span>
+          <span class="n">bias_init</span><span class="o">=</span><span class="n">bias_init</span><span class="p">)</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">gelu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+      <span class="n">x</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">dropout_rate</span><span class="p">,</span> <span class="n">deterministic</span><span class="o">=</span><span class="n">deterministic</span><span class="p">)</span>
+      <span class="n">output</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span>
+          <span class="n">x</span><span class="p">,</span>
+          <span class="n">actual_out_dim</span><span class="p">,</span>
+          <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+          <span class="n">kernel_init</span><span class="o">=</span><span class="n">kernel_init</span><span class="p">,</span>
+          <span class="n">bias_init</span><span class="o">=</span><span class="n">bias_init</span><span class="p">)</span>
+      <span class="n">output</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">dropout_rate</span><span class="p">,</span> <span class="n">deterministic</span><span class="o">=</span><span class="n">deterministic</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">output</span>
+</code></pre></td></tr></tbody></table></div>            </div>
+          </li>
+          <li>Layernorm(LN) is applied before every block</li>
+          <li>residual connections after every block</li>
+        </ul>
+      </li>
+      <li>Hybrid Architecture
+        <ul>
+          <li>patch embedding projection E (Eq.1)이 CNN feature map으로 대체될 수 있다.
+            <ul>
+              <li>즉, ResNet과 같은 CNN구조의 모델을 가지고, 2D feature map 중 하나를 1D로 flatten시킨 후 transformer dimension에 projecting 시킴.</li>
+              <li>위에서 만들어진 sequence에 classification input embedding, position embedding를 추가시켜 encoder에 input으로써 feed 시킬 수 있음.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="fine-tuning-and-higher-resolution">Fine-Tuning and Higher Resolution</h3>
+
+<ul>
+  <li>large dataset으로 pre-training하고, smaller downstream task에 대해 fine-tune 하려고 함.</li>
+  <li>이를 위해서 pre-trained prediction head를 지우고, 0으로 initializedgks D x K feedforward layer를 추가함.
+    <ul>
+      <li>K : # of downstream classes</li>
+    </ul>
+  </li>
+  <li>pre-training 보다 높은 resolution으로 fine-tuning하는 것은 beneficial할 때도 있음.</li>
+  <li>higher resolution을 feed하게 되면, patch size는 동일하므로 sequence length가 길어짐</li>
+  <li>ViT는 임의적인 sequence length를 다룰 수 있음(메모리 제약에 따라서)</li>
+  <li><strong>하지만 pre-trained position embedding이 의미 없어질 수 있음</strong>
+    <ul>
+      <li>원본 이미지의 location에 따라 pre-trained position embedding의 2D interpolation을 수행함.</li>
+    </ul>
+  </li>
+  <li>위와 같은 resolution adjustment와 patch extraction은 이미지의 2D 구조에 대해 inductive bias를 <strong>manually</strong> ViT에 주입시키는 유일한 포인트임.</li>
+</ul>
+
+<h2 id="code">Code</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">model.py</code>
+    <ul>
+      <li><a href="https://github.com/google-research/vision_transformer/blob/master/vit_jax/models.py">Github</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="references">References</h2>
+<p>(References for your additional studies)</p>
+
+<p>https://jeonsworld.github.io/vision/vit/</p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
+          
+            
+            <a href="/tag/#/Computer%20Vision" rel="tag"># Computer Vision</a>
+          
+            
+            <a href="/tag/#/Transformer" rel="tag"># Transformer</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/deep%20learning/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="next" title="MMDetection 사용하기">
+                <i class="fa fa-chevron-left"></i> MMDetection 사용하기
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN/" rel="prev" title="StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks">
+                StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Yeonsoo Kim" />
+          <p class="site-author-name" itemprop="name">Yeonsoo Kim</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/yskim0" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="wx12348@gmail.com">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wx12348@gmail.com
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#an-image-is-worth-16x16-words-transformers-for-image-recognition-at-scale"> <span class="nav-number">1</span> <span class="nav-text">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#overview"> <span class="nav-number">1.1</span> <span class="nav-text">Overview</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#related-work-basic-concepts"> <span class="nav-number">1.2</span> <span class="nav-text">Related work (Basic concepts)</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#methods"> <span class="nav-number">1.3</span> <span class="nav-text">Methods</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#fine-tuning-and-higher-resolution"> <span class="nav-number">1.3.1</span> <span class="nav-text">Fine-Tuning and Higher Resolution</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#code"> <span class="nav-number">1.4</span> <span class="nav-text">Code</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#references"> <span class="nav-number">1.5</span> <span class="nav-text">References</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yeonsoo Kim</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

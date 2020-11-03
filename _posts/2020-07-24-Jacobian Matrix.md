@@ -6,7 +6,6 @@ tags:
  - Math
  - Linear Algebra
  - Calculas
- - Deep Learning
 
 ---
 Jacobian Matrix 에 관한 설명을 적은 글입니다.

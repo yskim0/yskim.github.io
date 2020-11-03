@@ -2,7 +2,23 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/10/31/ViT/</loc>
+      <loc>http://localhost:4000/deep%20learning/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
+      
+        <lastmod>2020-11-03T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT/</loc>
       
         <lastmod>2020-10-31T00:00:00+09:00</lastmod>
       
@@ -18,7 +34,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/09/20/StyleGAN/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN/</loc>
       
         <lastmod>2020-09-20T00:00:00+09:00</lastmod>
       
@@ -34,7 +50,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/09/11/HarDNet/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/11/HarDNet/</loc>
       
         <lastmod>2020-09-11T00:00:00+09:00</lastmod>
       
@@ -50,7 +66,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/reinforcement%20learning/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/</loc>
       
         <lastmod>2020-08-29T00:00:00+09:00</lastmod>
       
@@ -98,7 +114,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/08/22/Meta-RL-as-task-inference/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/meta%20learning/reinforcement%20learning/2020/08/22/Meta-RL-as-task-inference/</loc>
       
         <lastmod>2020-08-22T00:00:00+09:00</lastmod>
       
@@ -114,7 +130,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/08/14/Model-Agnostic-Meta/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/2020/08/14/Model-Agnostic-Meta/</loc>
       
         <lastmod>2020-08-14T00:00:00+09:00</lastmod>
       
@@ -130,7 +146,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/08/10/Attention/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/nlp/2020/08/10/Attention/</loc>
       
         <lastmod>2020-08-10T00:00:00+09:00</lastmod>
       
@@ -146,7 +162,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/08/08/GAN/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/08/08/GAN/</loc>
       
         <lastmod>2020-08-08T00:00:00+09:00</lastmod>
       
@@ -162,7 +178,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/08/05/PEGASUS/</loc>
+      <loc>http://localhost:4000/paper%20review/nlp/2020/08/05/PEGASUS/</loc>
       
         <lastmod>2020-08-05T00:00:00+09:00</lastmod>
       
@@ -178,7 +194,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/07/31/YOLO/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/07/31/YOLO/</loc>
       
         <lastmod>2020-07-31T00:00:00+09:00</lastmod>
       
@@ -194,7 +210,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/07/26/Text-Summarization-with-Pretrained-Encoders/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/nlp/2020/07/26/Text-Summarization-with-Pretrained-Encoders/</loc>
       
         <lastmod>2020-07-26T00:00:00+09:00</lastmod>
       
@@ -210,7 +226,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/nlp/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/</loc>
       
         <lastmod>2020-07-25T00:00:00+09:00</lastmod>
       
@@ -242,25 +258,9 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/paper%20review/2020/07/23/Faster-R-CNN/</loc>
+      <loc>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/07/23/Faster-R-CNN/</loc>
       
         <lastmod>2020-07-23T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/machine%20learning/2020/05/19/pipeline/</loc>
-      
-        <lastmod>2020-05-19T00:00:00+09:00</lastmod>
       
 
       

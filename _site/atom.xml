@@ -1,4 +1,177 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-01T19:30:03+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)</title><link href="http://localhost:4000/paper%20review/2020/10/31/ViT/" rel="alternate" type="text/html" title="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)" /><published>2020-10-31T00:00:00+09:00</published><updated>2020-10-31T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/10/31/ViT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/10/31/ViT/">&lt;p&gt;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-03T16:31:04+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">MMDetection 사용하기</title><link href="http://localhost:4000/deep%20learning/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="MMDetection 사용하기" /><published>2020-11-03T00:00:00+09:00</published><updated>2020-11-03T00:00:00+09:00</updated><id>http://localhost:4000/deep%20learning/computer%20vision/2020/11/03/mmdetection%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/deep%20learning/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">&lt;p&gt;&lt;strong&gt;MMdetection&lt;/strong&gt; toolkit을 통해 Mask R-CNN 모델을 학습해보겠습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;저는 오늘부터 시작된 &lt;a href=&quot;https://dacon.io/competitions/official/235672/overview/&quot;&gt;K-Fashion AI 경진대회&lt;/a&gt;에 참가합니다.&lt;/p&gt;
+
+&lt;p&gt;이 대회는 제가 관심있는 분야인 &lt;strong&gt;&lt;em&gt;컴퓨터 비전&lt;/em&gt;&lt;/strong&gt; 대회라 관심을 가지게 되었고, 실제로 CV 관련 대회는 처음이니 배운다는 마음가짐으로 열심히 공부해보려 합니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;mmdectection&quot;&gt;MMdectection?&lt;/h1&gt;
+
+&lt;p&gt;이 대회의 베이스라인을 참고하면서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mmdetection&lt;/code&gt; 이라는 것을 처음 알게 되었습니다. 
+논문도 있으니 시간 남을 때 봐야겠네요&lt;/p&gt;
+
+&lt;p&gt;깃허브는 &lt;a href=&quot;https://github.com/open-mmlab/mmdetection&quot;&gt;여기&lt;/a&gt;에 들어가면 되고, 리드미 파일에 mmdetection이 어떤 건지 나와있습니다.
+짧게 요약하자면,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;MMDetection&lt;/strong&gt; is an open source object detection toolbox based on PyTorch.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이라 하네요.&lt;/p&gt;
+
+&lt;p&gt;object detection에서 다루는 다양한 모델들을 한 곳에 모아뒀다고 하니 정말 간편해보입니다. (이런 걸 이제 알게된 게 아쉬울 정도로…)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/open-mmlab/mmdetection#benchmark-and-model-zoo&quot;&gt;여기&lt;/a&gt; 에 support 하는 모델들이 나열되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;또한 버전 업데이트 및 유지보수도 굉장히 잘 되고 있다고 합니다!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;installation&quot;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;데이콘 베이스 라인을 보고 따라하는 것이므로 버전도 맞춰서 해봅니다.
+우선 mmdetection 깃허브 링크에 가서 브랜치를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.3.0&lt;/code&gt; 으로 이동합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/open-mmlab/mmdetection/tree/v2.3.0&quot;&gt;바로 가기&lt;/a&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97955665-0f3ada00-1dea-11eb-93d6-a233996a32f8.png&quot; alt=&quot;스크린샷 2020-11-03 오후 3 34 25&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;README.md 를 조금 내리다 보면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;install.md&lt;/code&gt; 로 넘어갈 수 있는 하이퍼링크가 있습니다.
+그걸 눌러 install.md로 이동합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97955738-3db8b500-1dea-11eb-9988-2a6afd19ec79.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97955982-dbac7f80-1dea-11eb-9aa4-e7ff1a77c779.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt; 잘 확인하시고, install mmdetection 순서대로 진행합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-가상환경-생성&quot;&gt;1. 가상환경 생성&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda create -n 가상환경이름 python=3.7 -y
+conda activate 가상환경이름 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 가상 환경 생성하고 activate 시킵니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-pytorch-torchvision-설치-버전-주의&quot;&gt;2. pytorch, torchvision 설치 (버전 주의)&lt;/h3&gt;
+
+&lt;p&gt;베이스라인 따라가려면 (즉, mmdetection version==2.3.0) torch version == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.5.0&lt;/code&gt; 이어야 합니다.
+pytorch를 원하는 이전 버전으로 설치해야 할 때 공식홈페이지에 커맨드가 다 나와있습니다. &lt;a href=&quot;https://pytorch.org/get-started/previous-versions/&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install pytorch==1.5.0 torchvision==0.6.0 -c pytorch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3-mmdetection-repo-clone&quot;&gt;3. MMdetection repo. clone&lt;/h3&gt;
+
+&lt;p&gt;mmdetection 레포지터리를 clone 해야 합니다.
+이 때도 이 도큐먼트와 다르게 주의해야 할 점이 있습니다. 앞서 말했듯이 저는 베이스라인 따라 branch == v2.3.0으로 이동했습니다. 이 브랜치에 해당되는 버전으로 git clone 해야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone --branch v2.3.0 https://github.com/open-mmlab/mmdetection.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-requirements-설치&quot;&gt;4. Requirements 설치&lt;/h3&gt;
+
+&lt;p&gt;우선 클론한 디렉토리로 갑니다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ./mmdetection
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;저와 같이 다른 사람들과 같이 쓰는 서버를 쓰시는 환경이라면 마음대로 패키지/라이버리를 다운 받았을 때 충돌될 가능성이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;그래서 이 requirements 들을 가상 환경 내에 설치해야 합니다.&lt;/strong&gt;
+현재 가상환경의 절대 주소를 모르시면, 터미널에&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda env list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;를 치시면 가상환경 이름 뒤에 경로가 나옵니다.
+그 path를 copy 해두세요.
+가상환경의 경로를 {PATH}라고 가정하고 적어보겠습니다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{PATH}/bin/pip install -r requirements/build.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 하면 requirements가 잘 설치될 것입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;5-set-up&quot;&gt;5. Set up&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install -v -e .  # or &quot;python setup.py develop&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;앞에 명령어 해보고 안되면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python setup.py develop&lt;/code&gt; 하시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;(저 같은 경우는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install -v -e .&lt;/code&gt; 했을 때 안됐어서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python setup.py develop&lt;/code&gt; 명령어 해서 정상 설치 됐습니다.)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;training-하기-전-준비-해야-할-것들&quot;&gt;Training 하기 전 준비 해야 할 것들&lt;/h1&gt;
+
+&lt;h3 id=&quot;1-dataset-관련&quot;&gt;1. Dataset 관련&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mmdetection/mmdet/datasets&lt;/code&gt; 에서 데이터셋에 대한 기본 설정을 할 수 있습니다.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;custom.py&lt;/code&gt; 로 직접 personal 한 설정을 할 수 있겠지만 이 대회는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;coco.py&lt;/code&gt; 에서 설정된 것에서 크게 벗어나지 않아 이대로 사용해도 된다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;그래서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;coco.py&lt;/code&gt; 에서 미리 설정된 CLASSES 들을 이 대회에서 쓰일 클래스로 바꾸겠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97957150-c71db680-1ded-11eb-88e2-3b503374e352.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;또한, mmdetection의 경우 train/test 폴더가 한 곳에 flatten 하게 존재해야 한다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/train/a/*.jpg&lt;/code&gt; 이런 형태가 아닌 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/train/a_*.jpg&lt;/code&gt; 이런 식으로요.&lt;/p&gt;
+
+&lt;p&gt;이건 파이썬 코드로 쉽게 수정 가능하니 잊지 않고 하시길 바립니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-training-options&quot;&gt;2. training options&lt;/h3&gt;
+
+&lt;p&gt;트레이닝할 때 필요한 기본 옵션들을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mmdetection/config/_base_/default_runtime.py&lt;/code&gt; 에서 가능합니다.&lt;/p&gt;
+
+&lt;p&gt;이 config는 우선 베이스라인 코드에서 제공한 것을 붙여 써서 지금 제 환경에 맞게 조금씩 고쳤습니다. (data root, gpu 개수, epoch 등)&lt;/p&gt;
+
+&lt;p&gt;자세한 건 &lt;a href=&quot;https://github.com/dacon-ai/K-fashion-baseline/blob/master/configs/_base_/default_runtime.py&quot;&gt;여기&lt;/a&gt;를 참고해주세요.&lt;/p&gt;
+
+&lt;p&gt;train/test set 경로 등등 잘 설정하고 나면 바로 학습 시작 가능합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;training-&quot;&gt;Training !&lt;/h1&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python tools/train.py configs/_base_/default_runtime.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이걸 치시면 config로 해놨던 설정들이 주루룩 뜨면서 학습이 시작됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97957533-bf124680-1dee-11eb-93b9-a3b3921adbe6.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h1&gt;
+
+&lt;h3 id=&quot;attributeerror-coco-object-has-no-attribute-get_cat_ids&quot;&gt;AttributeError: ‘COCO’ object has no attribute ‘get_cat_ids’&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pycocotools&lt;/code&gt; 관련 오류입니다.&lt;/p&gt;
+
+&lt;p&gt;저같은 경우에는&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{PATH}/bin/pip install &quot;git+https://github.com/open-mmlab/
+
+cocoapi.git#subdirectory=pycocotools&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;로 해결했습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;modulenotfounderror-no-module-named-mmcv_ext&quot;&gt;ModuleNotFoundError: No module named ‘mmcv._ext’&lt;/h3&gt;
+
+&lt;p&gt;mmcv가 제대로 설치되지 않은 경우입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{PATH}/bin pip uninstall mmcv
+{PATH}/bin pip install mmcv-full==1.0.5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;저는 이렇게 해결했습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=UEu73ew7mSY&amp;amp;feature=youtu.be&amp;amp;ab_channel=%EB%8D%B0%EC%9D%B4%EC%BD%98&quot;&gt;데이콘 베이스라인&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="MMdetection" /><category term="Mask R-CNN" /><summary type="html">MMdetection toolkit을 통해 Mask R-CNN 모델을 학습해보겠습니다.</summary></entry><entry><title type="html">An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)</title><link href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT/" rel="alternate" type="text/html" title="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)" /><published>2020-10-31T00:00:00+09:00</published><updated>2020-10-31T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT/">&lt;p&gt;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -166,7 +339,7 @@
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;p&gt;(References for your additional studies)&lt;/p&gt;
 
-&lt;p&gt;https://jeonsworld.github.io/vision/vit/&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Transformer" /><summary type="html">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks</title><link href="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/" rel="alternate" type="text/html" title="StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/20/StyleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/">&lt;p&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;p&gt;https://jeonsworld.github.io/vision/vit/&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Transformer" /><summary type="html">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks</title><link href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN/" rel="alternate" type="text/html" title="StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN/">&lt;p&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -376,7 +549,7 @@
   &lt;li&gt;https://towardsdatascience.com/explained-a-style-based-generator-architecture-for-gans-generating-and-tuning-realistic-6cb2be0f431&lt;/li&gt;
   &lt;li&gt;https://jayhey.github.io/deep%20learning/2019/01/16/style_based_GAN_2/&lt;/li&gt;
   &lt;li&gt;https://blog.lunit.io/2019/02/25/a-style-based-generator-architecture-for-generative-adversarial-networks/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">HarDNet:A Low Memory Traffic network</title><link href="http://localhost:4000/paper%20review/2020/09/11/HarDNet/" rel="alternate" type="text/html" title="HarDNet:A Low Memory Traffic network" /><published>2020-09-11T00:00:00+09:00</published><updated>2020-09-11T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/11/HarDNet</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/11/HarDNet/">&lt;p&gt;HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">HarDNet:A Low Memory Traffic network</title><link href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/11/HarDNet/" rel="alternate" type="text/html" title="HarDNet:A Low Memory Traffic network" /><published>2020-09-11T00:00:00+09:00</published><updated>2020-09-11T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/11/HarDNet</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/11/HarDNet/">&lt;p&gt;HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -635,7 +808,7 @@
       &lt;li&gt;which might be counter-intuitive to the widely-accepted knowledge of that using more Conv1x1 achieves a higher efficiency.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Neural Architecture Search With Reinforcement Learning</title><link href="http://localhost:4000/paper%20review/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/" rel="alternate" type="text/html" title="Neural Architecture Search With Reinforcement Learning" /><published>2020-08-29T00:00:00+09:00</published><updated>2020-08-29T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/08/29/NEURAL%20ARCHITECTURE%20SEARCH%20WITH%20REINFORCEMENT%20LEARNING</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/">&lt;p&gt;Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Neural Architecture Search With Reinforcement Learning</title><link href="http://localhost:4000/paper%20review/deep%20learning/reinforcement%20learning/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/" rel="alternate" type="text/html" title="Neural Architecture Search With Reinforcement Learning" /><published>2020-08-29T00:00:00+09:00</published><updated>2020-08-29T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/reinforcement%20learning/2020/08/29/NEURAL%20ARCHITECTURE%20SEARCH%20WITH%20REINFORCEMENT%20LEARNING</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/reinforcement%20learning/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/">&lt;p&gt;Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -828,7 +1001,66 @@
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=XP3vyVrrt3Q&quot;&gt;https://www.youtube.com/watch?v=XP3vyVrrt3Q&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://medium.com/@sunwoopark/slow-paper-neural-architecture-search-with-reinforcement-learning-6de601560522&quot;&gt;https://medium.com/@sunwoopark/slow-paper-neural-architecture-search-with-reinforcement-learning-6de601560522&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Reinforcement Learning" /><category term="Neural Architecture Search" /><summary type="html">Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)</title><link href="http://localhost:4000/project/2020/08/26/Handlang/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@sunwoopark/slow-paper-neural-architecture-search-with-reinforcement-learning-6de601560522&quot;&gt;https://medium.com/@sunwoopark/slow-paper-neural-architecture-search-with-reinforcement-learning-6de601560522&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Reinforcement Learning" /><category term="Neural Architecture Search" /><summary type="html">Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)</title><link href="http://localhost:4000/project/2020/08/26/Handlang2/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang2</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang2/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
+이 포스팅에서는 웹에 관련된 것을 다룹니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;handlang---aslamerican-sign-language-education-by-using-deep-learning-model&quot;&gt;Handlang - ASL(American Sign Language) Education by using deep learning model&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;딥러닝으로 학습된 수화 인식 모델을 바탕으로 알파벳, 숫자에 해당되는 수화를 학습 및 연습 할 수 있는 웹 어플리케이션입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;wireframe---figma&quot;&gt;Wireframe - Figma&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fn8Hg1%2FbtqCPBw0VEs%2F6fRBkKw5iK71fcigASJIC0%2Fimg.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93708908-f5fd0780-fb74-11ea-950e-adbd44260edd.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Figma를 사용하여 팀원들과 홈페이지 와이어프레임을 구상하였습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;flask&quot;&gt;Flask&lt;/h2&gt;
+
+&lt;p&gt;웹 개발 초보자에게 비교적 쉬운 Flask를 사용하여 구현하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;model-deploy&quot;&gt;Model Deploy&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;학습시킨 모델을 불러오는 법&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/handlang_model_4.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 지문자 모델
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/su_adamax.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 숫자 모델
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ajax&quot;&gt;Ajax&lt;/h2&gt;
+
+&lt;p&gt;웹캠으로 받은 이미지를 실시간으로 Detect해야하기 때문에 페이지를 새로 고치지 않아도 데이터를 로드할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ajax&lt;/code&gt;를 사용하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;translation&quot;&gt;Translation&lt;/h2&gt;
+
+&lt;p&gt;한글/영어 버전의 웹페이지를 구현하기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flask_babel&lt;/code&gt;을 사용했습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;study--quiz&quot;&gt;Study &amp;amp; Quiz&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709264-fa76ef80-fb77-11ea-99c2-33eccceb6f65.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709269-05ca1b00-fb78-11ea-85c1-ad523fd94f95.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709270-0cf12900-fb78-11ea-9d04-4dbf3a648ea3.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709273-12e70a00-fb78-11ea-999f-71a7f8876db6.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="ASL Education Application" /><category term="YOLO" /><category term="Fast R-CNN" /><category term="Inception v3" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 웹에 관련된 것을 다룹니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)</title><link href="http://localhost:4000/project/2020/08/26/Handlang/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
 이 포스팅에서는 수화 인식 딥러닝 모델에 대해서만 다룹니다.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -969,66 +1201,7 @@ We used darkflow, not yolo darknet, to take advantage of tensorflow.&lt;/p&gt;
 
 &lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="Education Application" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 수화 인식 딥러닝 모델에 대해서만 다룹니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)</title><link href="http://localhost:4000/project/2020/08/26/Handlang2/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang2</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang2/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
-이 포스팅에서는 웹에 관련된 것을 다룹니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;handlang---aslamerican-sign-language-education-by-using-deep-learning-model&quot;&gt;Handlang - ASL(American Sign Language) Education by using deep learning model&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;딥러닝으로 학습된 수화 인식 모델을 바탕으로 알파벳, 숫자에 해당되는 수화를 학습 및 연습 할 수 있는 웹 어플리케이션입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;wireframe---figma&quot;&gt;Wireframe - Figma&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fn8Hg1%2FbtqCPBw0VEs%2F6fRBkKw5iK71fcigASJIC0%2Fimg.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93708908-f5fd0780-fb74-11ea-950e-adbd44260edd.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Figma를 사용하여 팀원들과 홈페이지 와이어프레임을 구상하였습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;flask&quot;&gt;Flask&lt;/h2&gt;
-
-&lt;p&gt;웹 개발 초보자에게 비교적 쉬운 Flask를 사용하여 구현하였습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;model-deploy&quot;&gt;Model Deploy&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;학습시킨 모델을 불러오는 법&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/handlang_model_4.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 지문자 모델
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/su_adamax.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 숫자 모델
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;ajax&quot;&gt;Ajax&lt;/h2&gt;
-
-&lt;p&gt;웹캠으로 받은 이미지를 실시간으로 Detect해야하기 때문에 페이지를 새로 고치지 않아도 데이터를 로드할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ajax&lt;/code&gt;를 사용하였습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;translation&quot;&gt;Translation&lt;/h2&gt;
-
-&lt;p&gt;한글/영어 버전의 웹페이지를 구현하기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flask_babel&lt;/code&gt;을 사용했습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;study--quiz&quot;&gt;Study &amp;amp; Quiz&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709264-fa76ef80-fb77-11ea-99c2-33eccceb6f65.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709269-05ca1b00-fb78-11ea-85c1-ad523fd94f95.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709270-0cf12900-fb78-11ea-9d04-4dbf3a648ea3.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709273-12e70a00-fb78-11ea-999f-71a7f8876db6.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="Education Application" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 웹에 관련된 것을 다룹니다.</summary></entry><entry><title type="html">Meta Reinforcement Learning As Task Inference</title><link href="http://localhost:4000/paper%20review/2020/08/22/Meta-RL-as-task-inference/" rel="alternate" type="text/html" title="Meta Reinforcement Learning As Task Inference" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/08/22/Meta%20RL%20as%20task%20inference</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/08/22/Meta-RL-as-task-inference/">&lt;p&gt;Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (&lt;a href=&quot;https://www.youtube.com/watch?v=phi7_QIhfJ4&quot;&gt;PR-239&lt;/a&gt;)를 발표하신 Changhoon Jeong님 영상을 보고 정리하였습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="ASL Education Application" /><category term="YOLO" /><category term="Fast R-CNN" /><category term="Inception v3" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 수화 인식 딥러닝 모델에 대해서만 다룹니다.</summary></entry><entry><title type="html">Meta Reinforcement Learning As Task Inference</title><link href="http://localhost:4000/paper%20review/deep%20learning/meta%20learning/reinforcement%20learning/2020/08/22/Meta-RL-as-task-inference/" rel="alternate" type="text/html" title="Meta Reinforcement Learning As Task Inference" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/meta%20learning/reinforcement%20learning/2020/08/22/Meta%20RL%20as%20task%20inference</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/meta%20learning/reinforcement%20learning/2020/08/22/Meta-RL-as-task-inference/">&lt;p&gt;Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (&lt;a href=&quot;https://www.youtube.com/watch?v=phi7_QIhfJ4&quot;&gt;PR-239&lt;/a&gt;)를 발표하신 Changhoon Jeong님 영상을 보고 정리하였습니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1327,7 +1500,7 @@ We used darkflow, not yolo darknet, to take advantage of tensorflow.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=phi7_QIhfJ4&quot;&gt;https://www.youtube.com/watch?v=phi7_QIhfJ4&lt;/a&gt; - 논문 설명&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://newsight.tistory.com/250&quot;&gt;https://newsight.tistory.com/250&lt;/a&gt; - policy 부분 개념&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Meta Learning" /><category term="Reinforcement Learning" /><category term="Meta RL" /><summary type="html">Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (PR-239)를 발표하신 Changhoon Jeong님 영상을 보고 정리하였습니다.</summary></entry><entry><title type="html">Model-Agnostic Meta-Learning for fast adaptation of deep networks</title><link href="http://localhost:4000/paper%20review/2020/08/14/Model-Agnostic-Meta/" rel="alternate" type="text/html" title="Model-Agnostic Meta-Learning for fast adaptation of deep networks" /><published>2020-08-14T00:00:00+09:00</published><updated>2020-08-14T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/08/14/Model-Agnostic%20Meta</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/08/14/Model-Agnostic-Meta/">&lt;p&gt;Model-Agnostic Meta-Learning for fast adaptation of deep networks 를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://newsight.tistory.com/250&quot;&gt;https://newsight.tistory.com/250&lt;/a&gt; - policy 부분 개념&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Meta Learning" /><category term="Reinforcement Learning" /><category term="Meta RL" /><summary type="html">Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (PR-239)를 발표하신 Changhoon Jeong님 영상을 보고 정리하였습니다.</summary></entry><entry><title type="html">Model-Agnostic Meta-Learning for fast adaptation of deep networks</title><link href="http://localhost:4000/paper%20review/deep%20learning/2020/08/14/Model-Agnostic-Meta/" rel="alternate" type="text/html" title="Model-Agnostic Meta-Learning for fast adaptation of deep networks" /><published>2020-08-14T00:00:00+09:00</published><updated>2020-08-14T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/2020/08/14/Model-Agnostic%20Meta</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/2020/08/14/Model-Agnostic-Meta/">&lt;p&gt;Model-Agnostic Meta-Learning for fast adaptation of deep networks 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1712,7 +1885,7 @@ We used darkflow, not yolo darknet, to take advantage of tensorflow.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://talkingaboutme.tistory.com/entry/DL-Meta-Learning-Learning-to-Learn-Fast&quot;&gt;https://talkingaboutme.tistory.com/entry/DL-Meta-Learning-Learning-to-Learn-Fast&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://elapser.github.io/machine-learning/2019/03/08/Model-Agnostic-Interpretation.html&quot;&gt;https://elapser.github.io/machine-learning/2019/03/08/Model-Agnostic-Interpretation.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Meta Learning" /><summary type="html">Model-Agnostic Meta-Learning for fast adaptation of deep networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Attention Is All You Need</title><link href="http://localhost:4000/paper%20review/2020/08/10/Attention/" rel="alternate" type="text/html" title="Attention Is All You Need" /><published>2020-08-10T00:00:00+09:00</published><updated>2020-08-10T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/08/10/Attention</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/08/10/Attention/">&lt;p&gt;Attention Is All You Need 를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://elapser.github.io/machine-learning/2019/03/08/Model-Agnostic-Interpretation.html&quot;&gt;https://elapser.github.io/machine-learning/2019/03/08/Model-Agnostic-Interpretation.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Meta Learning" /><summary type="html">Model-Agnostic Meta-Learning for fast adaptation of deep networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Attention Is All You Need</title><link href="http://localhost:4000/paper%20review/deep%20learning/nlp/2020/08/10/Attention/" rel="alternate" type="text/html" title="Attention Is All You Need" /><published>2020-08-10T00:00:00+09:00</published><updated>2020-08-10T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/nlp/2020/08/10/Attention</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/nlp/2020/08/10/Attention/">&lt;p&gt;Attention Is All You Need 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1846,297 +2019,4 @@ We used darkflow, not yolo darknet, to take advantage of tensorflow.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=EyXehqvkfF0&quot;&gt;https://www.youtube.com/watch?v=EyXehqvkfF0&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=mxGCEWOxfe8&quot;&gt;https://www.youtube.com/watch?v=mxGCEWOxfe8&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="NLP" /><summary type="html">Attention Is All You Need 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Generative Adversarial Nets</title><link href="http://localhost:4000/paper%20review/2020/08/08/GAN/" rel="alternate" type="text/html" title="Generative Adversarial Nets" /><published>2020-08-08T00:00:00+09:00</published><updated>2020-08-08T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/08/08/GAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/08/08/GAN/">&lt;p&gt;Generative Adversarial Nets 를 읽고 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;generative-adversarial-nets&quot;&gt;Generative Adversarial Nets&lt;/h1&gt;
-
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;(You should include contents of summary and introduction.)&lt;/p&gt;
-
-&lt;p&gt;GAN에는 두 가지 모델이 존재함.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Discriminator&lt;/li&gt;
-  &lt;li&gt;Generator&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Image를 만들어 내는 Generator(G)가 이 만들어진 모델을 평가하는 Discriminator(D)를 최대한 속일 수 있도록, 확률 분포의 차이를 줄이는 것이 목적&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;즉, G는 D를 최대한 속이려고 노력하고, D는 G가 만든 이미지를 최대한 감별하려고 노력함.&lt;/li&gt;
-  &lt;li&gt;이 경쟁 속에서 두 모델은 모두 발전하게 되고, 결과적으로는 G가 만든 이미지를 구별할 수 없는 상태에 도달하게 됨.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/89702019-b5a44a00-d977-11ea-971b-f3e800d5ac7b.png&quot; alt=&quot;1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 목표를 이루기 위해서는, &lt;em&gt;(ref. output -&amp;gt; [0,1] : 0==false, 1==true)&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;D : 진짜 이미지를 진짜 이미지라고 인식(분류)하도록 학습&lt;/li&gt;
-  &lt;li&gt;G : random한 코드를 받아서 img를 생성한 후, 그 이미지가 D를 속여야 함.
-    &lt;ul&gt;
-      &lt;li&gt;즉, D(G(z)) = 1(진짜라 인식)이 나오도록 학습.
-        &lt;ul&gt;
-          &lt;li&gt;학습할수록 진짜같은 가짜 img가 만들어지는 것&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-work-basic-concepts&quot;&gt;Related work (Basic concepts)&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;generative model&lt;/li&gt;
-  &lt;li&gt;Adversarial&lt;/li&gt;
-  &lt;li&gt;VAE&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
-&lt;p&gt;(Explain one of the methods that the thesis used.)&lt;/p&gt;
-
-&lt;h3 id=&quot;gan-lossobjective-function&quot;&gt;GAN loss/objective function&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/89702021-b806a400-d977-11ea-87ad-6f12b78a0939.png&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;D 입장에서는 위 수식이 0인게 Maximize&lt;/li&gt;
-  &lt;li&gt;G 입장에서는 속이는 게 좋으니 Mininmize&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;+) G는 처음에 형편없는 이미지를 만듦.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;D는 그 이미지를 가짜라 확신. =&amp;gt; D(G(z))=0&lt;/li&gt;
-  &lt;li&gt;하지만 위의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log(1-x)&lt;/code&gt; 로는 그때 기울기의 절댓값이 작음.&lt;/li&gt;
-  &lt;li&gt;practical use : D가 가짜라 확신하는 상황을 최대한 빨리 벗어나려면, D(G(z))=0인 점에서 기울기가 거의 무한인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log(x)&lt;/code&gt;를 씀&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/89702023-b937d100-d977-11ea-97d7-1245192f4975.png&quot; alt=&quot;3&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;모델이 생성한 이미지 분포와 실제 이미지 분포 간의 차이를 계산해주는 함수로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jenson-Shannon divergence&lt;/code&gt; 사용함.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;approach&quot;&gt;Approach&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The minimax problem of GAN has a global opt. at p(g) = p(data)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Proposition 1.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/89702024-bb9a2b00-d977-11ea-99ab-a850c92cf5f6.png&quot; alt=&quot;4&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/89702026-bd63ee80-d977-11ea-9d89-6f2b99c6b7f4.png&quot; alt=&quot;5&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Main Theorem.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;위를 이용해서 D가 optimal 가정.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The global minimum of the virtual training criterion C(G) is achieved if and only if p(g)=p(data). 
-At that point, C(G) achieves the value −log(4).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/89702260-6b709800-d97a-11ea-9553-fc2ccaddfea2.jpeg&quot; alt=&quot;IMG_51B0698FF18C-1&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The proposed algorithm can find that global opt.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;그래서 알고리즘이 위 문제를 풀 수 있는가를 확인&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/89702027-bf2db200-d977-11ea-85e9-4a4a6685a0da.png&quot; alt=&quot;6&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1번==&amp;gt;minimax problem -&amp;gt; global opt. 가진다는 증명이었음.&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;global opt. -&amp;gt; 모델의 분포 == 실제 분포&lt;/li&gt;
-  &lt;li&gt;즉 우리가 풀려는 문제 C(G)가 convex문제임을 확인했음.
-    &lt;ul&gt;
-      &lt;li&gt;minimization problem이 쉬워짐.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;MLP로 충분히 가능하다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;vector-arithmetic-하다&quot;&gt;Vector arithmetic 하다.&lt;/h3&gt;
-
-&lt;p&gt;안경 낀 남자 - 안경 안 낀 남자 + 안경 안 낀 여자 = 안경 낀 여자&lt;/p&gt;
-
-&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
-
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# https://github.com/yunjey/pytorch-tutorial/blob/master/tutorials/03-advanced/generative_adversarial_network/main.py
-&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torchvision&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch.nn&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torchvision&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transforms&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torchvision.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;save_image&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# Device configuration
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'cuda'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cuda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_available&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'cpu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Hyper-parameters
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;latent_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;256&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;image_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;784&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;num_epochs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sample_dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'samples'&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Create a directory if not exists
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample_dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makedirs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample_dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Image processing
-# transform = transforms.Compose([
-#                 transforms.ToTensor(),
-#                 transforms.Normalize(mean=(0.5, 0.5, 0.5),   # 3 for RGB channels
-#                                      std=(0.5, 0.5, 0.5))])
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transforms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Compose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;transforms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ToTensor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;transforms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# 1 for greyscale channels
-&lt;/span&gt;                                     &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])])&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# MNIST dataset
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mnist&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torchvision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datasets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MNIST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'../../data/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                   &lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                   &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                   &lt;span class=&quot;n&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Data loader
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data_loader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataLoader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mnist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                          &lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-                                          &lt;span class=&quot;n&quot;&gt;shuffle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Discriminator
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;D&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LeakyReLU&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LeakyReLU&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sigmoid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Generator 
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;latent_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ReLU&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ReLU&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tanh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Device setting
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;D&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Binary cross entropy loss and optimizer
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;criterion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BCELoss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;d_optimizer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Adam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0002&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;g_optimizer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Adam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0002&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;denorm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reset_grad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;d_optimizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zero_grad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;g_optimizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zero_grad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Start training
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total_step&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data_loader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num_epochs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data_loader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        
-        &lt;span class=&quot;c1&quot;&gt;# Create the labels which are later used as input for the BCE loss
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;real_labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;fake_labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;# ================================================================== #
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#                      Train the discriminator                       #
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# ================================================================== #
-&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# Compute BCE_Loss using real images where BCE_Loss(x, y): - y * log(D(x)) - (1-y) * log(1 - D(x))
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# Second term of the loss is always zero since real_labels == 1
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;d_loss_real&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;criterion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;real_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;real_score&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;
-        
-        &lt;span class=&quot;c1&quot;&gt;# Compute BCELoss using fake images
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# First term of the loss is always zero since fake_labels == 0
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;latent_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;d_loss_fake&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;criterion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fake_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;fake_score&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;
-        
-        &lt;span class=&quot;c1&quot;&gt;# Backprop and optimize
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;d_loss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d_loss_real&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d_loss_fake&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;reset_grad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;d_loss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;d_optimizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        
-        &lt;span class=&quot;c1&quot;&gt;# ================================================================== #
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;#                        Train the generator                         #
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# ================================================================== #
-&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# Compute loss with fake images
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;latent_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        
-        &lt;span class=&quot;c1&quot;&gt;# We train G to maximize log(D(G(z)) instead of minimizing log(1-D(G(z)))
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# For the reason, see the last paragraph of section 3. https://arxiv.org/pdf/1406.2661.pdf
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;g_loss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;criterion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;real_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        
-        &lt;span class=&quot;c1&quot;&gt;# Backprop and optimize
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;reset_grad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;g_loss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;g_optimizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Epoch [{}/{}], Step [{}/{}], d_loss: {:.4f}, g_loss: {:.4f}, D(x): {:.2f}, D(G(z)): {:.2f}'&lt;/span&gt; 
-                  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_epochs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;total_step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d_loss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g_loss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; 
-                          &lt;span class=&quot;n&quot;&gt;real_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fake_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;# Save real images
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;save_image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;denorm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample_dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'real_images.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;# Save sampled images
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;save_image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;denorm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fake_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample_dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'fake_images-{}.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Save the model checkpoints 
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'G.ckpt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'D.ckpt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;additional-studies&quot;&gt;Additional studies&lt;/h2&gt;
-&lt;p&gt;(If you have some parts that cannot understand, you have to do additional studies for them. It’s optional.)&lt;/p&gt;
-
-&lt;p&gt;이후 GAN 논문들&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;p&gt;(References for your additional studies)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=L3hz57whyNw&quot;&gt;https://www.youtube.com/watch?v=L3hz57whyNw&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=odpjk7_tGY0&quot;&gt;https://www.youtube.com/watch?v=odpjk7_tGY0&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://jaejunyoo.blogspot.com/2017/01/generative-adversarial-nets-2.html&quot;&gt;http://jaejunyoo.blogspot.com/2017/01/generative-adversarial-nets-2.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">Generative Adversarial Nets 를 읽고 정리한 글입니다.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=mxGCEWOxfe8&quot;&gt;https://www.youtube.com/watch?v=mxGCEWOxfe8&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="NLP" /><category term="Transformer" /><summary type="html">Attention Is All You Need 를 읽고 정리한 글입니다.</summary></entry></feed>

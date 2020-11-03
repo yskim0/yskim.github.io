@@ -2,6 +2,7 @@
 title: Model-Agnostic Meta-Learning for fast adaptation of deep networks
 categories:
  - Paper Review
+ - Deep Learning
 tags: 
  - Deep Learning
  - Meta Learning

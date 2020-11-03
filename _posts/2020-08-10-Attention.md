@@ -2,9 +2,12 @@
 title: Attention Is All You Need
 categories:
  - Paper Review
+ - Deep Learning
+ - NLP
 tags: 
  - Deep Learning
  - NLP
+ - Transformer
 ---
 
 Attention Is All You Need 를 읽고 정리한 글입니다.
