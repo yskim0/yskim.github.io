@@ -11,7 +11,7 @@ tags:
 ---
 
 
-**MMdetection** toolkit을 통해 Mask R-CNN 모델을 학습해보겠습니다.
+Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 **MMdetection** toolkit을 설치해보고 학습까지 진행해보겠습니다.
 
 ---
 
