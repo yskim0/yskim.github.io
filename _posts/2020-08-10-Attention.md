@@ -2,8 +2,7 @@
 title: Attention Is All You Need
 categories:
  - Paper Review
- - Deep Learning
- - NLP
+
 tags: 
  - Deep Learning
  - NLP

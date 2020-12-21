@@ -1,7 +1,6 @@
 ---
 title: MMDetection 사용하기
 categories:
- - Deep Learning
  - Computer Vision
 tags: 
  - Deep Learning

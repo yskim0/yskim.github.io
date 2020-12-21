@@ -2,8 +2,7 @@
 title: Text Summarization with Pretrained Encoders
 categories:
  - Paper Review
- - Deep Learning
- - NLP
+
 tags: 
  - Deep Learning
  - NLP

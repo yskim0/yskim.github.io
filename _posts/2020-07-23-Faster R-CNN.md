@@ -2,8 +2,7 @@
 title: Faster R-CNN:Towards Real-Time Object Detection with Region Proposal Networks
 categories:
  - Paper Review
- - Deep Learning
- - Computer Vision
+
 tags: 
  - Deep Learning
  - Computer Vision

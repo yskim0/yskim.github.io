@@ -2,8 +2,7 @@
 title: Fine-tune BERT for Extractive Summarization
 categories:
  - Paper Review
- - Deep Learning
- - NLP
+
 tags: 
  - Deep Learning
  - NLP

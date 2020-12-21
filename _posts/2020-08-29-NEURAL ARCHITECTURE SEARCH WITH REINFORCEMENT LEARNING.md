@@ -2,8 +2,7 @@
 title: Neural Architecture Search With Reinforcement Learning 
 categories:
  - Paper Review
- - Deep Learning
- - Reinforcement Learning
+
 tags: 
  - Deep Learning
  - Reinforcement Learning
