@@ -2,9 +2,6 @@
 title: Meta Reinforcement Learning As Task Inference
 categories:
  - Paper Review
- - Deep Learning
- - Meta Learning
- - Reinforcement Learning
 tags: 
  - Deep Learning
  - Meta Learning
