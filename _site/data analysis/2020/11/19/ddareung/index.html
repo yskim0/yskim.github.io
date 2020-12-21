@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Deep Learning,NLP,Text Summarization,BERT," />
+  <meta name="keywords" content="데이터,seaborn,서울 열린 데이터 광장," />
 
 
 
@@ -111,20 +111,19 @@
 
 
 
-<meta name="description" content="Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.">
-<meta name="keywords" content="Deep Learning, NLP, Text Summarization, BERT">
+<meta name="description" content="서울 열린데이터 광장에서 제공하는 서울시 공공자전거인 ‘따릉이’의 이용 현황 데이터를 열어보고 간단한 plot들을 그려보겠습니다.">
+<meta name="keywords" content="데이터, seaborn, 서울 열린 데이터 광장">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fine-tune BERT for Extractive Summarization">
-<meta property="og:url" content="http://localhost:4000/paper%20review/deep%20learning/nlp/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/">
+<meta property="og:title" content="따릉이 데이터 가져오기 (서울 열린데이터 광장)">
+<meta property="og:url" content="http://localhost:4000/data%20analysis/2020/11/19/ddareung/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.">
+<meta property="og:description" content="서울 열린데이터 광장에서 제공하는 서울시 공공자전거인 ‘따릉이’의 이용 현황 데이터를 열어보고 간단한 plot들을 그려보겠습니다.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/88408018-ef207580-ce0d-11ea-846f-ea3d451f8cc3.jpeg">
-<meta property="og:image" content="374">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/99685707-3a017f80-2ac6-11eb-8d15-871ea26195e8.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fine-tune BERT for Extractive Summarization">
-<meta name="twitter:description" content="Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/88408018-ef207580-ce0d-11ea-846f-ea3d451f8cc3.jpeg">
+<meta name="twitter:title" content="따릉이 데이터 가져오기 (서울 열린데이터 광장)">
+<meta name="twitter:description" content="서울 열린데이터 광장에서 제공하는 서울시 공공자전거인 ‘따릉이’의 이용 현황 데이터를 열어보고 간단한 plot들을 그려보겠습니다.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/99685707-3a017f80-2ac6-11eb-8d15-871ea26195e8.png">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -157,7 +156,7 @@
 
 
 
-  <title>Fine-tune BERT for Extractive Summarization | Yeonsoo Kim's blog</title>
+  <title>따릉이 데이터 가져오기 (서울 열린데이터 광장) | Yeonsoo Kim's blog</title>
   
 
 
@@ -317,7 +316,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/deep%20learning/nlp/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/data%20analysis/2020/11/19/ddareung/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yeonsoo Kim">
@@ -337,7 +336,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Fine-tune BERT for Extractive Summarization
+            따릉이 데이터 가져오기 (서울 열린데이터 광장)
           
         </h1>
         
@@ -351,8 +350,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-25T00:00:00+09:00">
-                2020-07-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-19T00:00:00+09:00">
+                2020-11-19
               </time>
             
 
@@ -375,32 +374,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Paper%20Review" itemprop="url" rel="index">
-                    <span itemprop="name">Paper Review</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Deep%20Learning" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/NLP" itemprop="url" rel="index">
-                    <span itemprop="name">NLP</span>
+                  <a href="/category/#/Data%20Analysis" itemprop="url" rel="index">
+                    <span itemprop="name">Data Analysis</span>
                   </a>
                 </span>
 
@@ -450,85 +425,35 @@
 
 
 
-  <p>Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.</p>
+  <p><code class="language-plaintext highlighter-rouge">서울 열린데이터 광장</code>에서 제공하는 서울시 공공자전거인 ‘따릉이’의 이용 현황 데이터를 열어보고 간단한 plot들을 그려보겠습니다.</p>
 
 <hr />
 
-<h1 id="fine-tune-bert-for-extractive-summarization">Fine-tune BERT for Extractive Summarization</h1>
+<p>안녕하세요. 오늘은 서울시 공공자전거인 <code class="language-plaintext highlighter-rouge">따릉이</code>의 대여건수 데이터를 한 번 열어보려고 합니다.</p>
 
-<h2 id="summarization의-종류">Summarization의 종류</h2>
+<p>갑자기 왜 따릉이냐면… 수강하고 있는 과목의 팀프로젝트 주제를 <strong>‘따릉이 수요 예측’</strong>으로 잡았기 때문입니다.</p>
 
-<ul>
-  <li>abstractive summarization : contains words or phrases that <strong>were not in the original text…</strong>
-    <ul>
-      <li>paraphrasing와 유사</li>
-    </ul>
-  </li>
-  <li>extractive summarization : by copying and concatenating the most important spans in a document
-    <ul>
-      <li>중요한 문장을 copy &amp; paste 하는 것으로 서머리를 만듦.</li>
-    </ul>
-  </li>
-  <li>이 논문에서는 후자인 extractive summarization을 사용</li>
-</ul>
+<h1 id="download-data">Download Data</h1>
 
-<h2 id="data">Data</h2>
+<p>따릉이 데이터는 서울 열린데이터 광장에서 다운로드 받을 수 있습니다.</p>
 
-<ul>
-  <li>CNN/Dailymail</li>
-  <li>NYT</li>
-</ul>
+<p><img src="https://user-images.githubusercontent.com/48315997/99685707-3a017f80-2ac6-11eb-8d15-871ea26195e8.png" alt="image" /></p>
 
-<h2 id="method">Method</h2>
+<p>저는 이 중에서도 <a href="https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do">여기</a>에서 다운받았습니다.</p>
 
-<h3 id="encoding-multiple-sentences">Encoding Multiple Sentences</h3>
+<p><a href="https://data.seoul.go.kr/dataList/OA-15493/A/1/datasetView.do">참고</a>로 따릉이는 openAPI도 제공한다고 하네요.</p>
 
-<p><img src="https://user-images.githubusercontent.com/48315997/88408018-ef207580-ce0d-11ea-846f-ea3d451f8cc3.jpeg" alt="IMG_55CE1AC3669E-1" /></p>
-
-<ul>
-  <li><strong>insert a [CLS] token before each sentence and a [SEP] token after each sentence</strong>
-    <ul>
-      <li><em>In vanilla BERT, [CLS] is used as a symbol to aggregate features from one sentence or a pair of sentences.</em></li>
+<h2 id="써야되는-얘기">써야되는 얘기</h2>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />다운로드 받은 파일들 보여주기</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />인코딩 형식 cp949 -&gt; utf-8로 바꿨다는거, 그리고 한줄짜리 코드도 알려주기</li>
+  <li class="task-list-item">쥬피터랩/쥬피터노트북 열고
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />특정 지역구로 대여소 ID 가져오는 것 보여주기</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />시간별, 일별, 월별 그린 plot들 보여주기</li>
     </ul>
   </li>
 </ul>
-
-<h3 id="interval-segment-embeddings">Interval Segment Embeddings</h3>
-
-<ul>
-  <li>sent(i)를 홀수,짝수 순서에 따라 E(a) or E(b)로 segment embedding 한다.</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>sentence -&gt; [sent1,sent2,sent3,sent4,sent5]
-embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
-</code></pre></td></tr></tbody></table></div></div>
-
-<h3 id="fine-tuning-with-summarization-layers">Fine-tuning with Summarization Layers</h3>
-
-<ul>
-  <li>simple classifier : sigmoid function</li>
-  <li>inter-sentence transformer
-    <ul>
-      <li>extracting document-level features focusing on summarization tasks from the BERT outputs</li>
-      <li>공식에 layer normalization과 multi-head attention operation를 이용한다 하는데 MHAtt는 더 알아봐야할 듯함.</li>
-    </ul>
-  </li>
-  <li>Recurrent Neural Network
-    <ul>
-      <li>RNN이 더 좋게 만들 수 있음(왜지)</li>
-      <li>BERT output에 LSTM 레이러를 적용시켜서 summarization-specific features를 학습할 수 있도록 함.</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="results">Results</h2>
-
-<ul>
-  <li>ROUGE score 사용함</li>
-</ul>
-
-<p><img width="374" alt="스크린샷 2020-07-25 오전 12 37 36" src="https://user-images.githubusercontent.com/48315997/88408821-0b70e200-ce0f-11ea-9103-8a495d7475df.png" /></p>
-
 
 
       
@@ -560,16 +485,13 @@ embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
         <div class="post-tags">
           
             
-            <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
+            <a href="/tag/#/%EB%8D%B0%EC%9D%B4%ED%84%B0" rel="tag"># 데이터</a>
           
             
-            <a href="/tag/#/NLP" rel="tag"># NLP</a>
+            <a href="/tag/#/seaborn" rel="tag"># seaborn</a>
           
             
-            <a href="/tag/#/Text%20Summarization" rel="tag"># Text Summarization</a>
-          
-            
-            <a href="/tag/#/BERT" rel="tag"># BERT</a>
+            <a href="/tag/#/%EC%84%9C%EC%9A%B8%20%EC%97%B4%EB%A6%B0%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B4%91%EC%9E%A5" rel="tag"># 서울 열린 데이터 광장</a>
           
         </div>
       
@@ -585,18 +507,14 @@ embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/paper%20review/deep%20learning/nlp/2020/07/26/Text-Summarization-with-Pretrained-Encoders/" rel="next" title="Text Summarization with Pretrained Encoders">
-                <i class="fa fa-chevron-left"></i> Text Summarization with Pretrained Encoders
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/math/2020/07/24/Jacobian-Matrix/" rel="prev" title="Jacobian Matrix">
-                Jacobian Matrix <i class="fa fa-chevron-right"></i>
+              <a href="/paper%20review/deep%20learning/computer%20vision/2020/11/17/DETR/" rel="prev" title="DETR:End-to-End Object Detection with Transformers">
+                DETR:End-to-End Object Detection with Transformers <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -791,7 +709,7 @@ embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#fine-tune-bert-for-extractive-summarization"> <span class="nav-number">1</span> <span class="nav-text">Fine-tune BERT for Extractive Summarization</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#summarization의-종류"> <span class="nav-number">1.1</span> <span class="nav-text">Summarization의 종류</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#data"> <span class="nav-number">1.2</span> <span class="nav-text">Data</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#method"> <span class="nav-number">1.3</span> <span class="nav-text">Method</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#encoding-multiple-sentences"> <span class="nav-number">1.3.1</span> <span class="nav-text">Encoding Multiple Sentences</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#interval-segment-embeddings"> <span class="nav-number">1.3.2</span> <span class="nav-text">Interval Segment Embeddings</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#fine-tuning-with-summarization-layers"> <span class="nav-number">1.3.3</span> <span class="nav-text">Fine-tuning with Summarization Layers</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#results"> <span class="nav-number">1.4</span> <span class="nav-text">Results</span> </a> </li> </ol> </li>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#download-data"> <span class="nav-number">1</span> <span class="nav-text">Download Data</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#써야되는-얘기"> <span class="nav-number">1.1</span> <span class="nav-text">써야되는 얘기</span> </a> </li> </ol> </li>
     </ol>
   </div>
             
