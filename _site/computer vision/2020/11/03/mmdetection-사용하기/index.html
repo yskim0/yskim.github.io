@@ -1,0 +1,1090 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Deep Learning,Computer Vision,MMdetection,Mask R-CNN," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yeonsoo Kim's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 MMdetection toolkit을 설치해보고 학습까지 진행해보겠습니다.">
+<meta name="keywords" content="Deep Learning, Computer Vision, MMdetection, Mask R-CNN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MMDetection 사용하기">
+<meta property="og:url" content="http://localhost:4000/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+<meta property="og:site_name" content="Yeonsoo Kim's blog">
+<meta property="og:description" content="Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 MMdetection toolkit을 설치해보고 학습까지 진행해보겠습니다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/97955665-0f3ada00-1dea-11eb-93d6-a233996a32f8.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/97955738-3db8b500-1dea-11eb-9988-2a6afd19ec79.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/97955982-dbac7f80-1dea-11eb-9aa4-e7ff1a77c779.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/97957150-c71db680-1ded-11eb-88e2-3b503374e352.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/97957533-bf124680-1dee-11eb-93b9-a3b3921adbe6.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MMDetection 사용하기">
+<meta name="twitter:description" content="Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 MMdetection toolkit을 설치해보고 학습까지 진행해보겠습니다.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/97955665-0f3ada00-1dea-11eb-93d6-a233996a32f8.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>MMDetection 사용하기 | Yeonsoo Kim's blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-X7P416ZKCL', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yeonsoo Kim's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yeonsoo Kim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeonsoo Kim's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            MMDetection 사용하기
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-03T00:00:00+09:00">
+                2020-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Computer%20Vision" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Vision</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 <strong>MMdetection</strong> toolkit을 설치해보고 학습까지 진행해보겠습니다.</p>
+
+<hr />
+
+<p>저는 오늘부터 시작된 <a href="https://dacon.io/competitions/official/235672/overview/">K-Fashion AI 경진대회</a>에 참가합니다.</p>
+
+<p>이 대회는 제가 관심있는 분야인 <strong><em>컴퓨터 비전</em></strong> 대회라 관심을 가지게 되었고, 실제로 CV 관련 대회는 처음이니 배운다는 마음가짐으로 열심히 공부해보려 합니다.</p>
+
+<h1 id="mmdectection">MMdectection?</h1>
+
+<p>이 대회의 베이스라인을 참고하면서 <code class="language-plaintext highlighter-rouge">mmdetection</code> 이라는 것을 처음 알게 되었습니다. 
+논문도 있으니 시간 남을 때 봐야겠네요</p>
+
+<p>깃허브는 <a href="https://github.com/open-mmlab/mmdetection">여기</a>에 들어가면 되고, 리드미 파일에 mmdetection이 어떤 건지 나와있습니다.
+짧게 요약하자면,</p>
+
+<blockquote>
+  <p><strong>MMDetection</strong> is an open source object detection toolbox based on PyTorch.</p>
+</blockquote>
+
+<p>이라 하네요.</p>
+
+<p>object detection에서 다루는 다양한 모델들을 한 곳에 모아뒀다고 하니 정말 간편해보입니다. (이런 걸 이제 알게된 게 아쉬울 정도로…)</p>
+
+<p><a href="https://github.com/open-mmlab/mmdetection#benchmark-and-model-zoo">여기</a> 에 support 하는 모델들이 나열되어 있습니다.</p>
+
+<p>또한 버전 업데이트 및 유지보수도 굉장히 잘 되고 있다고 합니다!</p>
+
+<hr />
+
+<h1 id="installation">Installation</h1>
+
+<p>데이콘 베이스 라인을 보고 따라하는 것이므로 버전도 맞춰서 해봅니다.
+우선 mmdetection 깃허브 링크에 가서 브랜치를 <code class="language-plaintext highlighter-rouge">v2.3.0</code> 으로 이동합니다.</p>
+
+<p><a href="https://github.com/open-mmlab/mmdetection/tree/v2.3.0">바로 가기</a>
+<img src="https://user-images.githubusercontent.com/48315997/97955665-0f3ada00-1dea-11eb-93d6-a233996a32f8.png" alt="스크린샷 2020-11-03 오후 3 34 25" /></p>
+
+<p>README.md 를 조금 내리다 보면 <code class="language-plaintext highlighter-rouge">install.md</code> 로 넘어갈 수 있는 하이퍼링크가 있습니다.
+그걸 눌러 install.md로 이동합니다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/97955738-3db8b500-1dea-11eb-9988-2a6afd19ec79.png" alt="image" /></p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/97955982-dbac7f80-1dea-11eb-9aa4-e7ff1a77c779.png" alt="image" /></p>
+
+<p><strong>Requirements</strong> 잘 확인하시고, install mmdetection 순서대로 진행합니다.</p>
+
+<h3 id="1-가상환경-생성">1. 가상환경 생성</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>conda create -n 가상환경이름 python=3.7 -y
+conda activate 가상환경이름 
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>이렇게 가상 환경 생성하고 activate 시킵니다.</p>
+
+<h3 id="2-pytorch-torchvision-설치-버전-주의">2. pytorch, torchvision 설치 (버전 주의)</h3>
+
+<p>베이스라인 따라가려면 (즉, mmdetection version==2.3.0) torch version == <code class="language-plaintext highlighter-rouge">1.5.0</code> 이어야 합니다.
+pytorch를 원하는 이전 버전으로 설치해야 할 때 공식홈페이지에 커맨드가 다 나와있습니다. <a href="https://pytorch.org/get-started/previous-versions/">link</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>conda install pytorch==1.5.0 torchvision==0.6.0 -c pytorch
+</code></pre></td></tr></tbody></table></div></div>
+
+<h3 id="3-mmdetection-repo-clone">3. MMdetection repo. clone</h3>
+
+<p>mmdetection 레포지터리를 clone 해야 합니다.
+이 때도 이 도큐먼트와 다르게 주의해야 할 점이 있습니다. 앞서 말했듯이 저는 베이스라인 따라 branch == v2.3.0으로 이동했습니다. 이 브랜치에 해당되는 버전으로 git clone 해야 합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>git clone --branch v2.3.0 https://github.com/open-mmlab/mmdetection.git
+</code></pre></td></tr></tbody></table></div></div>
+
+<h3 id="4-requirements-설치">4. Requirements 설치</h3>
+
+<p>우선 클론한 디렉토리로 갑니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>cd ./mmdetection
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>저와 같이 다른 사람들과 같이 쓰는 서버를 쓰시는 환경이라면 마음대로 패키지/라이버리를 다운 받았을 때 충돌될 가능성이 있습니다.</p>
+
+<p><strong>그래서 이 requirements 들을 가상 환경 내에 설치해야 합니다.</strong>
+현재 가상환경의 절대 주소를 모르시면, 터미널에</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>conda env list
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>를 치시면 가상환경 이름 뒤에 경로가 나옵니다.
+그 path를 copy 해두세요.
+가상환경의 경로를 {PATH}라고 가정하고 적어보겠습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>{PATH}/bin/pip install -r requirements/build.txt
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>이렇게 하면 requirements가 잘 설치될 것입니다.</p>
+
+<h3 id="5-set-up">5. Set up</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>pip install -v -e .  # or "python setup.py develop"
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>앞에 명령어 해보고 안되면 <code class="language-plaintext highlighter-rouge">python setup.py develop</code> 하시면 됩니다.</p>
+
+<p>(저 같은 경우는 <code class="language-plaintext highlighter-rouge">pip install -v -e .</code> 했을 때 안됐어서 <code class="language-plaintext highlighter-rouge">python setup.py develop</code> 명령어 해서 정상 설치 됐습니다.)</p>
+
+<hr />
+
+<h1 id="training-하기-전-준비-해야-할-것들">Training 하기 전 준비 해야 할 것들</h1>
+
+<h3 id="1-dataset-관련">1. Dataset 관련</h3>
+
+<p><code class="language-plaintext highlighter-rouge">mmdetection/mmdet/datasets</code> 에서 데이터셋에 대한 기본 설정을 할 수 있습니다.
+<code class="language-plaintext highlighter-rouge">custom.py</code> 로 직접 personal 한 설정을 할 수 있겠지만 이 대회는 <code class="language-plaintext highlighter-rouge">coco.py</code> 에서 설정된 것에서 크게 벗어나지 않아 이대로 사용해도 된다고 합니다.</p>
+
+<p>그래서 <code class="language-plaintext highlighter-rouge">coco.py</code> 에서 미리 설정된 CLASSES 들을 이 대회에서 쓰일 클래스로 바꾸겠습니다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/97957150-c71db680-1ded-11eb-88e2-3b503374e352.png" alt="image" /></p>
+
+<p>또한, mmdetection의 경우 train/test 폴더가 한 곳에 flatten 하게 존재해야 한다고 합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/train/a/*.jpg</code> 이런 형태가 아닌 <code class="language-plaintext highlighter-rouge">/train/a_*.jpg</code> 이런 식으로요.</p>
+
+<p>이건 파이썬 코드로 쉽게 수정 가능하니 잊지 않고 하시길 바립니다.</p>
+
+<h3 id="2-training-options">2. training options</h3>
+
+<p>트레이닝할 때 필요한 기본 옵션들을 <code class="language-plaintext highlighter-rouge">mmdetection/config/_base_/default_runtime.py</code> 에서 가능합니다.</p>
+
+<p>이 config는 우선 베이스라인 코드에서 제공한 것을 붙여 써서 지금 제 환경에 맞게 조금씩 고쳤습니다. (data root, gpu 개수, epoch 등)</p>
+
+<p>자세한 건 <a href="https://github.com/dacon-ai/K-fashion-baseline/blob/master/configs/_base_/default_runtime.py">여기</a>를 참고해주세요.</p>
+
+<p>train/test set 경로 등등 잘 설정하고 나면 바로 학습 시작 가능합니다.</p>
+
+<hr />
+
+<h1 id="training-">Training !</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>python tools/train.py configs/_base_/default_runtime.py
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>이걸 치시면 config로 해놨던 설정들이 주루룩 뜨면서 학습이 시작됩니다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/97957533-bf124680-1dee-11eb-93b9-a3b3921adbe6.png" alt="image" /></p>
+
+<hr />
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<h3 id="attributeerror-coco-object-has-no-attribute-get_cat_ids">AttributeError: ‘COCO’ object has no attribute ‘get_cat_ids’</h3>
+
+<p><code class="language-plaintext highlighter-rouge">pycocotools</code> 관련 오류입니다.</p>
+
+<p>저같은 경우에는</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code>{PATH}/bin/pip install "git+https://github.com/open-mmlab/
+
+cocoapi.git#subdirectory=pycocotools"
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>로 해결했습니다.</p>
+
+<h3 id="modulenotfounderror-no-module-named-mmcv_ext">ModuleNotFoundError: No module named ‘mmcv._ext’</h3>
+
+<p>mmcv가 제대로 설치되지 않은 경우입니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>{PATH}/bin pip uninstall mmcv
+{PATH}/bin pip install mmcv-full==1.0.5
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>저는 이렇게 해결했습니다.</p>
+
+<hr />
+
+<h1 id="reference">Reference</h1>
+
+<p><a href="https://www.youtube.com/watch?v=UEu73ew7mSY&amp;feature=youtu.be&amp;ab_channel=%EB%8D%B0%EC%9D%B4%EC%BD%98">데이콘 베이스라인</a></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
+          
+            
+            <a href="/tag/#/Computer%20Vision" rel="tag"># Computer Vision</a>
+          
+            
+            <a href="/tag/#/MMdetection" rel="tag"># MMdetection</a>
+          
+            
+            <a href="/tag/#/Mask%20R-CNN" rel="tag"># Mask R-CNN</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/paper%20review/2020/11/17/DETR/" rel="next" title="DETR:End-to-End Object Detection with Transformers">
+                <i class="fa fa-chevron-left"></i> DETR:End-to-End Object Detection with Transformers
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/paper%20review/2020/10/31/ViT/" rel="prev" title="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)">
+                An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Yeonsoo Kim" />
+          <p class="site-author-name" itemprop="name">Yeonsoo Kim</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/yskim0" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="wx12348@gmail.com">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wx12348@gmail.com
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#mmdectection"> <span class="nav-number">1</span> <span class="nav-text">MMdectection?</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#installation"> <span class="nav-number">2</span> <span class="nav-text">Installation</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#1-가상환경-생성"> <span class="nav-number">2.1</span> <span class="nav-text">1. 가상환경 생성</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#2-pytorch-torchvision-설치-버전-주의"> <span class="nav-number">2.2</span> <span class="nav-text">2. pytorch, torchvision 설치 (버전 주의)</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#3-mmdetection-repo-clone"> <span class="nav-number">2.3</span> <span class="nav-text">3. MMdetection repo. clone</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#4-requirements-설치"> <span class="nav-number">2.4</span> <span class="nav-text">4. Requirements 설치</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#5-set-up"> <span class="nav-number">2.5</span> <span class="nav-text">5. Set up</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#training-하기-전-준비-해야-할-것들"> <span class="nav-number">3</span> <span class="nav-text">Training 하기 전 준비 해야 할 것들</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#1-dataset-관련"> <span class="nav-number">3.1</span> <span class="nav-text">1. Dataset 관련</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#2-training-options"> <span class="nav-number">3.2</span> <span class="nav-text">2. training options</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#training-"> <span class="nav-number">4</span> <span class="nav-text">Training !</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#troubleshooting"> <span class="nav-number">5</span> <span class="nav-text">Troubleshooting</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#attributeerror-coco-object-has-no-attribute-get_cat_ids"> <span class="nav-number">5.1</span> <span class="nav-text">AttributeError: ‘COCO’ object has no attribute ‘get_cat_ids’</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#modulenotfounderror-no-module-named-mmcv_ext"> <span class="nav-number">5.2</span> <span class="nav-text">ModuleNotFoundError: No module named ‘mmcv._ext’</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#reference"> <span class="nav-number">6</span> <span class="nav-text">Reference</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yeonsoo Kim</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+

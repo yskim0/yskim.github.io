@@ -1,32 +1,283 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-20T00:25:29+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">따릉이 데이터 가져오기 (서울 열린데이터 광장)</title><link href="http://localhost:4000/data%20analysis/2020/11/19/ddareung/" rel="alternate" type="text/html" title="따릉이 데이터 가져오기 (서울 열린데이터 광장)" /><published>2020-11-19T00:00:00+09:00</published><updated>2020-11-19T00:00:00+09:00</updated><id>http://localhost:4000/data%20analysis/2020/11/19/ddareung</id><content type="html" xml:base="http://localhost:4000/data%20analysis/2020/11/19/ddareung/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;서울 열린데이터 광장&lt;/code&gt;에서 제공하는 서울시 공공자전거인 ‘따릉이’의 이용 현황 데이터를 열어보고 간단한 plot들을 그려보겠습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-25T21:58:36+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)</title><link href="http://localhost:4000/paper%20review/2020/12/25/DCGAN/" rel="alternate" type="text/html" title="Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)" /><published>2020-12-25T00:00:00+09:00</published><updated>2020-12-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/25/DCGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/25/DCGAN/">&lt;p&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;안녕하세요. 오늘은 서울시 공공자전거인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;따릉이&lt;/code&gt;의 대여건수 데이터를 한 번 열어보려고 합니다.&lt;/p&gt;
+&lt;h1 id=&quot;unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks-dcgan&quot;&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)&lt;/h1&gt;
 
-&lt;p&gt;갑자기 왜 따릉이냐면… 수강하고 있는 과목의 팀프로젝트 주제를 &lt;strong&gt;‘따릉이 수요 예측’&lt;/strong&gt;으로 잡았기 때문입니다.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;download-data&quot;&gt;Download Data&lt;/h1&gt;
+&lt;p&gt;GAN은 Representation Learning에 효과적이라고 합니다. (본 논문에서는 이것이 GAN의 learning process와 관련이 있고, lack of heuristic cost function 덕분이라고 말합니다.)&lt;/p&gt;
 
-&lt;p&gt;따릉이 데이터는 서울 열린데이터 광장에서 다운로드 받을 수 있습니다.&lt;/p&gt;
+&lt;p&gt;그럼에도 불구하고 처음 나온 GAN은 학습하는 것에 있어 매우 &lt;strong&gt;unstable&lt;/strong&gt;하다는 문제점을 가지고 있었습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/99685707-3a017f80-2ac6-11eb-8d15-871ea26195e8.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;본 논문의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DCGAN&lt;/code&gt;은 해당 문제점 해결을 포함하여 총 4가지의 Contributions로 정리할 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;저는 이 중에서도 &lt;a href=&quot;https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do&quot;&gt;여기&lt;/a&gt;에서 다운받았습니다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;DCGAN은 stable training이 가능하다&lt;/li&gt;
+  &lt;li&gt;학습된 Discriminator는 image classification 태스크에 사용이 가능하다. (다른 unsupervised 알고리즘들과 비교할 것임.)&lt;/li&gt;
+  &lt;li&gt;GAN이 학습한 filters를 시각화할 수 있고, 특정 오브젝트에 대해 특정 filter를 학습했다는 점을 보여줄 수 있다.&lt;/li&gt;
+  &lt;li&gt;Generator는 vector arithmetic properties를 가지고 있다.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://data.seoul.go.kr/dataList/OA-15493/A/1/datasetView.do&quot;&gt;참고&lt;/a&gt;로 따릉이는 openAPI도 제공한다고 하네요.&lt;/p&gt;
+&lt;h2 id=&quot;approach-and-model-architecture&quot;&gt;APPROACH AND MODEL ARCHITECTURE&lt;/h2&gt;
 
-&lt;h2 id=&quot;써야되는-얘기&quot;&gt;써야되는 얘기&lt;/h2&gt;
-&lt;ul class=&quot;task-list&quot;&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;다운로드 받은 파일들 보여주기&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;인코딩 형식 cp949 -&amp;gt; utf-8로 바꿨다는거, 그리고 한줄짜리 코드도 알려주기&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;쥬피터랩/쥬피터노트북 열고
-    &lt;ul class=&quot;task-list&quot;&gt;
-      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;특정 지역구로 대여소 ID 가져오는 것 보여주기&lt;/li&gt;
-      &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;시간별, 일별, 월별 그린 plot들 보여주기&lt;/li&gt;
+&lt;p&gt;&lt;img width=&quot;705&quot; alt=&quot;스크린샷 2020-12-25 오후 5 31 03&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103127996-f73f5280-46d6-11eb-9936-996a9ae0e84f.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;우선 DCGAN이 기존의 GAN과 architecture 측면에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;어떻게&lt;/code&gt; 달랐기에 큰 성과를 이룰 수 있었는지 살펴보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;DCGAN이 나오기 전까지에도 CNN을 이용한 GAN을 만드는 시도는 계속 있었습니다. 하지만 이 시도들은 모두 성공적이지 못했죠.&lt;/p&gt;
+
+&lt;p&gt;DCGAN은 &lt;strong&gt;CNN Architecture에서의 최신 변화(?) 3가지를 적용&lt;/strong&gt;하여 성공하였습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;all-convolutional-net-사용&quot;&gt;All Convolutional Net 사용&lt;/h3&gt;
+
+&lt;p&gt;우선 가장 큰 변화점은 &lt;a href=&quot;https://arxiv.org/abs/1412.6806&quot;&gt;Striving for Simplicity: The All Convolutional Net&lt;/a&gt; 을 참고하여 All Convoultional Net을 사용했다는 점입니다.&lt;/p&gt;
+
+&lt;p&gt;All conv. net은 &lt;strong&gt;pooling functions(예를 들어, max pooling)를 strided conv. 으로 바꾼 네트워크 구조&lt;/strong&gt;입니다. Max pooling은 미분되지 않는 성질을 가진다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;이 네트워크 구조를 통해 Generator와 Discriminator 모두 자신들의 spatial downsampling을 학습하기에 적합해집니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;eliminating-fully-connected-layersfc-layers-on-top-of-convolutional-features&quot;&gt;Eliminating fully connected layers(FC layers) on top of convolutional features&lt;/h3&gt;
+
+&lt;p&gt;이 시점 trend는 마지막에 FC layer를 제거하고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global average pooling&lt;/code&gt;를 쓰는 방식이었다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;다만, 이 global average pooling은 &lt;strong&gt;모델의 안정성은 올리는 반면에 convergence speed는 떨어뜨리는&lt;/strong&gt; trade-off 관계를 가지고 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;batch-norm--relu-activation&quot;&gt;Batch Norm &amp;amp; ReLU activation&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Batch Normalization&lt;/strong&gt;는 학습을 안정화시킬 수 있는 방법 중 하나입니다. (normalizing the input to each unit to have zero mean and unit variance)&lt;/p&gt;
+
+&lt;p&gt;이것은 학습 문제점 중 하나인 initialization과 deep model의 gradient flow에 큰 도움을 줄 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;하지만, 모든 layer에 BN을 적용시키는 것은 아닙니다.&lt;/strong&gt; Generator의 output layer와 Discriminator의 input layer에는 BN을 적용시키지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;마지막으로 &lt;strong&gt;ReLU를 사용했다&lt;/strong&gt;는 점이 언급되어 있는데, Generator와 Discriminator에 적용되는 function이 약간 다릅니다.&lt;/p&gt;
+
+&lt;p&gt;Generator에는 기본적으로 ReLU를 사용하지만, output layer에는 따로 ReLU가 아닌 Tanh function을 적용시킵니다.&lt;/p&gt;
+
+&lt;p&gt;Discriminator에는 Leaky ReLU를 적용합니다.&lt;/p&gt;
+
+&lt;p&gt;(여러 실험 결과 이 functions들이 좋은 성능을 냈기 때문이겠죠? 확실한 이유, 논증은 모르겠습니다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;details-of-adversarial-training&quot;&gt;DETAILS OF ADVERSARIAL TRAINING&lt;/h2&gt;
+
+&lt;p&gt;DCGAN은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LSUN, FACES, IMAGENET-1K&lt;/code&gt; 데이터셋에 대하여 학습하였습니다.&lt;/p&gt;
+
+&lt;p&gt;training setting(parameters, …)에 대해서는 논문을 참고해주시고, 위 데이터셋 중 LSUN에 대해서만 알아보겠습니다 :)&lt;/p&gt;
+
+&lt;h3 id=&quot;lsun&quot;&gt;LSUN&lt;/h3&gt;
+
+&lt;p&gt;LSUN은 &lt;em&gt;Large-scale Scene Understanding&lt;/em&gt;의 줄임말로, bedroom 사진들을 모은 데이터 셋입니다.&lt;/p&gt;
+
+&lt;p&gt;이 데이터셋을 가지고 학습시킨 모델로 생성된 이미지는 quality가 상당히 향상되었습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 이것이 &lt;strong&gt;over-fitting이 되어 이렇게 된 것인지, 학습 데이터셋에 대하여 기억(memorization)하여 만들어진 것인지&lt;/strong&gt;에 대해 판별해봐야 합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;overfitting?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;스크린샷 2020-12-25 오후 5 45 38&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103128506-00c9ba00-46d9-11eb-8b7a-e144208bbfe8.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;본 논문의 Fig.2 와 Fig.3을 통해 모델이 오히려 &lt;strong&gt;underfitting&lt;/strong&gt; 되어있음을 얘기합니다.&lt;/p&gt;
+
+&lt;p&gt;underfitting이 이루어졌다고 여기는 이유는 아직 noise texture가 눈에 보이기 때문이라고 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(엄청 가까이 보지 않는 이상은 잘 느끼지 못하겠는데 말이죠.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;memorization?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사실 이게 가장 중요한 부분이라고 볼 수 있습니다. 새로 generate 하는 image가 사실 학습 데이터에서 기억(memorize)하여 만들어진 것이라면, &lt;strong&gt;진정한 의미의 Generate가 아니니깐요.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이에 대해서 본 논문의 저자들은 memorize하는 가능성을 줄이기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image de-duplication process&lt;/code&gt;(중복 제거 프로세스)를 거칩니다.&lt;/p&gt;
+
+&lt;p&gt;de-duplication을 하기 위해 autoencoder를 하나 만듭니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We fit a 3072-128-3072 de-noising dropout regularized RELU autoencoder on 32x32 downsampled center-crops of training examples.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;empirical-validation-of-dcgans-capabilities&quot;&gt;EMPIRICAL VALIDATION OF DCGANs CAPABILITIES&lt;/h2&gt;
+
+&lt;p&gt;맨 처음에 이 논문의 contributions 중 하나로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;학습된 Discriminator는 image classification 태스크에 사용이 가능하다&lt;/code&gt; 라고 얘기했었죠?&lt;/p&gt;
+
+&lt;p&gt;이 목차에서는 정말 DCGAN이 &lt;strong&gt;feature extractor&lt;/strong&gt;로써의 역할이 가능한가, 그래서 CIFAR-10 데이터셋에 대해서도 &lt;strong&gt;classification task&lt;/strong&gt;를 잘 수행하는가를 확인해봅니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;696&quot; alt=&quot;스크린샷 2020-12-25 오후 6 03 36&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103129277-8484a600-46db-11eb-9e0f-de26d03694d4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;결론적으로, 다른 unsupervised 알고리즘은 K-means model들보다 우수한 성능을 보였습니다. (Exemplar CNN 모델보다는 좀 못 미치지만요.)&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;542&quot; alt=&quot;스크린샷 2020-12-25 오후 6 05 55&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103129364-d6c5c700-46db-11eb-8f7b-388b5ae3128b.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;추가적으로 SVHN Digits 데이터셋에 대해서도 실험을 해보았습니다. test error 측면에서 SOTA를 달성하는 쾌거를 이루었습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;investigating-and-visualizing-the-internals-of-the-networks&quot;&gt;INVESTIGATING AND VISUALIZING THE INTERNALS Of THE NETWORKS&lt;/h2&gt;
+
+&lt;p&gt;또 다른 contributions으로  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GAN이 학습한 filters를 시각화할 수 있고, 특정 오브젝트에 대해 특정 filter를 학습했다는 점을 보여줄 수 있다&lt;/code&gt; 와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Generator는 vector arithmetic properties를 가지고 있다&lt;/code&gt; 가 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;이 목차에서는 두 부분에 대해 설명할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;walking-in-the-latent-space&quot;&gt;Walking in the Latent Space&lt;/h3&gt;
+
+&lt;p&gt;latent space를 변경했을 때 sharp transitions(급작스러운 변화)가 있으면 이는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;memorization&lt;/code&gt;이 일어났다는 신호일 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;반대로 부드러운 변화가 일어나면 memorization이 된 것이 아니라 제대로 학습이 되었다고 볼 수 있죠.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/103134579-83607280-46f5-11eb-800b-b4d5ea21bdad.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 사진을 보시면 DCGAN의 경우 sharp transition이 아닌 smooth한 변화가 이루어졌음을 볼 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;visualizing-the-discriminator-features&quot;&gt;Visualizing the Discriminator Features&lt;/h3&gt;
+
+&lt;p&gt;이 내용에서는 Guided backpropagation을 통해 GAN이 학습한 filters를 시각화할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;696&quot; alt=&quot;스크린샷 2020-12-25 오후 9 17 38&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103134734-9f184880-46f6-11eb-9639-d0eb9878e74a.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;discriminator가 feature들을 학습해서, 특정 파트(bed, windows,…)들에 대하여 active 하고 있음을 볼 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;manipulating-the-generator-representation&quot;&gt;Manipulating the Generator Representation&lt;/h3&gt;
+
+&lt;h4 id=&quot;forgetting-to-draw-certain-objects&quot;&gt;Forgetting to Draw Certain Objects&lt;/h4&gt;
+
+&lt;p&gt;이건 매우 재미있는 실험입니다.&lt;/p&gt;
+
+&lt;p&gt;간단하게 요약하자면, Generator가 무슨 representation을 학습했는지 알아보기 위하여 특정 filter(여기서는 window filter)를 삭제해봅니다.&lt;/p&gt;
+
+&lt;p&gt;즉, Window라는 object를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Forget&lt;/code&gt; 하게 되는 것이죠.(기술적으로는 window filter를 dropout 시킨다고 말할 수 있습니다.)&lt;/p&gt;
+
+&lt;p&gt;결과적으로 이 실험에서는 창문이 아닌 다른 representations, objects가 들어가게 됩니다!&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;684&quot; alt=&quot;스크린샷 2020-12-25 오후 9 22 03&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103134811-3da4a980-46f7-11eb-8d95-b990a0a18601.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 결과를 보면 아시다시피, 창문이었던 것이 문으로 바뀌는 등 다른 object를 생성합니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;vector-arithmetic-on-face-samples&quot;&gt;Vector Arithmetic On Face Samples&lt;/h4&gt;
+
+&lt;p&gt;많은 분들이 가장 재밌어하실(?) 부분인 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;word embedding 관련해서 vector(“King”) - vector(“Man”) + vector(“Woman”)가 vector(“Queen”)의 결과가 나오듯이, DCGAN에서도 이와 비슷한 &lt;strong&gt;arithmetic한 연산이 가능하다&lt;/strong&gt;고 밝혔습니다.&lt;/p&gt;
+
+&lt;p&gt;Generator의 input인 Z vector에 대한 arithmetic operation을 하는데, single sample로는 불안정하여 3개의 Z vector를 평균한 값을 사용한다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;580&quot; alt=&quot;스크린샷 2020-12-25 오후 9 36 16&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103135086-3a122200-46f9-11eb-931d-7d737e8c5ed1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;smiling woman - neutral woman + neutral man = smiling man 이미지가 만들어지는 마법같은 기술을 보실 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;앞서 말했다시피 3개의 Z vector를 average하여 새로운 Y벡터를 만든 것도 확인해볼 수 있죠.&lt;/p&gt;
+
+&lt;p&gt;이게 다가 아닙니다. &lt;strong&gt;face pose&lt;/strong&gt; 또한 Z space에 선형적으로 모델링할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;557&quot; alt=&quot;스크린샷 2020-12-25 오후 9 38 01&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103135120-780f4600-46f9-11eb-8d7e-8d723c10e439.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;바로 이렇게 말이죠. 
+이미 이전부터 scale, rotation, position에 대하여 conditional generative model은 학습할 수 있다고 연구되어왔습니다. 하지만 이 연구는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;purely unsupervised model&lt;/code&gt; 이라는 점에서 큰 변환점이 된 것이죠.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;future-work&quot;&gt;FUTURE WORK&lt;/h2&gt;
+
+&lt;p&gt;사실 stablity를 완전히 해결한 것은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;DCGAN을 오랫동안 학습하게 되면 collapse mode, oscillating mode가 발생할 수 있습니다. 아직도 &lt;strong&gt;불안정성&lt;/strong&gt;이 남은 것이죠.&lt;/p&gt;
+
+&lt;p&gt;그래서 이 논문에서는 해당 문제점을 Future work로 남기고 마무리하였습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jaejunyoo.blogspot.com/2017/02/deep-convolutional-gan-dcgan-1.html_&quot;&gt;Jaejun Yoo’s Playground&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;DCGAN도 읽었으니, 구현도 해보고 후속 논문들도 찬찬히 읽어보려고 합니다.
+긴 글 읽어주셔서 감사합니다 :)&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT)</title><link href="http://localhost:4000/paper%20review/2020/12/22/MUNIT/" rel="alternate" type="text/html" title="Multimodal Unsupervised Image-to-Image Translation (MUNIT)" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/MUNIT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/MUNIT/">&lt;p&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;multimodal-unsupervised-image-to-image-translation-munit&quot;&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT)&lt;/h1&gt;
+
+&lt;h2 id=&quot;keywords--gan-image-to-image-translation-style-transfer&quot;&gt;Keywords : GAN, Image-to-Image translation, style transfer&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;image representation = content code + style code
+    &lt;ul&gt;
+      &lt;li&gt;content code : domain invariant&lt;/li&gt;
+      &lt;li&gt;style code : domain specific&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="데이터" /><category term="seaborn" /><category term="서울 열린 데이터 광장" /><summary type="html">서울 열린데이터 광장에서 제공하는 서울시 공공자전거인 ‘따릉이’의 이용 현황 데이터를 열어보고 간단한 plot들을 그려보겠습니다.</summary></entry><entry><title type="html">DETR:End-to-End Object Detection with Transformers</title><link href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/11/17/DETR/" rel="alternate" type="text/html" title="DETR:End-to-End Object Detection with Transformers" /><published>2020-11-17T00:00:00+09:00</published><updated>2020-11-17T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/11/17/DETR</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/11/17/DETR/">&lt;p&gt;DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;657&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791653-adaaeb00-43ea-11eb-9dd6-fc7d4e6c6e6e.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Image Translation == Recombine its content code with a random style code
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random style code&lt;/code&gt; : style space of the target domain&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;651&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 23&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791642-a5eb4680-43ea-11eb-8ea5-8af9ebc97f17.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;auto-encoder-architecture&quot;&gt;Auto-encoder Architecture&lt;/h3&gt;
+
+&lt;p&gt;&lt;img width=&quot;624&quot; alt=&quot;스크린샷 2020-12-22 오전 12 19 33&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102792116-61ac7600-43eb-11eb-8a7b-3f4cc735c0f1.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><category term="Domain Adaptation" /><category term="Style Transfer" /><category term="Image-to-Image Translation" /><summary type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation</title><link href="http://localhost:4000/paper%20review/2020/12/22/intraDA/" rel="alternate" type="text/html" title="Unsupervised Intra-domain Adaptation for Semantic Segmentation" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/intraDA</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/intraDA/">&lt;p&gt;Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;unsupervised-intra-domain-adaptation-for-semantic-segmentation&quot;&gt;Unsupervised Intra-domain Adaptation for Semantic Segmentation&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;automatically annotated data&lt;/code&gt; has a problem.
+    &lt;ul&gt;
+      &lt;li&gt;synthetic data -&amp;gt; real data&lt;/li&gt;
+      &lt;li&gt;directly adapting models from the source data to the unlabeled target data (to reduce the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inter-domain gap&lt;/code&gt;)&lt;/li&gt;
+      &lt;li&gt;But result? ==&amp;gt; bad :(
+        &lt;ul&gt;
+          &lt;li&gt;there is the large distribution gap among the target data itself(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;intra-domain gap&lt;/code&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;approach&quot;&gt;Approach&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;300&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102793576-7984f980-43ed-11eb-8cbe-ca0d2986d14e.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;595&quot; alt=&quot;스크린샷 2020-12-22 오전 12 44 17&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102794504-d3d28a00-43ee-11eb-9b61-4eb50fde5d1d.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;two-step self-supervised domain adaptation approach to minimize the inter-domain and intra-domain gap together.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;inter-domain gap&lt;/dt&gt;
+      &lt;dd&gt;separate the target domain into an easy &amp;amp; hard split (using entropy-based ranking function)&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;intra-domain gap&lt;/dt&gt;
+      &lt;dd&gt;self-supervised adaption from the easy to hard split&lt;/dd&gt;
+    &lt;/dl&gt;
+    &lt;ul&gt;
+      &lt;li&gt;segmentation predictions of easy split data (from G_inter) =&amp;gt; pseudo labels 로 사용&lt;/li&gt;
+      &lt;li&gt;Given easy split data &amp;amp; pseudo labels, hard split data =&amp;gt; D_intra는 easy? hard? 판별&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;698&quot; alt=&quot;스크린샷 2020-12-22 오전 12 46 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102794749-26ac4180-43ef-11eb-853c-45c2e9a5cfd4.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Domain Adaptation" /><category term="GAN" /><category term="Semantic Segmentation" /><summary type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.</summary></entry><entry><title type="html">DETR:End-to-End Object Detection with Transformers</title><link href="http://localhost:4000/paper%20review/2020/11/17/DETR/" rel="alternate" type="text/html" title="DETR:End-to-End Object Detection with Transformers" /><published>2020-11-17T00:00:00+09:00</published><updated>2020-11-17T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/11/17/DETR</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/11/17/DETR/">&lt;p&gt;DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -323,7 +574,7 @@ H,W를 다 합쳐서 spatial dimensions of d x HW로 만들어준다.
   &lt;li&gt;&lt;a href=&quot;https://keyog.tistory.com/32&quot;&gt;인간지능이 인공지능을 공부하는 장소&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://kp1994.tistory.com/15&quot;&gt;KP’s blog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=lXpBcW_I54U&amp;amp;feature=youtu.be&amp;amp;fbclid=IwAR25dYNnKxCsN5apneKrmPus-umovk7fziMedDQMqBfhg28eaBj6u-tRxzI&amp;amp;ab_channel=JinWonLee&quot;&gt;TF 논문 읽기 모임 PR-284&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Object Detection" /><category term="Encoder-Decoder" /><category term="Transformer" /><category term="Panoptic Segmentation" /><category term="DETR" /><category term="ViT" /><summary type="html">DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">MMDetection 사용하기</title><link href="http://localhost:4000/deep%20learning/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="MMDetection 사용하기" /><published>2020-11-03T00:00:00+09:00</published><updated>2020-11-03T00:00:00+09:00</updated><id>http://localhost:4000/deep%20learning/computer%20vision/2020/11/03/mmdetection%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/deep%20learning/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">&lt;p&gt;Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 &lt;strong&gt;MMdetection&lt;/strong&gt; toolkit을 설치해보고 학습까지 진행해보겠습니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Object Detection" /><category term="Encoder-Decoder" /><category term="Transformer" /><category term="Panoptic Segmentation" /><category term="DETR" /><category term="ViT" /><summary type="html">DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">MMDetection 사용하기</title><link href="http://localhost:4000/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="MMDetection 사용하기" /><published>2020-11-03T00:00:00+09:00</published><updated>2020-11-03T00:00:00+09:00</updated><id>http://localhost:4000/computer%20vision/2020/11/03/mmdetection%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">&lt;p&gt;Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 &lt;strong&gt;MMdetection&lt;/strong&gt; toolkit을 설치해보고 학습까지 진행해보겠습니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -496,7 +747,7 @@ cocoapi.git#subdirectory=pycocotools&quot;
 
 &lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=UEu73ew7mSY&amp;amp;feature=youtu.be&amp;amp;ab_channel=%EB%8D%B0%EC%9D%B4%EC%BD%98&quot;&gt;데이콘 베이스라인&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="MMdetection" /><category term="Mask R-CNN" /><summary type="html">Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 MMdetection toolkit을 설치해보고 학습까지 진행해보겠습니다.</summary></entry><entry><title type="html">An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)</title><link href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT/" rel="alternate" type="text/html" title="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)" /><published>2020-10-31T00:00:00+09:00</published><updated>2020-10-31T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/10/31/ViT/">&lt;p&gt;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=UEu73ew7mSY&amp;amp;feature=youtu.be&amp;amp;ab_channel=%EB%8D%B0%EC%9D%B4%EC%BD%98&quot;&gt;데이콘 베이스라인&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="MMdetection" /><category term="Mask R-CNN" /><summary type="html">Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 MMdetection toolkit을 설치해보고 학습까지 진행해보겠습니다.</summary></entry><entry><title type="html">An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)</title><link href="http://localhost:4000/paper%20review/2020/10/31/ViT/" rel="alternate" type="text/html" title="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)" /><published>2020-10-31T00:00:00+09:00</published><updated>2020-10-31T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/10/31/ViT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/10/31/ViT/">&lt;p&gt;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -664,7 +915,7 @@ cocoapi.git#subdirectory=pycocotools&quot;
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;p&gt;(References for your additional studies)&lt;/p&gt;
 
-&lt;p&gt;https://jeonsworld.github.io/vision/vit/&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Transformer" /><summary type="html">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks</title><link href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN/" rel="alternate" type="text/html" title="StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/20/StyleGAN/">&lt;p&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;p&gt;https://jeonsworld.github.io/vision/vit/&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Transformer" /><summary type="html">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks</title><link href="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/" rel="alternate" type="text/html" title="StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/20/StyleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/">&lt;p&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -874,7 +1125,7 @@ cocoapi.git#subdirectory=pycocotools&quot;
   &lt;li&gt;https://towardsdatascience.com/explained-a-style-based-generator-architecture-for-gans-generating-and-tuning-realistic-6cb2be0f431&lt;/li&gt;
   &lt;li&gt;https://jayhey.github.io/deep%20learning/2019/01/16/style_based_GAN_2/&lt;/li&gt;
   &lt;li&gt;https://blog.lunit.io/2019/02/25/a-style-based-generator-architecture-for-generative-adversarial-networks/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">HarDNet:A Low Memory Traffic network</title><link href="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/11/HarDNet/" rel="alternate" type="text/html" title="HarDNet:A Low Memory Traffic network" /><published>2020-09-11T00:00:00+09:00</published><updated>2020-09-11T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/11/HarDNet</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/computer%20vision/2020/09/11/HarDNet/">&lt;p&gt;HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">HarDNet:A Low Memory Traffic network</title><link href="http://localhost:4000/paper%20review/2020/09/11/HarDNet/" rel="alternate" type="text/html" title="HarDNet:A Low Memory Traffic network" /><published>2020-09-11T00:00:00+09:00</published><updated>2020-09-11T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/11/HarDNet</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/11/HarDNet/">&lt;p&gt;HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1133,7 +1384,7 @@ cocoapi.git#subdirectory=pycocotools&quot;
       &lt;li&gt;which might be counter-intuitive to the widely-accepted knowledge of that using more Conv1x1 achieves a higher efficiency.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Neural Architecture Search With Reinforcement Learning</title><link href="http://localhost:4000/paper%20review/deep%20learning/reinforcement%20learning/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/" rel="alternate" type="text/html" title="Neural Architecture Search With Reinforcement Learning" /><published>2020-08-29T00:00:00+09:00</published><updated>2020-08-29T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/reinforcement%20learning/2020/08/29/NEURAL%20ARCHITECTURE%20SEARCH%20WITH%20REINFORCEMENT%20LEARNING</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/reinforcement%20learning/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/">&lt;p&gt;Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Neural Architecture Search With Reinforcement Learning</title><link href="http://localhost:4000/paper%20review/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/" rel="alternate" type="text/html" title="Neural Architecture Search With Reinforcement Learning" /><published>2020-08-29T00:00:00+09:00</published><updated>2020-08-29T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/08/29/NEURAL%20ARCHITECTURE%20SEARCH%20WITH%20REINFORCEMENT%20LEARNING</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/">&lt;p&gt;Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1385,444 +1636,4 @@ cocoapi.git#subdirectory=pycocotools&quot;
 
 &lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="ASL Education Application" /><category term="YOLO" /><category term="Fast R-CNN" /><category term="Inception v3" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 웹에 관련된 것을 다룹니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)</title><link href="http://localhost:4000/project/2020/08/26/Handlang/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(1)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
-이 포스팅에서는 수화 인식 딥러닝 모델에 대해서만 다룹니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;handlang---aslamerican-sign-language-education-by-using-deep-learning-model&quot;&gt;Handlang - ASL(American Sign Language) Education by using deep learning model&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;딥러닝으로 학습된 수화 인식 모델을 바탕으로 알파벳, 숫자에 해당되는 수화를 학습 및 연습 할 수 있는 웹 어플리케이션입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;모델-정확도-개선을-위한-여러-시도들&quot;&gt;모델 정확도 개선을 위한 여러 시도들&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;[About models]&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;yolo-darknet&quot;&gt;YOLO darknet&lt;/h4&gt;
-
-&lt;p&gt;YOLO is the model with excellent performance in Object detection.
-We used darkflow, not yolo darknet, to take advantage of tensorflow.&lt;/p&gt;
-
-&lt;p&gt;https://github.com/thtrieu/darkflow&lt;/p&gt;
-
-&lt;p&gt;The most attempts were made at darkflow.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;YOLO_experiment_1
-    &lt;ul&gt;
-      &lt;li&gt;[a~z] 600 images each. training 500 epochs&lt;/li&gt;
-      &lt;li&gt;acc : 0.42&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Feedback -&amp;gt; Predict performance is poor.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;YOLO_experiment_2
-    &lt;ul&gt;
-      &lt;li&gt;pretrained weight - hand tracking model (https://github.com/Abdul-Mukit/dope_with_hand_tracking)&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 140 epochs&lt;/li&gt;
-      &lt;li&gt;acc : 0.47&lt;/li&gt;
-      &lt;li&gt;&lt;img src=&quot;https://github.com/yskim0/GoogleSolutionChallenge_Handlang/raw/master/img/47.png&quot; alt=&quot;047&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;YOLO_experiment_3
-    &lt;ul&gt;
-      &lt;li&gt;pretrained weight - yolov2-tiny.weight(https://pjreddie.com/darknet/yolov2/)&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 220 epochs&lt;/li&gt;
-      &lt;li&gt;acc : 0.56&lt;/li&gt;
-      &lt;li&gt;&lt;img src=&quot;https://github.com/yskim0/GoogleSolutionChallenge_Handlang/raw/master/img/56.png&quot; alt=&quot;056&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Feedback -&amp;gt; It is still not a satisfactory performance.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;inception-v3&quot;&gt;Inception-v3&lt;/h4&gt;
-
-&lt;p&gt;We tried transfer learning by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inception-v3&lt;/code&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 1000 steps&lt;/li&gt;
-  &lt;li&gt;test acc. : about 88%
-    &lt;ul&gt;
-      &lt;li&gt;but not that much at real-time…&lt;/li&gt;
-      &lt;li&gt;&lt;img src=&quot;https://github.com/yskim0/GoogleSolutionChallenge_Handlang/raw/master/img/88.png&quot; alt=&quot;088&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;tensorflow-object-detection-api&quot;&gt;Tensorflow-Object-Detection-API&lt;/h4&gt;
-
-&lt;p&gt;We tried transfer learning by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fast r-cnn&lt;/code&gt;.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;excluding `j`&quot;&gt;a~y&lt;/a&gt; 600 images each. 6000 steps&lt;/li&gt;
-  &lt;li&gt;test acc. : about 80%
-    &lt;ul&gt;
-      &lt;li&gt;not test by images, but test by webcam.
-        &lt;ul&gt;
-          &lt;li&gt;poor performance&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Self-feedback: It is still not a satisfactory performance.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;finally-custom-cnn-modelour-current-model&quot;&gt;Finally Custom CNN model(our current model)!&lt;/h4&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input_shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kernel_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strides&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Flatten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_classes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'softmax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;handlang_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optimizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'adam'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'categorical_crossentropy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;accuracy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Feedback : 위 모델을 사용하고, 웹 코드 내에서의 trick을 이용하여 조금 더 빠른 인식과 높은 정확도를 가질 수 있었음.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;datasets&quot;&gt;Datasets&lt;/h2&gt;
-
-&lt;p&gt;아래 데이터 셋들은 모델 트레이닝에 사용되었습니다.&lt;/p&gt;
-
-&lt;p&gt;참고로, 우리 모델에서는 알파벳 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i,z&lt;/code&gt; 제외했습니다. (손동작이 포함되었기 때문에)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://www.kaggle.com/grassknoted/asl-alphabet
-    &lt;ul&gt;
-      &lt;li&gt;가장 성능이 좋은 모델에 사용된 데이터 셋입니다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;다른 모델에서는 아래의 데이터셋들을 사용했습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/rajarshighoshal/asltestimages&quot;&gt;https://www.kaggle.com/rajarshighoshal/asltestimages&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/muhammadkhalid/sign-language-for-alphabets&quot;&gt;https://www.kaggle.com/muhammadkhalid/sign-language-for-alphabets&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/ayuraj/asl-dataset&quot;&gt;https://www.kaggle.com/ayuraj/asl-dataset&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="ASL Education Application" /><category term="YOLO" /><category term="Fast R-CNN" /><category term="Inception v3" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 수화 인식 딥러닝 모델에 대해서만 다룹니다.</summary></entry><entry><title type="html">Meta Reinforcement Learning As Task Inference</title><link href="http://localhost:4000/paper%20review/deep%20learning/meta%20learning/reinforcement%20learning/2020/08/22/Meta-RL-as-task-inference/" rel="alternate" type="text/html" title="Meta Reinforcement Learning As Task Inference" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/deep%20learning/meta%20learning/reinforcement%20learning/2020/08/22/Meta%20RL%20as%20task%20inference</id><content type="html" xml:base="http://localhost:4000/paper%20review/deep%20learning/meta%20learning/reinforcement%20learning/2020/08/22/Meta-RL-as-task-inference/">&lt;p&gt;Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (&lt;a href=&quot;https://www.youtube.com/watch?v=phi7_QIhfJ4&quot;&gt;PR-239&lt;/a&gt;)를 발표하신 Changhoon Jeong님 영상을 보고 정리하였습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;meta-reinforcement-learning-as-task-inference&quot;&gt;Meta Reinforcement Learning As Task Inference&lt;/h1&gt;
-
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;(You should include contents of summary and introduction.)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;접근 방법 : Meta-RL을 하나의 &lt;strong&gt;paritally observed&lt;/strong&gt;로 본다.
-    &lt;ul&gt;
-      &lt;li&gt;MDP의 모든 정보를 agent가 전부 받는 게 아니라 부분적으로만 관찰&lt;/li&gt;
-      &lt;li&gt;RL은 하나의 control문제로 볼 수 있는데, 여기에 &lt;strong&gt;inference problem&lt;/strong&gt;이 추가된 것&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;즉 POMDP(Partially-Observable Markov Decision Processes)문제를 해결하는 문제가 됨.
-    &lt;ul&gt;
-      &lt;li&gt;POMDP의 솔루션 : observation trajetory를 가지고 optimal policy를 찾는 것(미래 보상이 최대가 되는 쪽으로) == Reinforcement learning
-        &lt;ul&gt;
-          &lt;li&gt;그러나 주어진 데이터가 partially observation이기 때문에 또 하나의 모듈이 필요함 -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;belief state&lt;/code&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Belief State : 어떤 observation trajectory가 주어졌을 때 실제 true state의 probability
-    &lt;ul&gt;
-      &lt;li&gt;이걸 구할 수 있으면 POMDP가 구해짐
-        &lt;ul&gt;
-          &lt;li&gt;POMDP가 구해지면 Meta-RL 문제 해결!&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Observation이 주어졌을 때 optimal policy를 구하는 것은 belief state를 구할 수 있으면 문제가 풀린다!&lt;/strong&gt;
--&amp;gt; 그러면 Meta-RL 문제도 풀린다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;이 논문의 key point : 두 가지 Neural Network를 사용
-    &lt;ul&gt;
-      &lt;li&gt;control하는 policy Network&lt;/li&gt;
-      &lt;li&gt;belief state를 예측하는 inference Belief Module
-        &lt;ul&gt;
-          &lt;li&gt;auxilary supervised learning 로 해결 (Meta-learning때에만)&lt;/li&gt;
-          &lt;li&gt;즉, belief module은 meta-learning 때 supervised learning으로 학습됨.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;off-policy 사용(Meta-RL 에서는 대개 on-policy)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-work-basic-concepts&quot;&gt;Related work (Basic concepts)&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Meta Learning : Learning to Learn&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/90916720-8c29fa80-e41c-11ea-9484-b6129a1688d3.png&quot; alt=&quot;스크린샷 2020-08-22 오전 2 09 41&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;A &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trajectory&lt;/code&gt; is just a sequence of states and actions.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Meta RL
-    &lt;ul&gt;
-      &lt;li&gt;env.는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MDP&lt;/code&gt;로 표현됨. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;M = {S,A,P,r}&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Agent &amp;lt;-&amp;gt; env. : 서로 interact하면서 future reward를 Max. 시키는 세타 찾기&lt;/li&gt;
-      &lt;li&gt;Meta learning : 여러 개의 task들을 sampling하여 meta-learning한 후, meta-test시 빠르게 adaption될 수 있어야 함.
-        &lt;ul&gt;
-          &lt;li&gt;RL -&amp;gt; 그 task들 각각이 하나의 MDP로 정의 가능!&lt;/li&gt;
-        &lt;/ul&gt;
-
-        &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/90917047-170af500-e41d-11ea-9791-74d540738406.png&quot; alt=&quot;스크린샷 2020-08-22 오전 2 13 34&quot; /&gt;&lt;/p&gt;
-
-        &lt;ul&gt;
-          &lt;li&gt;MDP를 여러개 sampling해서 학습하고, 그걸 통해 optimal theta얻는 것이 목표&lt;/li&gt;
-          &lt;li&gt;test시에는 처음 보는 태스크(전체적인 쉐잎은 비슷해야)에 잘 적용되어야 함.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;접근 방법&lt;/strong&gt;
-        &lt;ol&gt;
-          &lt;li&gt;Recurrent policies : RNN&lt;/li&gt;
-          &lt;li&gt;Optimization problem : MAML&lt;/li&gt;
-          &lt;li&gt;&lt;strong&gt;partially observed RL&lt;/strong&gt;
-            &lt;ul&gt;
-              &lt;li&gt;MDP의 모든 정보를 받는 게 아니라 부분적으로만 받는다 -&amp;gt; inference problem 추가됨&lt;/li&gt;
-            &lt;/ul&gt;
-
-            &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/90917816-93520800-e41e-11ea-81ba-5cd461f513e4.png&quot; alt=&quot;스크린샷 2020-08-22 오전 2 24 11&quot; /&gt;&lt;/p&gt;
-
-            &lt;ul&gt;
-              &lt;li&gt;z : task들의 모든 정보를 담고 있는 true information&lt;/li&gt;
-              &lt;li&gt;z를 inference하면서 RL 컨트롤도 할 수 있는 해석하는 관점&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MDP(Markov Decision Processes) : (X,A,P,p0, R, discount factor)
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/90918158-2428e380-e41f-11ea-8e6b-8803cce60db7.png&quot; alt=&quot;스크린샷 2020-08-22 오전 2 28 15&quot; /&gt;
-    &lt;ul&gt;
-      &lt;li&gt;control이 있다 -&amp;gt; 대표적으로 RL&lt;/li&gt;
-      &lt;li&gt;state가 완전히 관측되냐, 부분적으로 관측이 되냐 -&amp;gt; MDP/POMDP&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;POMDP(Partially-Observable Markov Decision Processes)
-    &lt;ul&gt;
-      &lt;li&gt;MDP의 general한 버전&lt;/li&gt;
-      &lt;li&gt;MDP에서 omega, O가 추가됨&lt;/li&gt;
-      &lt;li&gt;X : state space. Agent 입장에서는 부분적으로 관측/아예 관측할 수 없게 됨.&lt;/li&gt;
-      &lt;li&gt;그래서 Agent는 부분적으로 관측되는 observation state를 통해서만 학습할 수 있음.
-  &lt;img src=&quot;https://user-images.githubusercontent.com/48315997/90918340-70742380-e41f-11ea-9513-7f6c21fb4280.png&quot; alt=&quot;스크린샷 2020-08-22 오전 2 30 23&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;off-policy algorithm : 현재 학습하는 policy가 과거에 했던 experience도 학습에 사용이 가능하고, 심지어는 해당 policy가 아니라 예를 들어 사람이 한 데이터로부터도 학습을 시킬 수가 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;on-policy : 1번이라도 학습을 해서 policy improvement를 시킨 순간, 그 policy가 했던 과거의 experience들은 모두 사용이 불가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
-&lt;p&gt;(Explain one of the methods that the thesis used.)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Solution to POMDP
-&lt;img width=&quot;400&quot; alt=&quot;스크린샷 2020-08-22 오전 2 35 32&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90918725-293a6280-e420-11ea-958a-b2c10565cbcc.png&quot; /&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;observed trajectory를 가지고 optimal policy를 찾는 것(미래 보상의 합이 최대가 되는 action set, policy) == RL&lt;/li&gt;
-      &lt;li&gt;그러나 주어진 데이터가 &lt;strong&gt;partially&lt;/strong&gt; 하기 때문에 또 하나의 모듈이 필요함&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Belief State&lt;/strong&gt; 를 구할 수 있으면 위의 문제가 풀림.&lt;/li&gt;
-      &lt;li&gt;Belief State -&amp;gt; POMDP -&amp;gt; Meta-RL 해결&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;최근 Meta-RL에서의 POMDP 해석 문제
-    &lt;ul&gt;
-      &lt;li&gt;방금까지는 unobserved &lt;strong&gt;state&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;But 우리는 unobserved &lt;strong&gt;task&lt;/strong&gt;
-  &lt;img src=&quot;https://user-images.githubusercontent.com/48315997/90919150-e331ce80-e420-11ea-8cc8-2c009ca75d8e.png&quot; alt=&quot;스크린샷 2020-08-22 오전 2 40 44&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;내가 어느 task를 풀고 있는지 모르는 상태&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;state를 완전히 관측을 못한다는 것이 아니라!! 내가 어떤 task를 풀고 있는지를 관측하지 못한다는 관점으로 문제를 푸는 것임&lt;/strong&gt; == 어떤 task를 풀어야 하는지 task 정보를 완전하게 관측할 수 X -&amp;gt; 그래서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Task Inference&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;img width=&quot;400&quot; alt=&quot;스크린샷 2020-08-22 오전 2 46 36&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90919603-b5995500-e421-11ea-9939-c4dc28820f91.png&quot; /&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;State, Action은 모든 MDP간에 sharing되어 있음.&lt;/strong&gt; W가 붙은 것들은 task-specific함.
-        &lt;ul&gt;
-          &lt;li&gt;이 세가지에 접근해서 Meta RL을 푼다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;목표 : meta-test시 처음 보는 task에도 적은 interaction으로 reward를 Max. 시키는 optimal policy 찾기&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Meta-RL using POMDP
-&lt;img width=&quot;400&quot; alt=&quot;스크린샷 2020-08-22 오전 2 50 42&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90919921-4839f400-e422-11ea-83ac-7e557be96989.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;A, S는 sharing
-      - S는 true state와 Agent 입장에서 모르는 task에 대한 w를 concat해서 만듦
-    &lt;ul&gt;
-      &lt;li&gt;나머지들은 task-specific하게 정의&lt;/li&gt;
-      &lt;li&gt;w만이 agent입장에서는 unobserved state라고 정의&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;optimal agent pi*는 아래와 같은 문제를 푼다.
-&lt;img width=&quot;347&quot; alt=&quot;스크린샷 2020-08-22 오전 2 55 53&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90920278-01003300-e423-11ea-803a-2b74a4d6a2d7.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;agent입장에서는 실제 task label인 w에 access 할 수 없다고 가정. (task에 대한 MDP를 다 모르는 것)
-    &lt;ul&gt;
-      &lt;li&gt;과거 observation trajectories은 LSTM, GRU등으로 agent network는 학습할 수 있음.&lt;/li&gt;
-      &lt;li&gt;POMDP 문제를 해결하려면 task에 대한 belief state를 계산할 수 있어야 함.
-        &lt;ul&gt;
-          &lt;li&gt;observation trajectory가 주어졌을 때 실제 true task일 확률 (posterior)
-            &lt;ul&gt;
-              &lt;li&gt;이걸 계산할 수 있으면 POMDP 문제 해결, 그러나 계산 어려움.&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;appendix)
-  &lt;img width=&quot;707&quot; alt=&quot;스크린샷 2020-08-22 오전 3 00 31&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90920660-a74c3880-e423-11ea-9b68-b972b3d4da7d.png&quot; /&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;belief state의 posterior는 bayes Rule과 유사&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;policy가 식 안에 없음 -&amp;gt; task에 대한 posterior는 policy와 independent하다.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;off-policy algorithm 사용 가능 (보통 meta-RL에서는 on-policy : 데이터를 모으자마자 바로 업데이트)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;train&quot;&gt;Train&lt;/h3&gt;
-
-&lt;p&gt;어떻게 모델을 학습시키는가&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;current state &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt;와 current belief &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b_t(w)&lt;/code&gt;만 있으면 가능
-&lt;img width=&quot;196&quot; alt=&quot;스크린샷 2020-08-22 오전 3 03 34&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90920902-145fce00-e424-11ea-9bf4-9fc28d3c02f7.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;앞서 언급한 z 가 여기서는 belief state(task에 대한 모든 정보를 담고 있다)&lt;/li&gt;
-  &lt;li&gt;belief state estimate 가능 -&amp;gt; optimal policy 구할 수 있다.&lt;/li&gt;
-  &lt;li&gt;컴퓨팅 어려움 -&amp;gt; 2가지 NN 모델로 approximate 해야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Control하는 Policy Network&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Belief Module&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;어떻게 학습시키는가?
-    &lt;ul&gt;
-      &lt;li&gt;Meta-Learning 안에서는 Supervised Learning이 된다.
-        &lt;ul&gt;
-          &lt;li&gt;label 가능성
-            &lt;ol&gt;
-              &lt;li&gt;&lt;strong&gt;Task Description : task를 잘 표현하는 representation.&lt;/strong&gt;&lt;/li&gt;
-              &lt;li&gt;Expert actions&lt;/li&gt;
-              &lt;li&gt;Task embeddings
-  &lt;img width=&quot;500&quot; alt=&quot;스크린샷 2020-08-22 오전 3 10 40&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90921367-124a3f00-e425-11ea-8784-c78d7e116bd5.png&quot; /&gt;&lt;/li&gt;
-            &lt;/ol&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;meta-learning 때에만 사용.&lt;/strong&gt; 실제 우리가 원하는 meta-test에서 적은 에피소드만으로 빠르게 adapt할 때는 이 정보들을 더이상 사용하지 않음.&lt;/li&gt;
-      &lt;li&gt;task를 supervised learning으로 풀었다!&lt;/li&gt;
-      &lt;li&gt;w, h_t : independent of policy =&amp;gt; belief network도 off-policy로 효율적으로 학습 가능&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;architecture&quot;&gt;Architecture&lt;/h3&gt;
-
-&lt;p&gt;&lt;img width=&quot;736&quot; alt=&quot;스크린샷 2020-08-22 오전 3 25 18&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90922528-1d05d380-e427-11ea-8e3a-9fe4b1417e21.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;LSTM, IB : optional (IB : regularization 효과)&lt;/p&gt;
-
-&lt;p&gt;A. Baseline LSTM Agent : belief network가 없는 일반 agent&lt;/p&gt;
-
-&lt;p&gt;B. 논문에서 제안된 모델 : trajectory 넣어서 &lt;strong&gt;Belief network 학습&lt;/strong&gt;
-    - Belief feature + trajectory 해서 &lt;strong&gt;policy network 학습&lt;/strong&gt;
-    - 각자 역할에 집중&lt;/p&gt;
-
-&lt;p&gt;C. Mixed : Network 하나에 합친 것&lt;/p&gt;
-
-&lt;h3 id=&quot;experiment&quot;&gt;Experiment&lt;/h3&gt;
-
-&lt;p&gt;&lt;img width=&quot;755&quot; alt=&quot;스크린샷 2020-08-22 오전 3 28 30&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90922806-900f4a00-e427-11ea-8b7e-6c06f607daf5.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Multi-armed bandit : 20 arms and 100 horizon.
-    &lt;ul&gt;
-      &lt;li&gt;20번 당겼을 때 reward probability =&amp;gt; task description. (arm들의 vec.)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Semicircle : 반원 안에서 naviagtion
-    &lt;ul&gt;
-      &lt;li&gt;task desription : 각도&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;736&quot; alt=&quot;스크린샷 2020-08-22 오전 3 33 40&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90923240-483cf280-e428-11ea-9280-d01cc4fba786.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;cheetah : task description -&amp;gt; velocity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;634&quot; alt=&quot;스크린샷 2020-08-22 오전 3 40 23&quot; src=&quot;https://user-images.githubusercontent.com/48315997/90923769-3871de00-e429-11ea-893d-b52b23dcbb83.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;main-contributions&quot;&gt;Main contributions&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Supervised Learning을 통해서 performance 높임&lt;/li&gt;
-  &lt;li&gt;Belief network 학습시킬 때 off-policy 알고리즘 사용 가능&lt;/li&gt;
-  &lt;li&gt;continuous, sparse rewards 환경에서도 좋았다&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;additional-studies&quot;&gt;Additional studies&lt;/h2&gt;
-&lt;p&gt;(If you have some parts that cannot understand, you have to do additional studies for them. It’s optional.)&lt;/p&gt;
-
-&lt;p&gt;POMDP&lt;/p&gt;
-
-&lt;p&gt;Belief State?&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;p&gt;(References for your additional studies)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=phi7_QIhfJ4&quot;&gt;https://www.youtube.com/watch?v=phi7_QIhfJ4&lt;/a&gt; - 논문 설명&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://newsight.tistory.com/250&quot;&gt;https://newsight.tistory.com/250&lt;/a&gt; - policy 부분 개념&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Meta Learning" /><category term="Reinforcement Learning" /><category term="Meta RL" /><summary type="html">Tensorflow KR 논문 읽기 모임 PR12(Season 3)의 Meta Reinforcement Learning As Task Inference (PR-239)를 발표하신 Changhoon Jeong님 영상을 보고 정리하였습니다.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="ASL Education Application" /><category term="YOLO" /><category term="Fast R-CNN" /><category term="Inception v3" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 웹에 관련된 것을 다룹니다.</summary></entry></feed>
