@@ -2,6 +2,38 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
+      <loc>http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/</loc>
+      
+        <lastmod>2020-12-31T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/paper%20review/2020/12/30/CycleGAN/</loc>
+      
+        <lastmod>2020-12-30T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
       <loc>http://localhost:4000/paper%20review/2020/12/25/DCGAN/</loc>
       
         <lastmod>2020-12-25T00:00:00+09:00</lastmod>

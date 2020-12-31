@@ -1,4 +1,222 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-25T21:58:36+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)</title><link href="http://localhost:4000/paper%20review/2020/12/25/DCGAN/" rel="alternate" type="text/html" title="Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)" /><published>2020-12-25T00:00:00+09:00</published><updated>2020-12-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/25/DCGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/25/DCGAN/">&lt;p&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-31T21:37:18+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">2020년을 돌아보며, 2020 YEAR in REVIEW</title><link href="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/" rel="alternate" type="text/html" title="2020년을 돌아보며, 2020 YEAR in REVIEW" /><published>2020-12-31T00:00:00+09:00</published><updated>2020-12-31T00:00:00+09:00</updated><id>http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW</id><content type="html" xml:base="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/">&lt;p&gt;2020년 저에게 있었던 일을 짧게 회고하는 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;수화인식 웹 어플리케이션 프로젝트 완성&lt;/li&gt;
+  &lt;li&gt;데이터 분석 공부&lt;/li&gt;
+  &lt;li&gt;SKT AI Fellowship 2기 지원과 탈락&lt;/li&gt;
+  &lt;li&gt;논문 스터디&lt;/li&gt;
+  &lt;li&gt;HAICON 2020 입선&lt;/li&gt;
+  &lt;li&gt;1,2학기 모두 4점대로 마무리&lt;/li&gt;
+  &lt;li&gt;2021년 목표&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;1️⃣-수화인식-웹-어플리케이션-프로젝트-완성&quot;&gt;1️⃣ 수화인식 웹 어플리케이션 프로젝트 완성&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/103408719-15112980-4ba7-11eb-8161-5ec2c9fbcbb4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;DSC Ewha에서 우리팀이 진행하던 프로젝트는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;수화 인식&lt;/code&gt;과 관련된 프로젝트였다.&lt;/p&gt;
+
+&lt;p&gt;정확히는 “딥러닝 모델을 이용한 수화 교육 웹 어플리케이션”.&lt;/p&gt;
+
+&lt;p&gt;쉽지 않은 프로젝트였기에 굉장히 다사다난했었다.&lt;/p&gt;
+
+&lt;p&gt;딥러닝을 아직 자주 다루지 않은 팀원들이 많았기에(나 포함) 처음부터 이론 공부도 해보고, 수화 인식 관련 논문도 읽어보고, 관련 프로젝트들도 많이 조사했었다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트 초기에 이렇게 많이 고생했기 때문에 상대적으로 우리 팀은 중하반부터는 할 일이 없었다 :)&lt;/p&gt;
+
+&lt;p&gt;팀원들이 열정, 끈기, 의지, 실력까지 있어서 덕분에 이 프로젝트를 수월하게(?) 완수할 수 있었던 것 같다.&lt;/p&gt;
+
+&lt;p&gt;굉장히 다사다난한 일이 많았지만…^^ 그 이야기들은 서로의 가슴 속에 묻어두기로 하고 ㅋㅋㅋ&lt;/p&gt;
+
+&lt;p&gt;우리만의 수화 인식 모델을 만드느라 가장 많은 시간을 쏟아 부었었다. 하지만 이덕분에 나는 Object Detection에 대한 공부와 관련 경험을 쌓을 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;YOLO 등 여러 모델들을 직접 돌려보기도 하고, 직접 만들어보기도 하였다. 결과적으로는 우리 팀의 ㅈㅇ언니가 만든 모델을 썼지만 😆&lt;/p&gt;
+
+&lt;p&gt;아무튼 이 프로젝트로 인해 나는 &lt;strong&gt;좋은 사람들도 얻었고, 딥러닝에 대한 호감과 흥미, 자신감 등을 모두 얻을 수 있었다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;확실히 프로젝트를 한번 하고 나면 많은 성장을 이루는 것 같다. 내년의 나는 졸업 프로젝트를 통해 훨씬 더 성장할 수 있기를.&lt;/p&gt;
+
+&lt;h3 id=&quot;2️⃣-데이터-분석-공부&quot;&gt;2️⃣ 데이터 분석 공부&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/103408999-23137a00-4ba8-11eb-888e-4532bc570e1e.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터 분석 공부를 하게 된 계기는 좀 속물적이다.&lt;/p&gt;
+
+&lt;p&gt;AI 리서쳐/엔지니어 직군을 모집할 때 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;우대사항&lt;/code&gt;에 캐글과 같은 데이터 사이언스 컴피티션과 관련된 수상 경험을 적어놨기 때문 ^^;;&lt;/p&gt;
+
+&lt;p&gt;캐글같은 데이터 사이언스 대회 상금도 어마어마하고 말이다ㅋㅋㅋ.&lt;/p&gt;
+
+&lt;p&gt;캐글러들의 추천을 받아 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;파이썬 머신러닝 완벽 가이드&lt;/code&gt; (부제: 공룡책)을 공부하기 시작했다.&lt;/p&gt;
+
+&lt;p&gt;인프런에서 강의 들으면서 허겁지겁 진도를 뺐던 기억이 난다.&lt;/p&gt;
+
+&lt;p&gt;이 때 코로나가 막 유행하기 시작인 때라 친구랑 공부나 하자는 생각으로 시작했었다.&lt;/p&gt;
+
+&lt;p&gt;속물적으로 시작한 공부이지만, 나는 딥러닝을 포함한 인공지능에 관심이 많았기 때문에 실생활 데이터에 머신러닝 알고리즘을 적용시키는 것이 나에게 큰 흥미로 다가왔다.&lt;/p&gt;
+
+&lt;p&gt;지금은 물론 데이터 분석이 이는 전부는 아니라는 것은 알고 있다.&lt;/p&gt;
+
+&lt;p&gt;어쨌든 이 느낌? 이 생각 덕분에 공부를 수월하게 할 수 있었고, 캐글 필사 커리큘럼을 따라 가면서(완전 조금 따라갔다 ㅋㅋㅋ 그때가 개강할 때 쯤 되어서..) 나중에 꼭 캐글에 참가해서 상을 받고 싶다는 생각이 들었다.&lt;/p&gt;
+
+&lt;p&gt;이는 좀 이따 서술할 HAICON에 입상할 수 있게 된 계기가 된다ㅎㅎ&lt;/p&gt;
+
+&lt;h3 id=&quot;3️⃣-skt-ai-fellowship-2기-지원과-탈락&quot;&gt;3️⃣ SKT AI Fellowship 2기 지원과 탈락&lt;/h3&gt;
+
+&lt;!-- ![image](https://user-images.githubusercontent.com/48315997/103409204-00359580-4ba9-11eb-8ed6-6fa981f29d59.png) --&gt;
+&lt;p&gt;&lt;img width=&quot;550&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103409204-00359580-4ba9-11eb-8ed6-6fa981f29d59.png&quot; /&gt;
+서류 합격 😆
+&lt;!-- ![image](https://user-images.githubusercontent.com/48315997/103409209-088dd080-4ba9-11eb-8f5a-787e4b3e0068.png) --&gt;
+&lt;img width=&quot;550&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103409209-088dd080-4ba9-11eb-8f5a-787e4b3e0068.png&quot; /&gt;
+면접 탈락 😂&lt;/p&gt;
+
+&lt;p&gt;======&lt;/p&gt;
+
+&lt;p&gt;어쩌다 알게 된 SKT AI Fellowship.&lt;/p&gt;
+
+&lt;p&gt;SKT에서 공대 대학(원)생에게 인공지능과 관련된 몇몇 프로젝트를 제시하고, 큰 규모로 지원해주는 프로그램이었다.&lt;/p&gt;
+
+&lt;p&gt;수화인식 프로젝트를 같이한 팀원들에게 물어본 후, 같이 준비하기로 했다.&lt;/p&gt;
+
+&lt;p&gt;주제는 내가 좋아하는(ㅋㅋㅋ) 리그오브레전드의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;하이라이트 자동 추출&lt;/code&gt; 연구 프로젝트였다.&lt;/p&gt;
+
+&lt;p&gt;리그오브레전드라 딱 지칭하지는 않고, 스포츠라고 말했지만 내가 워낙 롤을 즐겨보기 때문에 이 주제로 어필을 강하게 했다.&lt;/p&gt;
+
+&lt;p&gt;관련 연구 논문들, 다른 스포츠들(ex.야구)에 적용된 하이라이트AI 기술 등을 조사하여 우리도 아이디어를 냈다.&lt;/p&gt;
+
+&lt;p&gt;이때는 정말 별 기대 안했는데, 면접까지 올라갔다! 면접은 각 주제당 최종 3팀(우리 주제는 그랬는데 확실하진 않다)이 올라가며, 이 중 1팀이 최종 팀으로 선정된다.&lt;/p&gt;
+
+&lt;p&gt;생각지도 못한 결과에 우리는 빠르게 면접 대비를 했다. 스프레드시트에 예상 질문과 그에 대한 답변들을 모두 준비했다.&lt;/p&gt;
+
+&lt;p&gt;또 프로젝트를 어떻게 진행할 것인지 발표해야 했는데 이는 내가 맡았었다.&lt;/p&gt;
+
+&lt;p&gt;코로나로 인해 실제 면접은 Zoom으로 진행되었다. 면접관은 3명이었고 친절하고 편하게 해주셨다. 물론 기술적인 얘기에 대해서는 날카롭고 예리한 질문, 비판들을 해주셨다.&lt;/p&gt;
+
+&lt;p&gt;사실 면접 분위기가 굉장히 좋았고, 우리가 질문에 대한 답변을 잘 했기에 기대를 하고 있던 상태였다ㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;하지만 아쉽게도 탈락 통보를 받았다.&lt;/p&gt;
+
+&lt;p&gt;지금 와서 긍정적으로 생각해보자면, 우리가 그 기술을 정말 구현했을 수 있는 기술 수준이었는지는 모르겠다. 꽤 어려운 난이도를 가진 연구분야/기술이기 때문이다.
+물론 진짜 됐다면 정말 열심히 공부하고 노력해서 완성하도록 만들었겠지만… 긍정 회로를 돌린다면 ㅋㅋㅋ 아직 내가 부족하다는 이야기니까…&lt;/p&gt;
+
+&lt;p&gt;그래도 이 덕분에, 역시 내 팀원들이 정말 좋은 사람이자 우수한 사람들이었다는 것을 알 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;내가 아직 많이 부족해서 이렇게 된 결과라는 것을 인정하고, 앞으로 더 열심히 공부하고 노력해야겠다는 마음가짐을 다시금 가질 수 있었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;4️⃣-논문-스터디&quot;&gt;4️⃣ 논문 스터디&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/103409526-a209b200-4baa-11eb-9057-7f390de142a8.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;올해 가장 큰 수확 중 하나는 졸프 메이트를 찾은 것이다.&lt;/p&gt;
+
+&lt;p&gt;과에 아는 사람들이 많지 않기도 해서 혼자 해야 하나 많이 걱정했는데 먼저 제안해준 것이 굉장히 고마웠다 ㅎㅎ&lt;/p&gt;
+
+&lt;p&gt;비슷한 목표를 가지고 있고 서로 열정, 의지도 가득하기 때문에 좋은 결과를 낼 수 있으리라 확신한다.&lt;/p&gt;
+
+&lt;p&gt;아무튼, 이 친구와 7월말부터 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;논문 읽기 스터디&lt;/code&gt;를 시작했다.&lt;/p&gt;
+
+&lt;p&gt;처음 시작할 때는 논문이라는 것이 굉장히 부담스럽게 다가왔는데, 이제는 아~주 조금은 익숙해져서 크게 거부감이나 부담감은 들지 않아졌다.&lt;/p&gt;
+
+&lt;p&gt;이것만 해도 굉장한 발전 아닌가? ㅋㅋㅋ&lt;/p&gt;
+
+&lt;p&gt;이 논문 스터디를 통해 내가 얻게 된 것이 있다면, ‘내가 이 분야를 오랫동안 좋아할 수 있겠구나’라는 생각이었다.&lt;/p&gt;
+
+&lt;p&gt;공부가 지겹지가 않고, 내가 해야 할 것이 산더미라는 것을 알지만 그것이 두렵거나 불안하지 않았다.&lt;/p&gt;
+
+&lt;p&gt;그래도 나는 아직 많이 부족하다! 하루에 논문 한편씩 매일마다 뿌셔도 아직 모자라다.&lt;/p&gt;
+
+&lt;p&gt;지금은 우리 둘 다 Domain Adaptation, GAN 쪽 연구에 관심을 가지게 되어 그 쪽 논문들을 읽어보고 구현하고 있다. (아직 많이는 못했지만 ㅋㅋ)&lt;/p&gt;
+
+&lt;h3 id=&quot;5️⃣-haicon-2020-입선&quot;&gt;5️⃣ HAICON 2020 입선&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/103409708-5c011e00-4bab-11eb-9f49-86fcfd219ff2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아까 올해 초에 데이터분석 공부를 했다고 했는데, 이 때 같이 한 친구와 대회를 나가기로 했다.&lt;/p&gt;
+
+&lt;p&gt;국내 데이터 사이언스 컴피티션을 모아놓은 플랫폼인 데이콘에서 현재 진행 중인 대회에서 가장 많은 상금을 뿌리는 대회를 골랐다 ㅋㅋㅋ.&lt;/p&gt;
+
+&lt;p&gt;금액도 그렇지만, 국가정보원과 국가보안기술연구소가 진행한다는 점에서도 큰 흥미?를 끌었다.&lt;/p&gt;
+
+&lt;p&gt;첫 참가하는 대회이니 만큼 정말 많은 시도들을 해보았다. 사실 1등까지는 크게 바라지는 않았지만 수상 욕심은 분명히 있었다.&lt;/p&gt;
+
+&lt;p&gt;대회 초에는 수상권에 있었지만 중후반부로 들면서 고수들이 많이 참가했는지 조금씩 조금씩 밀려났고, 결과적으로 대회 마지막 즈음엔 수상권에서 꽤 멀어졌었다ㅠㅠ (Public score 기준)&lt;/p&gt;
+
+&lt;p&gt;근데 이게 무슨 일인지, 전체 테스트 셋으로 최종 결과를 돌린 Private score에서 12위가 나온 것이다! 10위까지가 수상권이라 아 이거 진짜 아깝다, 조금만 더 노력할 걸 찰나 후회하긴 했다.&lt;/p&gt;
+
+&lt;p&gt;그래도 나랑 내 친구는 정말 최대한의 노력을 했고, 정말 많은 실험을 거쳤기 때문에 큰 상승은 없었을지도 모른다. (처음이다 보니 양으로 승부했었다)&lt;/p&gt;
+
+&lt;p&gt;그래도 조금 기대를 품고, 보고서와 최종 제출본을 제출한 결과 내 위에 2명이 규칙 위반 혹은 뭐가 부족했는지 우리가 턱걸이로 입선을 하게 된 것이다!! 진짜 기뻤다 이때 ㅎㅎ&lt;/p&gt;
+
+&lt;p&gt;후기를 자세히 풀고 싶지만 외부에 발설하지 말라는 사항이 많았어서 이에 대한 후기는 이게 끝!! 정말 멋진 사람들도 많이 봤고, 학부생은 나랑 한 팀밖에 없었던 것 같은데 굉장히 영광이었다.&lt;/p&gt;
+
+&lt;p&gt;나중에는 될 수 있으면 캐글 대회에 입상하고 싶다 ㅎㅎ&lt;/p&gt;
+
+&lt;h3 id=&quot;6️⃣-12학기-모두-4점대로-마무리&quot;&gt;6️⃣ 1,2학기 모두 4점대로 마무리&lt;/h3&gt;
+
+&lt;p&gt;올해 1학기는 정말 힘들었다. 꽤 빡센 과목들을 듣기도 했고, 코로나가 터지고 첫 비대면 수업이라 이리저리 정신없었던 것 같다.&lt;/p&gt;
+
+&lt;p&gt;때문에 1학기에는 정말 학기 공부 외에는 다른 공부를 할 수가 없었다 ㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;다른 학교나 타과들은 학점 잘 뿌려주던데 ㅎㅎ… 내가 들은 수업들은 다 코로나 이전이랑 비슷하거나 오히려 더 짜기도 ^^..&lt;/p&gt;
+
+&lt;p&gt;1학기는 6전공 1교양 21학점 이수, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4.09/4.3&lt;/code&gt;이었고&lt;/p&gt;
+
+&lt;p&gt;2학기는 6전공 1교양 19학점 이수, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4.2/4.3&lt;/code&gt;이었다.&lt;/p&gt;
+
+&lt;p&gt;2학기에 들은 교양수업은 2017년에 들었던 과목 하나를 재수강한 것이라 1-2등 점수였을텐데 재수강 최대 학점인 A-를 받아서 개인적으로 아쉬웠다.
+그리고 2학기는 거의 모든 과목을 1등, 2등 아니면 못해도 5등 정도 했기 때문에 개인적으로 맘에 드는 학기였다.&lt;/p&gt;
+
+&lt;p&gt;사실 2학기에 들은 강의들이 쉽다고 느꼈을 때가 종종 있었다. 내가 올해 많은 성장을 했다는 게 느껴져서 뿌듯했었다.&lt;/p&gt;
+
+&lt;p&gt;학기는 아직 꽤 남았지만, 남은 이수 학점은 그렇게 많지 않다. 남은 학점들도 모두 A+을 받아서 최우등졸업을 할 수 있게 되면 좋겠다!&lt;/p&gt;
+
+&lt;h3 id=&quot;7️⃣-2021년-목표&quot;&gt;7️⃣ 2021년 목표&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://images.unsplash.com/photo-1546074177-31bfa593f731?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;amp;ixlib=rb-1.2.1&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=1267&amp;amp;q=80&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;올 한 해를 되돌아보니 정말 많은 일이 있었다.&lt;/p&gt;
+
+&lt;p&gt;코로나때문에 사람들을 많이 못 만났지만, 이게 나에게 긍정적으로 작용될 수 있었던 점은 분명히 있었다.&lt;/p&gt;
+
+&lt;p&gt;혼자 공부할 시간이 늘어나 전보다 꽤 많이 성장했다는 점이 바로 그것이다.&lt;/p&gt;
+
+&lt;p&gt;12월 초에 좋은 소식으로는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ETRI&lt;/code&gt; (한국전자통신연구원) 동계 연구연수생에 합격했다는 것이다!&lt;/p&gt;
+
+&lt;p&gt;다음주 1/2일부터 2/26까지 대전에서 일을 하게 되었는데 굉장히 설렌다.&lt;/p&gt;
+
+&lt;p&gt;인턴급이기 때문에 많은 일을 시키지 않을 것 같지만, 나 스스로 많이 배우려 노력하고 또 한 단계 성장하는 계기가 되었으면 좋겠다.&lt;/p&gt;
+
+&lt;p&gt;일단 2021년 목표는 크게 2가지이다.&lt;/p&gt;
+
+&lt;h4 id=&quot;졸업-프로젝트-성공적--해외-탑-컨퍼런스에-논문-accept-되기&quot;&gt;졸업 프로젝트 성공적 == 해외 탑 컨퍼런스에 논문 Accept 되기&lt;/h4&gt;
+
+&lt;p&gt;나에게 있어 2021년은 가장 중요한 한 해이다.
+사실상 이를 위해 지금까지 준비를 했다고 봐도 과언이 아니다. 졸프 시작을 한 학기 미룬 것도 이를 위해 공부하기 위해서였다.&lt;/p&gt;
+
+&lt;p&gt;마침 좋은 메이트가 있고, 나와 비슷하게 야망도 크기에 우리 목표는 상당히 높게 잡았다.&lt;/p&gt;
+
+&lt;p&gt;사실 저것보다 크다. Best Student Paper 상을 받고 싶다!!!!!&lt;/p&gt;
+
+&lt;p&gt;누구보다 열심히 공부하고, 누구보다 잘 해야 된다는 것을 안다. 
+나는 무조건 후회없는 1년을 보낼 것이다.&lt;/p&gt;
+
+&lt;p&gt;꼭 이 목표가 성공할 수 있도록, 최선을 다하겠다.&lt;/p&gt;
+
+&lt;h4 id=&quot;all-a&quot;&gt;All A+&lt;/h4&gt;
+
+&lt;p&gt;앞선 목표에 비하면 소소하다.
+졸프 때문에 학점은 15~16 학점 정도? 많지 않게, 부담이 되지 않는 선까지만 들을 것이다.&lt;/p&gt;
+
+&lt;p&gt;대신에 무조건 올에이쁠!&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="회고" /><category term="Year Review" /><summary type="html">2020년 저에게 있었던 일을 짧게 회고하는 글입니다.</summary></entry><entry><title type="html">Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks</title><link href="http://localhost:4000/paper%20review/2020/12/30/CycleGAN/" rel="alternate" type="text/html" title="Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks" /><published>2020-12-30T00:00:00+09:00</published><updated>2020-12-30T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/30/CycleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/30/CycleGAN/">&lt;p&gt;Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;unpaired-image-to-image-translation-using-cycle-consistent-adversarial-networks&quot;&gt;Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)</title><link href="http://localhost:4000/paper%20review/2020/12/25/DCGAN/" rel="alternate" type="text/html" title="Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)" /><published>2020-12-25T00:00:00+09:00</published><updated>2020-12-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/25/DCGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/25/DCGAN/">&lt;p&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1384,256 +1602,4 @@ cocoapi.git#subdirectory=pycocotools&quot;
       &lt;li&gt;which might be counter-intuitive to the widely-accepted knowledge of that using more Conv1x1 achieves a higher efficiency.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Neural Architecture Search With Reinforcement Learning</title><link href="http://localhost:4000/paper%20review/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/" rel="alternate" type="text/html" title="Neural Architecture Search With Reinforcement Learning" /><published>2020-08-29T00:00:00+09:00</published><updated>2020-08-29T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/08/29/NEURAL%20ARCHITECTURE%20SEARCH%20WITH%20REINFORCEMENT%20LEARNING</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/08/29/NEURAL-ARCHITECTURE-SEARCH-WITH-REINFORCEMENT-LEARNING/">&lt;p&gt;Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;(You should include contents of summary and introduction.)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;we use a re- current network to generate the model descriptions of neural networks and train this RNN with reinforcement learning to maximize the expected accuracy of the generated architectures on a validation set.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;RNN을 이용해서 neural network의 model description(하이퍼 파라미터: # of filters, stride length …)을 문자열로 생성한다.
-강화학습을 통해 expected accuracy를 최대로 만든다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/658/1*KgICs1DPpGbqY2WWPn1kwg.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Controller에서 p의 확률로 A라는 Architecture를 생성한다.&lt;/li&gt;
-  &lt;li&gt;자식 네트워크에서는 A 아키텍쳐를 훈련시켜 정확도 R을 구한다.&lt;/li&gt;
-  &lt;li&gt;정확도를 리워드의 신호로 사용한다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;policy gradient&lt;/code&gt;를 계산해서 컨트롤러를 업데이트한다.&lt;/li&gt;
-  &lt;li&gt;반복하다보면 더 높은 확률로 더 높은 정확도를 보이는 아키텍쳐를 찾을 수 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;related-work-basic-concepts&quot;&gt;Related work (Basic concepts)&lt;/h2&gt;
-
-&lt;p&gt;NAS 부분의 거의 최초라고 볼 수 있음.&lt;/p&gt;
-
-&lt;p&gt;이전 연구들 : Hyperparameter optimization&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;it is difficult to ask them to &lt;strong&gt;generate a variable-length configuration&lt;/strong&gt; that specifies the structure and connectivity of a network&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;유전자 알고리즘&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;search-based 방식이라 탐색속도가 느림.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;컨트롤러에서의 Neural Architecture 방식은 이전 예측값들을 input으로 받아 하이퍼 파라미터를 한 번에 하나씩 예측하는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auto-regressive&lt;/code&gt;한 방식이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
-&lt;p&gt;(Explain one of the methods that the thesis used.)&lt;/p&gt;
-
-&lt;p&gt;이 논문의 Key point : &lt;strong&gt;skip connection 예측하여 모델의 복잡도를 높인 것&lt;/strong&gt;, &lt;strong&gt;파라미터 접근방식을 사용해서 훈련 속도를 높인 것&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Generate Model with a Controller Recurrent Neural Network&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/700/1*9dgifjZ6BKyPqzIxR-EGwg.png&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It predicts filter height, filter width, stride height, stride width, and number of filters for one layer and repeats. Every prediction is carried out by a softmax classifier and then fed into the next time step as input.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;컨트롤러를 이용하여 CNN 모델에 사용하는 하이퍼파라미터들을 생성함.&lt;/p&gt;
-
-&lt;p&gt;레이어마다 사용할 필터, Stride 값을 예측하고 반복함.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;하이퍼 파라미터 예측시에 softmax classifier를 거친값이 다음 스텝의 input으로 들어감.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;컨트롤러 RNN이 아키텍쳐를 생성하면 생성된 아키텍쳐의 뉴럴 네트워크를 훈련시킴.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The parameters of the controller RNN, θc, are then optimized in order to maximize the expected validation accuracy of the proposed architectures.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Validation set으로 네트워크의 정확도를 측정하고, 컨트롤러 RNN의 파라미터 세타C는 정확도의 기대값을 최대화하기 위해 최적화됨.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Training with Reinforce&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/456/1*T03ptXjYcHkOBLFfoEs89A.png&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;controller to maximize its expected reward&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;컨트롤러 token list a[1]:a[T] : Architecture predicted by the controller RNN viewed as a sequence of actions&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;자식 네트워크는 생성된 구조의 정확도 R을 출력하고, 이 R을 강화학습의 리워드로 사용해서 컨트롤러를 강화학습 훈련시킴.&lt;/li&gt;
-  &lt;li&gt;Layer 하나짜리 CNN에서의 T=3임.
-    &lt;ul&gt;
-      &lt;li&gt;a1 : filter height&lt;/li&gt;
-      &lt;li&gt;a2 : filter width&lt;/li&gt;
-      &lt;li&gt;a3 : # of filters&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/91626958-815c0080-e9ee-11ea-89cb-43ee634d253e.png&quot; alt=&quot;스크린샷 2020-08-29 오전 11 55 12&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/91627195-bc5f3380-e9f0-11ea-9bd2-3d2b8653075c.png&quot; alt=&quot;스크린샷 2020-08-29 오후 12 11 09&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/91627201-c84af580-e9f0-11ea-8824-88e3e1f87255.png&quot; alt=&quot;스크린샷 2020-08-29 오후 12 11 30&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In this work, we use the REINFORCE rule from Williams (1992)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Standard REINFORCE Update Rule&lt;/li&gt;
-  &lt;li&gt;R은 미분 불가능함. =&amp;gt; policy gradient를 써서 세타 C를 업데이트한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;accelerate-training-with-parallelism-and-asynchronous-updates&quot;&gt;Accelerate Training with Parallelism and Asynchronous Updates&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;자식 네트워크 : 하나의 모델을 뜻함&lt;/li&gt;
-  &lt;li&gt;여러 컨트롤러 * 여러 자식 네트워크 =&amp;gt; 많은 네트워크를 만들어냄
-    &lt;ul&gt;
-      &lt;li&gt;훈련 속도를 높이기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;파라미터-서버&lt;/code&gt; 구조 사용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/700/1*9UQdtOqDpyef44nhKYsrcA.png&quot; alt=&quot;3&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;S개의 파라미터 서버가 있고 이 서버와 연결된 K개의 복제된 &lt;strong&gt;컨트롤러에 공유된 파라미터 값이 저장됨.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;각각의 컨트롤러는 m개의 자식 네트워크를 복제해서 &lt;strong&gt;병렬&lt;/strong&gt;로 훈련시킴.&lt;/p&gt;
-
-&lt;p&gt;이 때 자식 네트워크의 정확도는 파라미터 서버에 보낼 세타 C에 대한 gradient를 계산하기 위해 기록됨.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Increase Architecture Complexity with Skip Connection and Other Layer Types&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/91627249-22e45180-e9f1-11ea-9774-73701c1e18c4.png&quot; alt=&quot;스크린샷 2020-08-29 오후 12 14 03&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Skip connection을 추가해서 탐생 공간을 넓힌다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;레이어마다 anchor point를 더해서 이전 레이어들 중 어떤 레이어를 현재 레이어의 input으로 할지 결정함.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Generate Recurrent Cell Architectures&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;지금까지 CNN을 위한 Neural Architecture, 지금은 RNN&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/700/1*MFYHqx5BOad936u6QfhmrQ.png&quot; alt=&quot;4&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;RNN, LSTM은 x(t), h(t-1)을 input으로 하고 h(t)를 output으로 하는 트리구조로 나타낼 수 있음(맨 오른쪽)&lt;/p&gt;
-
-&lt;p&gt;RNN 컨트롤러에서는 트리 노드들의 결합방석(addition, elementwise multiplication)과 활성화함수(sigmoid,tanh)를 선택할 수 있음.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그림 (b)의 Cell indices 의 왼쪽 1부분이 의미하는 것은 다음 메모리구조 C_t와 연결되는것은 Tree index 1 이며 오른쪽 0부분은 h_t 를 구할때 사용되는 것이 Tree index 0 이라는 것입니다. 그림 (b)의 Tree index 2 는 Tree0과 Tree1의 결합방식을 나타내는 것으로 그림에선 elementwise multiplication와 sigmoid의 결합이 됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
-
-&lt;p&gt;기존 SOTA 모델과 비교했을 때 약간의 성능 감소는 있었지만 &lt;strong&gt;더 작은 파라미터로 구현이 되었음,&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;CNN (CIFAR-10 dataset)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/91627442-4fe53400-e9f2-11ea-98be-cb4432fd5b75.png&quot; alt=&quot;스크린샷 2020-08-29 오후 12 22 27&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;RNN (Penn Treebank dataset)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/91627448-64c1c780-e9f2-11ea-8047-2596427ffe02.png&quot; alt=&quot;스크린샷 2020-08-29 오후 12 23 03&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Transfer Learning on Neural Machine Translation
-    &lt;ul&gt;
-      &lt;li&gt;LSTM을 빼고 NAS를 통해 만든 cell을 넣었음.&lt;/li&gt;
-      &lt;li&gt;LSTM에 특화된 하이퍼파라미터들을 튜닝하지 않음&lt;/li&gt;
-      &lt;li&gt;BELU score 0.5 오름&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;additional-studies&quot;&gt;Additional studies&lt;/h2&gt;
-&lt;p&gt;(If you have some parts that cannot understand, you have to do additional studies for them. It’s optional.)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Understanding Deep Learning Requires Rethinking Generalization&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Designing Neural Network Architectures Using RL&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;p&gt;(References for your additional studies)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=XP3vyVrrt3Q&quot;&gt;https://www.youtube.com/watch?v=XP3vyVrrt3Q&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://medium.com/@sunwoopark/slow-paper-neural-architecture-search-with-reinforcement-learning-6de601560522&quot;&gt;https://medium.com/@sunwoopark/slow-paper-neural-architecture-search-with-reinforcement-learning-6de601560522&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Reinforcement Learning" /><category term="Neural Architecture Search" /><summary type="html">Neural Architecture Search With Reinforcement Learning 논문을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)</title><link href="http://localhost:4000/project/2020/08/26/Handlang2/" rel="alternate" type="text/html" title="딥러닝 모델을 이용한 수화 교육 웹 어플리케이션-Handlang(2)" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/project/2020/08/26/Handlang2</id><content type="html" xml:base="http://localhost:4000/project/2020/08/26/Handlang2/">&lt;p&gt;DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다.
-이 포스팅에서는 웹에 관련된 것을 다룹니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;handlang---aslamerican-sign-language-education-by-using-deep-learning-model&quot;&gt;Handlang - ASL(American Sign Language) Education by using deep learning model&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;딥러닝으로 학습된 수화 인식 모델을 바탕으로 알파벳, 숫자에 해당되는 수화를 학습 및 연습 할 수 있는 웹 어플리케이션입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;wireframe---figma&quot;&gt;Wireframe - Figma&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fn8Hg1%2FbtqCPBw0VEs%2F6fRBkKw5iK71fcigASJIC0%2Fimg.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93708908-f5fd0780-fb74-11ea-950e-adbd44260edd.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Figma를 사용하여 팀원들과 홈페이지 와이어프레임을 구상하였습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;flask&quot;&gt;Flask&lt;/h2&gt;
-
-&lt;p&gt;웹 개발 초보자에게 비교적 쉬운 Flask를 사용하여 구현하였습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;model-deploy&quot;&gt;Model Deploy&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;학습시킨 모델을 불러오는 법&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/handlang_model_4.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 지문자 모델
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;load_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'model/su_adamax.h5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 숫자 모델
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;ajax&quot;&gt;Ajax&lt;/h2&gt;
-
-&lt;p&gt;웹캠으로 받은 이미지를 실시간으로 Detect해야하기 때문에 페이지를 새로 고치지 않아도 데이터를 로드할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ajax&lt;/code&gt;를 사용하였습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;translation&quot;&gt;Translation&lt;/h2&gt;
-
-&lt;p&gt;한글/영어 버전의 웹페이지를 구현하기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flask_babel&lt;/code&gt;을 사용했습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;study--quiz&quot;&gt;Study &amp;amp; Quiz&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709264-fa76ef80-fb77-11ea-99c2-33eccceb6f65.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709269-05ca1b00-fb78-11ea-85c1-ad523fd94f95.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709270-0cf12900-fb78-11ea-9d04-4dbf3a648ea3.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93709273-12e70a00-fb78-11ea-999f-71a7f8876db6.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;team-handlang&quot;&gt;Team Handlang&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/yskim0/Handlang&quot;&gt;Project Github Link&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Object Detection" /><category term="Flask" /><category term="ASL Education Application" /><category term="YOLO" /><category term="Fast R-CNN" /><category term="Inception v3" /><summary type="html">DSC EWHA에서 2019.9~2020.8 까지 진행한 팀프로젝트로, 딥러닝 모델을 이용한 수화 학습 웹 어플리케이션입니다. 이 포스팅에서는 웹에 관련된 것을 다룹니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry></feed>
