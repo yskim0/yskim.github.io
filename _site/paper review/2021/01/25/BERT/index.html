@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Deep Learning,NLP,Text Summarization,BERT," />
+  <meta name="keywords" content="Deep Learning,BERT,Attention,Transformer," />
 
 
 
@@ -111,20 +111,19 @@
 
 
 
-<meta name="description" content="Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.">
-<meta name="keywords" content="Deep Learning, NLP, Text Summarization, BERT">
+<meta name="description" content="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.">
+<meta name="keywords" content="Deep Learning, BERT, Attention, Transformer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fine-tune BERT for Extractive Summarization">
-<meta property="og:url" content="http://localhost:4000/paper%20review/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/">
+<meta property="og:title" content="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)">
+<meta property="og:url" content="http://localhost:4000/paper%20review/2021/01/25/BERT/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.">
+<meta property="og:description" content="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/88408018-ef207580-ce0d-11ea-846f-ea3d451f8cc3.jpeg">
-<meta property="og:image" content="374">
+<meta property="og:image" content="766">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fine-tune BERT for Extractive Summarization">
-<meta name="twitter:description" content="Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/88408018-ef207580-ce0d-11ea-846f-ea3d451f8cc3.jpeg">
+<meta name="twitter:title" content="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)">
+<meta name="twitter:description" content="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.">
+<meta name="twitter:image" content="766">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -157,7 +156,7 @@
 
 
 
-  <title>Fine-tune BERT for Extractive Summarization | Yeonsoo Kim's blog</title>
+  <title>Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) | Yeonsoo Kim's blog</title>
   
 
 
@@ -317,7 +316,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2021/01/25/BERT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yeonsoo Kim">
@@ -337,7 +336,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Fine-tune BERT for Extractive Summarization
+            Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)
           
         </h1>
         
@@ -351,8 +350,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-25T00:00:00+09:00">
-                2020-07-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-25T00:00:00+09:00">
+                2021-01-25
               </time>
             
 
@@ -426,84 +425,121 @@
 
 
 
-  <p>Fine-tune BERT for Extractive Summarization 를 읽고 정리한 글입니다.</p>
+  <p>Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.</p>
 
 <hr />
 
-<h1 id="fine-tune-bert-for-extractive-summarization">Fine-tune BERT for Extractive Summarization</h1>
+<h2 id="abstract">Abstract</h2>
 
-<h2 id="summarization의-종류">Summarization의 종류</h2>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.
+</code></pre></td></tr></tbody></table></div></div>
 <ul>
-  <li>abstractive summarization : contains words or phrases that <strong>were not in the original text…</strong>
+  <li><strong>bidirectional</strong>이라는 점이 이전 연구들과의 가장 큰 차이점이다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create SOTA ~...
+</code></pre></td></tr></tbody></table></div></div>
+<ul>
+  <li>fine-tuning이 매우 용이한 모델이다</li>
+</ul>
+
+<p>여러 가지 task에서 SOTA를 기록했음.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Applying pre-trained language representations to downstream tasks</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">feature-based</code>
     <ul>
-      <li>paraphrasing와 유사</li>
+      <li>ELMo</li>
     </ul>
   </li>
-  <li>extractive summarization : by copying and concatenating the most important spans in a document
+  <li><code class="language-plaintext highlighter-rouge">fine-tuning</code>
     <ul>
-      <li>중요한 문장을 copy &amp; paste 하는 것으로 서머리를 만듦.</li>
+      <li>GPT</li>
     </ul>
   </li>
-  <li>이 논문에서는 후자인 extractive summarization을 사용</li>
-</ul>
+</ol>
 
-<h2 id="data">Data</h2>
+<h3 id="limitation-of-unidirectional-approach">Limitation of Unidirectional approach</h3>
 
+<p>두 접근법 모두 <strong>unidirectional</strong> 방법을 사용함.</p>
 <ul>
-  <li>CNN/Dailymail</li>
-  <li>NYT</li>
-</ul>
-
-<h2 id="method">Method</h2>
-
-<h3 id="encoding-multiple-sentences">Encoding Multiple Sentences</h3>
-
-<p><img src="https://user-images.githubusercontent.com/48315997/88408018-ef207580-ce0d-11ea-846f-ea3d451f8cc3.jpeg" alt="IMG_55CE1AC3669E-1" /></p>
-
-<ul>
-  <li><strong>insert a [CLS] token before each sentence and a [SEP] token after each sentence</strong>
+  <li>But, unidirectional 방법은 한계점이 뚜렷함.</li>
+  <li>GPT(1)처럼 left-to-right architecture를 사용하게 되면, 모든 token들은 이전의 token들에만 self-attention할 수 있게 된다.
     <ul>
-      <li><em>In vanilla BERT, [CLS] is used as a symbol to aggregate features from one sentence or a pair of sentences.</em></li>
+      <li>이는 token-level task (예를 들어 QA)들에 부적합하다. 이러한 태스크들은 양 방향을 봐서 <strong>context</strong>를 읽어야하기 때문.</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="interval-segment-embeddings">Interval Segment Embeddings</h3>
+<h3 id="masked-langauge-modelmlm">Masked Langauge Model(MLM)</h3>
+
+<p>BERT에서는 pre-training 할 때, 위에서 언급한 unidirectionality constraint를 <code class="language-plaintext highlighter-rouge">Masked Language Model(MLM)</code> 으로 완화(?)했음.</p>
 
 <ul>
-  <li>sent(i)를 홀수,짝수 순서에 따라 E(a) or E(b)로 segment embedding 한다.</li>
+  <li>MLM은 input 토큰들로부터 <strong>randomly mask</strong>함.
+    <ul>
+      <li>이것의 목적은, <strong>오직 context만 가지고</strong> mask된 original vocab.을 맞추는 것.</li>
+    </ul>
+  </li>
+  <li>Left-to-right LM pre-training과 달리, MLM의 목적 함수는 양 방향의 representations를 이해할 수 있다.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>  which allows us to pre-train a deep bidirectional Transformer
+</code></pre></td></tr></tbody></table></div>    </div>
+  </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>sentence -&gt; [sent1,sent2,sent3,sent4,sent5]
-embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
+<h3 id="next-sentence-prediction">Next Sentence Prediction</h3>
+
+<p>jointly pre-train text-pair representation</p>
+
+<h2 id="bert">BERT</h2>
+
+<p><img width="766" alt="스크린샷 2021-01-25 오후 9 09 09" src="https://user-images.githubusercontent.com/48315997/105704076-91eab580-5f51-11eb-8b52-16c48146bd50.png" /></p>
+
+<h3 id="pre-training">Pre-training</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>During pre-training, the model is trained on unlabeled data over different pre-training tasks.
 </code></pre></td></tr></tbody></table></div></div>
 
-<h3 id="fine-tuning-with-summarization-layers">Fine-tuning with Summarization Layers</h3>
+<p>Pre-training 단계에서 모델은 <strong>unlabeled data</strong>를 가지고 학습된다.</p>
 
-<ul>
-  <li>simple classifier : sigmoid function</li>
-  <li>inter-sentence transformer
-    <ul>
-      <li>extracting document-level features focusing on summarization tasks from the BERT outputs</li>
-      <li>공식에 layer normalization과 multi-head attention operation를 이용한다 하는데 MHAtt는 더 알아봐야할 듯함.</li>
-    </ul>
-  </li>
-  <li>Recurrent Neural Network
-    <ul>
-      <li>RNN이 더 좋게 만들 수 있음(왜지)</li>
-      <li>BERT output에 LSTM 레이러를 적용시켜서 summarization-specific features를 학습할 수 있도록 함.</li>
-    </ul>
-  </li>
-</ul>
+<p><strong>TWO Unsupervised task를 사용함.</strong></p>
 
-<h2 id="results">Results</h2>
+<h4 id="task-1-masked-lm">Task #1. Masked LM</h4>
 
-<ul>
-  <li>ROUGE score 사용함</li>
-</ul>
+<p>deep bidirectional representation을 학습시키기 위해, input token에서 랜덤으로 몇 %정도를 masking하고 이 masked token들을 predict하도록 학습시킴.</p>
 
-<p><img width="374" alt="스크린샷 2020-07-25 오전 12 37 36" src="https://user-images.githubusercontent.com/48315997/88408821-0b70e200-ce0f-11ea-9103-8a495d7475df.png" /></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">[MASK]</th>
+      <th style="text-align: center">Random</th>
+      <th style="text-align: center">Unchanged</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">80%</td>
+      <td style="text-align: center">10%</td>
+      <td style="text-align: center">10%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="task-2-next-sentence-prediction-nsp">Task #2. Next Sentence Prediction (NSP)</h4>
+
+<p><strong>두 문장 사이의 관계(relationship)를 이해</strong>하기 위해 학습하는 task이다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">IsNext</code>인지 아닌지(<code class="language-plaintext highlighter-rouge">NotNext</code>) 분류하는 binary classification 문제임.</p>
+
+<h3 id="fine-tuning-bert">Fine-tuning BERT</h3>
+
+<p>적절한 Input과 Output을 넣으면, single text나 text pair 모두 가능.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>BERT instead uses the self-attention mechanism to unify these two stages, as encoding a concatenated text pair with self-attention effectively includes bidirectional cross attention between two sentences.
+</code></pre></td></tr></tbody></table></div></div>
 
 
 
@@ -539,13 +575,13 @@ embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
             <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
           
             
-            <a href="/tag/#/NLP" rel="tag"># NLP</a>
-          
-            
-            <a href="/tag/#/Text%20Summarization" rel="tag"># Text Summarization</a>
-          
-            
             <a href="/tag/#/BERT" rel="tag"># BERT</a>
+          
+            
+            <a href="/tag/#/Attention" rel="tag"># Attention</a>
+          
+            
+            <a href="/tag/#/Transformer" rel="tag"># Transformer</a>
           
         </div>
       
@@ -561,8 +597,8 @@ embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/paper%20review/2020/07/26/Text-Summarization-with-Pretrained-Encoders/" rel="next" title="Text Summarization with Pretrained Encoders">
-                <i class="fa fa-chevron-left"></i> Text Summarization with Pretrained Encoders
+              <a href="/troubleshooting/2021/01/26/d/" rel="next" title="Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결">
+                <i class="fa fa-chevron-left"></i> Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결
               </a>
             
           </div>
@@ -571,8 +607,8 @@ embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/math/2020/07/24/Jacobian-Matrix/" rel="prev" title="Jacobian Matrix">
-                Jacobian Matrix <i class="fa fa-chevron-right"></i>
+              <a href="/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/" rel="prev" title="2020년을 돌아보며, 2020 YEAR in REVIEW">
+                2020년을 돌아보며, 2020 YEAR in REVIEW <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -767,7 +803,7 @@ embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#fine-tune-bert-for-extractive-summarization"> <span class="nav-number">1</span> <span class="nav-text">Fine-tune BERT for Extractive Summarization</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#summarization의-종류"> <span class="nav-number">1.1</span> <span class="nav-text">Summarization의 종류</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#data"> <span class="nav-number">1.2</span> <span class="nav-text">Data</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#method"> <span class="nav-number">1.3</span> <span class="nav-text">Method</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#encoding-multiple-sentences"> <span class="nav-number">1.3.1</span> <span class="nav-text">Encoding Multiple Sentences</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#interval-segment-embeddings"> <span class="nav-number">1.3.2</span> <span class="nav-text">Interval Segment Embeddings</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#fine-tuning-with-summarization-layers"> <span class="nav-number">1.3.3</span> <span class="nav-text">Fine-tuning with Summarization Layers</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#results"> <span class="nav-number">1.4</span> <span class="nav-text">Results</span> </a> </li> </ol> </li>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#abstract"> <span class="nav-number">1</span> <span class="nav-text">Abstract</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#introduction"> <span class="nav-number">2</span> <span class="nav-text">Introduction</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#limitation-of-unidirectional-approach"> <span class="nav-number">2.1</span> <span class="nav-text">Limitation of Unidirectional approach</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#masked-langauge-modelmlm"> <span class="nav-number">2.2</span> <span class="nav-text">Masked Langauge Model(MLM)</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#next-sentence-prediction"> <span class="nav-number">2.3</span> <span class="nav-text">Next Sentence Prediction</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#bert"> <span class="nav-number">3</span> <span class="nav-text">BERT</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#pre-training"> <span class="nav-number">3.1</span> <span class="nav-text">Pre-training</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#task-1-masked-lm"> <span class="nav-number">3.1.1</span> <span class="nav-text">Task #1. Masked LM</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#task-2-next-sentence-prediction-nsp"> <span class="nav-number">3.1.2</span> <span class="nav-text">Task #2. Next Sentence Prediction (NSP)</span> </a> </li> </ol> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#fine-tuning-bert"> <span class="nav-number">3.2</span> <span class="nav-text">Fine-tuning BERT</span> </a> </li> </ol> </li>
     </ol>
   </div>
             

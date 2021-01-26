@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-31T21:37:18+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">2020년을 돌아보며, 2020 YEAR in REVIEW</title><link href="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/" rel="alternate" type="text/html" title="2020년을 돌아보며, 2020 YEAR in REVIEW" /><published>2020-12-31T00:00:00+09:00</published><updated>2020-12-31T00:00:00+09:00</updated><id>http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW</id><content type="html" xml:base="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/">&lt;p&gt;2020년 저에게 있었던 일을 짧게 회고하는 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-26T21:44:57+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결</title><link href="http://localhost:4000/troubleshooting/2021/01/26/d/" rel="alternate" type="text/html" title="Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결" /><published>2021-01-26T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/01/26/d</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/01/26/d/">&lt;p&gt;Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;잡소리&quot;&gt;잡소리&lt;/h2&gt;
+
+&lt;p&gt;오늘 연구실에서 정말 당황한 에러를 마주쳤습니다.&lt;/p&gt;
+
+&lt;p&gt;사건의 역시나 CUDA에서 시작… 저번주까지만 해도 잘 됐던 gpu사용이 오늘 하려니 갑자기 찾을 수 없다(?)는 에러가 떴습니다.&lt;/p&gt;
+
+&lt;p&gt;침착하게 그 에러 메시지를 구글링해서 스택오버플로우에서 하라는 대로 하고 재부팅했는데 아래와 같은 에러가 뜨고 무한 블랙스크린이었습니다 ㅜㅜ.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.stack.imgur.com/fBYUJ.jpg&quot; alt=&quot;&quot; /&gt; &lt;a href=&quot;https://askubuntu.com/questions/1222496/system-wont-boot-stuck-at-dev-sda5-clean-xxxx-xxxx-files-yyyy-yyyy-blocks&quot;&gt;이미지 출처&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;진심 저거 봤을 때 눈물이 찔끔 나올 뻔 했는데요 ..ㅋㅋㅋ 스택오버플로우보니까 아예 우분투를 재설치 해야 할 수도 있다는 글을 보고… 진짜 온몸이 오싹해졌습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;우선 다시 부팅하고 recovery mode (safe mode) 로 들어가야 합니다. 부팅될 때 무한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shift&lt;/code&gt; 누르십시오. (우분투 18.04 기준)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Advanced options for Ubuntu&lt;/code&gt; 를 클릭하고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;recovery mode&lt;/code&gt;로 들어갑니다.
+제가 캡쳐할 상황은 아니었던지라 다 인터넷에서 들고 오는 점 이해 부탁드립니다^^; &lt;a href=&quot;https://askubuntu.com/questions/92556/how-do-i-boot-into-a-root-shell&quot;&gt;출처&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.stack.imgur.com/01e8n.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://i.stack.imgur.com/UP5j7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;이제 리커버리 모드에 들어왔는데요. 여기서 방향키를 사용해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt;로 이동하고 Enter합니다. 이제 터미널을 쓸 수 있습니다! 
+&lt;img src=&quot;https://i.stack.imgur.com/tHkmh.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이제 터미널에서&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get purge nvidia*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;를 치면 됩니다만, 여기서 저는&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;라는 에러가 또 뜹니다.&lt;/p&gt;
+
+&lt;p&gt;여기서 제 부팅 실패의 원인을 유추해볼 수 있었습니다. 재부팅 전에 했던 동작들에서 뭔가를 건드렸고 그 결과 dpkg 패키지가 제대로 구성되지 않았던 겁니다.(maybe….)&lt;/p&gt;
+
+&lt;p&gt;아무튼 이 에러는 상대적으로 쉽게 해결할 수 있습니다.
+에러 메시지대로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo dpkg --configure -a&lt;/code&gt; 를 해주면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이제 다시&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get purge nvidia*&lt;/code&gt;
+를 하게 되면 잘 설치 됩니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reboot&lt;/code&gt; 를 써서 재부팅합니다 -&amp;gt; 성공!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;이 일은 저에게 있어 정말 끔찍했던 순간이었습니다. 퇴사해야하나 생각도 했어요 ㅋㅋㅋ 아무튼 빠르게 고치고 퇴근했습니다^^.. 혹시 구글링하다 저와 같은 에러를 발견하시게 된다면, 위 과정을 통해 고치길 바라겠습니다.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Ubuntu" /><category term="Troubleshooting" /><summary type="html">Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.</summary></entry><entry><title type="html">Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)</title><link href="http://localhost:4000/paper%20review/2021/01/25/BERT/" rel="alternate" type="text/html" title="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)" /><published>2021-01-25T00:00:00+09:00</published><updated>2021-01-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/01/25/BERT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/01/25/BERT/">&lt;p&gt;Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;bidirectional&lt;/strong&gt;이라는 점이 이전 연구들과의 가장 큰 차이점이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create SOTA ~...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;fine-tuning이 매우 용이한 모델이다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;여러 가지 task에서 SOTA를 기록했음.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Applying pre-trained language representations to downstream tasks&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature-based&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;ELMo&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fine-tuning&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;GPT&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;limitation-of-unidirectional-approach&quot;&gt;Limitation of Unidirectional approach&lt;/h3&gt;
+
+&lt;p&gt;두 접근법 모두 &lt;strong&gt;unidirectional&lt;/strong&gt; 방법을 사용함.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;But, unidirectional 방법은 한계점이 뚜렷함.&lt;/li&gt;
+  &lt;li&gt;GPT(1)처럼 left-to-right architecture를 사용하게 되면, 모든 token들은 이전의 token들에만 self-attention할 수 있게 된다.
+    &lt;ul&gt;
+      &lt;li&gt;이는 token-level task (예를 들어 QA)들에 부적합하다. 이러한 태스크들은 양 방향을 봐서 &lt;strong&gt;context&lt;/strong&gt;를 읽어야하기 때문.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;masked-langauge-modelmlm&quot;&gt;Masked Langauge Model(MLM)&lt;/h3&gt;
+
+&lt;p&gt;BERT에서는 pre-training 할 때, 위에서 언급한 unidirectionality constraint를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masked Language Model(MLM)&lt;/code&gt; 으로 완화(?)했음.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MLM은 input 토큰들로부터 &lt;strong&gt;randomly mask&lt;/strong&gt;함.
+    &lt;ul&gt;
+      &lt;li&gt;이것의 목적은, &lt;strong&gt;오직 context만 가지고&lt;/strong&gt; mask된 original vocab.을 맞추는 것.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Left-to-right LM pre-training과 달리, MLM의 목적 함수는 양 방향의 representations를 이해할 수 있다.
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  which allows us to pre-train a deep bidirectional Transformer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;next-sentence-prediction&quot;&gt;Next Sentence Prediction&lt;/h3&gt;
+
+&lt;p&gt;jointly pre-train text-pair representation&lt;/p&gt;
+
+&lt;h2 id=&quot;bert&quot;&gt;BERT&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;766&quot; alt=&quot;스크린샷 2021-01-25 오후 9 09 09&quot; src=&quot;https://user-images.githubusercontent.com/48315997/105704076-91eab580-5f51-11eb-8b52-16c48146bd50.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pre-training&quot;&gt;Pre-training&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;During pre-training, the model is trained on unlabeled data over different pre-training tasks.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Pre-training 단계에서 모델은 &lt;strong&gt;unlabeled data&lt;/strong&gt;를 가지고 학습된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TWO Unsupervised task를 사용함.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;task-1-masked-lm&quot;&gt;Task #1. Masked LM&lt;/h4&gt;
+
+&lt;p&gt;deep bidirectional representation을 학습시키기 위해, input token에서 랜덤으로 몇 %정도를 masking하고 이 masked token들을 predict하도록 학습시킴.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;[MASK]&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Random&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Unchanged&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;80%&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10%&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;task-2-next-sentence-prediction-nsp&quot;&gt;Task #2. Next Sentence Prediction (NSP)&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;두 문장 사이의 관계(relationship)를 이해&lt;/strong&gt;하기 위해 학습하는 task이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IsNext&lt;/code&gt;인지 아닌지(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NotNext&lt;/code&gt;) 분류하는 binary classification 문제임.&lt;/p&gt;
+
+&lt;h3 id=&quot;fine-tuning-bert&quot;&gt;Fine-tuning BERT&lt;/h3&gt;
+
+&lt;p&gt;적절한 Input과 Output을 넣으면, single text나 text pair 모두 가능.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BERT instead uses the self-attention mechanism to unify these two stages, as encoding a concatenated text pair with self-attention effectively includes bidirectional cross attention between two sentences.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="BERT" /><category term="Attention" /><category term="Transformer" /><summary type="html">Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">2020년을 돌아보며, 2020 YEAR in REVIEW</title><link href="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/" rel="alternate" type="text/html" title="2020년을 돌아보며, 2020 YEAR in REVIEW" /><published>2020-12-31T00:00:00+09:00</published><updated>2020-12-31T00:00:00+09:00</updated><id>http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW</id><content type="html" xml:base="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/">&lt;p&gt;2020년 저에게 있었던 일을 짧게 회고하는 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -214,9 +391,7 @@
 
 &lt;hr /&gt;
 
-&lt;h1 id=&quot;unpaired-image-to-image-translation-using-cycle-consistent-adversarial-networks&quot;&gt;Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)</title><link href="http://localhost:4000/paper%20review/2020/12/25/DCGAN/" rel="alternate" type="text/html" title="Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)" /><published>2020-12-25T00:00:00+09:00</published><updated>2020-12-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/25/DCGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/25/DCGAN/">&lt;p&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
+&lt;p&gt;앞서 살펴본 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DCGAN&lt;/code&gt;연구는 큰 발전을 이루었지만, 이 역시 unstable하여 mode collapse가 일어날 수 있는 한계점이 뚜렷했습니다.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)</title><link href="http://localhost:4000/paper%20review/2020/12/25/DCGAN/" rel="alternate" type="text/html" title="Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)" /><published>2020-12-25T00:00:00+09:00</published><updated>2020-12-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/25/DCGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/25/DCGAN/">&lt;p&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1133,473 +1308,4 @@ cocoapi.git#subdirectory=pycocotools&quot;
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;p&gt;(References for your additional studies)&lt;/p&gt;
 
-&lt;p&gt;https://jeonsworld.github.io/vision/vit/&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Transformer" /><summary type="html">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks</title><link href="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/" rel="alternate" type="text/html" title="StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks" /><published>2020-09-20T00:00:00+09:00</published><updated>2020-09-20T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/20/StyleGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/20/StyleGAN/">&lt;p&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;stylegan--a-style-based-generator-architecture-for-generative-adversarial-networks-cvpr-2019&quot;&gt;StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks (CVPR 2019)&lt;/h1&gt;
-
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;GAN의 generator 부분은 black box로 여겨져 이미지 생성 과정을 이해하기 어려웠음.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;style transfer&lt;/code&gt; 에서 기반한 generator 구조
-    &lt;ul&gt;
-      &lt;li&gt;각 레이어마다 style의 정보를 입힘. -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AdaIN&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;전체적인 스타일(머리 색, 인종, 성별 등), 세세한 부분(곱슬 등) 등까지 조정 가능 -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;noise&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;baseline : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;progressive GAN&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;latent vector로 부터 이미지 합성하고 점점 해상도를 올려서 high-resolution image 생성 =&amp;gt; scale-specific control&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;loss function, discriminator 등 수정하지 않고 오직 제너레이터에 대해서만 다룸.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;latent space의 interpolation quality 측정하는 measure 제안
-    &lt;ul&gt;
-      &lt;li&gt;perceptual path length&lt;/li&gt;
-      &lt;li&gt;linear separability&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;FFHQ 데이터셋 오픈&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-work-basic-concepts&quot;&gt;Related work (Basic concepts)&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Progressive GAN
-    &lt;ul&gt;
-      &lt;li&gt;GAN을 저해상도에서 고해상도로 점진적으로 학습&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;style transfer
-    &lt;ul&gt;
-      &lt;li&gt;content image &amp;amp; style image가 있을 때 content 이미지와 유사하게 style image에 입히는 것&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
-&lt;p&gt;(Explain one of the methods that the thesis used.)&lt;/p&gt;
-
-&lt;h3 id=&quot;generator-architecture&quot;&gt;Generator Architecture&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93662640-90d5e300-fa9c-11ea-9a36-7312a058879d.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;left : traditional generaotr : latent code &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;z&lt;/code&gt;를 input layer에 바로 넣음.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;right : &lt;strong&gt;style-based generator&lt;/strong&gt;&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;first, map the input to an intermediate latent space &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;W&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;then controls the generator through &lt;strong&gt;adaptive instance normalization (AdaIN)&lt;/strong&gt; at each conv. layer.&lt;/li&gt;
-      &lt;li&gt;Gaussian noise is added after each conv.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;제안한 모델을 차근차근 뜯어보자면&lt;/p&gt;
-
-&lt;h4 id=&quot;mapping-network&quot;&gt;Mapping Network&lt;/h4&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/1400/0*6lEwRXKiA8WGRlEc.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;https://towardsdatascience.com/explained-a-style-based-generator-architecture-for-gans-generating-and-tuning-realistic-6cb2be0f431&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;input vector &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;z&lt;/code&gt;를 바로 input layer에 넣는 것이 아니라, mapping network를 거쳐 &lt;strong&gt;intermediate vector &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w&lt;/code&gt;&lt;/strong&gt; 로 변환한 후 이미지를 생성한다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;바로 인풋 레이어에 넣지 않는 이유 : 고정된 input distribution에 맞춰야 해서 non-linear하게 mapping이 되고, 이것은 머리 색등과 같은 attribute를 변경하기 힘들어지기 때문.&lt;/li&gt;
-  &lt;li&gt;위처럼 intermediate vector를 사용하게 되면 유동적인 공간에 mapping 시킬 수 있기 때문에 visual attribute 조절이 쉬워진다. =&amp;gt; &lt;strong&gt;disentanglement&lt;/strong&gt; 하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;즉, 이 네트워크에서는 z로부터 만들어진 style &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w&lt;/code&gt;를 구하고, 이를 affine transformation을 거친 A를 synthesis network에 넘겨주어 AdaIN operation을 통해 레이어에 스타일을 입힌다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;style-modules-adain&quot;&gt;Style Modules (AdaIN)&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/1400/0*uqn4slMHrFYkFmjS.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;https://towardsdatascience.com/explained-a-style-based-generator-architecture-for-gans-generating-and-tuning-realistic-6cb2be0f431&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93665356-c4bb0380-fab0-11ea-844d-348f19fc4e2f.png&quot; alt=&quot;스크린샷 2020-09-19 오후 7 46 09&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;위에서 생성된 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w&lt;/code&gt;는 style에 대한 정보를 가지고 있다.&lt;/li&gt;
-  &lt;li&gt;Synthesis network는 학습가능한 constant tensor(4x4x512)를 &lt;strong&gt;upsampling, convolution&lt;/strong&gt;을 통해 1024x1024x3 이미지로 변환시킨다.&lt;/li&gt;
-  &lt;li&gt;w의 affine transfomation을 통해 얻어진 A를 가지고 &lt;strong&gt;AdaIN operation&lt;/strong&gt;을 통해 스타일을 입힌다.
-    &lt;ul&gt;
-      &lt;li&gt;normalize하고, 이를 scale하고 bias를 더함. 이게 스타일을 입히는 효과를 낸다.&lt;/li&gt;
-      &lt;li&gt;매 conv 레이어마다 하므로, 각각의 레이어마다 다른 스타일을 조정할 수 있다. 이 말은 곧, 각 레이어가 특정한 attribute만을 담당한다는 뜻.
-        &lt;ul&gt;
-          &lt;li&gt;세밀한 스타일 조정 가능해진다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;stochastic-variation&quot;&gt;Stochastic variation&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://bloglunit.files.wordpress.com/2019/02/1_gwchaliormc1xlj7bh0zmg.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://miro.medium.com/max/1400/1*GwchALioRMC1xlj7Bh0ZMg.png&quot; alt=&quot;스크린샷 2020-09-19 오후 7 48 31&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;머리카락, 수염 등 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stochastic&lt;/code&gt;한 요소들은 사진의 디테일에 매우 중요함.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;위의 architecture에서 noise가 이에 대한 역할을 한다.&lt;/li&gt;
-  &lt;li&gt;synthesis network에서 &lt;strong&gt;by adding per-pixel noise after each convolution.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;style-mixing&quot;&gt;Style Mixing&lt;/h3&gt;
-
-&lt;p&gt;two random latent codes(w1,w2)를 사용하는 regularization 기법&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;하나의 w로 학습할 경우 여러 레이어에 대한 style이 correlate되는 문제점이 생길 수 있음.&lt;/li&gt;
-  &lt;li&gt;ex. w1 스타일로 입혀놓지만, 랜덤으로 몇 개는 w2 스타일을 사용한다 …&lt;/li&gt;
-  &lt;li&gt;위와 같은 방법을 통해 각 레이어가 담당하는 스타일을 명확하게 구분지을 수 있다.&lt;/li&gt;
-  &lt;li&gt;(dropout과 비슷한 원리라고 함)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;disentanglement-studies&quot;&gt;Disentanglement studies&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;이 내용이 어려워서 제대로 이해하지 못함. 짧게 요약하겠음.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93665682-7c511500-fab3-11ea-8333-be0512370654.png&quot; alt=&quot;스크린샷 2020-09-19 오후 8 05 35&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Disentanglment : latent space가 선형적인 구조를 가지게 되어, 하나의 factor가 움직였을 때 정해진 특성이 바뀌게 만드는 것.
-    &lt;ul&gt;
-      &lt;li&gt;예. z의 특정한 값을 바꿨을 때 생성되는 이미지의 하나의 특성(성별, 머리카락 길이 등)만 영향을 주게 되는 것&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;fixed distribution을 따르게 되면 억지로 끼워맞추게 되어 어색한 이미지가 만들어질 수 있음.&lt;/li&gt;
-  &lt;li&gt;하지만 이 모델처럼 &lt;strong&gt;비선형 mapping function&lt;/strong&gt;을 가지게 될 경우, 고정된 분포를 따를 필요가 없음.
-    &lt;ul&gt;
-      &lt;li&gt;위 그림에서 (c)와 같은 형태가 됨. 어느정도 a와 생김새가 비슷하면서 자연스럽게 맞출 수 있게 된 것&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A major beneﬁt of our generator architecture is that the intermediate latent space W does not have to support sam-pling according to any ﬁxed distribution; its sampling density is induced by the learned piecewise continuous mapping f(z).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;본 논문에서는 disentanglement를 학습할 수 있는 두 가지 평가 지표를 제안함.
-    &lt;ul&gt;
-      &lt;li&gt;Perceptual path length&lt;/li&gt;
-      &lt;li&gt;Linear seperability&lt;/li&gt;
-      &lt;li&gt;위의 내용을 자세히 알고 싶다면 이 곳을 참조
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://jayhey.github.io/deep%20learning/2019/01/16/style_based_GAN_2/#perceptual-path-length&quot;&gt;링크&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;our investigations to &lt;strong&gt;the separation of high-level attributes and stochastic effects&lt;/strong&gt;, as well as &lt;strong&gt;the linearity of the intermediate latent space&lt;/strong&gt; will prove fruitful in improving the understanding and controllability of GAN synthesis.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;appendix-truncation-trick-in-w&quot;&gt;Appendix. Truncation trick in W&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;트레이닝 중에 하는 게 아니고, generator가 만든 것 중에 더 나은 latent space 을 뽑는 법에 대한 trick&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;학습이 완료된 네트워크의 input을 제어하는 방법&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/93665586-81fa2b00-fab2-11ea-858c-69a2f3ea5026.png&quot; alt=&quot;스크린샷 2020-09-19 오후 7 58 35&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 수식을 통한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;w'&lt;/code&gt; vector를 뽑는다.&lt;/p&gt;
-
-&lt;h2 id=&quot;additional-studies&quot;&gt;Additional studies&lt;/h2&gt;
-&lt;p&gt;(If you have some parts that cannot understand, you have to do additional studies for them. It’s optional.)&lt;/p&gt;
-
-&lt;p&gt;disentanglement에 대한 명확한 이해가 필요함.&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;p&gt;(References for your additional studies)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://www.youtube.com/watch?v=TWzEbMrH59o&amp;amp;feature=youtu.be&lt;/li&gt;
-  &lt;li&gt;https://towardsdatascience.com/explained-a-style-based-generator-architecture-for-gans-generating-and-tuning-realistic-6cb2be0f431&lt;/li&gt;
-  &lt;li&gt;https://jayhey.github.io/deep%20learning/2019/01/16/style_based_GAN_2/&lt;/li&gt;
-  &lt;li&gt;https://blog.lunit.io/2019/02/25/a-style-based-generator-architecture-for-generative-adversarial-networks/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="GAN" /><category term="Generative Model" /><summary type="html">StyleGAN : A Style-Based Generator Architecture for Generative Adversarial Networks 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">HarDNet:A Low Memory Traffic network</title><link href="http://localhost:4000/paper%20review/2020/09/11/HarDNet/" rel="alternate" type="text/html" title="HarDNet:A Low Memory Traffic network" /><published>2020-09-11T00:00:00+09:00</published><updated>2020-09-11T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/09/11/HarDNet</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/09/11/HarDNet/">&lt;p&gt;HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;hardnet--a-low-memory-traffic-network-iccv-2019&quot;&gt;HarDNet : A Low Memory Traffic network (ICCV 2019)&lt;/h1&gt;
-
-&lt;h2 id=&quot;key-idea&quot;&gt;Key Idea&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;기존의 metrics들에서의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inference time&lt;/code&gt; 측정은 부정확하다.
-    &lt;ul&gt;
-      &lt;li&gt;새로운 metric =&amp;gt; &lt;strong&gt;memory traffic for accessing intermediate feature maps 측정&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;inference latency 측정에 유용할 것, especially in such tasks as &lt;em&gt;real-time object detection and semantic segmentation of high-resolution video.&lt;/em&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CIO&lt;/code&gt; : approximation of DRAM traffic이 될 수 있다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;computation, energy efficiency를 위해서는 fewer MACs, less DRAM이 좋은 것임&lt;/strong&gt; -&amp;gt; 연구 방향&lt;/li&gt;
-  &lt;li&gt;각각의 레이어의 MoC에 soft constraint를 적용했음.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;low CIO network model&lt;/strong&gt; with a reasonable increase of MACs를 위해&lt;/li&gt;
-      &lt;li&gt;방법 -&amp;gt; &lt;strong&gt;avoid&lt;/strong&gt; to employ a layer with a &lt;strong&gt;very low MoC such as a Conv1x1 layer&lt;/strong&gt; that has a &lt;strong&gt;very large input/output channel ratio.&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;input/output channel ratio가 크면 low MoC를 가진다는 사실을 알 수 있음.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Densely Connected Networks에 영감을 받아 모델 빌딩함.
-    &lt;ol&gt;
-      &lt;li&gt;DenseNet의 &lt;strong&gt;다수의 layer connections들을 줄였음.&lt;/strong&gt; =&amp;gt; concatenation cost를 줄이기 위해&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;balance the input/output channel ratio by increasing the channel width&lt;/strong&gt; of a layer according to its connections.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;659&quot; alt=&quot;스크린샷 2020-09-11 오후 9 30 55&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92925832-14c51500-f476-11ea-93c3-6183adffd2e5.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DRAM traffic&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;basic-concepts&quot;&gt;Basic Concepts&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MAC : number of multiply-accumulate operations or floating point operations&lt;/li&gt;
-  &lt;li&gt;DRAM : Dynamic Random-Access Memory
-    &lt;ul&gt;
-      &lt;li&gt;read/write model param. and feature maps&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;CIO : Convolutional input/output
-    &lt;ul&gt;
-      &lt;li&gt;모든 conv layer에 대해 IN(C,W,H) X OUT(C,W,H) sum
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/92923605-b185b380-f472-11ea-81cc-a6d37d9bdd6c.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MoC : MACs over CIO of a layer = MACs/CIO&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-works&quot;&gt;Related Works&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TREND : exploiting shortcuts&lt;/li&gt;
-  &lt;li&gt;Highway networks, Residual Networks : add shortcuts to sum up a layer with multiple preceeding layers.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DenseNet&lt;/code&gt;&lt;/strong&gt; : &lt;strong&gt;concatenates all preceeding layers as a shortcut&lt;/strong&gt; achieving more efficent deep supervision.&lt;/li&gt;
-  &lt;li&gt;그러나 shortcuts는 large memory usage, heavy DRAM traffic을 유발할 수 있다.
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;blockquote&gt;
-          &lt;p&gt;Using shortcuts elongates the lifetime of a tensor, which may result in frequent data exchanges betwwen DRAM and cache.&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DenseNet의 sparsified version : &lt;em&gt;LogDenseNet, SparseNet&lt;/em&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Sparse&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;strong&gt;The pros?&lt;/strong&gt; If you have a lot of zeros, &lt;strong&gt;you don’t have to compute some multiplications, and you don’t have to store them&lt;/strong&gt;. So you &lt;strong&gt;&lt;em&gt;may&lt;/em&gt;&lt;/strong&gt; gain on size and speed, for training and inference (more on this today).&lt;/li&gt;
-          &lt;li&gt;&lt;strong&gt;The cons?&lt;/strong&gt; Of course, having all these zeros will probably have an impact on network accuracy/performance.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;increase the &lt;strong&gt;growth rate(output channel width) to recover the accuracy dropping from the connection pruning,&lt;/strong&gt; and the increase of growth rate &lt;strong&gt;can compromise the CIO reduction&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;즉 increase of growth rate는 좋게 작용된다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;harmonic-densenet&quot;&gt;Harmonic DenseNet&lt;/h2&gt;
-
-&lt;h3 id=&quot;sparsification-and-weighting&quot;&gt;Sparsification and weighting&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;let layer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt; connect to layer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k-2^n&lt;/code&gt; if 2^n divides k, where n is a non-negative integer and&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; k-2^n &amp;gt;= 0&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HarDBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base_ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;growth_rate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grmul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base_ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;growth_rate&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;dv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
-          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dv&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grmul&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;in_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base_ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;growth_rate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grmul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;in_channels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out_channels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in_channels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;2^n 개의 layer들이 이런 식으로 processed되면 layer [1 : 2^n -1]는 메모리에서 flush된다.&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;em&gt;어떻게 flush 된다는 건지 잘 이해가 되지 않음.&lt;/em&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Power-of-two-th harmonic waves가 만들어짐. 그래서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Harmonic&lt;/code&gt; 이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;461&quot; alt=&quot;스크린샷 2020-09-11 오후 9 52 09&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92927733-0cbaa480-f479-11ea-8194-3567f8ae83f1.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;이 방식은 concatenation cost를 눈에 띄게 감소시킨다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;layers with an index divided by a larger power of two are more influential&lt;/strong&gt; than those that divided by a smaller power of two.&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;많이 connection되니까 당연히 influential 하다.&lt;/li&gt;
-      &lt;li&gt;In this model, they amplify these key layers by increasing their channels, &lt;strong&gt;which can balance the channel ratio between the input and output of a layer to avoid a low MoC.&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;이런 key layer들을 &lt;strong&gt;amplify&lt;/strong&gt; 했음(channel 수를 늘리면서)&lt;/li&gt;
-          &lt;li&gt;
-            &lt;p&gt;layer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;l&lt;/code&gt; has an initial growth rate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt;, we let its channel number to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k * m^n&lt;/code&gt; , where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt; is the max number satisfying that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;l&lt;/code&gt; is divided by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2^n&lt;/code&gt;
-&lt;img width=&quot;442&quot; alt=&quot;스크린샷 2020-09-11 오후 10 11 01&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92929542-af742280-f47b-11ea-89b9-22e4e5e9331d.png&quot; /&gt;&lt;/p&gt;
-          &lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt;  은 low-dimensional compression factor 역할을 한다.&lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt; 을 2보다 작게하면 input channel을 output channel보다 작게 할 수 있다.
-            &lt;ul&gt;
-              &lt;li&gt;Empirically, settin &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt; between 1.6 and 1.9&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;transition-and-bottleneck-layers&quot;&gt;Transition and Bottleneck Layers&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HDB(Harmonic Dense Block)&lt;/code&gt; : the proposed connection pattern forms a group of layers
-    &lt;ul&gt;
-      &lt;li&gt;is followed by a Conv1x1 layer as a transition&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;HDB의 depth는 2의 제곱수로 설정
-    &lt;ul&gt;
-      &lt;li&gt;HDB의 마지막 레이어가 가장 큰 채널수를 가지도록 하기 위해서&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DenseNet -&amp;gt; gradient할 때 모든 레이어를 다 pass함&lt;/li&gt;
-  &lt;li&gt;논문의 HBD with depth L -&amp;gt; pass through at most &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log L layers&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;degradation을 완화시키기위해, depth-L HDB를 layer L과 all its preceeding &lt;strong&gt;odd numbered layers&lt;/strong&gt;  를 concatenation시킨다.&lt;/li&gt;
-      &lt;li&gt;2~L-2의 all even layer들의 아웃풋은 HDB가 한번 끝날때마다 버려진다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Bottleneck layer
-    &lt;ul&gt;
-      &lt;li&gt;DenseNet에서는 param. efficiency를 위해 매 Conv3x3 layer전에 bottleneck을 두었다.&lt;/li&gt;
-      &lt;li&gt;하지만 HarDnet에서는 위에서 &lt;strong&gt;이미 channel ratio(매 레이어마다 input&amp;amp;output 사이의)의 균형을 잡았으므로 bottleneck layer는 쓸모없어진다.&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;그래서 HBD에서는 Bottleneck layer없이 &lt;strong&gt;Conv3x3 for all layers&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Transition layer
-    &lt;ul&gt;
-      &lt;li&gt;&lt;img width=&quot;492&quot; alt=&quot;스크린샷 2020-09-11 오후 10 26 18&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931026-d16ea480-f47d-11ea-96df-eff3717796b9.png&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;inverted trainsition module
-        &lt;ul&gt;
-          &lt;li&gt;maps input tensor to an additional max pooling function along with the original average pooling, followed by concatenation and Conv1x1.&lt;/li&gt;
-          &lt;li&gt;50% of CIO를 감소시킴&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;483&quot; alt=&quot;스크린샷 2020-09-11 오후 10 27 05&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931109-ed724600-f47d-11ea-81a6-d3903463743b.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;CamVid Dataset&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;replace all the blocks in a FC-DenseNet with HDBs&lt;/li&gt;
-      &lt;li&gt;the architecture of FC-DenseNet with an encoder-decoder structure and block level shortcuts to create models for sematic segmentation.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;We propose FC-HarDNet84 as specified in Table 3 for comparing with FC-DenseNet103. &lt;strong&gt;The new network achieves CIO reduction by 41% and GPU inference time reduction by 35%.&lt;/strong&gt; A smaller version, FC-HarDNet68, also outperforms FC-DenseNet56 by a 65% less CIO and 52% less GPU inference time.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;1009&quot; alt=&quot;스크린샷 2020-09-11 오후 10 34 16&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931776-ee57a780-f47e-11ea-9201-93de47f4a12a.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ImageNet Datasets&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;1018&quot; alt=&quot;스크린샷 2020-09-11 오후 10 34 41&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931811-fca5c380-f47e-11ea-9c47-4b9738f47a92.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Object Detection
-    &lt;ul&gt;
-      &lt;li&gt;HarDNet-68 as &lt;strong&gt;a backbone model for a Single Shot Detector (SSD) and train it with PASCAL VOC 2007 and MS COCO datasets&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;479&quot; alt=&quot;스크린샷 2020-09-11 오후 10 35 26&quot; src=&quot;https://user-images.githubusercontent.com/48315997/92931875-1810ce80-f47f-11ea-9883-8d1d9ac87947.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;discussion&quot;&gt;Discussion&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;There is an assumption with the &lt;strong&gt;CIO&lt;/strong&gt;, which is &lt;strong&gt;a CNN model that is processed layer by layer without a fusion.&lt;/strong&gt; In contrast, &lt;strong&gt;fused-layer computation for multiple convolutional layers has been proposed.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;CIO still failed&lt;/strong&gt; to predict the actual inference time &lt;strong&gt;such as comparing two network models with significantly differnent architectures&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In some of the layers CIO may dominate, but for the other layers, MACs can still be the key factor if its computational density is relatively higher. To precisely predict the inference latency of a network, we need to breakdown to each of the layers and investigate its MoC to predict the inference latency of the layer.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;어쨌거나 &lt;strong&gt;DRAM traffic의 중요성&lt;/strong&gt;을 강조하고 싶어함.&lt;/li&gt;
-  &lt;li&gt;traffic reduction을 위한 가장 좋은 방법은 &lt;strong&gt;MoC를 증가시키는 것&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;which might be counter-intuitive to the widely-accepted knowledge of that using more Conv1x1 achieves a higher efficiency.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Traffic" /><category term="Computer Vision" /><category term="Semantic Segmentation" /><category term="Network" /><summary type="html">HarDNet : A Low Memory Traffic network 를 읽고 개인적으로 정리한 글입니다.</summary></entry></feed>
+&lt;p&gt;https://jeonsworld.github.io/vision/vit/&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Transformer" /><summary type="html">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</summary></entry></feed>
