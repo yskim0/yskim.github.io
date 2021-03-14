@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Math,Linear Algebra,Calculas," />
+  <meta name="keywords" content="Ubuntu,Troubleshooting," />
 
 
 
@@ -111,22 +111,22 @@
 
 
 
-<meta name="description" content="Jacobian Matrix 에 관한 설명을 적은 글입니다.">
-<meta name="keywords" content="Math, Linear Algebra, Calculas">
+<meta name="description" content="Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.">
+<meta name="keywords" content="Ubuntu, Troubleshooting">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jacobian Matrix">
-<meta property="og:url" content="http://localhost:4000/math/2020/07/24/Jacobian-Matrix/">
+<meta property="og:title" content="Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결">
+<meta property="og:url" content="http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="Jacobian Matrix 에 관한 설명을 적은 글입니다.">
+<meta property="og:description" content="Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_105/jinohpark79_1399895378163qBl6n_GIF/jacobian1.GIF?type=w2">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_15/jinohpark79_1399895493407FS5R1_GIF/jacobian2.GIF?type=w2">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_232/jinohpark79_1399895701098Nl6Dr_GIF/jacobian3.GIF?type=w2">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_14/jinohpark79_1399895801900R4g6C_GIF/jacobian4.GIF?type=w2">
+<meta property="og:image" content="https://i.stack.imgur.com/fBYUJ.jpg">
+<meta property="og:image" content="https://i.stack.imgur.com/01e8n.png">
+<meta property="og:image" content="https://i.stack.imgur.com/UP5j7.png">
+<meta property="og:image" content="https://i.stack.imgur.com/tHkmh.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jacobian Matrix">
-<meta name="twitter:description" content="Jacobian Matrix 에 관한 설명을 적은 글입니다.">
-<meta name="twitter:image" content="https://mblogthumb-phinf.pstatic.net/20140512_105/jinohpark79_1399895378163qBl6n_GIF/jacobian1.GIF?type=w2">
+<meta name="twitter:title" content="Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결">
+<meta name="twitter:description" content="Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.">
+<meta name="twitter:image" content="https://i.stack.imgur.com/fBYUJ.jpg">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -159,7 +159,7 @@
 
 
 
-  <title>Jacobian Matrix | Yeonsoo Kim's blog</title>
+  <title>Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결 | Yeonsoo Kim's blog</title>
   
 
 
@@ -319,7 +319,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/math/2020/07/24/Jacobian-Matrix/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yeonsoo Kim">
@@ -339,7 +339,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Jacobian Matrix
+            Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결
           
         </h1>
         
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-24T00:00:00+09:00">
-                2020-07-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-26T00:00:00+09:00">
+                2021-01-26
               </time>
             
 
@@ -377,8 +377,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Math" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
+                  <a href="/category/#/Troubleshooting" itemprop="url" rel="index">
+                    <span itemprop="name">Troubleshooting</span>
                   </a>
                 </span>
 
@@ -428,47 +428,70 @@
 
 
 
-  <p>Jacobian Matrix 에 관한 설명을 적은 글입니다.</p>
+  <p>Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.</p>
 
 <hr />
 
-<h1 id="jacobian-matrix">Jacobian Matrix</h1>
+<h2 id="잡소리">잡소리</h2>
 
-<h2 id="요약">요약</h2>
+<p>오늘 연구실에서 정말 당황한 에러를 마주쳤습니다.</p>
 
-<ul>
-  <li>편미분을 할 때 유용한 행렬</li>
-  <li>편미분 할 변수들이 많고, 그 변수들로 이루어져 있는 함수가 많을 때 <strong>단순히 곱해서 더하는 폼으로 만들어 놓을 수 있는 것</strong></li>
-</ul>
+<p>사건의 역시나 CUDA에서 시작… 저번주까지만 해도 잘 됐던 gpu사용이 오늘 하려니 갑자기 찾을 수 없다(?)는 에러가 떴습니다.</p>
 
-<h2 id="설명">설명</h2>
+<p>침착하게 그 에러 메시지를 구글링해서 스택오버플로우에서 하라는 대로 하고 재부팅했는데 아래와 같은 에러가 뜨고 무한 블랙스크린이었습니다 ㅜㅜ.</p>
 
-<p>n개의 변수를 가진 함수가 m개 있을 때
-<img src="https://mblogthumb-phinf.pstatic.net/20140512_105/jinohpark79_1399895378163qBl6n_GIF/jacobian1.GIF?type=w2" alt="1" /></p>
+<p><img src="https://i.stack.imgur.com/fBYUJ.jpg" alt="" /> <a href="https://askubuntu.com/questions/1222496/system-wont-boot-stuck-at-dev-sda5-clean-xxxx-xxxx-files-yyyy-yyyy-blocks">이미지 출처</a></p>
 
-<p><br /></p>
+<p>진심 저거 봤을 때 눈물이 찔끔 나올 뻔 했는데요 ..ㅋㅋㅋ 스택오버플로우보니까 아예 우분투를 재설치 해야 할 수도 있다는 글을 보고… 진짜 온몸이 오싹해졌습니다.</p>
 
-<p>이것들을 모두 편미분하기 위한 벡터
-<img src="https://mblogthumb-phinf.pstatic.net/20140512_15/jinohpark79_1399895493407FS5R1_GIF/jacobian2.GIF?type=w2" alt="2" /></p>
+<h2 id="solution">Solution</h2>
 
-<p>-&gt; Jacobian matrix</p>
+<ol>
+  <li>
+    <p>우선 다시 부팅하고 recovery mode (safe mode) 로 들어가야 합니다. 부팅될 때 무한 <code class="language-plaintext highlighter-rouge">Shift</code> 누르십시오. (우분투 18.04 기준)</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Advanced options for Ubuntu</code> 를 클릭하고, <code class="language-plaintext highlighter-rouge">recovery mode</code>로 들어갑니다.
+제가 캡쳐할 상황은 아니었던지라 다 인터넷에서 들고 오는 점 이해 부탁드립니다^^; <a href="https://askubuntu.com/questions/92556/how-do-i-boot-into-a-root-shell">출처</a></p>
+  </li>
+</ol>
 
-<ul>
-  <li>m개의 함수 편미분을 모조리 구할 수 있음.</li>
-</ul>
+<p><img src="https://i.stack.imgur.com/01e8n.png" alt="" />
+<img src="https://i.stack.imgur.com/UP5j7.png" alt="" /></p>
 
-<h2 id="예시">예시</h2>
+<ol>
+  <li>이제 리커버리 모드에 들어왔는데요. 여기서 방향키를 사용해 <code class="language-plaintext highlighter-rouge">root</code>로 이동하고 Enter합니다. 이제 터미널을 쓸 수 있습니다! 
+<img src="https://i.stack.imgur.com/tHkmh.png" alt="" /></li>
+</ol>
 
-<p><img src="https://mblogthumb-phinf.pstatic.net/20140512_232/jinohpark79_1399895701098Nl6Dr_GIF/jacobian3.GIF?type=w2" alt="3" /></p>
+<p>이제 터미널에서</p>
 
-<p>일때, Jacobian Matrix는</p>
+<p><code class="language-plaintext highlighter-rouge">sudo apt-get purge nvidia*</code></p>
 
-<p><img src="https://mblogthumb-phinf.pstatic.net/20140512_14/jinohpark79_1399895801900R4g6C_GIF/jacobian4.GIF?type=w2" alt="4" /></p>
+<p>를 치면 됩니다만, 여기서 저는</p>
 
-<h2 id="reference">Reference</h2>
-<p><a href="https://m.blog.naver.com/PostView.nhn?blogId=jinohpark79&amp;logNo=110190680093&amp;proxyReferer=https:%2F%2Fwww.google.com%2F">02. 편미분을 간단하게! Jacobian Matrix</a></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem
+</code></pre></td></tr></tbody></table></div></div>
 
-<p><a href="https://ko.wikipedia.org/wiki/%EC%95%BC%EC%BD%94%EB%B9%84_%ED%96%89%EB%A0%AC">wikipedia</a></p>
+<p>라는 에러가 또 뜹니다.</p>
+
+<p>여기서 제 부팅 실패의 원인을 유추해볼 수 있었습니다. 재부팅 전에 했던 동작들에서 뭔가를 건드렸고 그 결과 dpkg 패키지가 제대로 구성되지 않았던 겁니다.(maybe….)</p>
+
+<p>아무튼 이 에러는 상대적으로 쉽게 해결할 수 있습니다.
+에러 메시지대로 <code class="language-plaintext highlighter-rouge">sudo dpkg --configure -a</code> 를 해주면 됩니다.</p>
+
+<p>이제 다시</p>
+
+<p><code class="language-plaintext highlighter-rouge">sudo apt-get purge nvidia*</code>
+를 하게 되면 잘 설치 됩니다.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">reboot</code> 를 써서 재부팅합니다 -&gt; 성공!</li>
+</ol>
+
+<hr />
+
+<p>이 일은 저에게 있어 정말 끔찍했던 순간이었습니다. 퇴사해야하나 생각도 했어요 ㅋㅋㅋ 아무튼 빠르게 고치고 퇴근했습니다^^.. 혹시 구글링하다 저와 같은 에러를 발견하시게 된다면, 위 과정을 통해 고치길 바라겠습니다.</p>
 
 
       
@@ -500,13 +523,10 @@
         <div class="post-tags">
           
             
-            <a href="/tag/#/Math" rel="tag"># Math</a>
+            <a href="/tag/#/Ubuntu" rel="tag"># Ubuntu</a>
           
             
-            <a href="/tag/#/Linear%20Algebra" rel="tag"># Linear Algebra</a>
-          
-            
-            <a href="/tag/#/Calculas" rel="tag"># Calculas</a>
+            <a href="/tag/#/Troubleshooting" rel="tag"># Troubleshooting</a>
           
         </div>
       
@@ -522,8 +542,8 @@
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/paper%20review/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/" rel="next" title="Fine-tune BERT for Extractive Summarization">
-                <i class="fa fa-chevron-left"></i> Fine-tune BERT for Extractive Summarization
+              <a href="/logs/2021/02/14/2021_January/" rel="next" title="지난 한 달을 돌아보며, 2021년 1월 회고">
+                <i class="fa fa-chevron-left"></i> 지난 한 달을 돌아보며, 2021년 1월 회고
               </a>
             
           </div>
@@ -532,8 +552,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/paper%20review/2020/07/23/Faster-R-CNN/" rel="prev" title="Faster R-CNN:Towards Real-Time Object Detection with Region Proposal Networks">
-                Faster R-CNN:Towards Real-Time Object Detection with Region Proposal Networks <i class="fa fa-chevron-right"></i>
+              <a href="/paper%20review/2021/01/25/BERT/" rel="prev" title="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)">
+                Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -728,7 +748,7 @@
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#jacobian-matrix"> <span class="nav-number">1</span> <span class="nav-text">Jacobian Matrix</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#요약"> <span class="nav-number">1.1</span> <span class="nav-text">요약</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#설명"> <span class="nav-number">1.2</span> <span class="nav-text">설명</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#예시"> <span class="nav-number">1.3</span> <span class="nav-text">예시</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#reference"> <span class="nav-number">1.4</span> <span class="nav-text">Reference</span> </a> </li> </ol> </li>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#잡소리"> <span class="nav-number">1</span> <span class="nav-text">잡소리</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#solution"> <span class="nav-number">2</span> <span class="nav-text">Solution</span> </a> </li>
     </ol>
   </div>
             

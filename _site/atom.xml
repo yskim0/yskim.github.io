@@ -1,4 +1,210 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-26T21:44:57+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결</title><link href="http://localhost:4000/troubleshooting/2021/01/26/d/" rel="alternate" type="text/html" title="Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결" /><published>2021-01-26T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/01/26/d</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/01/26/d/">&lt;p&gt;Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-14T19:10:30+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">지난 한 달을 돌아보며, 2021년 2월 회고</title><link href="http://localhost:4000/logs/2021/03/14/2021_February/" rel="alternate" type="text/html" title="지난 한 달을 돌아보며, 2021년 2월 회고" /><published>2021-03-14T00:00:00+09:00</published><updated>2021-03-14T00:00:00+09:00</updated><id>http://localhost:4000/logs/2021/03/14/2021_February</id><content type="html" xml:base="http://localhost:4000/logs/2021/03/14/2021_February/">&lt;p&gt;2021년 2월 회고 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ETRI 인턴 종료&lt;/li&gt;
+  &lt;li&gt;이화보이스 인터뷰&lt;/li&gt;
+  &lt;li&gt;AI/데이터분석 동아리 개설&lt;/li&gt;
+  &lt;li&gt;3월의 각오&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;etri-인턴-종료&quot;&gt;ETRI 인턴 종료&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/111064641-7edb7700-84f8-11eb-9dfb-1e5add8fa87d.jpeg&quot; alt=&quot;DD64C628-9482-43AE-B258-D6D83EF86E7A_1_105_c&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;벌써 두 달이 지나 연구연수생 기간이 끝났다. 시간은 내 생각보다도 더 쏜살같이 흘러간다는 걸 몸소 느낄 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;결론적으로 말하면 ETRI 인턴을 하길 참 잘했다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;좋은 동기들, 멋있는 박사님들과 선배님들, 이  모두와 함께 할 수 있어 영광이었다.&lt;/p&gt;
+
+&lt;p&gt;또 그동안 잘 몰랐기에 관심 없던 분야에 대해 새롭게 알게 되는 쾌감을 느낄 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;특허는 작성했고 논문은 작성할지 안할지 미지수인 상태로 떠났다. 논문을 당연히 써야된다고 생각했지만 이것저것 우려되는 부분들이 있어서 지금도 고민 중이다.&lt;/p&gt;
+
+&lt;p&gt;동기들한테 특히나 고마웠다. 미숙하고 툴툴거리는 내 성격을 재밌게 잘 받아주고 또 서로 열정적이라 누구 하나 낙오되지 않고 정말 열심히 일할 수 있었다. 내가 아는 ETRI 인턴들, 다른 랩 연구연수생들 중에 우리가 가장 바쁘게 일하지 않았을까 싶다. 야근과 주말 출근을 자주 했으니… (우리끼리 다음 기수 인턴들이 불쌍하다고 계속 말했음ㅋㅋ)&lt;/p&gt;
+
+&lt;p&gt;특허나 논문을 내기에 두 달이라는 시간은 매우 짧은 시간이라고 여겨졌다. 그래서 사실 ‘아, 못해도 그만이지! 배운 게 많으니까’ 이런 류의 생각을 했었는데 &lt;strong&gt;생각보다 할 만하다.&lt;/strong&gt; 박사님들께서 정말 많이 도와주시고 인프라도 빵빵하니 본인의 의지만 있다면 못 할 기간이 절대 아니었다.&lt;/p&gt;
+
+&lt;p&gt;ETRI 인턴에 대한 후기는 아예 다른 글로 파서 쓰려고 한다. 어찌됐든 나는 ETRI 인턴을 적극 추천하는 입장이다. 이 정도의 환경과 사람을 충족시키는 회사가 많지 않을 거라 생각되기 때문이다. 사람도 좋고 일도 좋다면 마다할 이유가 있을까?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;이화보이스-인터뷰&quot;&gt;이화보이스 인터뷰&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/111064661-9e729f80-84f8-11eb-8f2a-c0f4458f93b5.png&quot; alt=&quot;스크린샷 2021-03-14 오후 7 08 09&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;우연찮은 기회로 이화보이스에 인터뷰를 하게 되었다.&lt;/p&gt;
+
+&lt;p&gt;현재 나는 아는 동생이랑 이화여대 AI/데이터분석 분야 오카방과 디스코드를 같이 운영하고 있는데 여기에 계신 이화보이스 기자님께서 코로나시대 네트워킹에 대한 주제로 인터뷰를 요청해주셨다.&lt;/p&gt;
+
+&lt;p&gt;굉장히 영광이었고 사실 나는 딱히 한 일이 없는데 어떤 답변을 드려야 할까 많은 고민을 했다.&lt;/p&gt;
+
+&lt;p&gt;또 이화보이스는 학교 공식 영자 신문인지라 꽤 부담이 된 것도 사실이었다.&lt;/p&gt;
+
+&lt;p&gt;하지만 기자벗께서 굉장히 분위기를 잘 풀어주셨고, 우리가 답변할 수 있을 정도의 좋은 질문들을 주셔서 재밌는 인터뷰가 가능했다.&lt;/p&gt;
+
+&lt;p&gt;우리 학교 네트워킹의 장을 조금이라도 넓히고 싶었던 나의 작은 바람이 점차 많은 이화인에게 닿는 것 같아 뿌듯했다. 또 더 열심히 (공부)해야 겠다는 동기부여도 확실히 됐다.&lt;/p&gt;
+
+&lt;p&gt;이 네트워킹의 장이 별 탈없이, 부디 오래 갈 수 있으면 좋겠다.&lt;/p&gt;
+
+&lt;p&gt;기사의 전문은 &lt;a href=&quot;https://evoice.ewha.ac.kr/news/articleView.html?idxno=10596&quot;&gt;여기&lt;/a&gt;서 볼 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;ai데이터분석-동아리-개설&quot;&gt;AI/데이터분석 동아리 개설&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/111064679-b813e700-84f8-11eb-929f-9024599f1417.png&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;작년부터 데이터 사이언스 분야 학회를 하나 만들까 고민하긴 했으나, 졸프 등 사정 상 부담이 많이 되는 일은 사실인지라 가능하면 피하려고 했다. 하지만 결국 만들게 되었다… ㅋㅋㅋㅋ 심지어 졸프 메이트까지 꼬셔서 같이~&lt;/p&gt;
+
+&lt;p&gt;우리 학교 사람들이 이 분야에 더 많이 진출하고, 더 많이 꿈을 꿨으면 좋겠다는 생각은 항상 갖고 있었기 때문에 이 동아리를 반드시 잘 키우고 싶다. 사실 어려울 것이 없는 게 나한테는 든든한 임원진들도 있고, 또 열정 있는 부원들까지 있다. 내가 방향성만 잃지 않으면 충분히 된다.&lt;/p&gt;
+
+&lt;p&gt;내가 어엿한 사회인이 되어 후배님들을 도와줄 수 있는 위치에 갈 때까지 이 동아리가 쭉 이어져나갔으면 좋겠다.&lt;/p&gt;
+
+&lt;p&gt;굉장히 빡센 커리큘럼으로 진행하는데, 탈주자 없이 모두가 성장할 수 있는 한 해가 되길!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;3월의-각오&quot;&gt;3월의 각오&lt;/h3&gt;
+
+&lt;p&gt;사실 이 글을 쓰는 시점이 3/14일이긴 한데… 3월의 할 일은 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;졸업 프로젝트 주제 확정&lt;/li&gt;
+  &lt;li&gt;강의 열심히 듣기, 과제 잘 하기&lt;/li&gt;
+  &lt;li&gt;동아리 공부 잘 하기&lt;/li&gt;
+  &lt;li&gt;이교수님 강의, 논문 따라 가기&lt;/li&gt;
+  &lt;li&gt;논문 스터디&lt;/li&gt;
+  &lt;li&gt;건강 챙기기&lt;/li&gt;
+  &lt;li&gt;(ETRI 논문 작성?) -&amp;gt; 완전 미정.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="월간 회고" /><summary type="html">2021년 2월 회고 글입니다.</summary></entry><entry><title type="html">지난 한 달을 돌아보며, 2021년 1월 회고</title><link href="http://localhost:4000/logs/2021/02/14/2021_January/" rel="alternate" type="text/html" title="지난 한 달을 돌아보며, 2021년 1월 회고" /><published>2021-02-14T00:00:00+09:00</published><updated>2021-02-14T00:00:00+09:00</updated><id>http://localhost:4000/logs/2021/02/14/2021_January</id><content type="html" xml:base="http://localhost:4000/logs/2021/02/14/2021_January/">&lt;p&gt;2021년 1월 회고 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ETRI 1개월 차&lt;/li&gt;
+  &lt;li&gt;데이터 분석 스터디 종료&lt;/li&gt;
+  &lt;li&gt;기타&lt;/li&gt;
+  &lt;li&gt;한 달 동안 한 공부&lt;/li&gt;
+  &lt;li&gt;남은 방학 동안 할 일&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;1️⃣-etri-1개월-차&quot;&gt;1️⃣ ETRI 1개월 차&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107854608-48123280-6e60-11eb-9221-aeba67c94e38.jpeg&quot; alt=&quot;E11D4A80-51E2-4D70-8452-DDB5C3B6B70D_1_105_c&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;어느새 ETRI 인턴 한 달이 지났다. (지금은 약 2주정도밖에 안남았지만…)
+한 달간 한 일을 정리해보자면 다음과 같다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Active Learning 개념 공부 및 논문 리딩&lt;/li&gt;
+  &lt;li&gt;Active Learning - Uncertainty Sampling Implementation&lt;/li&gt;
+  &lt;li&gt;실험에 필요한 데이터들 라벨링&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이전까지 나는 딥러닝 모델 자체에 관심이 있었던지라 Active Learning이랑 Human in the Loop 개념을 이번에 새로 알았다.
+Active Learning은 요약하자면 적은 데이터 수로 높은 성능을 낼 수 있는 것이 목적인데, 이 때 &lt;strong&gt;그 적은 데이터들을 무슨 알고리즘으로 샘플링하는가&lt;/strong&gt;에 관한 이야기이다.&lt;/p&gt;
+
+&lt;p&gt;책임님께서 레퍼런스할 만한 논문, 아티클을 주셔서 실험의 갈피를 빠르게 잡을 수 있었다.
+또 데이터를 받기까지 시간이 조금 걸려서 그 동안 Uncertainty Sampling을 구현하고 오픈 데이터셋으로 실험해보았다.&lt;/p&gt;
+
+&lt;p&gt;1월이 가장 힘들었던 이유는 라벨링^_^… 인데…
+나는 이쪽의 모든 일을 참여하기 전에 라벨링 일을 하는지 안하는지 확인하고, 라벨링 업무가 낀다면 그냥 안한다^^…
+그래서 ETRI 지원할 때도 라벨링해야할 것 같은 부서는 다 제외하고 생각했는데 ㅠ_ㅠ 내가 지원한 곳에서 갑자기 라벨링을 시키실 줄은 몰랐다..!(얘기 없었잖아요!!)&lt;/p&gt;
+
+&lt;p&gt;아무튼 2주간 라벨링을 하고,, 또 112 데이터라 그런지 정신 피폐해질 만한 내용이 많았다ㅋㅋㅋ 내가 둔하고 멘탈이 괜찮은 편이라 다행이었지, 감정이입 잘하는 사람이 봤으면 힘들었을 것 같다.&lt;/p&gt;
+
+&lt;p&gt;2월부터는 실험을 시작했는데, 그건 2월 회고에 기록할 것.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;2️⃣데이터-분석-스터디-종료&quot;&gt;2️⃣데이터 분석 스터디 종료&lt;/h3&gt;
+
+&lt;p&gt;10월에 모집하여 진행했던 데이터 분석 스터디가 드디어 마무리 됐다!
+후반부에는 내가 정신이 없어서 공부를 많이 못 했지만ㅠㅠ 그래도 좋은 벗들을 만나서 너무 기분이 좋았다 :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107866777-7a02b380-6eb7-11eb-9dc2-135c04404f49.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;‘파이썬 머신러닝 완벽 가이드’ 라는 책은 내가 이전에 한 번 읽은 책이긴 하지만, 이렇게 벗들이랑 다시 세미나 형태로 공부하니까 또 새롭게 와닿았다. 공부는 역시 할 때마다 새로운 건가?
+이전에는 앙상블, 부스팅 기법을 깊게 생각하지 않고 공부했는데 실제 캐글이나 데이콘과 같은 데이터 사이언스 컴피티션에서는 매우 잘 쓰이는 기법들이다. 아무튼 이러한 내용들을 세미나를 준비하면서 공부할 수 있어서 좋았다.&lt;/p&gt;
+
+&lt;p&gt;우리 학교 벗들이 데이터 분석과 인공지능 분야에 많이 많이 진입했으면 좋겠다 :)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;3️⃣-기타&quot;&gt;3️⃣ 기타&lt;/h3&gt;
+
+&lt;p&gt;첫 자취 생활로 인해 몸과 마음이 조금 힘들었었다 ㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;그래서 1월에만 호캉스를 두 번 했다!&lt;/p&gt;
+
+&lt;p&gt;첫 번째 호캉스는 워커힐이다. 아빠가 워커힐 쪽에서 바우처랑 카드들을 받아서 워커힐 스위트룸에서 묵을 수 있었다! 엄마아빠 // 나 이렇게 해서 각각 방 1개씩을 썼다. 나 혼자 스위트룸 쓴 적은 처음이다 ㅎㅎㅎ&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870217-cd85f900-6ed9-11eb-9bc6-1374187ccc5b.jpeg&quot; alt=&quot;90B06C1A-7396-41AC-8EF6-A23F6D707C44_1_105_c&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870215-c6f78180-6ed9-11eb-9975-a4bc47ed7582.jpeg&quot; alt=&quot;FE0403FB-98D0-4BD6-8DF9-B343FF2D1FCD_1_105_c&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870223-dd054200-6ed9-11eb-9666-b3682e317ec1.jpeg&quot; alt=&quot;E001E8C5-7F44-4A72-9A27-56E05590520B_1_105_c&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870251-e8586d80-6ed9-11eb-897a-82fcea7590cb.jpeg&quot; alt=&quot;30019A7C-B51E-467C-945C-2EC7F62D30C1_1_105_c&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;한강이 바로 보이는 것도 마음에 들었고, 4층에 스카이야드도 굉장히 좋았다. 오픈 시간에 바로 간 거라 족욕도 했다!&lt;/p&gt;
+
+&lt;p&gt;두 번째 호캉스는 엄마가 대전에 왔을 때 휴가내고 간 ‘대전 롯데시티호텔’이다. 이 때 정말 서울 공화국이라는 것을 느꼈는데, 대전은 제일 좋은 호텔이 4성급이다ㅜㅜ 아무튼 이 때쯤에 힘들었던 일들이 많았어서 휴가를 내고 호캉스를 갔다. 결과적으로는 밤에 일을 하긴 했지만 …^^&lt;/p&gt;
+
+&lt;p&gt;여기는 한강뷰는 아니고 갑천?뷰 ㅋㅋㅋㅋ 되게 깔끔했고, 가성비 있는 호텔이었다!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870334-982ddb00-6eda-11eb-9aa1-bd2c23f6b77b.jpeg&quot; alt=&quot;B635E2B2-B96E-479A-8CD4-6C709BBA2C70_1_105_c&quot; /&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870332-96fcae00-6eda-11eb-9b28-514afb771b8b.jpeg&quot; alt=&quot;B9009AFF-7402-49E0-B58E-E85AABF755D1_1_105_c&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 바로 맞은 편에 성심당이 있어서 바로 달려갔다. 나랑 우리 엄마는 빵을 매우 좋아하기 때문에… 사고 싶은 빵들이 무척이나 많았지만 나름 절제하며 골랐다 ㅋㅋ 초코 튀김 소보로를 먹었는데 생각보다 팥맛이 많이 나서 아쉬웠다ㅠㅠ 명물이라는 명란 바게트는 저녁이랑 아침 모두 sold out…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870326-8cdaaf80-6eda-11eb-8e15-6d41c70f971d.jpeg&quot; alt=&quot;576C4EBC-F28D-4ECE-9432-A16B8C44D9A8_1_105_c&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;휴가 날에는 대전 현대프리미엄아울렛도 갔다! 생긴지 얼마 안된 곳이라 굉장히 깔끔했다. 또 평일 낮이라 그런가 사람들이 별로 없어서 매우 좋았다!
+&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/107870367-24400280-6edb-11eb-9495-41ffbae82b11.jpeg&quot; alt=&quot;45D7BCF6-C915-4251-A660-7882422F783E_1_105_c&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아무튼 1월 중순부터는 가족들이 내 기분을 풀어주려고 정말 많이 도와줬다. 역시 가족이 최고야 &amp;lt;3
+(친구들도 최고야)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;4️⃣한-달-동안-한-공부&quot;&gt;4️⃣한 달 동안 한 공부&lt;/h3&gt;
+
+&lt;p&gt;1월 동안 한 공부를 정리해보자면 다음과 같다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Active Learning (인턴 업무)&lt;/li&gt;
+  &lt;li&gt;논문 스터디(Transformer, GAN, BERT, StarGAN, GPT-1)&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;딱히 공부를 한 건 별로 없구나. 반성…
+직장을 다니면서 공부하는 사람들이 정말 대단하게 보인다. 나는 인턴일 뿐인데도 퇴근하고 오면 뻗기 일수이다 ㅠㅠ 체력을 길러야 할 것 같다&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;5️⃣남은-방학-동안-할-일&quot;&gt;5️⃣남은 방학 동안 할 일&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AI/데이터분석 동아리 모집 및 선발&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;원래 만들까 말까 고민했는데 어찌저찌 만들게 됐다(현재 2월 상황)
+이미 하게 된 거, 책임감 있고 이화의 역사에 한 줄을 긋는 동아리가 되도록 열심히 노력할 것이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논문 스터디&lt;/li&gt;
+  &lt;li&gt;특허 작성&lt;/li&gt;
+  &lt;li&gt;논문 작성&lt;/li&gt;
+  &lt;li&gt;여유가 된다면, Pix2Pix 구현&lt;/li&gt;
+  &lt;li&gt;건강한 음식 먹기(식단 관리) &amp;amp; 자주 걷기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;특허 작성과 논문 작성이 가장 주가 될 듯 하다. 과연 2월안에 다 할 수 있을까? 해야만 한다ㅠ&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="월간 회고" /><summary type="html">2021년 1월 회고 글입니다.</summary></entry><entry><title type="html">Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결</title><link href="http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble/" rel="alternate" type="text/html" title="Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결" /><published>2021-01-26T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble/">&lt;p&gt;Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -175,7 +381,7 @@
 &lt;p&gt;적절한 Input과 Output을 넣으면, single text나 text pair 모두 가능.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BERT instead uses the self-attention mechanism to unify these two stages, as encoding a concatenated text pair with self-attention effectively includes bidirectional cross attention between two sentences.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="BERT" /><category term="Attention" /><category term="Transformer" /><summary type="html">Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">2020년을 돌아보며, 2020 YEAR in REVIEW</title><link href="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/" rel="alternate" type="text/html" title="2020년을 돌아보며, 2020 YEAR in REVIEW" /><published>2020-12-31T00:00:00+09:00</published><updated>2020-12-31T00:00:00+09:00</updated><id>http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW</id><content type="html" xml:base="http://localhost:4000/year%20in%20review/2020/12/31/2020_YEAR_in_REVIEW/">&lt;p&gt;2020년 저에게 있었던 일을 짧게 회고하는 글입니다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="BERT" /><category term="Attention" /><category term="Transformer" /><summary type="html">Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">2020년을 돌아보며, 2020 YEAR in REVIEW</title><link href="http://localhost:4000/logs/2020/12/31/2020_YEAR_in_REVIEW/" rel="alternate" type="text/html" title="2020년을 돌아보며, 2020 YEAR in REVIEW" /><published>2020-12-31T00:00:00+09:00</published><updated>2020-12-31T00:00:00+09:00</updated><id>http://localhost:4000/logs/2020/12/31/2020_YEAR_in_REVIEW</id><content type="html" xml:base="http://localhost:4000/logs/2020/12/31/2020_YEAR_in_REVIEW/">&lt;p&gt;2020년 저에게 있었던 일을 짧게 회고하는 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -590,38 +796,7 @@
 &lt;hr /&gt;
 
 &lt;p&gt;DCGAN도 읽었으니, 구현도 해보고 후속 논문들도 찬찬히 읽어보려고 합니다.
-긴 글 읽어주셔서 감사합니다 :)&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT)</title><link href="http://localhost:4000/paper%20review/2020/12/22/MUNIT/" rel="alternate" type="text/html" title="Multimodal Unsupervised Image-to-Image Translation (MUNIT)" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/MUNIT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/MUNIT/">&lt;p&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;multimodal-unsupervised-image-to-image-translation-munit&quot;&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT)&lt;/h1&gt;
-
-&lt;h2 id=&quot;keywords--gan-image-to-image-translation-style-transfer&quot;&gt;Keywords : GAN, Image-to-Image translation, style transfer&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;image representation = content code + style code
-    &lt;ul&gt;
-      &lt;li&gt;content code : domain invariant&lt;/li&gt;
-      &lt;li&gt;style code : domain specific&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;657&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791653-adaaeb00-43ea-11eb-9dd6-fc7d4e6c6e6e.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Image Translation == Recombine its content code with a random style code
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random style code&lt;/code&gt; : style space of the target domain&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;651&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 23&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791642-a5eb4680-43ea-11eb-8ea5-8af9ebc97f17.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;auto-encoder-architecture&quot;&gt;Auto-encoder Architecture&lt;/h3&gt;
-
-&lt;p&gt;&lt;img width=&quot;624&quot; alt=&quot;스크린샷 2020-12-22 오전 12 19 33&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102792116-61ac7600-43eb-11eb-8a7b-3f4cc735c0f1.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><category term="Domain Adaptation" /><category term="Style Transfer" /><category term="Image-to-Image Translation" /><summary type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation</title><link href="http://localhost:4000/paper%20review/2020/12/22/intraDA/" rel="alternate" type="text/html" title="Unsupervised Intra-domain Adaptation for Semantic Segmentation" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/intraDA</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/intraDA/">&lt;p&gt;Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
+긴 글 읽어주셔서 감사합니다 :)&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation</title><link href="http://localhost:4000/paper%20review/2020/12/22/intraDA/" rel="alternate" type="text/html" title="Unsupervised Intra-domain Adaptation for Semantic Segmentation" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/intraDA</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/intraDA/">&lt;p&gt;Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -670,7 +845,38 @@
 
 &lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
 
-&lt;p&gt;&lt;img width=&quot;698&quot; alt=&quot;스크린샷 2020-12-22 오전 12 46 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102794749-26ac4180-43ef-11eb-853c-45c2e9a5cfd4.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Domain Adaptation" /><category term="GAN" /><category term="Semantic Segmentation" /><summary type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.</summary></entry><entry><title type="html">DETR:End-to-End Object Detection with Transformers</title><link href="http://localhost:4000/paper%20review/2020/11/17/DETR/" rel="alternate" type="text/html" title="DETR:End-to-End Object Detection with Transformers" /><published>2020-11-17T00:00:00+09:00</published><updated>2020-11-17T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/11/17/DETR</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/11/17/DETR/">&lt;p&gt;DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;p&gt;&lt;img width=&quot;698&quot; alt=&quot;스크린샷 2020-12-22 오전 12 46 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102794749-26ac4180-43ef-11eb-853c-45c2e9a5cfd4.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Domain Adaptation" /><category term="GAN" /><category term="Semantic Segmentation" /><summary type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.</summary></entry><entry><title type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT)</title><link href="http://localhost:4000/paper%20review/2020/12/22/MUNIT/" rel="alternate" type="text/html" title="Multimodal Unsupervised Image-to-Image Translation (MUNIT)" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/MUNIT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/MUNIT/">&lt;p&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;multimodal-unsupervised-image-to-image-translation-munit&quot;&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT)&lt;/h1&gt;
+
+&lt;h2 id=&quot;keywords--gan-image-to-image-translation-style-transfer&quot;&gt;Keywords : GAN, Image-to-Image translation, style transfer&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;image representation = content code + style code
+    &lt;ul&gt;
+      &lt;li&gt;content code : domain invariant&lt;/li&gt;
+      &lt;li&gt;style code : domain specific&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;657&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791653-adaaeb00-43ea-11eb-9dd6-fc7d4e6c6e6e.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Image Translation == Recombine its content code with a random style code
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random style code&lt;/code&gt; : style space of the target domain&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;651&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 23&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791642-a5eb4680-43ea-11eb-8ea5-8af9ebc97f17.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;auto-encoder-architecture&quot;&gt;Auto-encoder Architecture&lt;/h3&gt;
+
+&lt;p&gt;&lt;img width=&quot;624&quot; alt=&quot;스크린샷 2020-12-22 오전 12 19 33&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102792116-61ac7600-43eb-11eb-8a7b-3f4cc735c0f1.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><category term="Domain Adaptation" /><category term="Style Transfer" /><category term="Image-to-Image Translation" /><summary type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.</summary></entry><entry><title type="html">DETR:End-to-End Object Detection with Transformers</title><link href="http://localhost:4000/paper%20review/2020/11/17/DETR/" rel="alternate" type="text/html" title="DETR:End-to-End Object Detection with Transformers" /><published>2020-11-17T00:00:00+09:00</published><updated>2020-11-17T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/11/17/DETR</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/11/17/DETR/">&lt;p&gt;DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -967,345 +1173,4 @@ H,W를 다 합쳐서 spatial dimensions of d x HW로 만들어준다.
   &lt;li&gt;&lt;a href=&quot;https://keyog.tistory.com/32&quot;&gt;인간지능이 인공지능을 공부하는 장소&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://kp1994.tistory.com/15&quot;&gt;KP’s blog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=lXpBcW_I54U&amp;amp;feature=youtu.be&amp;amp;fbclid=IwAR25dYNnKxCsN5apneKrmPus-umovk7fziMedDQMqBfhg28eaBj6u-tRxzI&amp;amp;ab_channel=JinWonLee&quot;&gt;TF 논문 읽기 모임 PR-284&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Object Detection" /><category term="Encoder-Decoder" /><category term="Transformer" /><category term="Panoptic Segmentation" /><category term="DETR" /><category term="ViT" /><summary type="html">DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.</summary></entry><entry><title type="html">MMDetection 사용하기</title><link href="http://localhost:4000/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="MMDetection 사용하기" /><published>2020-11-03T00:00:00+09:00</published><updated>2020-11-03T00:00:00+09:00</updated><id>http://localhost:4000/computer%20vision/2020/11/03/mmdetection%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/computer%20vision/2020/11/03/mmdetection-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">&lt;p&gt;Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 &lt;strong&gt;MMdetection&lt;/strong&gt; toolkit을 설치해보고 학습까지 진행해보겠습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;저는 오늘부터 시작된 &lt;a href=&quot;https://dacon.io/competitions/official/235672/overview/&quot;&gt;K-Fashion AI 경진대회&lt;/a&gt;에 참가합니다.&lt;/p&gt;
-
-&lt;p&gt;이 대회는 제가 관심있는 분야인 &lt;strong&gt;&lt;em&gt;컴퓨터 비전&lt;/em&gt;&lt;/strong&gt; 대회라 관심을 가지게 되었고, 실제로 CV 관련 대회는 처음이니 배운다는 마음가짐으로 열심히 공부해보려 합니다.&lt;/p&gt;
-
-&lt;h1 id=&quot;mmdectection&quot;&gt;MMdectection?&lt;/h1&gt;
-
-&lt;p&gt;이 대회의 베이스라인을 참고하면서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mmdetection&lt;/code&gt; 이라는 것을 처음 알게 되었습니다. 
-논문도 있으니 시간 남을 때 봐야겠네요&lt;/p&gt;
-
-&lt;p&gt;깃허브는 &lt;a href=&quot;https://github.com/open-mmlab/mmdetection&quot;&gt;여기&lt;/a&gt;에 들어가면 되고, 리드미 파일에 mmdetection이 어떤 건지 나와있습니다.
-짧게 요약하자면,&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;MMDetection&lt;/strong&gt; is an open source object detection toolbox based on PyTorch.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이라 하네요.&lt;/p&gt;
-
-&lt;p&gt;object detection에서 다루는 다양한 모델들을 한 곳에 모아뒀다고 하니 정말 간편해보입니다. (이런 걸 이제 알게된 게 아쉬울 정도로…)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/open-mmlab/mmdetection#benchmark-and-model-zoo&quot;&gt;여기&lt;/a&gt; 에 support 하는 모델들이 나열되어 있습니다.&lt;/p&gt;
-
-&lt;p&gt;또한 버전 업데이트 및 유지보수도 굉장히 잘 되고 있다고 합니다!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;installation&quot;&gt;Installation&lt;/h1&gt;
-
-&lt;p&gt;데이콘 베이스 라인을 보고 따라하는 것이므로 버전도 맞춰서 해봅니다.
-우선 mmdetection 깃허브 링크에 가서 브랜치를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.3.0&lt;/code&gt; 으로 이동합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/open-mmlab/mmdetection/tree/v2.3.0&quot;&gt;바로 가기&lt;/a&gt;
-&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97955665-0f3ada00-1dea-11eb-93d6-a233996a32f8.png&quot; alt=&quot;스크린샷 2020-11-03 오후 3 34 25&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;README.md 를 조금 내리다 보면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;install.md&lt;/code&gt; 로 넘어갈 수 있는 하이퍼링크가 있습니다.
-그걸 눌러 install.md로 이동합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97955738-3db8b500-1dea-11eb-9988-2a6afd19ec79.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97955982-dbac7f80-1dea-11eb-9aa4-e7ff1a77c779.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Requirements&lt;/strong&gt; 잘 확인하시고, install mmdetection 순서대로 진행합니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;1-가상환경-생성&quot;&gt;1. 가상환경 생성&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda create -n 가상환경이름 python=3.7 -y
-conda activate 가상환경이름 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 가상 환경 생성하고 activate 시킵니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-pytorch-torchvision-설치-버전-주의&quot;&gt;2. pytorch, torchvision 설치 (버전 주의)&lt;/h3&gt;
-
-&lt;p&gt;베이스라인 따라가려면 (즉, mmdetection version==2.3.0) torch version == &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.5.0&lt;/code&gt; 이어야 합니다.
-pytorch를 원하는 이전 버전으로 설치해야 할 때 공식홈페이지에 커맨드가 다 나와있습니다. &lt;a href=&quot;https://pytorch.org/get-started/previous-versions/&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install pytorch==1.5.0 torchvision==0.6.0 -c pytorch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;3-mmdetection-repo-clone&quot;&gt;3. MMdetection repo. clone&lt;/h3&gt;
-
-&lt;p&gt;mmdetection 레포지터리를 clone 해야 합니다.
-이 때도 이 도큐먼트와 다르게 주의해야 할 점이 있습니다. 앞서 말했듯이 저는 베이스라인 따라 branch == v2.3.0으로 이동했습니다. 이 브랜치에 해당되는 버전으로 git clone 해야 합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone --branch v2.3.0 https://github.com/open-mmlab/mmdetection.git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;4-requirements-설치&quot;&gt;4. Requirements 설치&lt;/h3&gt;
-
-&lt;p&gt;우선 클론한 디렉토리로 갑니다.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ./mmdetection
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;저와 같이 다른 사람들과 같이 쓰는 서버를 쓰시는 환경이라면 마음대로 패키지/라이버리를 다운 받았을 때 충돌될 가능성이 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;그래서 이 requirements 들을 가상 환경 내에 설치해야 합니다.&lt;/strong&gt;
-현재 가상환경의 절대 주소를 모르시면, 터미널에&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda env list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;를 치시면 가상환경 이름 뒤에 경로가 나옵니다.
-그 path를 copy 해두세요.
-가상환경의 경로를 {PATH}라고 가정하고 적어보겠습니다.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{PATH}/bin/pip install -r requirements/build.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 하면 requirements가 잘 설치될 것입니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;5-set-up&quot;&gt;5. Set up&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install -v -e .  # or &quot;python setup.py develop&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;앞에 명령어 해보고 안되면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python setup.py develop&lt;/code&gt; 하시면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;(저 같은 경우는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install -v -e .&lt;/code&gt; 했을 때 안됐어서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python setup.py develop&lt;/code&gt; 명령어 해서 정상 설치 됐습니다.)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;training-하기-전-준비-해야-할-것들&quot;&gt;Training 하기 전 준비 해야 할 것들&lt;/h1&gt;
-
-&lt;h3 id=&quot;1-dataset-관련&quot;&gt;1. Dataset 관련&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mmdetection/mmdet/datasets&lt;/code&gt; 에서 데이터셋에 대한 기본 설정을 할 수 있습니다.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;custom.py&lt;/code&gt; 로 직접 personal 한 설정을 할 수 있겠지만 이 대회는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;coco.py&lt;/code&gt; 에서 설정된 것에서 크게 벗어나지 않아 이대로 사용해도 된다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;그래서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;coco.py&lt;/code&gt; 에서 미리 설정된 CLASSES 들을 이 대회에서 쓰일 클래스로 바꾸겠습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97957150-c71db680-1ded-11eb-88e2-3b503374e352.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;또한, mmdetection의 경우 train/test 폴더가 한 곳에 flatten 하게 존재해야 한다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/train/a/*.jpg&lt;/code&gt; 이런 형태가 아닌 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/train/a_*.jpg&lt;/code&gt; 이런 식으로요.&lt;/p&gt;
-
-&lt;p&gt;이건 파이썬 코드로 쉽게 수정 가능하니 잊지 않고 하시길 바립니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;2-training-options&quot;&gt;2. training options&lt;/h3&gt;
-
-&lt;p&gt;트레이닝할 때 필요한 기본 옵션들을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mmdetection/config/_base_/default_runtime.py&lt;/code&gt; 에서 가능합니다.&lt;/p&gt;
-
-&lt;p&gt;이 config는 우선 베이스라인 코드에서 제공한 것을 붙여 써서 지금 제 환경에 맞게 조금씩 고쳤습니다. (data root, gpu 개수, epoch 등)&lt;/p&gt;
-
-&lt;p&gt;자세한 건 &lt;a href=&quot;https://github.com/dacon-ai/K-fashion-baseline/blob/master/configs/_base_/default_runtime.py&quot;&gt;여기&lt;/a&gt;를 참고해주세요.&lt;/p&gt;
-
-&lt;p&gt;train/test set 경로 등등 잘 설정하고 나면 바로 학습 시작 가능합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;training-&quot;&gt;Training !&lt;/h1&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python tools/train.py configs/_base_/default_runtime.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이걸 치시면 config로 해놨던 설정들이 주루룩 뜨면서 학습이 시작됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97957533-bf124680-1dee-11eb-93b9-a3b3921adbe6.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h1&gt;
-
-&lt;h3 id=&quot;attributeerror-coco-object-has-no-attribute-get_cat_ids&quot;&gt;AttributeError: ‘COCO’ object has no attribute ‘get_cat_ids’&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pycocotools&lt;/code&gt; 관련 오류입니다.&lt;/p&gt;
-
-&lt;p&gt;저같은 경우에는&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{PATH}/bin/pip install &quot;git+https://github.com/open-mmlab/
-
-cocoapi.git#subdirectory=pycocotools&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;로 해결했습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;modulenotfounderror-no-module-named-mmcv_ext&quot;&gt;ModuleNotFoundError: No module named ‘mmcv._ext’&lt;/h3&gt;
-
-&lt;p&gt;mmcv가 제대로 설치되지 않은 경우입니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{PATH}/bin pip uninstall mmcv
-{PATH}/bin pip install mmcv-full==1.0.5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;저는 이렇게 해결했습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=UEu73ew7mSY&amp;amp;feature=youtu.be&amp;amp;ab_channel=%EB%8D%B0%EC%9D%B4%EC%BD%98&quot;&gt;데이콘 베이스라인&lt;/a&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="MMdetection" /><category term="Mask R-CNN" /><summary type="html">Dacon의 K-Fashion AI 경진대회의 baseline 설명에 따라 MMdetection toolkit을 설치해보고 학습까지 진행해보겠습니다.</summary></entry><entry><title type="html">An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)</title><link href="http://localhost:4000/paper%20review/2020/10/31/ViT/" rel="alternate" type="text/html" title="An Image is Worth 16x16 Words:Transformers for Image Recognition at Scale(ViT)" /><published>2020-10-31T00:00:00+09:00</published><updated>2020-10-31T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/10/31/ViT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/10/31/ViT/">&lt;p&gt;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;an-image-is-worth-16x16-words-transformers-for-image-recognition-at-scale&quot;&gt;An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale&lt;/h1&gt;
-
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;image classification task에 기존의 transformer 모델을 이용한다.
-    &lt;ul&gt;
-      &lt;li&gt;transformer의 장점들을 사용할 수 있음.&lt;/li&gt;
-      &lt;li&gt;simple, computational efficiency, scalability&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Vision Transformer(ViT)
-    &lt;ul&gt;
-      &lt;li&gt;원본 이미지를 &lt;strong&gt;patches&lt;/strong&gt;들로 split한다.
-        &lt;ul&gt;
-          &lt;li&gt;이 때 이미지 패치들을 NLP에서의 &lt;strong&gt;token(word)&lt;/strong&gt;와 같은 역할임.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;이 패치들의 sequence of linear embedding을 Transformer의 input으로 feed한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;크지않은 데이터 셋에서는 ResNet보다 약간 낮은 정확도
-    &lt;ul&gt;
-      &lt;li&gt;Transformer는 CNN과 다르게 &lt;em&gt;translation equivariance, locality&lt;/em&gt; 같은 &lt;strong&gt;inductive biases&lt;/strong&gt;(=weight sharing)이 없기 때문에 데이터셋이 적으면 generalize되기 어려움.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;하지만 large scale 데이터에서는 CNN의 inductive bias를 능가함.
-    &lt;ul&gt;
-      &lt;li&gt;image recognition benchmarks에서 여러 SOTA 달성함.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-work-basic-concepts&quot;&gt;Related work (Basic concepts)&lt;/h2&gt;
-
-&lt;p&gt;제안한 모델이 최근 연구 중에서는 iGPT 논문과 유사하다고 함.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;reducing image resolution and color space한 후 transformer를 적용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
-&lt;p&gt;(Explain one of the methods that the thesis used.)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Model overview
-  &lt;img width=&quot;777&quot; alt=&quot;스크린샷 2020-11-01 오전 11 51 34&quot; src=&quot;https://user-images.githubusercontent.com/48315997/97794098-97797d80-1c38-11eb-8221-30ea0e5d6ea7.png&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Vision Transformer(ViT)&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;image를 patch 단위로 잘라서 flatten시킨 후, 그것을 linear projection하여 encoder에 feed한다.
-  &lt;img src=&quot;https://user-images.githubusercontent.com/48315997/97794316-8da54980-1c3b-11eb-963b-2c07da280861.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Equation
-  &lt;img width=&quot;737&quot; alt=&quot;스크린샷 2020-11-01 오후 12 32 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/97794501-55ebd100-1c3e-11eb-97cd-cc00bde85b4d.png&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;(Eq.1) trainable linear projection은 flatten된 patch들을 &lt;em&gt;D&lt;/em&gt; dimension에 &lt;strong&gt;mapping시킨다.&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;(Eq.4) BERT의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[class]&lt;/code&gt; 토큰처럼, embedded patch의 sequence(image representation &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt;) 전에 &lt;strong&gt;learnable embedding&lt;/strong&gt;을 추가한다. (prepend)
-        &lt;ul&gt;
-          &lt;li&gt;both during pre-training and fine-tuning, a classification head is attached to $\left({z}_{L}^{0} \right)$&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Position embeddings
-        &lt;ul&gt;
-          &lt;li&gt;positional information을 유지하기 위해 patch embedding에 붙여짐. (자세한건 Appendix.D.3)&lt;/li&gt;
-          &lt;li&gt;standard learnable 1D position embedding 사용&lt;/li&gt;
-          &lt;li&gt;이렇게 position embedding까지 더해진 sequence of embedding vector들은 encoder의 input이 됨.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Encoder
-        &lt;ul&gt;
-          &lt;li&gt;alternating layers of multiheaded self-attention(MSA)&lt;/li&gt;
-          &lt;li&gt;MLP blocks
-            &lt;ul&gt;
-              &lt;li&gt;contains 2 layer with a GELU non-linearity&lt;/li&gt;
-              &lt;li&gt;MLP 부분 code&lt;/li&gt;
-            &lt;/ul&gt;
-
-            &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MlpBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Transformer MLP / feed-forward block.&quot;&quot;&quot;&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;mlp_dim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jnp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;out_dim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;dropout_rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;deterministic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;kernel_init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xavier_uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-              &lt;span class=&quot;n&quot;&gt;bias_init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stddev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1e-6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Applies Transformer MlpBlock module.&quot;&quot;&quot;&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;actual_out_dim&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out_dim&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out_dim&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;mlp_dim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;kernel_init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;bias_init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bias_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gelu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dropout_rate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deterministic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deterministic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;actual_out_dim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;kernel_init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;n&quot;&gt;bias_init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bias_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dropout_rate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deterministic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deterministic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;            &lt;/div&gt;
-          &lt;/li&gt;
-          &lt;li&gt;Layernorm(LN) is applied before every block&lt;/li&gt;
-          &lt;li&gt;residual connections after every block&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Hybrid Architecture
-        &lt;ul&gt;
-          &lt;li&gt;patch embedding projection E (Eq.1)이 CNN feature map으로 대체될 수 있다.
-            &lt;ul&gt;
-              &lt;li&gt;즉, ResNet과 같은 CNN구조의 모델을 가지고, 2D feature map 중 하나를 1D로 flatten시킨 후 transformer dimension에 projecting 시킴.&lt;/li&gt;
-              &lt;li&gt;위에서 만들어진 sequence에 classification input embedding, position embedding를 추가시켜 encoder에 input으로써 feed 시킬 수 있음.&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;fine-tuning-and-higher-resolution&quot;&gt;Fine-Tuning and Higher Resolution&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;large dataset으로 pre-training하고, smaller downstream task에 대해 fine-tune 하려고 함.&lt;/li&gt;
-  &lt;li&gt;이를 위해서 pre-trained prediction head를 지우고, 0으로 initializedgks D x K feedforward layer를 추가함.
-    &lt;ul&gt;
-      &lt;li&gt;K : # of downstream classes&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;pre-training 보다 높은 resolution으로 fine-tuning하는 것은 beneficial할 때도 있음.&lt;/li&gt;
-  &lt;li&gt;higher resolution을 feed하게 되면, patch size는 동일하므로 sequence length가 길어짐&lt;/li&gt;
-  &lt;li&gt;ViT는 임의적인 sequence length를 다룰 수 있음(메모리 제약에 따라서)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;하지만 pre-trained position embedding이 의미 없어질 수 있음&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;원본 이미지의 location에 따라 pre-trained position embedding의 2D interpolation을 수행함.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;위와 같은 resolution adjustment와 patch extraction은 이미지의 2D 구조에 대해 inductive bias를 &lt;strong&gt;manually&lt;/strong&gt; ViT에 주입시키는 유일한 포인트임.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;model.py&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/google-research/vision_transformer/blob/master/vit_jax/models.py&quot;&gt;Github&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;p&gt;(References for your additional studies)&lt;/p&gt;
-
-&lt;p&gt;https://jeonsworld.github.io/vision/vit/&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Transformer" /><summary type="html">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) 를 읽고 정리한 글입니다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Computer Vision" /><category term="Object Detection" /><category term="Encoder-Decoder" /><category term="Transformer" /><category term="Panoptic Segmentation" /><category term="DETR" /><category term="ViT" /><summary type="html">DETR : End-to-End Object Detection with Transformers 를 읽고 정리한 글입니다.</summary></entry></feed>
