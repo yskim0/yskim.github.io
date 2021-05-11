@@ -1,4 +1,203 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-12T00:01:06+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">VizML - A Machine Learning Approach to Visualization Recommendation</title><link href="http://localhost:4000/paper%20review/2021/05/06/VizML/" rel="alternate" type="text/html" title="VizML - A Machine Learning Approach to Visualization Recommendation" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/VizML</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/VizML/">&lt;p&gt;VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-12T00:52:14+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">Mac OS BigSur 11.2.3 “bundle exec jekyll serve” Error</title><link href="http://localhost:4000/troubleshooting/2021/05/12/BigSur_Jekyll_TroubleShooting/" rel="alternate" type="text/html" title="Mac OS BigSur 11.2.3 &quot;bundle exec jekyll serve&quot; Error" /><published>2021-05-12T00:00:00+09:00</published><updated>2021-05-12T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/05/12/BigSur_Jekyll_TroubleShooting</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/05/12/BigSur_Jekyll_TroubleShooting/">&lt;p&gt;How to Solve “Mac OS BigSur 11.2.3 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; Error”&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-problem-recognition&quot;&gt;1. Problem Recognition&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/117841944-6dc0a380-b2b8-11eb-8ff4-43268452b53e.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;평소와 같이 github 블로그 글을 쓰고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; 를 터미널에 입력했는데 아래와 같은 에러가 뜸&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Could not find commonmarker-0.17.13 in any of the sources.&lt;br /&gt;
+Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; to install missing gems.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;2-to-solve-1-bundle-install-or-install-commonmarker-directly-but-&quot;&gt;2. To solve #1., &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; or install commonmarker directly… But :(&lt;/h2&gt;
+
+&lt;p&gt;I didn’t screenshot these commands’ error message… but if you get error message like&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/117842511-f8090780-b2b8-11eb-9237-f48769da9548.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;(Gem::FilePermissionError)&lt;br /&gt;
+    You don’t have write permissions for the /Library/Ruby/Gems/2.X.0 directory.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Then, it must be installed &lt;strong&gt;rbenv ruby-build&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;solution&quot;&gt;Solution&lt;/h1&gt;
+&lt;h2 id=&quot;1-brew-install-rbenv-ruby-build&quot;&gt;1. brew install rbenv ruby-build&lt;/h2&gt;
+&lt;p&gt;If you installed sucessfully, then go to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;number 3&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;But if you got another problem like me…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/117843531-dbb99a80-b2b9-11eb-831b-12e75ffd770b.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Error: Your CLT does not support macOS 11. &lt;br /&gt;
+It is either outdated or was modified. &lt;br /&gt;
+Please update your CLT or delete it if no updates are available. &lt;br /&gt;
+Update them from Software Update in System Preferences or run:&lt;br /&gt;
+…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It is probably the effect of the &lt;strong&gt;Big Sur update&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So I solved this problem by …&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/117843903-34893300-b2ba-11eb-95f5-7ab80b0c42f2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sudo rm -rf /Library/Developer/CommandLineTools&lt;br /&gt;
+sudo xcode-select –install&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ref)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://apple.stackexchange.com/questions/401899/-homebrew-your-clt-does-not-support-macos-11-0&quot;&gt;https://apple.stackexchange.com/questions/401899/-homebrew-your-clt-does-not-support-macos-11-0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://flaviocopes.com/how-to-fix-clt-support-macos-11/&quot;&gt;https://flaviocopes.com/how-to-fix-clt-support-macos-11/&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;여기에있는 사진들이 정상적으로 나오면 OK인듯.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-follow-this-blogs-stepssource-zshrc&quot;&gt;2. Follow &lt;a href=&quot;https://popcorn16.tistory.com/56&quot;&gt;this&lt;/a&gt; blog’s steps(~source ~/.zshrc)&lt;/h2&gt;
+
+&lt;h2 id=&quot;3-bundle-install&quot;&gt;3. bundle install&lt;/h2&gt;
+
+&lt;p&gt;Finally, I installed commonmarker successfully.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-bundle-exec-jekyll-serve&quot;&gt;4. bundle exec jekyll serve&lt;/h2&gt;
+
+&lt;p&gt;Finish!&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;ul&gt;
+  &lt;li&gt;어느 단계인지 기억은 안나는데 Gemfile에 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem 'commonmarker'&lt;/code&gt;
+를 추가하기는 했음. (이게 필수인지는… 순서가 뒤죽박죽이라 모르겠음, 근데 bundle instasll로 다 되지 않았을까 싶음. Bundle exec Jekyll serve 를 했을 때 1번과 같은 에러가 뜬다면 그 때 Gemfile에 써도 늦지 않을 듯.)&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="jekyll" /><summary type="html">How to Solve “Mac OS BigSur 11.2.3 bundle exec jekyll serve Error”</summary></entry><entry><title type="html">Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks</title><link href="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/" rel="alternate" type="text/html" title="Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/Data2Vis</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/">&lt;p&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;data2vis-automatic-generation-of-data-visualizations-using-sequence-to-sequence-recurrent-neural-networks&quot;&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks&lt;/h1&gt;
+
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;end-to-end trainable neural translation model&lt;/li&gt;
+  &lt;li&gt;formulate visualization generation as &lt;strong&gt;a language translation problem&lt;/strong&gt;, where data specifications are mapped to visualization specifications in a declarative language &lt;strong&gt;(Vega-Lite)&lt;/strong&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;Vege-Lite -&amp;gt; JSON format&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;multilayered ateention-based encoder-decoder network with LSTM&lt;/li&gt;
+  &lt;li&gt;introduce 2 metrics - language syntax validity, visualization grammar syntax validity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
+&lt;h3 id=&quot;declarative-visualization-specification&quot;&gt;Declarative Visualization Specification&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;One of our aims with Data2Vis is to bridge this gap between the speed and expressivity in specifying visualizations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;automated-visulaization&quot;&gt;Automated Visulaization&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We pose visualization specifica- tion as a machine translation problem and intro- duce Data2Vis, a deep neural translation model trained to automatically translate data specifica- tions to visualization specifications. Data2Vis emphasizes the creation of visualizations using rules learned from examples, without resorting to a predefined enumeration or extraction of con- straints, rules, heuristics, and features.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Machine Translation Problem&lt;/strong&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;dnns-for-machine-translation&quot;&gt;DNNs for Machine Translation&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Data2Vis is also a sequence- to-sequence model using the textual source and target specifications directly for translation, with- out relying on explicit syntax representations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;754&quot; alt=&quot;스크린샷 2021-05-07 오전 1 43 49&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the data visualization problem as a &lt;strong&gt;Seq2Seq translation problem&lt;/strong&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input : dataset (fields, values in JSON format)
+output : valid Vega-Lite visualization specification
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;encoder-decoder archi.&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;where the encoder reads and encodes a source sequence into a fixed length vector, and a decoder outputs a translation based on this vec- tor.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Attention&lt;/strong&gt; Mechanism
+    &lt;blockquote&gt;
+      &lt;p&gt;Atten- tion mechanisms allow a model to focus on aspects of an input sequence while generating out- put tokens.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Beam Search algorithm&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;The beam search algorithm used in sequence-to-sequence neural translation models keeps track of k most probable output tokens at each step of decoding, where k is known as the beamwidth. This enables the generation of k most likely output sequences for a given input sequence.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;THREE techniques : &lt;strong&gt;bidirectional encoding, differential weighing of context via an attention mechanism, and beam search&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;character&lt;/strong&gt;-based sequence model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data-and-preprocessing&quot;&gt;Data and Preprocessing&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;the model must select a subset of fields to focus on when creating visual- izations (most datasets have multiple fields that cannot all be simultaneously visualized)&lt;/li&gt;
+  &lt;li&gt;the model must learn differences in data types across the data fields (numeric, string, temporal, ordinal, categorical, etc.), which in turn guides how each field is specified in the generation of a visualiza- tion specification.&lt;/li&gt;
+  &lt;li&gt;the model must learn the appropriate transformations to apply to a field given its data type (e.g., aggregate transform does not apply to string fields).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;view-level transforms : aggregate, bin, calculate, filter, timeUnit&lt;/li&gt;
+  &lt;li&gt;field-level transforms : aggregate, bin, sort, timeUnit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;evaluation-metrics&quot;&gt;Evaluation Metrics&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;language syntax validity(lsv)
+    &lt;ul&gt;
+      &lt;li&gt;measure of how well a model learns the syntax of the underlying language used to specify the visualization.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;grammar syntax validity(gsv)
+    &lt;ul&gt;
+      &lt;li&gt;a measure of how well a model learns the syntax of the grammar for visualization specification.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;887&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 00&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335706-66735180-aed6-11eb-90cc-95b38ea1224a.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;765&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 10&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335723-6bd09c00-aed6-11eb-8c0e-9e9d0e1348a2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Field Selection and Transformation&lt;/li&gt;
+  &lt;li&gt;Training Data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;future-work&quot;&gt;Future Work&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Training Data and Training Strategy&lt;/li&gt;
+  &lt;li&gt;Extending Data2Vis to Generate Multiple Plausible Visualizations&lt;/li&gt;
+  &lt;li&gt;Targeting Additional Grammars&lt;/li&gt;
+  &lt;li&gt;Natural Language and Visualization Specification&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Visualization" /><summary type="html">Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">VizML - A Machine Learning Approach to Visualization Recommendation</title><link href="http://localhost:4000/paper%20review/2021/05/06/VizML/" rel="alternate" type="text/html" title="VizML - A Machine Learning Approach to Visualization Recommendation" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/VizML</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/VizML/">&lt;p&gt;VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h1 id=&quot;vizml--a-machine-learning-approach-to-visualization-recommendation&quot;&gt;VizML : A Machine Learning Approach to Visualization Recommendation&lt;/h1&gt;
@@ -167,124 +366,7 @@ sualizations Using Sequence to Sequence Recurrent Neural Networks.&lt;/li&gt;
   &lt;li&gt;Draco-Learn : Formalizing Visualization Design Knowledge as Constraints: Actionable and Extensible Models in Draco.&lt;/li&gt;
   &lt;li&gt;Vega- Lite: A Grammar of Interactive Graphics.&lt;/li&gt;
   &lt;li&gt;Polaris: a system for query, analysis, and visualization of multidimensional databases&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Machine Learning" /><category term="Visualization" /><summary type="html">VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks</title><link href="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/" rel="alternate" type="text/html" title="Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/Data2Vis</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/">&lt;p&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;data2vis-automatic-generation-of-data-visualizations-using-sequence-to-sequence-recurrent-neural-networks&quot;&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks&lt;/h1&gt;
-
-&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;end-to-end trainable neural translation model&lt;/li&gt;
-  &lt;li&gt;formulate visualization generation as &lt;strong&gt;a language translation problem&lt;/strong&gt;, where data specifications are mapped to visualization specifications in a declarative language &lt;strong&gt;(Vega-Lite)&lt;/strong&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;Vege-Lite -&amp;gt; JSON format&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;multilayered ateention-based encoder-decoder network with LSTM&lt;/li&gt;
-  &lt;li&gt;introduce 2 metrics - language syntax validity, visualization grammar syntax validity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
-&lt;h3 id=&quot;declarative-visualization-specification&quot;&gt;Declarative Visualization Specification&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;One of our aims with Data2Vis is to bridge this gap between the speed and expressivity in specifying visualizations.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;automated-visulaization&quot;&gt;Automated Visulaization&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We pose visualization specifica- tion as a machine translation problem and intro- duce Data2Vis, a deep neural translation model trained to automatically translate data specifica- tions to visualization specifications. Data2Vis emphasizes the creation of visualizations using rules learned from examples, without resorting to a predefined enumeration or extraction of con- straints, rules, heuristics, and features.&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;Machine Translation Problem&lt;/strong&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;dnns-for-machine-translation&quot;&gt;DNNs for Machine Translation&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Data2Vis is also a sequence- to-sequence model using the textual source and target specifications directly for translation, with- out relying on explicit syntax representations.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;754&quot; alt=&quot;스크린샷 2021-05-07 오전 1 43 49&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;the data visualization problem as a &lt;strong&gt;Seq2Seq translation problem&lt;/strong&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input : dataset (fields, values in JSON format)
-output : valid Vega-Lite visualization specification
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;encoder-decoder archi.&lt;/strong&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;where the encoder reads and encodes a source sequence into a fixed length vector, and a decoder outputs a translation based on this vec- tor.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Attention&lt;/strong&gt; Mechanism
-    &lt;blockquote&gt;
-      &lt;p&gt;Atten- tion mechanisms allow a model to focus on aspects of an input sequence while generating out- put tokens.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Beam Search algorithm&lt;/strong&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;The beam search algorithm used in sequence-to-sequence neural translation models keeps track of k most probable output tokens at each step of decoding, where k is known as the beamwidth. This enables the generation of k most likely output sequences for a given input sequence.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;THREE techniques : &lt;strong&gt;bidirectional encoding, differential weighing of context via an attention mechanism, and beam search&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;character&lt;/strong&gt;-based sequence model&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;data-and-preprocessing&quot;&gt;Data and Preprocessing&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;the model must select a subset of fields to focus on when creating visual- izations (most datasets have multiple fields that cannot all be simultaneously visualized)&lt;/li&gt;
-  &lt;li&gt;the model must learn differences in data types across the data fields (numeric, string, temporal, ordinal, categorical, etc.), which in turn guides how each field is specified in the generation of a visualiza- tion specification.&lt;/li&gt;
-  &lt;li&gt;the model must learn the appropriate transformations to apply to a field given its data type (e.g., aggregate transform does not apply to string fields).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;view-level transforms : aggregate, bin, calculate, filter, timeUnit&lt;/li&gt;
-  &lt;li&gt;field-level transforms : aggregate, bin, sort, timeUnit&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;evaluation-metrics&quot;&gt;Evaluation Metrics&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;language syntax validity(lsv)
-    &lt;ul&gt;
-      &lt;li&gt;measure of how well a model learns the syntax of the underlying language used to specify the visualization.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;grammar syntax validity(gsv)
-    &lt;ul&gt;
-      &lt;li&gt;a measure of how well a model learns the syntax of the grammar for visualization specification.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
-
-&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
-&lt;p&gt;&lt;img width=&quot;887&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 00&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335706-66735180-aed6-11eb-90cc-95b38ea1224a.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;765&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 10&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335723-6bd09c00-aed6-11eb-8c0e-9e9d0e1348a2.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Field Selection and Transformation&lt;/li&gt;
-  &lt;li&gt;Training Data&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;future-work&quot;&gt;Future Work&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Training Data and Training Strategy&lt;/li&gt;
-  &lt;li&gt;Extending Data2Vis to Generate Multiple Plausible Visualizations&lt;/li&gt;
-  &lt;li&gt;Targeting Additional Grammars&lt;/li&gt;
-  &lt;li&gt;Natural Language and Visualization Specification&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Visualization" /><summary type="html">Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Stanford CS231n Lec 02. Image Classification</title><link href="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/" rel="alternate" type="text/html" title="Stanford CS231n Lec 02. Image Classification" /><published>2021-03-21T00:00:00+09:00</published><updated>2021-03-21T00:00:00+09:00</updated><id>http://localhost:4000/cs231n/2021/03/21/cs231n_lec02</id><content type="html" xml:base="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/">&lt;p&gt;Stanford CS231n 2017 강의를 듣고 개인적으로 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Machine Learning" /><category term="Visualization" /><summary type="html">VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Stanford CS231n Lec 02. Image Classification</title><link href="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/" rel="alternate" type="text/html" title="Stanford CS231n Lec 02. Image Classification" /><published>2021-03-21T00:00:00+09:00</published><updated>2021-03-21T00:00:00+09:00</updated><id>http://localhost:4000/cs231n/2021/03/21/cs231n_lec02</id><content type="html" xml:base="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/">&lt;p&gt;Stanford CS231n 2017 강의를 듣고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1061,203 +1143,4 @@ Active Learning은 요약하자면 적은 데이터 수로 높은 성능을 낼 
 
 &lt;hr /&gt;
 
-&lt;p&gt;앞서 살펴본 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DCGAN&lt;/code&gt;연구는 큰 발전을 이루었지만, 이 역시 unstable하여 mode collapse가 일어날 수 있는 한계점이 뚜렷했습니다.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)</title><link href="http://localhost:4000/paper%20review/2020/12/25/DCGAN/" rel="alternate" type="text/html" title="Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)" /><published>2020-12-25T00:00:00+09:00</published><updated>2020-12-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/25/DCGAN</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/25/DCGAN/">&lt;p&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;unsupervised-representation-learning-with-deep-convolutional-generative-adversarial-networks-dcgan&quot;&gt;Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;GAN은 Representation Learning에 효과적이라고 합니다. (본 논문에서는 이것이 GAN의 learning process와 관련이 있고, lack of heuristic cost function 덕분이라고 말합니다.)&lt;/p&gt;
-
-&lt;p&gt;그럼에도 불구하고 처음 나온 GAN은 학습하는 것에 있어 매우 &lt;strong&gt;unstable&lt;/strong&gt;하다는 문제점을 가지고 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;본 논문의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DCGAN&lt;/code&gt;은 해당 문제점 해결을 포함하여 총 4가지의 Contributions로 정리할 수 있습니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;DCGAN은 stable training이 가능하다&lt;/li&gt;
-  &lt;li&gt;학습된 Discriminator는 image classification 태스크에 사용이 가능하다. (다른 unsupervised 알고리즘들과 비교할 것임.)&lt;/li&gt;
-  &lt;li&gt;GAN이 학습한 filters를 시각화할 수 있고, 특정 오브젝트에 대해 특정 filter를 학습했다는 점을 보여줄 수 있다.&lt;/li&gt;
-  &lt;li&gt;Generator는 vector arithmetic properties를 가지고 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;approach-and-model-architecture&quot;&gt;APPROACH AND MODEL ARCHITECTURE&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;705&quot; alt=&quot;스크린샷 2020-12-25 오후 5 31 03&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103127996-f73f5280-46d6-11eb-9936-996a9ae0e84f.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;우선 DCGAN이 기존의 GAN과 architecture 측면에서 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;어떻게&lt;/code&gt; 달랐기에 큰 성과를 이룰 수 있었는지 살펴보겠습니다.&lt;/p&gt;
-
-&lt;p&gt;DCGAN이 나오기 전까지에도 CNN을 이용한 GAN을 만드는 시도는 계속 있었습니다. 하지만 이 시도들은 모두 성공적이지 못했죠.&lt;/p&gt;
-
-&lt;p&gt;DCGAN은 &lt;strong&gt;CNN Architecture에서의 최신 변화(?) 3가지를 적용&lt;/strong&gt;하여 성공하였습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;all-convolutional-net-사용&quot;&gt;All Convolutional Net 사용&lt;/h3&gt;
-
-&lt;p&gt;우선 가장 큰 변화점은 &lt;a href=&quot;https://arxiv.org/abs/1412.6806&quot;&gt;Striving for Simplicity: The All Convolutional Net&lt;/a&gt; 을 참고하여 All Convoultional Net을 사용했다는 점입니다.&lt;/p&gt;
-
-&lt;p&gt;All conv. net은 &lt;strong&gt;pooling functions(예를 들어, max pooling)를 strided conv. 으로 바꾼 네트워크 구조&lt;/strong&gt;입니다. Max pooling은 미분되지 않는 성질을 가진다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;이 네트워크 구조를 통해 Generator와 Discriminator 모두 자신들의 spatial downsampling을 학습하기에 적합해집니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;eliminating-fully-connected-layersfc-layers-on-top-of-convolutional-features&quot;&gt;Eliminating fully connected layers(FC layers) on top of convolutional features&lt;/h3&gt;
-
-&lt;p&gt;이 시점 trend는 마지막에 FC layer를 제거하고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global average pooling&lt;/code&gt;를 쓰는 방식이었다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;다만, 이 global average pooling은 &lt;strong&gt;모델의 안정성은 올리는 반면에 convergence speed는 떨어뜨리는&lt;/strong&gt; trade-off 관계를 가지고 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;batch-norm--relu-activation&quot;&gt;Batch Norm &amp;amp; ReLU activation&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Batch Normalization&lt;/strong&gt;는 학습을 안정화시킬 수 있는 방법 중 하나입니다. (normalizing the input to each unit to have zero mean and unit variance)&lt;/p&gt;
-
-&lt;p&gt;이것은 학습 문제점 중 하나인 initialization과 deep model의 gradient flow에 큰 도움을 줄 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;하지만, 모든 layer에 BN을 적용시키는 것은 아닙니다.&lt;/strong&gt; Generator의 output layer와 Discriminator의 input layer에는 BN을 적용시키지 않습니다.&lt;/p&gt;
-
-&lt;p&gt;마지막으로 &lt;strong&gt;ReLU를 사용했다&lt;/strong&gt;는 점이 언급되어 있는데, Generator와 Discriminator에 적용되는 function이 약간 다릅니다.&lt;/p&gt;
-
-&lt;p&gt;Generator에는 기본적으로 ReLU를 사용하지만, output layer에는 따로 ReLU가 아닌 Tanh function을 적용시킵니다.&lt;/p&gt;
-
-&lt;p&gt;Discriminator에는 Leaky ReLU를 적용합니다.&lt;/p&gt;
-
-&lt;p&gt;(여러 실험 결과 이 functions들이 좋은 성능을 냈기 때문이겠죠? 확실한 이유, 논증은 모르겠습니다.)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;details-of-adversarial-training&quot;&gt;DETAILS OF ADVERSARIAL TRAINING&lt;/h2&gt;
-
-&lt;p&gt;DCGAN은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LSUN, FACES, IMAGENET-1K&lt;/code&gt; 데이터셋에 대하여 학습하였습니다.&lt;/p&gt;
-
-&lt;p&gt;training setting(parameters, …)에 대해서는 논문을 참고해주시고, 위 데이터셋 중 LSUN에 대해서만 알아보겠습니다 :)&lt;/p&gt;
-
-&lt;h3 id=&quot;lsun&quot;&gt;LSUN&lt;/h3&gt;
-
-&lt;p&gt;LSUN은 &lt;em&gt;Large-scale Scene Understanding&lt;/em&gt;의 줄임말로, bedroom 사진들을 모은 데이터 셋입니다.&lt;/p&gt;
-
-&lt;p&gt;이 데이터셋을 가지고 학습시킨 모델로 생성된 이미지는 quality가 상당히 향상되었습니다.&lt;/p&gt;
-
-&lt;p&gt;하지만 이것이 &lt;strong&gt;over-fitting이 되어 이렇게 된 것인지, 학습 데이터셋에 대하여 기억(memorization)하여 만들어진 것인지&lt;/strong&gt;에 대해 판별해봐야 합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;overfitting?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;700&quot; alt=&quot;스크린샷 2020-12-25 오후 5 45 38&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103128506-00c9ba00-46d9-11eb-8b7a-e144208bbfe8.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;본 논문의 Fig.2 와 Fig.3을 통해 모델이 오히려 &lt;strong&gt;underfitting&lt;/strong&gt; 되어있음을 얘기합니다.&lt;/p&gt;
-
-&lt;p&gt;underfitting이 이루어졌다고 여기는 이유는 아직 noise texture가 눈에 보이기 때문이라고 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;(엄청 가까이 보지 않는 이상은 잘 느끼지 못하겠는데 말이죠.)&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;memorization?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;사실 이게 가장 중요한 부분이라고 볼 수 있습니다. 새로 generate 하는 image가 사실 학습 데이터에서 기억(memorize)하여 만들어진 것이라면, &lt;strong&gt;진정한 의미의 Generate가 아니니깐요.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;이에 대해서 본 논문의 저자들은 memorize하는 가능성을 줄이기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;image de-duplication process&lt;/code&gt;(중복 제거 프로세스)를 거칩니다.&lt;/p&gt;
-
-&lt;p&gt;de-duplication을 하기 위해 autoencoder를 하나 만듭니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We fit a 3072-128-3072 de-noising dropout regularized RELU autoencoder on 32x32 downsampled center-crops of training examples.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;empirical-validation-of-dcgans-capabilities&quot;&gt;EMPIRICAL VALIDATION OF DCGANs CAPABILITIES&lt;/h2&gt;
-
-&lt;p&gt;맨 처음에 이 논문의 contributions 중 하나로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;학습된 Discriminator는 image classification 태스크에 사용이 가능하다&lt;/code&gt; 라고 얘기했었죠?&lt;/p&gt;
-
-&lt;p&gt;이 목차에서는 정말 DCGAN이 &lt;strong&gt;feature extractor&lt;/strong&gt;로써의 역할이 가능한가, 그래서 CIFAR-10 데이터셋에 대해서도 &lt;strong&gt;classification task&lt;/strong&gt;를 잘 수행하는가를 확인해봅니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;696&quot; alt=&quot;스크린샷 2020-12-25 오후 6 03 36&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103129277-8484a600-46db-11eb-9e0f-de26d03694d4.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;결론적으로, 다른 unsupervised 알고리즘은 K-means model들보다 우수한 성능을 보였습니다. (Exemplar CNN 모델보다는 좀 못 미치지만요.)&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;542&quot; alt=&quot;스크린샷 2020-12-25 오후 6 05 55&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103129364-d6c5c700-46db-11eb-8f7b-388b5ae3128b.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;추가적으로 SVHN Digits 데이터셋에 대해서도 실험을 해보았습니다. test error 측면에서 SOTA를 달성하는 쾌거를 이루었습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;investigating-and-visualizing-the-internals-of-the-networks&quot;&gt;INVESTIGATING AND VISUALIZING THE INTERNALS Of THE NETWORKS&lt;/h2&gt;
-
-&lt;p&gt;또 다른 contributions으로  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GAN이 학습한 filters를 시각화할 수 있고, 특정 오브젝트에 대해 특정 filter를 학습했다는 점을 보여줄 수 있다&lt;/code&gt; 와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Generator는 vector arithmetic properties를 가지고 있다&lt;/code&gt; 가 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;이 목차에서는 두 부분에 대해 설명할 수 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;walking-in-the-latent-space&quot;&gt;Walking in the Latent Space&lt;/h3&gt;
-
-&lt;p&gt;latent space를 변경했을 때 sharp transitions(급작스러운 변화)가 있으면 이는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;memorization&lt;/code&gt;이 일어났다는 신호일 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;반대로 부드러운 변화가 일어나면 memorization이 된 것이 아니라 제대로 학습이 되었다고 볼 수 있죠.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/48315997/103134579-83607280-46f5-11eb-800b-b4d5ea21bdad.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 사진을 보시면 DCGAN의 경우 sharp transition이 아닌 smooth한 변화가 이루어졌음을 볼 수 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;visualizing-the-discriminator-features&quot;&gt;Visualizing the Discriminator Features&lt;/h3&gt;
-
-&lt;p&gt;이 내용에서는 Guided backpropagation을 통해 GAN이 학습한 filters를 시각화할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;696&quot; alt=&quot;스크린샷 2020-12-25 오후 9 17 38&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103134734-9f184880-46f6-11eb-9639-d0eb9878e74a.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;discriminator가 feature들을 학습해서, 특정 파트(bed, windows,…)들에 대하여 active 하고 있음을 볼 수 있습니다.&lt;/p&gt;
-
-&lt;h3 id=&quot;manipulating-the-generator-representation&quot;&gt;Manipulating the Generator Representation&lt;/h3&gt;
-
-&lt;h4 id=&quot;forgetting-to-draw-certain-objects&quot;&gt;Forgetting to Draw Certain Objects&lt;/h4&gt;
-
-&lt;p&gt;이건 매우 재미있는 실험입니다.&lt;/p&gt;
-
-&lt;p&gt;간단하게 요약하자면, Generator가 무슨 representation을 학습했는지 알아보기 위하여 특정 filter(여기서는 window filter)를 삭제해봅니다.&lt;/p&gt;
-
-&lt;p&gt;즉, Window라는 object를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Forget&lt;/code&gt; 하게 되는 것이죠.(기술적으로는 window filter를 dropout 시킨다고 말할 수 있습니다.)&lt;/p&gt;
-
-&lt;p&gt;결과적으로 이 실험에서는 창문이 아닌 다른 representations, objects가 들어가게 됩니다!&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;684&quot; alt=&quot;스크린샷 2020-12-25 오후 9 22 03&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103134811-3da4a980-46f7-11eb-8d95-b990a0a18601.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 결과를 보면 아시다시피, 창문이었던 것이 문으로 바뀌는 등 다른 object를 생성합니다.&lt;/p&gt;
-
-&lt;h4 id=&quot;vector-arithmetic-on-face-samples&quot;&gt;Vector Arithmetic On Face Samples&lt;/h4&gt;
-
-&lt;p&gt;많은 분들이 가장 재밌어하실(?) 부분인 것 같습니다.&lt;/p&gt;
-
-&lt;p&gt;word embedding 관련해서 vector(“King”) - vector(“Man”) + vector(“Woman”)가 vector(“Queen”)의 결과가 나오듯이, DCGAN에서도 이와 비슷한 &lt;strong&gt;arithmetic한 연산이 가능하다&lt;/strong&gt;고 밝혔습니다.&lt;/p&gt;
-
-&lt;p&gt;Generator의 input인 Z vector에 대한 arithmetic operation을 하는데, single sample로는 불안정하여 3개의 Z vector를 평균한 값을 사용한다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;580&quot; alt=&quot;스크린샷 2020-12-25 오후 9 36 16&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103135086-3a122200-46f9-11eb-931d-7d737e8c5ed1.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;smiling woman - neutral woman + neutral man = smiling man 이미지가 만들어지는 마법같은 기술을 보실 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;앞서 말했다시피 3개의 Z vector를 average하여 새로운 Y벡터를 만든 것도 확인해볼 수 있죠.&lt;/p&gt;
-
-&lt;p&gt;이게 다가 아닙니다. &lt;strong&gt;face pose&lt;/strong&gt; 또한 Z space에 선형적으로 모델링할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;557&quot; alt=&quot;스크린샷 2020-12-25 오후 9 38 01&quot; src=&quot;https://user-images.githubusercontent.com/48315997/103135120-780f4600-46f9-11eb-8d7e-8d723c10e439.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;바로 이렇게 말이죠. 
-이미 이전부터 scale, rotation, position에 대하여 conditional generative model은 학습할 수 있다고 연구되어왔습니다. 하지만 이 연구는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;purely unsupervised model&lt;/code&gt; 이라는 점에서 큰 변환점이 된 것이죠.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;future-work&quot;&gt;FUTURE WORK&lt;/h2&gt;
-
-&lt;p&gt;사실 stablity를 완전히 해결한 것은 아닙니다.&lt;/p&gt;
-
-&lt;p&gt;DCGAN을 오랫동안 학습하게 되면 collapse mode, oscillating mode가 발생할 수 있습니다. 아직도 &lt;strong&gt;불안정성&lt;/strong&gt;이 남은 것이죠.&lt;/p&gt;
-
-&lt;p&gt;그래서 이 논문에서는 해당 문제점을 Future work로 남기고 마무리하였습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://jaejunyoo.blogspot.com/2017/02/deep-convolutional-gan-dcgan-1.html_&quot;&gt;Jaejun Yoo’s Playground&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;DCGAN도 읽었으니, 구현도 해보고 후속 논문들도 찬찬히 읽어보려고 합니다.
-긴 글 읽어주셔서 감사합니다 :)&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.</summary></entry></feed>
+&lt;p&gt;앞서 살펴본 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DCGAN&lt;/code&gt;연구는 큰 발전을 이루었지만, 이 역시 unstable하여 mode collapse가 일어날 수 있는 한계점이 뚜렷했습니다.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.</summary></entry></feed>

@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Deep Learning,GAN," />
+  <meta name="keywords" content="jekyll," />
 
 
 
@@ -111,17 +111,22 @@
 
 
 
-<meta name="description" content="Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.">
-<meta name="keywords" content="Deep Learning, GAN">
+<meta name="description" content="How to Solve “Mac OS BigSur 11.2.3 bundle exec jekyll serve Error”">
+<meta name="keywords" content="jekyll">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks">
-<meta property="og:url" content="http://localhost:4000/paper%20review/2020/12/30/CycleGAN/">
+<meta property="og:title" content="Mac OS BigSur 11.2.3 &quot;bundle exec jekyll serve&quot; Error">
+<meta property="og:url" content="http://localhost:4000/troubleshooting/2021/05/12/BigSur_Jekyll_TroubleShooting/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.">
+<meta property="og:description" content="How to Solve “Mac OS BigSur 11.2.3 bundle exec jekyll serve Error”">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/117841944-6dc0a380-b2b8-11eb-8ff4-43268452b53e.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/117842511-f8090780-b2b8-11eb-9237-f48769da9548.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/117843531-dbb99a80-b2b9-11eb-831b-12e75ffd770b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/117843903-34893300-b2ba-11eb-95f5-7ab80b0c42f2.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks">
-<meta name="twitter:description" content="Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.">
+<meta name="twitter:title" content="Mac OS BigSur 11.2.3 &quot;bundle exec jekyll serve&quot; Error">
+<meta name="twitter:description" content="How to Solve “Mac OS BigSur 11.2.3 bundle exec jekyll serve Error”">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/117841944-6dc0a380-b2b8-11eb-8ff4-43268452b53e.png">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -154,7 +159,7 @@
 
 
 
-  <title>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks | Yeonsoo Kim's blog</title>
+  <title>Mac OS BigSur 11.2.3 "bundle exec jekyll serve" Error | Yeonsoo Kim's blog</title>
   
 
 
@@ -314,7 +319,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2020/12/30/CycleGAN/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/troubleshooting/2021/05/12/BigSur_Jekyll_TroubleShooting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yeonsoo Kim">
@@ -334,7 +339,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
+            Mac OS BigSur 11.2.3 "bundle exec jekyll serve" Error
           
         </h1>
         
@@ -348,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-30T00:00:00+09:00">
-                2020-12-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-12T00:00:00+09:00">
+                2021-05-12
               </time>
             
 
@@ -372,8 +377,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Paper%20Review" itemprop="url" rel="index">
-                    <span itemprop="name">Paper Review</span>
+                  <a href="/category/#/Troubleshooting" itemprop="url" rel="index">
+                    <span itemprop="name">Troubleshooting</span>
                   </a>
                 </span>
 
@@ -423,12 +428,89 @@
 
 
 
-  <p>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks (CycleGAN) 을 읽고 개인적으로 정리한 글입니다.</p>
+  <p>How to Solve “Mac OS BigSur 11.2.3 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> Error”</p>
 
 <hr />
 
-<p>앞서 살펴본 <code class="language-plaintext highlighter-rouge">DCGAN</code>연구는 큰 발전을 이루었지만, 이 역시 unstable하여 mode collapse가 일어날 수 있는 한계점이 뚜렷했습니다.</p>
+<h1 id="problem">Problem</h1>
 
+<h2 id="1-problem-recognition">1. Problem Recognition</h2>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/117841944-6dc0a380-b2b8-11eb-8ff4-43268452b53e.png" alt="image" /></p>
+
+<p>평소와 같이 github 블로그 글을 쓰고 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> 를 터미널에 입력했는데 아래와 같은 에러가 뜸</p>
+
+<blockquote>
+  <p>Could not find commonmarker-0.17.13 in any of the sources.<br />
+Run <code class="language-plaintext highlighter-rouge">bundle install</code> to install missing gems.</p>
+</blockquote>
+
+<h2 id="2-to-solve-1-bundle-install-or-install-commonmarker-directly-but-">2. To solve #1., <code class="language-plaintext highlighter-rouge">bundle install</code> or install commonmarker directly… But :(</h2>
+
+<p>I didn’t screenshot these commands’ error message… but if you get error message like</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/117842511-f8090780-b2b8-11eb-9237-f48769da9548.png" alt="image" /></p>
+
+<blockquote>
+  <p>(Gem::FilePermissionError)<br />
+    You don’t have write permissions for the /Library/Ruby/Gems/2.X.0 directory.</p>
+</blockquote>
+
+<p>Then, it must be installed <strong>rbenv ruby-build</strong>.</p>
+
+<h1 id="solution">Solution</h1>
+<h2 id="1-brew-install-rbenv-ruby-build">1. brew install rbenv ruby-build</h2>
+<p>If you installed sucessfully, then go to the <code class="language-plaintext highlighter-rouge">number 3</code>.</p>
+
+<p>But if you got another problem like me…</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/117843531-dbb99a80-b2b9-11eb-831b-12e75ffd770b.png" alt="image" /></p>
+
+<blockquote>
+  <p>Error: Your CLT does not support macOS 11. <br />
+It is either outdated or was modified. <br />
+Please update your CLT or delete it if no updates are available. <br />
+Update them from Software Update in System Preferences or run:<br />
+…</p>
+</blockquote>
+
+<p>It is probably the effect of the <strong>Big Sur update</strong>.</p>
+
+<p>So I solved this problem by …</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/117843903-34893300-b2ba-11eb-95f5-7ab80b0c42f2.png" alt="image" /></p>
+
+<blockquote>
+  <p>sudo rm -rf /Library/Developer/CommandLineTools<br />
+sudo xcode-select –install</p>
+</blockquote>
+
+<p>ref)</p>
+<ul>
+  <li><a href="https://apple.stackexchange.com/questions/401899/-homebrew-your-clt-does-not-support-macos-11-0">https://apple.stackexchange.com/questions/401899/-homebrew-your-clt-does-not-support-macos-11-0</a></li>
+  <li><a href="https://flaviocopes.com/how-to-fix-clt-support-macos-11/">https://flaviocopes.com/how-to-fix-clt-support-macos-11/</a>
+    <ul>
+      <li>여기에있는 사진들이 정상적으로 나오면 OK인듯.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2-follow-this-blogs-stepssource-zshrc">2. Follow <a href="https://popcorn16.tistory.com/56">this</a> blog’s steps(~source ~/.zshrc)</h2>
+
+<h2 id="3-bundle-install">3. bundle install</h2>
+
+<p>Finally, I installed commonmarker successfully.</p>
+
+<h2 id="4-bundle-exec-jekyll-serve">4. bundle exec jekyll serve</h2>
+
+<p>Finish!</p>
+
+<hr />
+<ul>
+  <li>어느 단계인지 기억은 안나는데 Gemfile에 
+<code class="language-plaintext highlighter-rouge">gem 'commonmarker'</code>
+를 추가하기는 했음. (이게 필수인지는… 순서가 뒤죽박죽이라 모르겠음, 근데 bundle instasll로 다 되지 않았을까 싶음. Bundle exec Jekyll serve 를 했을 때 1번과 같은 에러가 뜬다면 그 때 Gemfile에 써도 늦지 않을 듯.)</li>
+</ul>
 
 
       
@@ -460,10 +542,7 @@
         <div class="post-tags">
           
             
-            <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
-          
-            
-            <a href="/tag/#/GAN" rel="tag"># GAN</a>
+            <a href="/tag/#/jekyll" rel="tag"># jekyll</a>
           
         </div>
       
@@ -479,18 +558,14 @@
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/logs/2020/12/31/2020_YEAR_in_REVIEW/" rel="next" title="2020년을 돌아보며, 2020 YEAR in REVIEW">
-                <i class="fa fa-chevron-left"></i> 2020년을 돌아보며, 2020 YEAR in REVIEW
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/paper%20review/2020/12/25/DCGAN/" rel="prev" title="Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)">
-                Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN) <i class="fa fa-chevron-right"></i>
+              <a href="/paper%20review/2021/05/06/VizML/" rel="prev" title="VizML - A Machine Learning Approach to Visualization Recommendation">
+                VizML - A Machine Learning Approach to Visualization Recommendation <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -560,8 +635,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/assets/images/avatar.gif"
@@ -656,6 +740,34 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#problem"> <span class="nav-number">1</span> <span class="nav-text">Problem</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#1-problem-recognition"> <span class="nav-number">1.1</span> <span class="nav-text">1. Problem Recognition</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#2-to-solve-1-bundle-install-or-install-commonmarker-directly-but-"> <span class="nav-number">1.2</span> <span class="nav-text">2. To solve #1., bundle install or install commonmarker directly… But :(</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#solution"> <span class="nav-number">2</span> <span class="nav-text">Solution</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#1-brew-install-rbenv-ruby-build"> <span class="nav-number">2.1</span> <span class="nav-text">1. brew install rbenv ruby-build</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#2-follow-this-blogs-stepssource-zshrc"> <span class="nav-number">2.2</span> <span class="nav-text">2. Follow this blog’s steps(~source ~/.zshrc)</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#3-bundle-install"> <span class="nav-number">2.3</span> <span class="nav-text">3. bundle install</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#4-bundle-exec-jekyll-serve"> <span class="nav-number">2.4</span> <span class="nav-text">4. bundle exec jekyll serve</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
