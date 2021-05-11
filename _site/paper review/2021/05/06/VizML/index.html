@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Math,Linear Algebra,Calculas," />
+  <meta name="keywords" content="Machine Learning,Visualization," />
 
 
 
@@ -111,22 +111,21 @@
 
 
 
-<meta name="description" content="Jacobian Matrix 에 관한 설명을 적은 글입니다.">
-<meta name="keywords" content="Math, Linear Algebra, Calculas">
+<meta name="description" content="VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.">
+<meta name="keywords" content="Machine Learning, Visualization">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jacobian Matrix">
-<meta property="og:url" content="http://localhost:4000/math/2020/07/24/Jacobian-Matrix/">
+<meta property="og:title" content="VizML - A Machine Learning Approach to Visualization Recommendation">
+<meta property="og:url" content="http://localhost:4000/paper%20review/2021/05/06/VizML/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="Jacobian Matrix 에 관한 설명을 적은 글입니다.">
+<meta property="og:description" content="VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_105/jinohpark79_1399895378163qBl6n_GIF/jacobian1.GIF?type=w2">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_15/jinohpark79_1399895493407FS5R1_GIF/jacobian2.GIF?type=w2">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_232/jinohpark79_1399895701098Nl6Dr_GIF/jacobian3.GIF?type=w2">
-<meta property="og:image" content="https://mblogthumb-phinf.pstatic.net/20140512_14/jinohpark79_1399895801900R4g6C_GIF/jacobian4.GIF?type=w2">
+<meta property="og:image" content="600">
+<meta property="og:image" content="433">
+<meta property="og:image" content="453">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jacobian Matrix">
-<meta name="twitter:description" content="Jacobian Matrix 에 관한 설명을 적은 글입니다.">
-<meta name="twitter:image" content="https://mblogthumb-phinf.pstatic.net/20140512_105/jinohpark79_1399895378163qBl6n_GIF/jacobian1.GIF?type=w2">
+<meta name="twitter:title" content="VizML - A Machine Learning Approach to Visualization Recommendation">
+<meta name="twitter:description" content="VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.">
+<meta name="twitter:image" content="600">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -159,7 +158,7 @@
 
 
 
-  <title>Jacobian Matrix | Yeonsoo Kim's blog</title>
+  <title>VizML - A Machine Learning Approach to Visualization Recommendation | Yeonsoo Kim's blog</title>
   
 
 
@@ -319,7 +318,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/math/2020/07/24/Jacobian-Matrix/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2021/05/06/VizML/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yeonsoo Kim">
@@ -339,7 +338,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Jacobian Matrix
+            VizML - A Machine Learning Approach to Visualization Recommendation
           
         </h1>
         
@@ -353,8 +352,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-24T00:00:00+09:00">
-                2020-07-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-06T00:00:00+09:00">
+                2021-05-06
               </time>
             
 
@@ -377,8 +376,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Math" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
+                  <a href="/category/#/Paper%20Review" itemprop="url" rel="index">
+                    <span itemprop="name">Paper Review</span>
                   </a>
                 </span>
 
@@ -428,47 +427,176 @@
 
 
 
-  <p>Jacobian Matrix 에 관한 설명을 적은 글입니다.</p>
+  <p>VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.</p>
+
+<hr />
+<h1 id="vizml--a-machine-learning-approach-to-visualization-recommendation">VizML : A Machine Learning Approach to Visualization Recommendation</h1>
+
+<p><img width="600" alt="스크린샷 2021-05-06 오후 11 37 45" src="https://user-images.githubusercontent.com/48315997/117316985-1095ae00-aec4-11eb-9934-cc9110acc841.png" /></p>
+
+<h2 id="abstract">Abstract</h2>
+<ul>
+  <li>ML approach to visualization recommendation</li>
+  <li>learns visualization design choices from a large corpus of datasets and associated visualization
+    <ul>
+      <li>identify five key design choices (viz. type, encoding type, …)</li>
+      <li>train models to predict these design choices using 1M dataset-viz. pairs</li>
+    </ul>
+  </li>
+  <li>NN predicts well</li>
+</ul>
+
+<h2 id="problem-formulation">Problem Formulation</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">representation</code>
+    <ul>
+      <li>are specified using <strong>encodings</strong> that map from data to the retinal properties(position, length, color) of graphical marks(points, lines, rectangles)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img width="433" alt="스크린샷 2021-05-06 오후 11 41 19" src="https://user-images.githubusercontent.com/48315997/117317548-90237d00-aec4-11eb-8a08-fac0d1997ced.png" /></p>
+
+<blockquote>
+  <p>That is, to create basic visualizations in many grammars or tools, <strong>an analyst specifes higher-level design choices</strong>, which we defne as statements that compactly and uniquely specify a bundle of lower-level encodings. Equivalently, each gram- mar or tool affords a design space of visualizations, which a user constrains by making choices.</p>
+</blockquote>
+
+<p>Trained with a corpus of datasets ${d}$ and corresponding design choices ${C}$, ML-based recommender systems treat recommendation as an optimization problem,such that predicted $ C_{rec} ∼ C_{max}. $</p>
+
+<h2 id="related-work">Related Work</h2>
+<h3 id="rule-based">Rule-based</h3>
+<ul>
+  <li>encode visualization guidelines as collection of “if-then” statements or <strong>rules.</strong></li>
+  <li>sometimes effective, but high cost</li>
+</ul>
+
+<h3 id="ml-based">ML-based</h3>
+<ul>
+  <li>learn the relationship between data and visualizations by training models on analyst interaction</li>
+  <li>DeepEye, Data2Vis, Draco-Learn
+    <ul>
+      <li><strong>do not learn to make visualization design choices</strong></li>
+      <li>trained with annotations on rule-generated visualizations in controlled settings -&gt; limit</li>
+    </ul>
+  </li>
+  <li>DeepEye
+    <ul>
+      <li>combines rule-based visualization generation with models trained to 1) classify Good/Bad 2) rank lists of viz.</li>
+      <li><strong>learning to rank</strong></li>
+    </ul>
+  </li>
+  <li>Data2Vis
+    <ul>
+      <li>Seq2Seq Model that maps JSON-encoded datasets to Vega-lite visualization specifications
+        <blockquote>
+          <p>Vega and Vega-Lite are visualization tools implementing a grammar of graphics, similar to ggplot2.</p>
+        </blockquote>
+      </li>
+      <li>4300 automatically generated Vega-Lite ex.</li>
+    </ul>
+  </li>
+  <li>Draco-Learn
+    <ul>
+      <li>represents 1) visualizations as logical facts 2)design guidelines as hard and soft constraints, SVM</li>
+      <li>recommends visualizations that satisfy these constraints</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">VizML</code>
+    <ul>
+      <li>In terms of <strong>LEARNING TASK</strong>
+        <ul>
+          <li>DeepEye learns to classify and rank visualizations</li>
+          <li>Data2Vis learns an <strong>end-to-end</strong> generation model</li>
+          <li>Draco-Learn learns soft constraints weights</li>
+          <li>By learning to <strong>predict design choices</strong>, <strong>VizML models are easier to quantitatively validate</strong>, provide interpretable measures of feature importance, and can be more easily integrated into visualization systems.</li>
+        </ul>
+      </li>
+      <li>In terms of <strong>DATA QUANTITY</strong> …</li>
+    </ul>
+  </li>
+  <li>BUT 3 ML-Based systems recommend <strong>both data queries and visual encodings</strong>, while VizML only recommends <strong>the latter.</strong></li>
+</ul>
+
+<h2 id="data">Data</h2>
+<h3 id="feature-extracting">Feature Extracting</h3>
+<p><a href="https://github.com/mitmedialab/vizml/blob/b36310106791927eaef3831a0cda7abcec598999/feature_extraction/extract.py">code</a></p>
+
+<p><img width="453" alt="스크린샷 2021-05-06 오후 11 57 01" src="https://user-images.githubusercontent.com/48315997/117319963-c235de80-aec6-11eb-9a3f-f3e8bfff428f.png" /></p>
+
+<blockquote>
+  <p>We map each dataset to 841 features, mapped from 81 single- column features and 30 pairwise-column features using 16 aggregation functions.</p>
+</blockquote>
+
+<ul>
+  <li>Each Col. -&gt; 81 single-column features across four categories</li>
+  <li>Dimension(D) feature = # of rows in col.</li>
+  <li>Types(T) feature = categorical/temporal/quantitative</li>
+  <li>Values(V) feature = the statistical &amp; structural properties of the values within a col.</li>
+  <li>Names(N) feature = column name</li>
+</ul>
+
+<blockquote>
+  <p>We distinguish between these feature categories for three reasons.</p>
+  <ul>
+    <li>First, these categories let us <strong>organize how we create and interpret features.</strong></li>
+    <li>Second, we can observe the contribution of diferent types of features.</li>
+    <li>Third, some categories of features may be less generalizable than others.</li>
+    <li>We order these categories <strong>(D → T → V → N)</strong> by how biased we expect those features to be towards the Plotly corpus.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p>We create 841 dataset-level features by aggregating these single- and pairwise-column features using the 16 ag- gregation functions</p>
+</blockquote>
+
+<h3 id="design-choice-extraction">Design Choice Extraction</h3>
+<blockquote>
+  <p>Examples of encoding-level design choices include mark type, such as scatter, line, bar; and X or Y column encoding, which specifes which column is represented on which axis; and whether or not an X or Y column is the single column represented along that axis.</p>
+</blockquote>
+
+<blockquote>
+  <p>By aggregating these <strong>encoding-level design choices</strong>, we can characterize <strong>visualization-level design choices</strong> of a chart</p>
+</blockquote>
+
+<h2 id="methods">Methods</h2>
+<h3 id="feature-preprocessing">Feature Preprocessing</h3>
+<h3 id="prediction-tasks">Prediction Tasks</h3>
+<ul>
+  <li><strong>Two visualization-level prediction tasks</strong>
+    <ul>
+      <li>Dataset-level features to predict visualization-level design</li>
+      <li>1) Visualization Type[VT]</li>
+      <li>2) Has Shared Axis [HSA]</li>
+    </ul>
+  </li>
+  <li><strong>Three encoding-level prediction tasks</strong>
+    <ul>
+      <li>use features about individual columns to predict how theay are visually encoded</li>
+      <li>consider col. indep.</li>
+      <li>1) Mark Type[MT]</li>
+      <li>2) Is Shared X-axis or Y-axis [ISA]</li>
+      <li>3) Is on X-axis or Y-axis [XY]</li>
+    </ul>
+  </li>
+  <li>For the <strong>VT, MT</strong> tasks, the 2- class task predicts line vs. bar, and the 3-class predicts scatter vs. line vs. bar.</li>
+</ul>
+
+<h3 id="neural-network-and-baseline-models">Neural Network and Baseline Models</h3>
+<blockquote>
+  <p>In terms of features, we constructed four diferent feature sets by incrementally adding the Dimensions (D), Types (T), Values (V), and Names (N) categories of features, in that order. We refer to these feature sets as <strong>D, D+T, D+T+V, and D+T+V+N=All</strong>. The neural network was trained and tested using all four feature sets independently. The four base- line models only used the full feature set (D+T+V+N=All).</p>
+</blockquote>
 
 <hr />
 
-<h1 id="jacobian-matrix">Jacobian Matrix</h1>
-
-<h2 id="요약">요약</h2>
-
+<h2 id="additional-studies">Additional Studies</h2>
 <ul>
-  <li>편미분을 할 때 유용한 행렬</li>
-  <li>편미분 할 변수들이 많고, 그 변수들로 이루어져 있는 함수가 많을 때 <strong>단순히 곱해서 더하는 폼으로 만들어 놓을 수 있는 것</strong></li>
+  <li>DeepEye: Towards Automatic Data Visualization.</li>
+  <li>Data2Vis: Automatic Generation of Data Vi-
+sualizations Using Sequence to Sequence Recurrent Neural Networks.</li>
+  <li>Draco-Learn : Formalizing Visualization Design Knowledge as Constraints: Actionable and Extensible Models in Draco.</li>
+  <li>Vega- Lite: A Grammar of Interactive Graphics.</li>
+  <li>Polaris: a system for query, analysis, and visualization of multidimensional databases</li>
 </ul>
-
-<h2 id="설명">설명</h2>
-
-<p>n개의 변수를 가진 함수가 m개 있을 때
-<img src="https://mblogthumb-phinf.pstatic.net/20140512_105/jinohpark79_1399895378163qBl6n_GIF/jacobian1.GIF?type=w2" alt="1" /></p>
-
-<p><br /></p>
-
-<p>이것들을 모두 편미분하기 위한 벡터
-<img src="https://mblogthumb-phinf.pstatic.net/20140512_15/jinohpark79_1399895493407FS5R1_GIF/jacobian2.GIF?type=w2" alt="2" /></p>
-
-<p>-&gt; Jacobian matrix</p>
-
-<ul>
-  <li>m개의 함수 편미분을 모조리 구할 수 있음.</li>
-</ul>
-
-<h2 id="예시">예시</h2>
-
-<p><img src="https://mblogthumb-phinf.pstatic.net/20140512_232/jinohpark79_1399895701098Nl6Dr_GIF/jacobian3.GIF?type=w2" alt="3" /></p>
-
-<p>일때, Jacobian Matrix는</p>
-
-<p><img src="https://mblogthumb-phinf.pstatic.net/20140512_14/jinohpark79_1399895801900R4g6C_GIF/jacobian4.GIF?type=w2" alt="4" /></p>
-
-<h2 id="reference">Reference</h2>
-<p><a href="https://m.blog.naver.com/PostView.nhn?blogId=jinohpark79&amp;logNo=110190680093&amp;proxyReferer=https:%2F%2Fwww.google.com%2F">02. 편미분을 간단하게! Jacobian Matrix</a></p>
-
-<p><a href="https://ko.wikipedia.org/wiki/%EC%95%BC%EC%BD%94%EB%B9%84_%ED%96%89%EB%A0%AC">wikipedia</a></p>
 
 
       
@@ -500,13 +628,10 @@
         <div class="post-tags">
           
             
-            <a href="/tag/#/Math" rel="tag"># Math</a>
+            <a href="/tag/#/Machine%20Learning" rel="tag"># Machine Learning</a>
           
             
-            <a href="/tag/#/Linear%20Algebra" rel="tag"># Linear Algebra</a>
-          
-            
-            <a href="/tag/#/Calculas" rel="tag"># Calculas</a>
+            <a href="/tag/#/Visualization" rel="tag"># Visualization</a>
           
         </div>
       
@@ -522,18 +647,14 @@
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/paper%20review/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/" rel="next" title="Fine-tune BERT for Extractive Summarization">
-                <i class="fa fa-chevron-left"></i> Fine-tune BERT for Extractive Summarization
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/paper%20review/2020/07/23/Faster-R-CNN/" rel="prev" title="Faster R-CNN:Towards Real-Time Object Detection with Region Proposal Networks">
-                Faster R-CNN:Towards Real-Time Object Detection with Region Proposal Networks <i class="fa fa-chevron-right"></i>
+              <a href="/paper%20review/2021/05/06/Data2Vis/" rel="prev" title="Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks">
+                Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -728,7 +849,7 @@
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#jacobian-matrix"> <span class="nav-number">1</span> <span class="nav-text">Jacobian Matrix</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#요약"> <span class="nav-number">1.1</span> <span class="nav-text">요약</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#설명"> <span class="nav-number">1.2</span> <span class="nav-text">설명</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#예시"> <span class="nav-number">1.3</span> <span class="nav-text">예시</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#reference"> <span class="nav-number">1.4</span> <span class="nav-text">Reference</span> </a> </li> </ol> </li>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#vizml--a-machine-learning-approach-to-visualization-recommendation"> <span class="nav-number">1</span> <span class="nav-text">VizML : A Machine Learning Approach to Visualization Recommendation</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#abstract"> <span class="nav-number">1.1</span> <span class="nav-text">Abstract</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#problem-formulation"> <span class="nav-number">1.2</span> <span class="nav-text">Problem Formulation</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#related-work"> <span class="nav-number">1.3</span> <span class="nav-text">Related Work</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#rule-based"> <span class="nav-number">1.3.1</span> <span class="nav-text">Rule-based</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#ml-based"> <span class="nav-number">1.3.2</span> <span class="nav-text">ML-based</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#data"> <span class="nav-number">1.4</span> <span class="nav-text">Data</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#feature-extracting"> <span class="nav-number">1.4.1</span> <span class="nav-text">Feature Extracting</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#design-choice-extraction"> <span class="nav-number">1.4.2</span> <span class="nav-text">Design Choice Extraction</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#methods"> <span class="nav-number">1.5</span> <span class="nav-text">Methods</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#feature-preprocessing"> <span class="nav-number">1.5.1</span> <span class="nav-text">Feature Preprocessing</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#prediction-tasks"> <span class="nav-number">1.5.2</span> <span class="nav-text">Prediction Tasks</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#neural-network-and-baseline-models"> <span class="nav-number">1.5.3</span> <span class="nav-text">Neural Network and Baseline Models</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#additional-studies"> <span class="nav-number">1.6</span> <span class="nav-text">Additional Studies</span> </a> </li> </ol> </li>
     </ol>
   </div>
             

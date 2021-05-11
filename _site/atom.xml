@@ -1,4 +1,290 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-23T02:15:30+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">Stanford CS231n Lec 02. Image Classification</title><link href="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/" rel="alternate" type="text/html" title="Stanford CS231n Lec 02. Image Classification" /><published>2021-03-21T00:00:00+09:00</published><updated>2021-03-21T00:00:00+09:00</updated><id>http://localhost:4000/cs231n/2021/03/21/cs231n_lec02</id><content type="html" xml:base="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/">&lt;p&gt;Stanford CS231n 2017 강의를 듣고 개인적으로 정리한 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-12T00:01:06+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">VizML - A Machine Learning Approach to Visualization Recommendation</title><link href="http://localhost:4000/paper%20review/2021/05/06/VizML/" rel="alternate" type="text/html" title="VizML - A Machine Learning Approach to Visualization Recommendation" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/VizML</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/VizML/">&lt;p&gt;VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;vizml--a-machine-learning-approach-to-visualization-recommendation&quot;&gt;VizML : A Machine Learning Approach to Visualization Recommendation&lt;/h1&gt;
+
+&lt;p&gt;&lt;img width=&quot;600&quot; alt=&quot;스크린샷 2021-05-06 오후 11 37 45&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117316985-1095ae00-aec4-11eb-9934-cc9110acc841.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;ML approach to visualization recommendation&lt;/li&gt;
+  &lt;li&gt;learns visualization design choices from a large corpus of datasets and associated visualization
+    &lt;ul&gt;
+      &lt;li&gt;identify five key design choices (viz. type, encoding type, …)&lt;/li&gt;
+      &lt;li&gt;train models to predict these design choices using 1M dataset-viz. pairs&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NN predicts well&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;problem-formulation&quot;&gt;Problem Formulation&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;representation&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;are specified using &lt;strong&gt;encodings&lt;/strong&gt; that map from data to the retinal properties(position, length, color) of graphical marks(points, lines, rectangles)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;433&quot; alt=&quot;스크린샷 2021-05-06 오후 11 41 19&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117317548-90237d00-aec4-11eb-8a08-fac0d1997ced.png&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;That is, to create basic visualizations in many grammars or tools, &lt;strong&gt;an analyst specifes higher-level design choices&lt;/strong&gt;, which we defne as statements that compactly and uniquely specify a bundle of lower-level encodings. Equivalently, each gram- mar or tool affords a design space of visualizations, which a user constrains by making choices.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Trained with a corpus of datasets ${d}$ and corresponding design choices ${C}$, ML-based recommender systems treat recommendation as an optimization problem,such that predicted $ C_{rec} ∼ C_{max}. $&lt;/p&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
+&lt;h3 id=&quot;rule-based&quot;&gt;Rule-based&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;encode visualization guidelines as collection of “if-then” statements or &lt;strong&gt;rules.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;sometimes effective, but high cost&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ml-based&quot;&gt;ML-based&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;learn the relationship between data and visualizations by training models on analyst interaction&lt;/li&gt;
+  &lt;li&gt;DeepEye, Data2Vis, Draco-Learn
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;do not learn to make visualization design choices&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;trained with annotations on rule-generated visualizations in controlled settings -&amp;gt; limit&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DeepEye
+    &lt;ul&gt;
+      &lt;li&gt;combines rule-based visualization generation with models trained to 1) classify Good/Bad 2) rank lists of viz.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;learning to rank&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Data2Vis
+    &lt;ul&gt;
+      &lt;li&gt;Seq2Seq Model that maps JSON-encoded datasets to Vega-lite visualization specifications
+        &lt;blockquote&gt;
+          &lt;p&gt;Vega and Vega-Lite are visualization tools implementing a grammar of graphics, similar to ggplot2.&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+      &lt;li&gt;4300 automatically generated Vega-Lite ex.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Draco-Learn
+    &lt;ul&gt;
+      &lt;li&gt;represents 1) visualizations as logical facts 2)design guidelines as hard and soft constraints, SVM&lt;/li&gt;
+      &lt;li&gt;recommends visualizations that satisfy these constraints&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VizML&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;In terms of &lt;strong&gt;LEARNING TASK&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;DeepEye learns to classify and rank visualizations&lt;/li&gt;
+          &lt;li&gt;Data2Vis learns an &lt;strong&gt;end-to-end&lt;/strong&gt; generation model&lt;/li&gt;
+          &lt;li&gt;Draco-Learn learns soft constraints weights&lt;/li&gt;
+          &lt;li&gt;By learning to &lt;strong&gt;predict design choices&lt;/strong&gt;, &lt;strong&gt;VizML models are easier to quantitatively validate&lt;/strong&gt;, provide interpretable measures of feature importance, and can be more easily integrated into visualization systems.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;In terms of &lt;strong&gt;DATA QUANTITY&lt;/strong&gt; …&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;BUT 3 ML-Based systems recommend &lt;strong&gt;both data queries and visual encodings&lt;/strong&gt;, while VizML only recommends &lt;strong&gt;the latter.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data&quot;&gt;Data&lt;/h2&gt;
+&lt;h3 id=&quot;feature-extracting&quot;&gt;Feature Extracting&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mitmedialab/vizml/blob/b36310106791927eaef3831a0cda7abcec598999/feature_extraction/extract.py&quot;&gt;code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;453&quot; alt=&quot;스크린샷 2021-05-06 오후 11 57 01&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117319963-c235de80-aec6-11eb-9a3f-f3e8bfff428f.png&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We map each dataset to 841 features, mapped from 81 single- column features and 30 pairwise-column features using 16 aggregation functions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Each Col. -&amp;gt; 81 single-column features across four categories&lt;/li&gt;
+  &lt;li&gt;Dimension(D) feature = # of rows in col.&lt;/li&gt;
+  &lt;li&gt;Types(T) feature = categorical/temporal/quantitative&lt;/li&gt;
+  &lt;li&gt;Values(V) feature = the statistical &amp;amp; structural properties of the values within a col.&lt;/li&gt;
+  &lt;li&gt;Names(N) feature = column name&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We distinguish between these feature categories for three reasons.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;First, these categories let us &lt;strong&gt;organize how we create and interpret features.&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Second, we can observe the contribution of diferent types of features.&lt;/li&gt;
+    &lt;li&gt;Third, some categories of features may be less generalizable than others.&lt;/li&gt;
+    &lt;li&gt;We order these categories &lt;strong&gt;(D → T → V → N)&lt;/strong&gt; by how biased we expect those features to be towards the Plotly corpus.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We create 841 dataset-level features by aggregating these single- and pairwise-column features using the 16 ag- gregation functions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;design-choice-extraction&quot;&gt;Design Choice Extraction&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Examples of encoding-level design choices include mark type, such as scatter, line, bar; and X or Y column encoding, which specifes which column is represented on which axis; and whether or not an X or Y column is the single column represented along that axis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;By aggregating these &lt;strong&gt;encoding-level design choices&lt;/strong&gt;, we can characterize &lt;strong&gt;visualization-level design choices&lt;/strong&gt; of a chart&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;methods&quot;&gt;Methods&lt;/h2&gt;
+&lt;h3 id=&quot;feature-preprocessing&quot;&gt;Feature Preprocessing&lt;/h3&gt;
+&lt;h3 id=&quot;prediction-tasks&quot;&gt;Prediction Tasks&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Two visualization-level prediction tasks&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Dataset-level features to predict visualization-level design&lt;/li&gt;
+      &lt;li&gt;1) Visualization Type[VT]&lt;/li&gt;
+      &lt;li&gt;2) Has Shared Axis [HSA]&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Three encoding-level prediction tasks&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;use features about individual columns to predict how theay are visually encoded&lt;/li&gt;
+      &lt;li&gt;consider col. indep.&lt;/li&gt;
+      &lt;li&gt;1) Mark Type[MT]&lt;/li&gt;
+      &lt;li&gt;2) Is Shared X-axis or Y-axis [ISA]&lt;/li&gt;
+      &lt;li&gt;3) Is on X-axis or Y-axis [XY]&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;For the &lt;strong&gt;VT, MT&lt;/strong&gt; tasks, the 2- class task predicts line vs. bar, and the 3-class predicts scatter vs. line vs. bar.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;neural-network-and-baseline-models&quot;&gt;Neural Network and Baseline Models&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;In terms of features, we constructed four diferent feature sets by incrementally adding the Dimensions (D), Types (T), Values (V), and Names (N) categories of features, in that order. We refer to these feature sets as &lt;strong&gt;D, D+T, D+T+V, and D+T+V+N=All&lt;/strong&gt;. The neural network was trained and tested using all four feature sets independently. The four base- line models only used the full feature set (D+T+V+N=All).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;additional-studies&quot;&gt;Additional Studies&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;DeepEye: Towards Automatic Data Visualization.&lt;/li&gt;
+  &lt;li&gt;Data2Vis: Automatic Generation of Data Vi-
+sualizations Using Sequence to Sequence Recurrent Neural Networks.&lt;/li&gt;
+  &lt;li&gt;Draco-Learn : Formalizing Visualization Design Knowledge as Constraints: Actionable and Extensible Models in Draco.&lt;/li&gt;
+  &lt;li&gt;Vega- Lite: A Grammar of Interactive Graphics.&lt;/li&gt;
+  &lt;li&gt;Polaris: a system for query, analysis, and visualization of multidimensional databases&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Machine Learning" /><category term="Visualization" /><summary type="html">VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks</title><link href="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/" rel="alternate" type="text/html" title="Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/Data2Vis</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/">&lt;p&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;data2vis-automatic-generation-of-data-visualizations-using-sequence-to-sequence-recurrent-neural-networks&quot;&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks&lt;/h1&gt;
+
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;end-to-end trainable neural translation model&lt;/li&gt;
+  &lt;li&gt;formulate visualization generation as &lt;strong&gt;a language translation problem&lt;/strong&gt;, where data specifications are mapped to visualization specifications in a declarative language &lt;strong&gt;(Vega-Lite)&lt;/strong&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;Vege-Lite -&amp;gt; JSON format&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;multilayered ateention-based encoder-decoder network with LSTM&lt;/li&gt;
+  &lt;li&gt;introduce 2 metrics - language syntax validity, visualization grammar syntax validity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
+&lt;h3 id=&quot;declarative-visualization-specification&quot;&gt;Declarative Visualization Specification&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;One of our aims with Data2Vis is to bridge this gap between the speed and expressivity in specifying visualizations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;automated-visulaization&quot;&gt;Automated Visulaization&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We pose visualization specifica- tion as a machine translation problem and intro- duce Data2Vis, a deep neural translation model trained to automatically translate data specifica- tions to visualization specifications. Data2Vis emphasizes the creation of visualizations using rules learned from examples, without resorting to a predefined enumeration or extraction of con- straints, rules, heuristics, and features.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Machine Translation Problem&lt;/strong&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;dnns-for-machine-translation&quot;&gt;DNNs for Machine Translation&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Data2Vis is also a sequence- to-sequence model using the textual source and target specifications directly for translation, with- out relying on explicit syntax representations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;754&quot; alt=&quot;스크린샷 2021-05-07 오전 1 43 49&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the data visualization problem as a &lt;strong&gt;Seq2Seq translation problem&lt;/strong&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input : dataset (fields, values in JSON format)
+output : valid Vega-Lite visualization specification
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;encoder-decoder archi.&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;where the encoder reads and encodes a source sequence into a fixed length vector, and a decoder outputs a translation based on this vec- tor.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Attention&lt;/strong&gt; Mechanism
+    &lt;blockquote&gt;
+      &lt;p&gt;Atten- tion mechanisms allow a model to focus on aspects of an input sequence while generating out- put tokens.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Beam Search algorithm&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;The beam search algorithm used in sequence-to-sequence neural translation models keeps track of k most probable output tokens at each step of decoding, where k is known as the beamwidth. This enables the generation of k most likely output sequences for a given input sequence.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;THREE techniques : &lt;strong&gt;bidirectional encoding, differential weighing of context via an attention mechanism, and beam search&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;character&lt;/strong&gt;-based sequence model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data-and-preprocessing&quot;&gt;Data and Preprocessing&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;the model must select a subset of fields to focus on when creating visual- izations (most datasets have multiple fields that cannot all be simultaneously visualized)&lt;/li&gt;
+  &lt;li&gt;the model must learn differences in data types across the data fields (numeric, string, temporal, ordinal, categorical, etc.), which in turn guides how each field is specified in the generation of a visualiza- tion specification.&lt;/li&gt;
+  &lt;li&gt;the model must learn the appropriate transformations to apply to a field given its data type (e.g., aggregate transform does not apply to string fields).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;view-level transforms : aggregate, bin, calculate, filter, timeUnit&lt;/li&gt;
+  &lt;li&gt;field-level transforms : aggregate, bin, sort, timeUnit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;evaluation-metrics&quot;&gt;Evaluation Metrics&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;language syntax validity(lsv)
+    &lt;ul&gt;
+      &lt;li&gt;measure of how well a model learns the syntax of the underlying language used to specify the visualization.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;grammar syntax validity(gsv)
+    &lt;ul&gt;
+      &lt;li&gt;a measure of how well a model learns the syntax of the grammar for visualization specification.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;887&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 00&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335706-66735180-aed6-11eb-90cc-95b38ea1224a.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;765&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 10&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335723-6bd09c00-aed6-11eb-8c0e-9e9d0e1348a2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Field Selection and Transformation&lt;/li&gt;
+  &lt;li&gt;Training Data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;future-work&quot;&gt;Future Work&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Training Data and Training Strategy&lt;/li&gt;
+  &lt;li&gt;Extending Data2Vis to Generate Multiple Plausible Visualizations&lt;/li&gt;
+  &lt;li&gt;Targeting Additional Grammars&lt;/li&gt;
+  &lt;li&gt;Natural Language and Visualization Specification&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Visualization" /><summary type="html">Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Stanford CS231n Lec 02. Image Classification</title><link href="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/" rel="alternate" type="text/html" title="Stanford CS231n Lec 02. Image Classification" /><published>2021-03-21T00:00:00+09:00</published><updated>2021-03-21T00:00:00+09:00</updated><id>http://localhost:4000/cs231n/2021/03/21/cs231n_lec02</id><content type="html" xml:base="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/">&lt;p&gt;Stanford CS231n 2017 강의를 듣고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -974,84 +1260,4 @@ Active Learning은 요약하자면 적은 데이터 수로 높은 성능을 낼 
 &lt;hr /&gt;
 
 &lt;p&gt;DCGAN도 읽었으니, 구현도 해보고 후속 논문들도 찬찬히 읽어보려고 합니다.
-긴 글 읽어주셔서 감사합니다 :)&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.</summary></entry><entry><title type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation</title><link href="http://localhost:4000/paper%20review/2020/12/22/intraDA/" rel="alternate" type="text/html" title="Unsupervised Intra-domain Adaptation for Semantic Segmentation" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/intraDA</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/intraDA/">&lt;p&gt;Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;unsupervised-intra-domain-adaptation-for-semantic-segmentation&quot;&gt;Unsupervised Intra-domain Adaptation for Semantic Segmentation&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;automatically annotated data&lt;/code&gt; has a problem.
-    &lt;ul&gt;
-      &lt;li&gt;synthetic data -&amp;gt; real data&lt;/li&gt;
-      &lt;li&gt;directly adapting models from the source data to the unlabeled target data (to reduce the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inter-domain gap&lt;/code&gt;)&lt;/li&gt;
-      &lt;li&gt;But result? ==&amp;gt; bad :(
-        &lt;ul&gt;
-          &lt;li&gt;there is the large distribution gap among the target data itself(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;intra-domain gap&lt;/code&gt;)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;approach&quot;&gt;Approach&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;300&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102793576-7984f980-43ed-11eb-8cbe-ca0d2986d14e.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;595&quot; alt=&quot;스크린샷 2020-12-22 오전 12 44 17&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102794504-d3d28a00-43ee-11eb-9b61-4eb50fde5d1d.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;two-step self-supervised domain adaptation approach to minimize the inter-domain and intra-domain gap together.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;dl&gt;
-      &lt;dt&gt;inter-domain gap&lt;/dt&gt;
-      &lt;dd&gt;separate the target domain into an easy &amp;amp; hard split (using entropy-based ranking function)&lt;/dd&gt;
-    &lt;/dl&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;dl&gt;
-      &lt;dt&gt;intra-domain gap&lt;/dt&gt;
-      &lt;dd&gt;self-supervised adaption from the easy to hard split&lt;/dd&gt;
-    &lt;/dl&gt;
-    &lt;ul&gt;
-      &lt;li&gt;segmentation predictions of easy split data (from G_inter) =&amp;gt; pseudo labels 로 사용&lt;/li&gt;
-      &lt;li&gt;Given easy split data &amp;amp; pseudo labels, hard split data =&amp;gt; D_intra는 easy? hard? 판별&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;698&quot; alt=&quot;스크린샷 2020-12-22 오전 12 46 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102794749-26ac4180-43ef-11eb-853c-45c2e9a5cfd4.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Domain Adaptation" /><category term="GAN" /><category term="Semantic Segmentation" /><summary type="html">Unsupervised Intra-domain Adaptation for Semantic Segmentation 을 읽고 간략하게 정리한 글입니다.</summary></entry><entry><title type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT)</title><link href="http://localhost:4000/paper%20review/2020/12/22/MUNIT/" rel="alternate" type="text/html" title="Multimodal Unsupervised Image-to-Image Translation (MUNIT)" /><published>2020-12-22T00:00:00+09:00</published><updated>2020-12-22T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2020/12/22/MUNIT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2020/12/22/MUNIT/">&lt;p&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;multimodal-unsupervised-image-to-image-translation-munit&quot;&gt;Multimodal Unsupervised Image-to-Image Translation (MUNIT)&lt;/h1&gt;
-
-&lt;h2 id=&quot;keywords--gan-image-to-image-translation-style-transfer&quot;&gt;Keywords : GAN, Image-to-Image translation, style transfer&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;image representation = content code + style code
-    &lt;ul&gt;
-      &lt;li&gt;content code : domain invariant&lt;/li&gt;
-      &lt;li&gt;style code : domain specific&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;657&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 37&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791653-adaaeb00-43ea-11eb-9dd6-fc7d4e6c6e6e.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Image Translation == Recombine its content code with a random style code
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;random style code&lt;/code&gt; : style space of the target domain&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img width=&quot;651&quot; alt=&quot;스크린샷 2020-12-22 오전 12 14 23&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102791642-a5eb4680-43ea-11eb-8ea5-8af9ebc97f17.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;auto-encoder-architecture&quot;&gt;Auto-encoder Architecture&lt;/h3&gt;
-
-&lt;p&gt;&lt;img width=&quot;624&quot; alt=&quot;스크린샷 2020-12-22 오전 12 19 33&quot; src=&quot;https://user-images.githubusercontent.com/48315997/102792116-61ac7600-43eb-11eb-8a7b-3f4cc735c0f1.png&quot; /&gt;&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><category term="Domain Adaptation" /><category term="Style Transfer" /><category term="Image-to-Image Translation" /><summary type="html">Multimodal Unsupervised Image-to-Image Translation (MUNIT) 을 읽고 간략하게 정리한 글입니다.</summary></entry></feed>
+긴 글 읽어주셔서 감사합니다 :)&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="GAN" /><summary type="html">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks (DCGAN)을 읽고 개인적으로 정리한 글입니다.</summary></entry></feed>
