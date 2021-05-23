@@ -1,0 +1,1142 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Capstone,Visualization,Recommendation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Yeonsoo Kim's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.">
+<meta name="keywords" content="Capstone, Visualization, Recommendation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="캡스톤디자인프로젝트 스타트7팀 Ewha visualization Recommendation Program">
+<meta property="og:url" content="http://localhost:4000/project/2021/05/23/Capstone_Start7_review/">
+<meta property="og:site_name" content="Yeonsoo Kim's blog">
+<meta property="og:description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/118830315-cff15800-b8f9-11eb-8b11-c386ae61f3d1.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/118835697-32e4ee00-b8fe-11eb-86db-be0fc6ff7fb3.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/118832412-928dca00-b8fb-11eb-9832-73bbedccd0e9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/118835445-f87b5100-b8fd-11eb-8b53-61dc15ec90b2.png">
+<meta property="og:image" content="500">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/119250967-b3496e80-bbde-11eb-9f64-44e6c33de0a6.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/48315997/119251097-9d887900-bbdf-11eb-9952-f2fc88d27ccc.png">
+<meta property="og:image" content="800">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="캡스톤디자인프로젝트 스타트7팀 Ewha visualization Recommendation Program">
+<meta name="twitter:description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>캡스톤디자인프로젝트 스타트7팀 Ewha visualization Recommendation Program | Yeonsoo Kim's blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-X7P416ZKCL', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yeonsoo Kim's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/project/2021/05/23/Capstone_Start7_review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yeonsoo Kim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeonsoo Kim's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            캡스톤디자인프로젝트 스타트7팀 Ewha visualization Recommendation Program
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-23T00:00:00+09:00">
+                2021-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Project" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.</p>
+
+<hr />
+<blockquote>
+  <p>Contents</p>
+</blockquote>
+
+<ol>
+  <li>About Our Project</li>
+  <li>Data2Vis
+    <ul>
+      <li>Model Archi.</li>
+    </ul>
+  </li>
+  <li>Our Model
+    <ul>
+      <li>Dataset</li>
+      <li>Model config &amp; Training</li>
+      <li>Tensorboard - Loss</li>
+    </ul>
+  </li>
+  <li>Web Demo</li>
+  <li>Conclusion</li>
+</ol>
+
+<hr />
+
+<h1 id="about-our-projectand-goal">About Our Project…(and goal)</h1>
+
+<p>안녕하세요. 논문 리뷰 글이 아닌 프로젝트 관련 글은 오랜만인 것 같습니다.</p>
+
+<p>요즘 캐글, 데이콘 등 데이터 분석 관련 Competition들이 굉장히 많다는 걸 관심있으신 분들은 아실 겁니다.
+저도 데이콘 대회에 수상한 경험이 있고, 지금은 예전만큼은 못하지만 한창 Data Science 공부를 많이 할 때가 있었습니다.</p>
+
+<p>처음 데이터 분석을 공부하시는 분들부터 전문적으로 다루시는 분들까지, 데이터 분석 분야에서 지나칠 수 없는 부분은 단연코 <code class="language-plaintext highlighter-rouge">Visualization about DATA</code> 일 것입니다. 캐글에서 대회 하나가 열리자마자 한시간 내로 아름다운 EDA plot들이 고수님들의 손을 거쳐 그려지는 것을 보실 수 있습니다. (Kaggle에서는 Notebook 분야의 그랜드 마스터분들이 주로 이 역할을 맡죠.)</p>
+
+<p>또한 이러한 데이터 사이언스 대회가 아니더라도,  비즈니스 분석에 있어서 현재 자사/개인이 갖고 있는 데이터가 어떤 형태이고 어떤 의미인지를 파악하는 것은 매우 중요한 일입니다.</p>
+
+<p>이러한 상황(=데이터에 대한 이해가 필요한 상황)에 발맞추어 Data Visualization에 대한 연구 또한 발전되고 있습니다.</p>
+
+<p>저희 팀은 이 <code class="language-plaintext highlighter-rouge">Data Visualization</code> 연구에서도 cold-start 문제를 해결할 수 있는 <strong>(딥러닝을 이용한) Data Visualization Recommendation</strong>을 프로젝트 주제로 하였습니다. 자세히는 저희가 제공하는 샘플 데이터 또는 사용자가 원하는 데이터셋을 upload 했을 때, 저희의 Visualization Recommendation 모델이 데이터셋을 <strong>해석</strong>하여 여러 개의 plot을 그려주어 사용자에게 추천해주는 것입니다.</p>
+
+<p><br /></p>
+
+<p><strong>즉 요약하자면,</strong></p>
+<ul>
+  <li>데이터셋(e.g., csv, tsv, json)을 <code class="language-plaintext highlighter-rouge">input</code>으로 하여</li>
+  <li>저희의 딥러닝 모델이 해당 데이터셋에 대한 적절한 <code class="language-plaintext highlighter-rouge">chart(visualization) recommendation</code>을 k개 리스트업하여 보여주고</li>
+  <li>사용자가 chart를 선택
+    <ul>
+      <li>추가적으로는 차트를 편집하고 저장할 수 있는 기능</li>
+    </ul>
+  </li>
+</ul>
+
+<p>의 기능을 구현한 웹 어플리케이션을 구현하는 것이 목표입니다.</p>
+
+<p>본 포스팅에서는 ‘사용자가 chart를 선택하기 전’까지의 과정, 즉 데이터셋을 받아 딥러닝 모델이 chart recommendation을 몇 가지 보여주는 단계까지 작성되었습니다.</p>
+
+<hr />
+
+<h1 id="data2vis">Data2Vis</h1>
+
+<p>앞서 Data Visualization에 대한 연구가 활성화되고 있다 하였는데, 이에 따라 당연히 Visualizaiton Recommendation 연구도 상당히 발전하였습니다. 관련하여 여러 개의 논문을 읽어보았고 github 코드 등을 다 살펴본 후 내린 결과, 저희는 <a href="https://arxiv.org/abs/1804.03126">Data2Vis : Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks</a> 논문에 제시된 모델을 기본적으로 사용하기로 했습니다. <strong>(물론 저희가 사용할 데이터셋에 더 optimize할 예정이므로 모델에 대한 여러 가지 실험들을 방학동안 거칠 예정입니다.)</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Data2Vis</code>는 visualization generation 문제를 하나의 language translation problem으로 보았고, 이 문제를 <strong>attention 베이스의 LSTM encoder-decoder 모델</strong>을 사용하여 해결하였습니다.</p>
+
+<p>또한 그래프를 그려내는 grammar로 JSON 포맷의 <code class="language-plaintext highlighter-rouge">Vega-Lite</code>를 사용합니다.</p>
+<ul>
+  <li>따라서, 학습용 데이터셋도 Vega-Lite 코드!</li>
+  <li>데이터셋에 대한 이야기는 아래 섹션에서 더 자세하게 진행하겠습니다.</li>
+</ul>
+
+<p>Data2Vis 모델에 대해 간략하게 정리해보고 해당 섹션은 마무리합니다. (<a href="https://yskim0.github.io/paper%20review/2021/05/06/Data2Vis/">이전 게시글</a>에 더 자세히 리뷰되어 있습니다. 아래 부분은 해당 글을 발췌하였습니다.)</p>
+
+<h2 id="model-architecture">Model Architecture</h2>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png" alt="" /></p>
+
+<ul>
+  <li>the data visualization problem as a <strong>Seq2Seq translation problem</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>input : dataset (fields, values in JSON format)
+output : valid Vega-Lite visualization specification
+</code></pre></td></tr></tbody></table></div>    </div>
+  </li>
+  <li><strong>encoder-decoder archi.</strong>
+    <blockquote>
+      <p>where the encoder reads and encodes a source sequence into a fixed length vector, and a decoder outputs a translation based on this vector.</p>
+    </blockquote>
+  </li>
+  <li><strong>Attention</strong> Mechanism
+    <blockquote>
+      <p>Attention mechanisms allow a model to focus on aspects of an input sequence while generating output tokens.</p>
+    </blockquote>
+  </li>
+  <li><strong>Beam Search algorithm</strong>
+    <blockquote>
+      <p>The beam search algorithm used in sequence-to-sequence neural translation models keeps track of k most probable output tokens at each step of decoding, where k is known as the beamwidth. This enables the generation of k most likely output sequences for a given input sequence.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>THREE techniques : <strong>bidirectional encoding, differential weighing of context via an attention mechanism, and beam search</strong></p>
+  </li>
+  <li><strong>character</strong>-based sequence model</li>
+</ul>
+
+<hr />
+
+<h1 id="our-model-dataset-training-settings">Our Model (Dataset, Training-Settings…)</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>📩 input : 1개의 dataset
+📬 output : visualization recommendation plot
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>본격적으로 저희 프로젝트에 사용할 모델을 만들겠습니다. 사실 data2vis 깃허브에서 제공하는 pretrained model이 있지만, 어차피 방학에 여러 실험을 할거니까 미리 연습해본다는 생각으로 <strong>처음부터 새로 학습시켰습니다.</strong></p>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>Vega-Lite 그래머 기반의 양질의 plot 데이터셋을 크롤링하는 등 따로 수집해오기 어렵다고 판단한 결과, <strong>data2vis가 학습할 때 사용했던 데이터셋을 그대로</strong> 사용하였습니다. (본 포스팅에서 사용된 데이터셋은 data2vis github에 있습니다.)</p>
+
+<h3 id="원본-데이터-예시">원본 데이터 예시</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">barley.json</code></li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/118830315-cff15800-b8f9-11eb-8b11-c386ae61f3d1.png" alt="data" /></p>
+
+<p>plot을 그리고자 하는 원본 데이터가 위와 같은 형태를 가진 json 타입의 데이터라 가정하겠습니다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/118835697-32e4ee00-b8fe-11eb-86db-be0fc6ff7fb3.png" alt="image" /></p>
+
+<p>이는 모델을 학습시킬 때 사용되는 <strong>training data</strong> 중 하나로, 위의 barely.json 데이터에 대한 plot을 그리는 Vega-lite 그래머 기반의 데이터입니다.</p>
+
+<p>즉, Vega-lite 그래머 기반의 plot을 생성하기 위하여 이러한 형식의 데이터셋이 학습용으로 필요한 것입니다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/118832412-928dca00-b8fb-11eb-9832-73bbedccd0e9.png" alt="plot" /></p>
+
+<p>barley.json 데이터의 일부와 위의 Vega-lite 그래머 기반 코드를 <a href="http://vega.github.io/editor/">Vega Editor</a>를 통해 그린 plot입니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">"mark" : "bar"</code>로 코딩했듯이 bar 차트이고, <code class="language-plaintext highlighter-rouge">encoding</code> 파트를 봤을 때 x축은 <code class="language-plaintext highlighter-rouge">yield</code>, y축은 yield 범위에 따른 <code class="language-plaintext highlighter-rouge">count</code> aggregation function이 적용되어 그리고자 한 차트가 잘 그려졌음을 확인할 수 있습니다.</p>
+
+<p><strong>따라서,</strong> 저희가 학습시키고자 하는 모델은</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">barley.json</code>과 같은 데이터가 <strong>input</strong>으로 들어왔을 때</li>
+  <li>모델 안에서 Vega-lite 그래머 기반의 <strong>적절한</strong> plot을 그릴 수 있는 코드를 생성해주는 language translation 문제를 해결
+하는 것입니다.
+    <ul>
+      <li>이를 위해서 실제 데이터의 필드를 str, num으로 바꾸어 모델에 넣은 후 Vega-lite Spec를 아웃풋으로 받습니다.</li>
+    </ul>
+  </li>
+  <li>출력으로 나온 Vega-lite spec에 원본 데이터 필드를 다시 mapping 시켜 최종 Vega-lite spec을 만든 후 그대로 웹에 올려주면 됩니다.</li>
+</ul>
+
+<h3 id="training-data">Training data</h3>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/118835445-f87b5100-b8fd-11eb-8b53-61dc15ec90b2.png" alt="image" /></p>
+
+<p>11개의 데이터셋에 대한 <strong>4300여개</strong>의 Vega-Lite code를 학습용 데이터셋으로 사용합니다.
+참고로 데이터셋 분포는 <code class="language-plaintext highlighter-rouge">Training : Eval : Test = 0.8 : 0.1 : 0.1</code> 입니다.</p>
+
+<h2 id="model-config--training">Model config &amp; Training</h2>
+
+<h3 id="config">Config</h3>
+
+<p><img height="500" src="https://user-images.githubusercontent.com/48315997/119250775-6022ec00-bbdd-11eb-9c0a-d066f2c0d55d.png" /></p>
+
+<p>학습시키는 모델의 config입니다. 
+기존대로 모델은 <strong><code class="language-plaintext highlighter-rouge">AttentionSeq2Seq</code></strong>을 사용하였으나 다른 부분들을 몇 가지 수정해보았습니다.</p>
+<ul>
+  <li>LSTM cell -&gt; <strong>GRU cell</strong> 로 변경</li>
+  <li>Dropout 수치를 0.5 -&gt; <strong>0.8로 변경</strong></li>
+  <li>epoch 수를 20000 -&gt; <strong>15000으로 변경</strong> (3000마다 save)</li>
+</ul>
+
+<h3 id="training">Training</h3>
+
+<p>이제 터미널에 가서 가상환경 잘 설정해두고 <strong>아래와 같은 명령어</strong>를 친 후 학습이 완료될 때까지 기다리면 됩니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>python3 <span class="nt">-m</span> bin.train <span class="nt">--config_paths</span><span class="o">=</span><span class="se">\</span>
+<span class="s2">"example_configs/nmt_medium-Copy1.yml,example_configs/train_seq2seq.yml,example_configs/text_metrics_bpe.yml"</span> 
+</code></pre></td></tr></tbody></table></div></div>
+
+<p>[결과]</p>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/119250967-b3496e80-bbde-11eb-9f64-44e6c33de0a6.png" alt="스크린샷 2021-05-23 오후 3 51 10" /></p>
+
+<p>대략 <strong>2일정도</strong> 소요되었습니다.</p>
+
+<h2 id="tensorboard---loss">Tensorboard - Loss</h2>
+
+<p><strong>tensorboard</strong>를 활용해 train 과정이 어땠는지 모니터링 할 수 있습니다.
+다들 잘 아실 것 같습니다만, summary 데이터 파일이 있는 디렉토리로 이동하여 아래와 같은 명령어를 칩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>tensorboard --logdir .
+</code></pre></td></tr></tbody></table></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/48315997/119251097-9d887900-bbdf-11eb-9952-f2fc88d27ccc.png" alt="스크린샷 2021-05-23 오후 3 57 44" /></p>
+
+<p><strong>학습이 마무리될 즈음에는 loss가 0.03 정도의 값을 가지고 있었습니다.</strong></p>
+
+<p>아쉽게도 accuracy같은 정량적인 metric을 사용하기는 어렵기 때문에 직접 결과를 보고 평가해보겠습니다.</p>
+
+<hr />
+<h1 id="web-demo">Web Demo</h1>
+
+<p><img width="800" alt="스크린샷 2021-05-23 오후 4 04 28" src="https://user-images.githubusercontent.com/48315997/119251228-8f872800-bbe0-11eb-8211-e7cc84d25eb0.png" /></p>
+
+<p>직접 학습시킨 모델(<code class="language-plaintext highlighter-rouge">model.ckpt-15000</code>)을 web demo와 연동시켰습니다.</p>
+
+<p><strong>모델에 random한 test data를 불러와서 Inference한 후 Vega-lite spec을 웹에 그린 결과입니다.</strong></p>
+
+<p><strong><em>그럴듯한 plot</em></strong>이 꽤 나오는 것을 보실 수 있습니다!</p>
+
+<hr />
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>현재 저희는 프로젝트에 맞는 웹 페이지를 구현하는 중이고, 모델 개선과 관련하여 팀 내에서 논의하고 있습니다.</p>
+
+<p>모델 쪽은 저의 일이기 때문에, 제가 생각해둔 바로는</p>
+<ul>
+  <li>plot의 <strong>종류를 다양화</strong>한다.</li>
+  <li>plot의 <strong>테마</strong>를 다르게 만들 수 있도록 한다.</li>
+  <li>더 많은 <strong>aggregation</strong> 기능을 추가한다.</li>
+  <li>(본질적으로는 Vega-lite 말고 <del><strong>plotly</strong></del>로 가고 싶다는 생각이 있음…) : 다양화시키기 수월해보여서
+등이 있습니다.</li>
+</ul>
+
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/Capstone" rel="tag"># Capstone</a>
+          
+            
+            <a href="/tag/#/Visualization" rel="tag"># Visualization</a>
+          
+            
+            <a href="/tag/#/Recommendation" rel="tag"># Recommendation</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/troubleshooting/2021/05/19/git_lfs/" rel="prev" title="sudo 권한이 없는 서버에서 git-lfs 사용하기">
+                sudo 권한이 없는 서버에서 git-lfs 사용하기 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="Yeonsoo Kim" />
+          <p class="site-author-name" itemprop="name">Yeonsoo Kim</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/yskim0" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github-square"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="wx12348@gmail.com">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  wx12348@gmail.com
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#about-our-projectand-goal"> <span class="nav-number">1</span> <span class="nav-text">About Our Project…(and goal)</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#data2vis"> <span class="nav-number">2</span> <span class="nav-text">Data2Vis</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#model-architecture"> <span class="nav-number">2.1</span> <span class="nav-text">Model Architecture</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#our-model-dataset-training-settings"> <span class="nav-number">3</span> <span class="nav-text">Our Model (Dataset, Training-Settings…)</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#dataset"> <span class="nav-number">3.1</span> <span class="nav-text">Dataset</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#원본-데이터-예시"> <span class="nav-number">3.1.1</span> <span class="nav-text">원본 데이터 예시</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#training-data"> <span class="nav-number">3.1.2</span> <span class="nav-text">Training data</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#model-config--training"> <span class="nav-number">3.2</span> <span class="nav-text">Model config &amp; Training</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#config"> <span class="nav-number">3.2.1</span> <span class="nav-text">Config</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#training"> <span class="nav-number">3.2.2</span> <span class="nav-text">Training</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#tensorboard---loss"> <span class="nav-number">3.3</span> <span class="nav-text">Tensorboard - Loss</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#web-demo"> <span class="nav-number">4</span> <span class="nav-text">Web Demo</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#conclusion"> <span class="nav-number">5</span> <span class="nav-text">Conclusion</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yeonsoo Kim</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
