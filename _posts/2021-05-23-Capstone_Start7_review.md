@@ -1,5 +1,5 @@
 ---
-title: 캡스톤디자인프로젝트 스타트7팀 Ewha visualization Recommendation Program
+title: Data2Vis를 이용한 자동화된 시각화 추천 모델 구축하기(Visualization Recommendation)
 categories:
  - Project
 tags: 
@@ -9,6 +9,7 @@ tags:
 ---
 
 이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
+본 포스팅은 Data2Vis 논문에 제시된 방법을 사용하여 데이터에 알맞은 Plot을 자동으로 추천해주는 딥러닝 모델을 학습시킵니다.
 
 ---
 > Contents 
