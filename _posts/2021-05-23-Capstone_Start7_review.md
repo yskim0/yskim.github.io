@@ -44,7 +44,7 @@ Seq2Seq 모델을 기반으로 한 **Data2Vis**를 사용하여 **`데이터에 
 이러한 상황(=데이터에 대한 이해가 필요한 상황)에 발맞추어 Data Visualization에 대한 연구 또한 발전되고 있습니다. 
 
 
-저희 팀은 이 `Data Visualization` 연구에서도 cold-start 문제를 해결할 수 있는 **(딥러닝을 이용한) Data Visualization Recommendation**을 프로젝트 주제로 하였습니다. 자세히는 저희가 제공하는 샘플 데이터 또는 사용자가 원하는 데이터셋을 upload 했을 때, 저희의 Visualization Recommendation 모델이 데이터셋을 **해석**하여 여러 개의 plot을 그려주어 사용자에게 추천해주는 것입니다.
+저희 팀은 이 `Data Visualization` 연구에서도 자동으로 plot(chart)을 그려줄 수 있는 **(딥러닝을 이용한) Data Visualization Recommendation**을 프로젝트 주제로 하였습니다. 자세히는 저희가 제공하는 샘플 데이터 또는 사용자가 원하는 데이터셋을 upload 했을 때, 저희의 Visualization Recommendation 모델이 데이터셋을 **해석**하여 여러 개의 plot을 그려주어 사용자에게 추천해주는 것입니다.
 
 <br>
 
