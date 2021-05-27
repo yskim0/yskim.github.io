@@ -213,7 +213,8 @@ tensorboard --logdir .
 
 <img width="800" alt="스크린샷 2021-05-23 오후 4 04 28" src="https://user-images.githubusercontent.com/48315997/119251228-8f872800-bbe0-11eb-8211-e7cc84d25eb0.png">
 
-직접 학습시킨 모델(`model.ckpt-15000`)을 web demo와 연동시켰습니다. 
+웹 데모의 경우 data2vis 깃허브의 `webserver.py` 를 약간 변형하였고, 직접 학습시킨 모델(`model.ckpt-15000`)을 연동시켰습니다. 
+
 
 **모델에 random한 test data를 불러와서 Inference한 후 Vega-lite spec을 웹에 그린 결과입니다.**
 
