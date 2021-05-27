@@ -1,5 +1,5 @@
 ---
-title: Data2Vis를 이용한 자동화된 시각화 추천 모델 구축하기(Visualization Recommendation)
+title: 딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기
 categories:
  - Project
 tags: 
@@ -8,8 +8,9 @@ tags:
  - Recommendation
 ---
 
-이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
-본 포스팅은 Data2Vis 논문에 제시된 방법을 사용하여 데이터에 알맞은 Plot을 자동으로 추천해주는 딥러닝 모델을 학습시킵니다.
+이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
+본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, 
+Data2Vis를 사용하여 **`데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습`** 시키는 과정에 대하여 작성되었습니다.
 
 ---
 > Contents 

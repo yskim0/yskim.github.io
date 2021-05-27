@@ -111,13 +111,13 @@
 
 
 
-<meta name="description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 Data2Vis 논문에 제시된 방법을 사용하여 데이터에 알맞은 Plot을 자동으로 추천해주는 딥러닝 모델을 학습시킵니다.">
+<meta name="description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, Data2Vis를 사용하여 데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습 시키는 과정에 대하여 작성되었습니다.">
 <meta name="keywords" content="Capstone, Visualization, Recommendation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data2Vis를 이용한 자동화된 시각화 추천 모델 구축하기(Visualization Recommendation)">
+<meta property="og:title" content="딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기">
 <meta property="og:url" content="http://localhost:4000/project/2021/05/23/Capstone_Start7_review/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 Data2Vis 논문에 제시된 방법을 사용하여 데이터에 알맞은 Plot을 자동으로 추천해주는 딥러닝 모델을 학습시킵니다.">
+<meta property="og:description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, Data2Vis를 사용하여 데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습 시키는 과정에 대하여 작성되었습니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/48315997/118830315-cff15800-b8f9-11eb-8b11-c386ae61f3d1.png">
@@ -129,8 +129,8 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/48315997/119251097-9d887900-bbdf-11eb-9952-f2fc88d27ccc.png">
 <meta property="og:image" content="800">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data2Vis를 이용한 자동화된 시각화 추천 모델 구축하기(Visualization Recommendation)">
-<meta name="twitter:description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 Data2Vis 논문에 제시된 방법을 사용하여 데이터에 알맞은 Plot을 자동으로 추천해주는 딥러닝 모델을 학습시킵니다.">
+<meta name="twitter:title" content="딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기">
+<meta name="twitter:description" content="이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, Data2Vis를 사용하여 데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습 시키는 과정에 대하여 작성되었습니다.">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png">
 
 
@@ -164,7 +164,7 @@
 
 
 
-  <title>Data2Vis를 이용한 자동화된 시각화 추천 모델 구축하기(Visualization Recommendation) | Yeonsoo Kim's blog</title>
+  <title>딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기 | Yeonsoo Kim's blog</title>
   
 
 
@@ -344,7 +344,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Data2Vis를 이용한 자동화된 시각화 추천 모델 구축하기(Visualization Recommendation)
+            딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기
           
         </h1>
         
@@ -433,8 +433,9 @@
 
 
 
-  <p>이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
-본 포스팅은 Data2Vis 논문에 제시된 방법을 사용하여 데이터에 알맞은 Plot을 자동으로 추천해주는 딥러닝 모델을 학습시킵니다.</p>
+  <p>이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
+본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, 
+Data2Vis를 사용하여 <strong><code class="language-plaintext highlighter-rouge">데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습</code></strong> 시키는 과정에 대하여 작성되었습니다.</p>
 
 <hr />
 <blockquote>
