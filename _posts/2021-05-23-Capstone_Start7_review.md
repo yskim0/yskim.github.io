@@ -1,5 +1,5 @@
 ---
-title: 딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기
+title: Seq2Seq 기반 딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기
 categories:
  - Project
 tags: 
@@ -10,7 +10,7 @@ tags:
 
 이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
 본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, 
-Data2Vis를 사용하여 **`데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습`** 시키는 과정에 대하여 작성되었습니다.
+Seq2Seq 모델을 기반으로 한 **Data2Vis**를 사용하여 **`데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습`** 시키는 과정에 대하여 작성되었습니다.
 
 ---
 > Contents 
