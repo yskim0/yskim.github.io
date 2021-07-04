@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Deep Learning,NLP,Text Summarization,Encoder," />
+  <meta name="keywords" content="Deep Learning,Attention,Transformer,Video Captioning,Video Understanding," />
 
 
 
@@ -111,19 +111,22 @@
 
 
 
-<meta name="description" content="Text Summarization with Pretrained Encoders 를 읽고 정리한 글입니다.">
-<meta name="keywords" content="Deep Learning, NLP, Text Summarization, Encoder">
+<meta name="description" content="COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.">
+<meta name="keywords" content="Deep Learning, Attention, Transformer, Video Captioning, Video Understanding">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Text Summarization with Pretrained Encoders">
-<meta property="og:url" content="http://localhost:4000/paper%20review/2020/07/26/Text-Summarization-with-Pretrained-Encoders/">
+<meta property="og:title" content="COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning">
+<meta property="og:url" content="http://localhost:4000/paper%20review/2021/07/04/COOT/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="Text Summarization with Pretrained Encoders 를 읽고 정리한 글입니다.">
+<meta property="og:description" content="COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="858">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8843452f-6f5e-49be-8492-5dce035310e3/_2021-07-04__9.49.35.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170152Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=f6916bf8322c44c306dbe81db0a5443fad5d492af29244319cf832f883798194&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__9.49.35.png%22">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/cfee3351-e6aa-4862-8c88-9147d34f005a/_2021-07-04__10.15.06.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170428Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=0c438e7aa56effac27f7f1e20aeaf27a04dfb3bf7756b21119d6fd1c14539d65&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.15.06.png%22">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0270c140-f826-4799-91d7-618d9db3f571/_2021-07-04__10.19.47.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170451Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=0d9062fff259706b593057262dda586d5578a4747564ce35b62cced116286a16&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.19.47.png%22">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/300c1c9d-7287-46ee-95cc-198b500864c5/_2021-07-04__10.24.17.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170505Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=9ba37aaad5d707d31e1213ed3ecca00cec49c33041ac2f28f7060440c82a3cbf&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.24.17.png%22">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Text Summarization with Pretrained Encoders">
-<meta name="twitter:description" content="Text Summarization with Pretrained Encoders 를 읽고 정리한 글입니다.">
-<meta name="twitter:image" content="858">
+<meta name="twitter:title" content="COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning">
+<meta name="twitter:description" content="COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.">
+<meta name="twitter:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8843452f-6f5e-49be-8492-5dce035310e3/_2021-07-04__9.49.35.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170152Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=f6916bf8322c44c306dbe81db0a5443fad5d492af29244319cf832f883798194&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__9.49.35.png%22">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -156,7 +159,7 @@
 
 
 
-  <title>Text Summarization with Pretrained Encoders | Yeonsoo Kim's blog</title>
+  <title>COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning | Yeonsoo Kim's blog</title>
   
 
 
@@ -316,7 +319,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2020/07/26/Text-Summarization-with-Pretrained-Encoders/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2021/07/04/COOT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yeonsoo Kim">
@@ -336,7 +339,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Text Summarization with Pretrained Encoders
+            COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning
           
         </h1>
         
@@ -350,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-26T00:00:00+09:00">
-                2020-07-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-04T00:00:00+09:00">
+                2021-07-04
               </time>
             
 
@@ -425,132 +428,137 @@
 
 
 
-  <p>Text Summarization with Pretrained Encoders 를 읽고 정리한 글입니다.</p>
+  <p>COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.</p>
 
 <hr />
 
-<h1 id="text-summarization-with-pretrained-encoders">Text Summarization with Pretrained Encoders</h1>
+<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8843452f-6f5e-49be-8492-5dce035310e3/_2021-07-04__9.49.35.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170152Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=f6916bf8322c44c306dbe81db0a5443fad5d492af29244319cf832f883798194&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__9.49.35.png%22" alt="Model" /></p>
 
-<p><br /></p>
+<h1 id="abstract">Abstract</h1>
 
-<p>이 저자가 참여한 전 논문이 <code class="language-plaintext highlighter-rouge">Fine-tune BERT for Extractive Summarization</code>였음.</p>
+<blockquote>
+  <p><strong>COOT</strong> to leverage this hierarchy information and model the interactions between different levels of granularity and different modalities.</p>
+</blockquote>
+
+<blockquote>
+  <p>The method consists of three major components: an attention-aware feature aggregation layer, which leverages the local temporal context (intra-level, e.g., within a clip), a contextual transformer to learn the interactions between low-level and high-level semantics (inter-level, e.g. clip-video, sentence-paragraph), and a cross-modal cycle-consistency loss to connect video and text.</p>
+</blockquote>
+
+<p><strong>Main Contribution</strong></p>
+
+<ol>
+  <li>Attention-aware feature aggregation
+    <ul>
+      <li>local temporal context</li>
+    </ul>
+  </li>
+  <li>Contextual Transformer
+    <ul>
+      <li>interactions bet. low-level &amp; high-level semantics</li>
+    </ul>
+  </li>
+  <li>Cross-modal cycle-consistency loss
+    <ul>
+      <li>connect video and text</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="model">MODEL</h1>
+
+<ol>
+  <li>input : video, text (2-stream)</li>
+  <li>encode <strong>frame-level/word-level features</strong></li>
+  <li>[2] are fed to temporal transformer (<code class="language-plaintext highlighter-rouge">T-Transformer</code>)</li>
+  <li>[3] are fed to Attention feature aggregation module (<code class="language-plaintext highlighter-rouge">Attention-FA</code>) to obtain <strong>clip/sentence-level feature</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Contextual transformer</code> produces <strong>the final video/paragraph embedding</strong> based on interactions bet. <strong>local context</strong>(clip/sentence features) &amp; <strong>global context</strong> (all frames/words features)
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/cfee3351-e6aa-4862-8c88-9147d34f005a/_2021-07-04__10.15.06.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170428Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=0c438e7aa56effac27f7f1e20aeaf27a04dfb3bf7756b21119d6fd1c14539d65&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.15.06.png%22" alt="CoT" /></li>
+</ol>
+
+<h2 id="introduction">Introduction</h2>
+
+<blockquote>
+  <p>we focus on long-range temporal dependencies and propose a hierarchical model that can exploit long-range temporal context both in videos and text when learning the joint cross-modal embedding.</p>
+</blockquote>
+
 <ul>
-  <li>따라서 발전된 부분에 대해 살펴볼 것임.</li>
-</ul>
-
-<h2 id="이전-연구와의-차이점-differences-from-previous-studies">이전 연구와의 차이점 (Differences from previous studies</h2>
-<p>)</p>
-
-<ul>
-  <li>전에는 extractive summarization에 대해서만 살펴봤었음.</li>
-  <li>현 연구에서는 <strong>a general framework for both extractive and abstractive models</strong> (두 서머리 모델을 사용함)</li>
-</ul>
-
-<h2 id="data">Data</h2>
-
-<ul>
-  <li>CNN/Dailymail : highlighted된… -&gt; extractive summaries</li>
-  <li>NYT : abstractive summaries</li>
-  <li>XSum : one-sentence summary</li>
-</ul>
-
-<h2 id="method">Method</h2>
-
-<ul>
-  <li>extractive model
-    <ul>
-      <li>built on top of the encoder by stacking several inter-sentence Transformer layers</li>
-    </ul>
-  </li>
-  <li>abstractive model
-    <ul>
-      <li>a new fine-tuning schedule which adopts different optimizers for the encoder and the decoder as a means of alleviating the mismathch between two (the former is pretrained while the latter is not)</li>
-    </ul>
-  </li>
-  <li><strong>a two-staged fine-tuning approach</strong>
-    <ul>
-      <li>it can further boost the quality of the generated summaries</li>
-      <li>the combination of extractive and abstractive objectives can help generate better summaries (Gehrmann et al., 2018)</li>
-      <li>즉 두 가지 모델을 컴바인시키면 성능 향상을 노릴 수 있다는 아이디어에서 착안한 연구.</li>
-    </ul>
-  </li>
-  <li>architecture of BERTSUM</li>
-</ul>
-
-<p><img width="858" alt="스크린샷 2020-07-26 오후 5 48 23" src="https://user-images.githubusercontent.com/48315997/88475140-489cb780-cf68-11ea-8a26-bdd9677e1f6a.png" /></p>
-
-<ul>
-  <li>Summarization Encoder
-    <ul>
-      <li>Interval Segment Embeddings
-        <ul>
-          <li>sent(i)를 홀수,짝수 순서에 따라 E(a) or E(b)로 segment embedding 한다.
-            <div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>  sentence -&gt; [sent1,sent2,sent3,sent4,sent5]
-  embedding -&gt; [E(a),E(b),E(a),E(b),E(a)]
-</code></pre></td></tr></tbody></table></div>            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Extractive Summarization
-    <ul>
-      <li>이전 연구와 수식 동일</li>
-    </ul>
-  </li>
-  <li>Abstractive Summarization
-    <ul>
-      <li><strong>the encoder is the pretrained BERTSUM and the decoder is a 6-layered Transformer initialized randomly.</strong>
-        <ul>
-          <li>encoder &amp; decoder 사이의 mismatch 가능성 있음
-            <ul>
-              <li>new fine-tuning schedule!</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>difference optimizer 적용!</li>
-    </ul>
-  </li>
-  <li>two-stage fine-tuning
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>1. fine-tune the encoder on the extractive summarization
-2. fine-tune it on the abstractive summarization
-</code></pre></td></tr></tbody></table></div>    </div>
-    <ul>
-      <li>using extractive objectives can boost the performance of abstractive summarization.</li>
-    </ul>
+  <li>각 레벨 안에서 피쳐 추출하고 다음 레벨과 interaction하는 방식으로 계층을 쌓아 문제를 해결함.</li>
+  <li>hierarchy
+    <ol>
+      <li>frame/word</li>
+      <li>clip/sentence</li>
+      <li>video/paragraph</li>
+    </ol>
   </li>
 </ul>
 
-<h2 id="results">Results</h2>
+<h1 id="contribution-1-intra-level--attention-fa">Contribution #1. intra-level : Attention-FA</h1>
+
+<blockquote>
+  <p>to model intra-level cooperation, we introduce an attention-aware feature aggregation layer to focus on temporal interactions between low-level entities (Figure 1-Attention-FA).</p>
+</blockquote>
+
+<blockquote>
+  <p>This component replaces traditional sequence representation aggregation methods in transformers such as using a [CLS] token [11, 14, 15, 19] or mean pooling [25] with an attention-aware fusion. It leverages temporal context to encourage important entities to contribute more to the final representation of a sequence of frames or words.</p>
+</blockquote>
+
+<p>[CLS] 사용하는 것보다 낫다는 건 VideoBERT보다 좋다는 접근법이라는 걸 의미하는 건가</p>
+
+<h1 id="contribution-2-inter-level--cot">Contribution #2. inter-level : CoT</h1>
+
+<blockquote>
+  <p>For the inter-level cooperation, we introduce a contextual attention module, which enforces the network to highlight semantics relevant to the general context of the video and to suppress the irrelevant semantics. This is done by modeling the interaction between low-level (clips-sentences) and high-level entities (global contexts), as shown in Figure 1-green region.</p>
+</blockquote>
+
+<h1 id="contribution-3-cross-modal-cycle-consistency-loss">Contribution #3. Cross-modal cycle-consistency loss</h1>
+
+<blockquote>
+  <p>to enforce interaction between modalities and encourage the semantic alignment between them in the learned common space.</p>
+</blockquote>
+
+<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0270c140-f826-4799-91d7-618d9db3f571/_2021-07-04__10.19.47.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170451Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=0d9062fff259706b593057262dda586d5578a4747564ce35b62cced116286a16&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.19.47.png%22" alt="CML" /></p>
+
+<h1 id="experiments">Experiments</h1>
+
+<h2 id="dataset">Dataset</h2>
 
 <ul>
-  <li>
-    <p>ROUGE score 사용함</p>
-  </li>
-  <li>
-    <p>전보다 성능도 많이 좋아짐.</p>
-  </li>
+  <li>YouCook2</li>
+  <li>ActivityNet-captions</li>
 </ul>
 
-<h2 id="관련-논문">관련 논문</h2>
+<h2 id="evaluation">Evaluation</h2>
 
-<details>
-<summary>접기/펼치기 버튼</summary>
-<div>
+<ul>
+  <li>For video captioning : BLEU@3/4, RougeL, METEOR, CIDEr-D</li>
+</ul>
 
-    <ul>
-      <li>Sebastian Gehrmann, Yuntian Deng, and Alexander Rush. 2018. Bottom-up abstractive summarization. In Proceedings of the 2018 Conference on Empiri- cal Methods in Natural Language Processing, pages 4098–4109, Brussels, Belgium.</li>
-      <li>Chin-Yew Lin. 2004. ROUGE: A package for auto- matic evaluation of summaries. In Text Summariza- tion Branches Out, pages 74–81, Barcelona, Spain.</li>
-      <li>Shashi Narayan, Shay B. Cohen, and Mirella Lapata. 2018a. Don’t give me the details, just the summary! topic-aware convolutional neural networks for ex- treme summarization. In Proceedings of the 2018 Conference on Empirical Methods in Natural Lan- guage Processing, pages 1797–1807, Brussels, Bel- gium.</li>
-      <li>Shashi Narayan, Shay B. Cohen, and Mirella Lapata. 2018b. Ranking sentences for extractive summa- rization with reinforcement learning. In Proceed- ings of the 2018 Conference of the North American Chapter of the Association for Computational Lin- guistics: Human Language Technologies, Volume 1 (Long Papers), pages 1747–1759, New Orleans, Louisiana.</li>
-      <li>Alexander M. Rush, Sumit Chopra, and Jason Weston. 2015. A neural attention model for abstractive sen- tence summarization. In Proceedings of the 2015 Conference on Empirical Methods in Natural Lan- guage Processing, pages 379–389, Lisbon, Portugal.</li>
-      <li>Xingxing Zhang, Furu Wei, and Ming Zhou. 2019. HI- BERT: Document level pre-training of hierarchical bidirectional transformers for document summariza- tion. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 5059–5069, Florence, Italy. Association for Computational Linguistics.</li>
-      <li>Xingxing Zhang, Mirella Lapata, Furu Wei, and Ming Zhou. 2018. Neural latent extractive document sum- marization. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Pro- cessing, pages 779–784, Brussels, Belgium.</li>
-    </ul>
+<h2 id="video-encoding">Video Encoding</h2>
 
-  </div>
-</details>
+<blockquote>
+  <p>For Activitynet-Captions, we use the 2048-d features provided by Zhang et al. [21] (at 3.8 FPS).</p>
+</blockquote>
+
+<blockquote>
+  <p>For Youcook2, we test two approaches: (A) We follow Miech et al., 2019 [16] and concatenate 2D (Resnet-152 pretrained on ImageNet [41]) and 3D (ResNext-101 model [42] pretrained on Kinetics [43]) outputs to obtain 4096-d features at 3 FPS; (B) We use the video embedding network provided by Miech et al., 2020 [17] pretrained on video-text learning on the Howto100m dataset to obtain 512-d features at 0.6 FPS.</p>
+</blockquote>
+
+<h2 id="video-captioning">Video Captioning</h2>
+
+<blockquote>
+  <p>we use the learned representations for video captioning building upon the captioning model MART [45]. The original method uses appearance (RGB) and optical flow features extracted from ResNet-200 [41] and BN-Inception [46], respectively.</p>
+</blockquote>
+
+<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/300c1c9d-7287-46ee-95cc-198b500864c5/_2021-07-04__10.24.17.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210704T170505Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=9ba37aaad5d707d31e1213ed3ecca00cec49c33041ac2f28f7060440c82a3cbf&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.24.17.png%22" alt="Result" /></p>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>YouCook2에는 굉장히 괜찮은 결과가 나오나, ActivityNet 데이터셋에 대해서는 아직 만족할 수준은 아닌 것 같다.</p>
+
+<ul>
+  <li>Pretrain 데이터셋이 H100M, YouCook2이므로 ActivityNet 데이터셋과는 데이터의 특성이 다를 것이라 생각됨.</li>
+  <li><em>MART 위에 올린 것이므로 이 모델의 한계가 이어지지 않을까 싶음.</em></li>
+</ul>
 
 
       
@@ -585,13 +593,16 @@
             <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
           
             
-            <a href="/tag/#/NLP" rel="tag"># NLP</a>
+            <a href="/tag/#/Attention" rel="tag"># Attention</a>
           
             
-            <a href="/tag/#/Text%20Summarization" rel="tag"># Text Summarization</a>
+            <a href="/tag/#/Transformer" rel="tag"># Transformer</a>
           
             
-            <a href="/tag/#/Encoder" rel="tag"># Encoder</a>
+            <a href="/tag/#/Video%20Captioning" rel="tag"># Video Captioning</a>
+          
+            
+            <a href="/tag/#/Video%20Understanding" rel="tag"># Video Understanding</a>
           
         </div>
       
@@ -607,18 +618,14 @@
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/paper%20review/2020/07/31/YOLO/" rel="next" title="You Only Look Once(YOLO):Unified, Real-Time Object Detection">
-                <i class="fa fa-chevron-left"></i> You Only Look Once(YOLO):Unified, Real-Time Object Detection
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/paper%20review/2020/07/25/Fine-tune-BERT-for-Extractive-Summarization/" rel="prev" title="Fine-tune BERT for Extractive Summarization">
-                Fine-tune BERT for Extractive Summarization <i class="fa fa-chevron-right"></i>
+              <a href="/project/2021/05/23/Capstone_Start7_review/" rel="prev" title="Seq2Seq 기반 딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기">
+                Seq2Seq 기반 딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -813,7 +820,7 @@
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#text-summarization-with-pretrained-encoders"> <span class="nav-number">1</span> <span class="nav-text">Text Summarization with Pretrained Encoders</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#이전-연구와의-차이점-differences-from-previous-studies"> <span class="nav-number">1.1</span> <span class="nav-text">이전 연구와의 차이점 (Differences from previous studies</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#data"> <span class="nav-number">1.2</span> <span class="nav-text">Data</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#method"> <span class="nav-number">1.3</span> <span class="nav-text">Method</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#results"> <span class="nav-number">1.4</span> <span class="nav-text">Results</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#관련-논문"> <span class="nav-number">1.5</span> <span class="nav-text">관련 논문</span> </a> </li> </ol> </li>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#abstract"> <span class="nav-number">1</span> <span class="nav-text">Abstract</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#model"> <span class="nav-number">2</span> <span class="nav-text">MODEL</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#introduction"> <span class="nav-number">2.1</span> <span class="nav-text">Introduction</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#contribution-1-intra-level--attention-fa"> <span class="nav-number">3</span> <span class="nav-text">Contribution #1. intra-level : Attention-FA</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#contribution-2-inter-level--cot"> <span class="nav-number">4</span> <span class="nav-text">Contribution #2. inter-level : CoT</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#contribution-3-cross-modal-cycle-consistency-loss"> <span class="nav-number">5</span> <span class="nav-text">Contribution #3. Cross-modal cycle-consistency loss</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#experiments"> <span class="nav-number">6</span> <span class="nav-text">Experiments</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#dataset"> <span class="nav-number">6.1</span> <span class="nav-text">Dataset</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#evaluation"> <span class="nav-number">6.2</span> <span class="nav-text">Evaluation</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#video-encoding"> <span class="nav-number">6.3</span> <span class="nav-text">Video Encoding</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#video-captioning"> <span class="nav-number">6.4</span> <span class="nav-text">Video Captioning</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#limitations"> <span class="nav-number">7</span> <span class="nav-text">Limitations</span> </a> </li>
     </ol>
   </div>
             

@@ -1,6 +1,136 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-27T15:18:54+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기</title><link href="http://localhost:4000/project/2021/05/23/Capstone_Start7_review/" rel="alternate" type="text/html" title="딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기" /><published>2021-05-23T00:00:00+09:00</published><updated>2021-05-23T00:00:00+09:00</updated><id>http://localhost:4000/project/2021/05/23/Capstone_Start7_review</id><content type="html" xml:base="http://localhost:4000/project/2021/05/23/Capstone_Start7_review/">&lt;p&gt;이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-05T02:06:14+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning</title><link href="http://localhost:4000/paper%20review/2021/07/04/COOT/" rel="alternate" type="text/html" title="COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning" /><published>2021-07-04T00:00:00+09:00</published><updated>2021-07-04T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/07/04/COOT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/07/04/COOT/">&lt;p&gt;COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8843452f-6f5e-49be-8492-5dce035310e3/_2021-07-04__9.49.35.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20210704T170152Z&amp;amp;X-Amz-Expires=86400&amp;amp;X-Amz-Signature=f6916bf8322c44c306dbe81db0a5443fad5d492af29244319cf832f883798194&amp;amp;X-Amz-SignedHeaders=host&amp;amp;response-content-disposition=filename%20%3D%22_2021-07-04__9.49.35.png%22&quot; alt=&quot;Model&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;abstract&quot;&gt;Abstract&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;COOT&lt;/strong&gt; to leverage this hierarchy information and model the interactions between different levels of granularity and different modalities.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The method consists of three major components: an attention-aware feature aggregation layer, which leverages the local temporal context (intra-level, e.g., within a clip), a contextual transformer to learn the interactions between low-level and high-level semantics (inter-level, e.g. clip-video, sentence-paragraph), and a cross-modal cycle-consistency loss to connect video and text.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Main Contribution&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Attention-aware feature aggregation
+    &lt;ul&gt;
+      &lt;li&gt;local temporal context&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Contextual Transformer
+    &lt;ul&gt;
+      &lt;li&gt;interactions bet. low-level &amp;amp; high-level semantics&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cross-modal cycle-consistency loss
+    &lt;ul&gt;
+      &lt;li&gt;connect video and text&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;model&quot;&gt;MODEL&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;input : video, text (2-stream)&lt;/li&gt;
+  &lt;li&gt;encode &lt;strong&gt;frame-level/word-level features&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;[2] are fed to temporal transformer (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T-Transformer&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;[3] are fed to Attention feature aggregation module (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Attention-FA&lt;/code&gt;) to obtain &lt;strong&gt;clip/sentence-level feature&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Contextual transformer&lt;/code&gt; produces &lt;strong&gt;the final video/paragraph embedding&lt;/strong&gt; based on interactions bet. &lt;strong&gt;local context&lt;/strong&gt;(clip/sentence features) &amp;amp; &lt;strong&gt;global context&lt;/strong&gt; (all frames/words features)
+&lt;img src=&quot;https://s3.us-west-2.amazonaws.com/secure.notion-static.com/cfee3351-e6aa-4862-8c88-9147d34f005a/_2021-07-04__10.15.06.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20210704T170428Z&amp;amp;X-Amz-Expires=86400&amp;amp;X-Amz-Signature=0c438e7aa56effac27f7f1e20aeaf27a04dfb3bf7756b21119d6fd1c14539d65&amp;amp;X-Amz-SignedHeaders=host&amp;amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.15.06.png%22&quot; alt=&quot;CoT&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;we focus on long-range temporal dependencies and propose a hierarchical model that can exploit long-range temporal context both in videos and text when learning the joint cross-modal embedding.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 레벨 안에서 피쳐 추출하고 다음 레벨과 interaction하는 방식으로 계층을 쌓아 문제를 해결함.&lt;/li&gt;
+  &lt;li&gt;hierarchy
+    &lt;ol&gt;
+      &lt;li&gt;frame/word&lt;/li&gt;
+      &lt;li&gt;clip/sentence&lt;/li&gt;
+      &lt;li&gt;video/paragraph&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;contribution-1-intra-level--attention-fa&quot;&gt;Contribution #1. intra-level : Attention-FA&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;to model intra-level cooperation, we introduce an attention-aware feature aggregation layer to focus on temporal interactions between low-level entities (Figure 1-Attention-FA).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This component replaces traditional sequence representation aggregation methods in transformers such as using a [CLS] token [11, 14, 15, 19] or mean pooling [25] with an attention-aware fusion. It leverages temporal context to encourage important entities to contribute more to the final representation of a sequence of frames or words.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;[CLS] 사용하는 것보다 낫다는 건 VideoBERT보다 좋다는 접근법이라는 걸 의미하는 건가&lt;/p&gt;
+
+&lt;h1 id=&quot;contribution-2-inter-level--cot&quot;&gt;Contribution #2. inter-level : CoT&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For the inter-level cooperation, we introduce a contextual attention module, which enforces the network to highlight semantics relevant to the general context of the video and to suppress the irrelevant semantics. This is done by modeling the interaction between low-level (clips-sentences) and high-level entities (global contexts), as shown in Figure 1-green region.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;contribution-3-cross-modal-cycle-consistency-loss&quot;&gt;Contribution #3. Cross-modal cycle-consistency loss&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;to enforce interaction between modalities and encourage the semantic alignment between them in the learned common space.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0270c140-f826-4799-91d7-618d9db3f571/_2021-07-04__10.19.47.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20210704T170451Z&amp;amp;X-Amz-Expires=86400&amp;amp;X-Amz-Signature=0d9062fff259706b593057262dda586d5578a4747564ce35b62cced116286a16&amp;amp;X-Amz-SignedHeaders=host&amp;amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.19.47.png%22&quot; alt=&quot;CML&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;experiments&quot;&gt;Experiments&lt;/h1&gt;
+
+&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;YouCook2&lt;/li&gt;
+  &lt;li&gt;ActivityNet-captions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;evaluation&quot;&gt;Evaluation&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For video captioning : BLEU@3/4, RougeL, METEOR, CIDEr-D&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-encoding&quot;&gt;Video Encoding&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For Activitynet-Captions, we use the 2048-d features provided by Zhang et al. [21] (at 3.8 FPS).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For Youcook2, we test two approaches: (A) We follow Miech et al., 2019 [16] and concatenate 2D (Resnet-152 pretrained on ImageNet [41]) and 3D (ResNext-101 model [42] pretrained on Kinetics [43]) outputs to obtain 4096-d features at 3 FPS; (B) We use the video embedding network provided by Miech et al., 2020 [17] pretrained on video-text learning on the Howto100m dataset to obtain 512-d features at 0.6 FPS.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;video-captioning&quot;&gt;Video Captioning&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;we use the learned representations for video captioning building upon the captioning model MART [45]. The original method uses appearance (RGB) and optical flow features extracted from ResNet-200 [41] and BN-Inception [46], respectively.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3.us-west-2.amazonaws.com/secure.notion-static.com/300c1c9d-7287-46ee-95cc-198b500864c5/_2021-07-04__10.24.17.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210704%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20210704T170505Z&amp;amp;X-Amz-Expires=86400&amp;amp;X-Amz-Signature=9ba37aaad5d707d31e1213ed3ecca00cec49c33041ac2f28f7060440c82a3cbf&amp;amp;X-Amz-SignedHeaders=host&amp;amp;response-content-disposition=filename%20%3D%22_2021-07-04__10.24.17.png%22&quot; alt=&quot;Result&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;limitations&quot;&gt;Limitations&lt;/h1&gt;
+
+&lt;p&gt;YouCook2에는 굉장히 괜찮은 결과가 나오나, ActivityNet 데이터셋에 대해서는 아직 만족할 수준은 아닌 것 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pretrain 데이터셋이 H100M, YouCook2이므로 ActivityNet 데이터셋과는 데이터의 특성이 다를 것이라 생각됨.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;MART 위에 올린 것이므로 이 모델의 한계가 이어지지 않을까 싶음.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Attention" /><category term="Transformer" /><category term="Video Captioning" /><category term="Video Understanding" /><summary type="html">COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Seq2Seq 기반 딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기</title><link href="http://localhost:4000/project/2021/05/23/Capstone_Start7_review/" rel="alternate" type="text/html" title="Seq2Seq 기반 딥러닝 모델을 사용하여 자동으로 데이터 시각화 Plot 그리기" /><published>2021-05-23T00:00:00+09:00</published><updated>2021-05-23T00:00:00+09:00</updated><id>http://localhost:4000/project/2021/05/23/Capstone_Start7_review</id><content type="html" xml:base="http://localhost:4000/project/2021/05/23/Capstone_Start7_review/">&lt;p&gt;이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다.
 본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, 
-Data2Vis를 사용하여 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습&lt;/code&gt;&lt;/strong&gt; 시키는 과정에 대하여 작성되었습니다.&lt;/p&gt;
+Seq2Seq 모델을 기반으로 한 &lt;strong&gt;Data2Vis&lt;/strong&gt;를 사용하여 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습&lt;/code&gt;&lt;/strong&gt; 시키는 과정에 대하여 작성되었습니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
@@ -40,7 +170,7 @@ Data2Vis를 사용하여 &lt;strong&gt;&lt;code class=&quot;language-plaintext h
 
 &lt;p&gt;이러한 상황(=데이터에 대한 이해가 필요한 상황)에 발맞추어 Data Visualization에 대한 연구 또한 발전되고 있습니다.&lt;/p&gt;
 
-&lt;p&gt;저희 팀은 이 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Data Visualization&lt;/code&gt; 연구에서도 cold-start 문제를 해결할 수 있는 &lt;strong&gt;(딥러닝을 이용한) Data Visualization Recommendation&lt;/strong&gt;을 프로젝트 주제로 하였습니다. 자세히는 저희가 제공하는 샘플 데이터 또는 사용자가 원하는 데이터셋을 upload 했을 때, 저희의 Visualization Recommendation 모델이 데이터셋을 &lt;strong&gt;해석&lt;/strong&gt;하여 여러 개의 plot을 그려주어 사용자에게 추천해주는 것입니다.&lt;/p&gt;
+&lt;p&gt;저희 팀은 이 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Data Visualization&lt;/code&gt; 연구에서도 자동으로 plot(chart)을 그려줄 수 있는 &lt;strong&gt;(딥러닝을 이용한) Data Visualization Recommendation&lt;/strong&gt;을 프로젝트 주제로 하였습니다. 자세히는 저희가 제공하는 샘플 데이터 또는 사용자가 원하는 데이터셋을 upload 했을 때, 저희의 Visualization Recommendation 모델이 데이터셋을 &lt;strong&gt;해석&lt;/strong&gt;하여 여러 개의 plot을 그려주어 사용자에게 추천해주는 것입니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -208,7 +338,7 @@ output : valid Vega-Lite visualization specification
 
 &lt;p&gt;&lt;img width=&quot;800&quot; alt=&quot;스크린샷 2021-05-23 오후 4 04 28&quot; src=&quot;https://user-images.githubusercontent.com/48315997/119251228-8f872800-bbe0-11eb-8211-e7cc84d25eb0.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;직접 학습시킨 모델(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;model.ckpt-15000&lt;/code&gt;)을 web demo와 연동시켰습니다.&lt;/p&gt;
+&lt;p&gt;웹 데모의 경우 data2vis 깃허브의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webserver.py&lt;/code&gt; 를 약간 변형하였고, 직접 학습시킨 모델(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;model.ckpt-15000&lt;/code&gt;)을 연동시켰습니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;모델에 random한 test data를 불러와서 Inference한 후 Vega-lite spec을 웹에 그린 결과입니다.&lt;/strong&gt;&lt;/p&gt;
 
@@ -227,7 +357,7 @@ output : valid Vega-Lite visualization specification
   &lt;li&gt;더 많은 &lt;strong&gt;aggregation&lt;/strong&gt; 기능을 추가한다.&lt;/li&gt;
   &lt;li&gt;(본질적으로는 Vega-lite 말고 &lt;del&gt;&lt;strong&gt;plotly&lt;/strong&gt;&lt;/del&gt;로 가고 싶다는 생각이 있음…) : 다양화시키기 수월해보여서
 등이 있습니다.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Capstone" /><category term="Visualization" /><category term="Recommendation" /><summary type="html">이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, Data2Vis를 사용하여 데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습 시키는 과정에 대하여 작성되었습니다.</summary></entry><entry><title type="html">sudo 권한이 없는 서버에서 git-lfs 사용하기</title><link href="http://localhost:4000/troubleshooting/2021/05/19/git_lfs/" rel="alternate" type="text/html" title="sudo 권한이 없는 서버에서 git-lfs 사용하기" /><published>2021-05-19T00:00:00+09:00</published><updated>2021-05-19T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/05/19/git_lfs</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/05/19/git_lfs/">&lt;p&gt;How to Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git-lfs&lt;/code&gt; without sudo (sudo 권한이 없는 서버에서 git-lfs 사용하기)&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Capstone" /><category term="Visualization" /><category term="Recommendation" /><summary type="html">이화여대 2021-1학기 캡스톤디자인프로젝트B 스타트7팀 Ewha Visualization Recommendation Program(ERP) 기술 튜토리얼에 관한 글입니다. 본 포스팅은 시각화 추천 프로그램(Visualization Recommendation Program)을 개발하는 과정 중, Seq2Seq 모델을 기반으로 한 Data2Vis를 사용하여 데이터에 적합한 시각화 Plot을 자동으로 그려주는 딥러닝 모델을 학습 시키는 과정에 대하여 작성되었습니다.</summary></entry><entry><title type="html">sudo 권한이 없는 서버에서 git-lfs 사용하기</title><link href="http://localhost:4000/troubleshooting/2021/05/19/git_lfs/" rel="alternate" type="text/html" title="sudo 권한이 없는 서버에서 git-lfs 사용하기" /><published>2021-05-19T00:00:00+09:00</published><updated>2021-05-19T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/05/19/git_lfs</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/05/19/git_lfs/">&lt;p&gt;How to Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git-lfs&lt;/code&gt; without sudo (sudo 권한이 없는 서버에서 git-lfs 사용하기)&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1063,118 +1193,4 @@ Active Learning은 요약하자면 적은 데이터 수로 높은 성능을 낼 
 
 &lt;hr /&gt;
 
-&lt;p&gt;이 일은 저에게 있어 정말 끔찍했던 순간이었습니다. 퇴사해야하나 생각도 했어요 ㅋㅋㅋ 아무튼 빠르게 고치고 퇴근했습니다^^.. 혹시 구글링하다 저와 같은 에러를 발견하시게 된다면, 위 과정을 통해 고치길 바라겠습니다.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Ubuntu" /><category term="Troubleshooting" /><summary type="html">Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.</summary></entry><entry><title type="html">Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)</title><link href="http://localhost:4000/paper%20review/2021/01/25/BERT/" rel="alternate" type="text/html" title="Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT)" /><published>2021-01-25T00:00:00+09:00</published><updated>2021-01-25T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/01/25/BERT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/01/25/BERT/">&lt;p&gt;Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;bidirectional&lt;/strong&gt;이라는 점이 이전 연구들과의 가장 큰 차이점이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create SOTA ~...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;fine-tuning이 매우 용이한 모델이다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;여러 가지 task에서 SOTA를 기록했음.&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;Applying pre-trained language representations to downstream tasks&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature-based&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;ELMo&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fine-tuning&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;GPT&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;limitation-of-unidirectional-approach&quot;&gt;Limitation of Unidirectional approach&lt;/h3&gt;
-
-&lt;p&gt;두 접근법 모두 &lt;strong&gt;unidirectional&lt;/strong&gt; 방법을 사용함.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;But, unidirectional 방법은 한계점이 뚜렷함.&lt;/li&gt;
-  &lt;li&gt;GPT(1)처럼 left-to-right architecture를 사용하게 되면, 모든 token들은 이전의 token들에만 self-attention할 수 있게 된다.
-    &lt;ul&gt;
-      &lt;li&gt;이는 token-level task (예를 들어 QA)들에 부적합하다. 이러한 태스크들은 양 방향을 봐서 &lt;strong&gt;context&lt;/strong&gt;를 읽어야하기 때문.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;masked-langauge-modelmlm&quot;&gt;Masked Langauge Model(MLM)&lt;/h3&gt;
-
-&lt;p&gt;BERT에서는 pre-training 할 때, 위에서 언급한 unidirectionality constraint를 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masked Language Model(MLM)&lt;/code&gt; 으로 완화(?)했음.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;MLM은 input 토큰들로부터 &lt;strong&gt;randomly mask&lt;/strong&gt;함.
-    &lt;ul&gt;
-      &lt;li&gt;이것의 목적은, &lt;strong&gt;오직 context만 가지고&lt;/strong&gt; mask된 original vocab.을 맞추는 것.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Left-to-right LM pre-training과 달리, MLM의 목적 함수는 양 방향의 representations를 이해할 수 있다.
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  which allows us to pre-train a deep bidirectional Transformer
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;next-sentence-prediction&quot;&gt;Next Sentence Prediction&lt;/h3&gt;
-
-&lt;p&gt;jointly pre-train text-pair representation&lt;/p&gt;
-
-&lt;h2 id=&quot;bert&quot;&gt;BERT&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;766&quot; alt=&quot;스크린샷 2021-01-25 오후 9 09 09&quot; src=&quot;https://user-images.githubusercontent.com/48315997/105704076-91eab580-5f51-11eb-8b52-16c48146bd50.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;pre-training&quot;&gt;Pre-training&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;During pre-training, the model is trained on unlabeled data over different pre-training tasks.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Pre-training 단계에서 모델은 &lt;strong&gt;unlabeled data&lt;/strong&gt;를 가지고 학습된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;TWO Unsupervised task를 사용함.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;task-1-masked-lm&quot;&gt;Task #1. Masked LM&lt;/h4&gt;
-
-&lt;p&gt;deep bidirectional representation을 학습시키기 위해, input token에서 랜덤으로 몇 %정도를 masking하고 이 masked token들을 predict하도록 학습시킴.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;[MASK]&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Random&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Unchanged&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;80%&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10%&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10%&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;task-2-next-sentence-prediction-nsp&quot;&gt;Task #2. Next Sentence Prediction (NSP)&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;두 문장 사이의 관계(relationship)를 이해&lt;/strong&gt;하기 위해 학습하는 task이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IsNext&lt;/code&gt;인지 아닌지(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NotNext&lt;/code&gt;) 분류하는 binary classification 문제임.&lt;/p&gt;
-
-&lt;h3 id=&quot;fine-tuning-bert&quot;&gt;Fine-tuning BERT&lt;/h3&gt;
-
-&lt;p&gt;적절한 Input과 Output을 넣으면, single text나 text pair 모두 가능.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BERT instead uses the self-attention mechanism to unify these two stages, as encoding a concatenated text pair with self-attention effectively includes bidirectional cross attention between two sentences.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="BERT" /><category term="Attention" /><category term="Transformer" /><summary type="html">Pre-training of Deep Bidirectional Transformers for Language Understanding(BERT) 을 읽고 정리한 글입니다.</summary></entry></feed>
+&lt;p&gt;이 일은 저에게 있어 정말 끔찍했던 순간이었습니다. 퇴사해야하나 생각도 했어요 ㅋㅋㅋ 아무튼 빠르게 고치고 퇴근했습니다^^.. 혹시 구글링하다 저와 같은 에러를 발견하시게 된다면, 위 과정을 통해 고치길 바라겠습니다.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Ubuntu" /><category term="Troubleshooting" /><summary type="html">Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.</summary></entry></feed>
