@@ -2,6 +2,25 @@
 <search>
   
     <entry>
+      <title><![CDATA[리눅스 혹은 서버에서 구글 드라이브 대용량 파일 다운로드 하기]]></title>
+      <url>/troubleshooting/2021/07/31/download_drivefile_at_linux/</url>
+      <content type="text"><![CDATA[리눅스 혹은 서버에서 구글 드라이브의 대용량 파일 다운로드 하기share link : https://drive.google.com/file/d/{파일ID}/view?usp=sharing 일 때,terminal에 가서 아래와 같이 작성.wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&amp;confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&amp;id={파일ID}' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&amp;id={파일ID}" -O {파일이름} &amp;&amp; rm -rf /tmp/cookies.txt]]></content>
+      <categories>
+        
+          <category> Troubleshooting </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> linux </tag>
+        
+          <tag> google drive </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
       <title><![CDATA[COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning]]></title>
       <url>/paper%20review/2021/07/04/COOT/</url>
       <content type="text"><![CDATA[COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.Abstract  COOT to leverage this hierarchy information and model the interactions between different levels of granularity and different modalities.  The method consists of three major components: an attention-aware feature aggregation layer, which leverages the local temporal context (intra-level, e.g., within a clip), a contextual transformer to learn the interactions between low-level and high-level semantics (inter-level, e.g. clip-video, sentence-paragraph), and a cross-modal cycle-consistency loss to connect video and text.Main Contribution  Attention-aware feature aggregation          local temporal context        Contextual Transformer          interactions bet. low-level &amp; high-level semantics        Cross-modal cycle-consistency loss          connect video and text      MODEL  input : video, text (2-stream)  encode frame-level/word-level features  [2] are fed to temporal transformer (T-Transformer)  [3] are fed to Attention feature aggregation module (Attention-FA) to obtain clip/sentence-level feature  Contextual transformer produces the final video/paragraph embedding based on interactions bet. local context(clip/sentence features) &amp; global context (all frames/words features)Introduction  we focus on long-range temporal dependencies and propose a hierarchical model that can exploit long-range temporal context both in videos and text when learning the joint cross-modal embedding.  각 레벨 안에서 피쳐 추출하고 다음 레벨과 interaction하는 방식으로 계층을 쌓아 문제를 해결함.  hierarchy          frame/word      clip/sentence      video/paragraph      Contribution #1. intra-level : Attention-FA  to model intra-level cooperation, we introduce an attention-aware feature aggregation layer to focus on temporal interactions between low-level entities (Figure 1-Attention-FA).  This component replaces traditional sequence representation aggregation methods in transformers such as using a [CLS] token [11, 14, 15, 19] or mean pooling [25] with an attention-aware fusion. It leverages temporal context to encourage important entities to contribute more to the final representation of a sequence of frames or words.[CLS] 사용하는 것보다 낫다는 건 VideoBERT보다 좋다는 접근법이라는 걸 의미하는 건가Contribution #2. inter-level : CoT  For the inter-level cooperation, we introduce a contextual attention module, which enforces the network to highlight semantics relevant to the general context of the video and to suppress the irrelevant semantics. This is done by modeling the interaction between low-level (clips-sentences) and high-level entities (global contexts), as shown in Figure 1-green region.Contribution #3. Cross-modal cycle-consistency loss  to enforce interaction between modalities and encourage the semantic alignment between them in the learned common space.ExperimentsDataset  YouCook2  ActivityNet-captionsEvaluation  For video captioning : BLEU@3/4, RougeL, METEOR, CIDEr-DVideo Encoding  For Activitynet-Captions, we use the 2048-d features provided by Zhang et al. [21] (at 3.8 FPS).  For Youcook2, we test two approaches: (A) We follow Miech et al., 2019 [16] and concatenate 2D (Resnet-152 pretrained on ImageNet [41]) and 3D (ResNext-101 model [42] pretrained on Kinetics [43]) outputs to obtain 4096-d features at 3 FPS; (B) We use the video embedding network provided by Miech et al., 2020 [17] pretrained on video-text learning on the Howto100m dataset to obtain 512-d features at 0.6 FPS.Video Captioning  we use the learned representations for video captioning building upon the captioning model MART [45]. The original method uses appearance (RGB) and optical flow features extracted from ResNet-200 [41] and BN-Inception [46], respectively.LimitationsYouCook2에는 굉장히 괜찮은 결과가 나오나, ActivityNet 데이터셋에 대해서는 아직 만족할 수준은 아닌 것 같다.  Pretrain 데이터셋이 H100M, YouCook2이므로 ActivityNet 데이터셋과는 데이터의 특성이 다를 것이라 생각됨.  MART 위에 올린 것이므로 이 모델의 한계가 이어지지 않을까 싶음.]]></content>

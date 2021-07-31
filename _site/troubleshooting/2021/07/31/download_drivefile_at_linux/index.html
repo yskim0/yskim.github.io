@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Deep Learning,NLP,Transformer," />
+  <meta name="keywords" content="linux,google drive," />
 
 
 
@@ -111,25 +111,17 @@
 
 
 
-<meta name="description" content="Attention Is All You Need 를 읽고 정리한 글입니다.">
-<meta name="keywords" content="Deep Learning, NLP, Transformer">
+<meta name="description" content="리눅스 혹은 서버에서 구글 드라이브의 대용량 파일 다운로드 하기">
+<meta name="keywords" content="linux, google drive">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Attention Is All You Need">
-<meta property="og:url" content="http://localhost:4000/paper%20review/2020/08/10/Attention/">
+<meta property="og:title" content="리눅스 혹은 서버에서 구글 드라이브 대용량 파일 다운로드 하기">
+<meta property="og:url" content="http://localhost:4000/troubleshooting/2021/07/31/download_drivefile_at_linux/">
 <meta property="og:site_name" content="Yeonsoo Kim's blog">
-<meta property="og:description" content="Attention Is All You Need 를 읽고 정리한 글입니다.">
+<meta property="og:description" content="리눅스 혹은 서버에서 구글 드라이브의 대용량 파일 다운로드 하기">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="480">
-<meta property="og:image" content="680">
-<meta property="og:image" content="332">
-<meta property="og:image" content="487">
-<meta property="og:image" content="303">
-<meta property="og:image" content="342">
-<meta property="og:image" content="695">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Attention Is All You Need">
-<meta name="twitter:description" content="Attention Is All You Need 를 읽고 정리한 글입니다.">
-<meta name="twitter:image" content="480">
+<meta name="twitter:title" content="리눅스 혹은 서버에서 구글 드라이브 대용량 파일 다운로드 하기">
+<meta name="twitter:description" content="리눅스 혹은 서버에서 구글 드라이브의 대용량 파일 다운로드 하기">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -162,7 +154,7 @@
 
 
 
-  <title>Attention Is All You Need | Yeonsoo Kim's blog</title>
+  <title>리눅스 혹은 서버에서 구글 드라이브 대용량 파일 다운로드 하기 | Yeonsoo Kim's blog</title>
   
 
 
@@ -322,7 +314,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/paper%20review/2020/08/10/Attention/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/troubleshooting/2021/07/31/download_drivefile_at_linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yeonsoo Kim">
@@ -342,7 +334,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            Attention Is All You Need
+            리눅스 혹은 서버에서 구글 드라이브 대용량 파일 다운로드 하기
           
         </h1>
         
@@ -356,8 +348,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-10T00:00:00+09:00">
-                2020-08-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-31T00:00:00+09:00">
+                2021-07-31
               </time>
             
 
@@ -380,8 +372,8 @@
               
                 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/category/#/Paper%20Review" itemprop="url" rel="index">
-                    <span itemprop="name">Paper Review</span>
+                  <a href="/category/#/Troubleshooting" itemprop="url" rel="index">
+                    <span itemprop="name">Troubleshooting</span>
                   </a>
                 </span>
 
@@ -431,141 +423,15 @@
 
 
 
-  <p>Attention Is All You Need 를 읽고 정리한 글입니다.</p>
+  <p>리눅스 혹은 서버에서 구글 드라이브의 대용량 파일 다운로드 하기</p>
 
 <hr />
 
-<h1 id="attention-is-all-you-need">Attention Is All You Need</h1>
+<p>share link : https://drive.google.com/file/d/{파일ID}/view?usp=sharing 일 때,
+terminal에 가서 아래와 같이 작성.</p>
 
-<h2 id="overview">Overview</h2>
-<p>(You should include contents of summary and introduction.)</p>
-
-<p><strong>We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.</strong></p>
-
-<ul>
-  <li>recurrent, convolution 을 사용하지 않고 <code class="language-plaintext highlighter-rouge">Attention</code>을 이용해서 더 빠른 성능에 도달</li>
-</ul>
-
-<h2 id="related-work-basic-concepts">Related work (Basic concepts)</h2>
-
-<ul>
-  <li>layer normalization</li>
-  <li>RNN</li>
-  <li>Attention</li>
-</ul>
-
-<h2 id="methods">Methods</h2>
-<p>(Explain one of the methods that the thesis used.)</p>
-
-<h3 id="architecture">Architecture</h3>
-
-<p><img width="480" alt="스크린샷 2020-08-10 오후 12 03 51" src="https://user-images.githubusercontent.com/48315997/89760462-69980780-db27-11ea-81a1-77e7881cf135.png" /></p>
-
-<ul>
-  <li>
-    <p>the encoder maps an input sequence of symbol representations (x1,…,xn) to a sequence of continuous representations z = (z1,…,zn)</p>
-  </li>
-  <li><strong>Encoder</strong>
-    <ul>
-      <li>6개의 identicla layer로 구성되어 있음.
-        <ul>
-          <li>each layer has 2 sub-layers.
-            <ul>
-              <li><em>The first is a multi-head self-attention mechanism,</em> and <em>the second is a simple, position- wise fully connected feed-forward network.</em></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>Add : residual connection을 의미함.</li>
-      <li>Layer Norm. : <code class="language-plaintext highlighter-rouge">LayerNorm(x + Sublayer(x))</code></li>
-      <li>produce outputs of dimension d_model = <code class="language-plaintext highlighter-rouge">512</code></li>
-    </ul>
-  </li>
-  <li><strong>Decoder</strong>
-    <ul>
-      <li>Encoder와 동일하게 6개의 동일한 레이어로 구성됨.</li>
-      <li>Masked Multi-Head Attention
-        <blockquote>
-          <p>We also modify the self-attention sub-layer in the decoder stack to prevent positions from attending to subsequent positions. <strong>This masking, combined with fact that the output embeddings are offset by one position, ensures that the predictions for position i can depend only on the known outputs at positions less than i.</strong></p>
-        </blockquote>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="attention">Attention</h3>
-
-<p><img width="680" alt="스크린샷 2020-08-10 오후 12 11 26" src="https://user-images.githubusercontent.com/48315997/89760471-6dc42500-db27-11ea-98ad-348e14e7cd30.png" /></p>
-
-<ul>
-  <li><strong>Scaled Dot-Product Attention</strong>
-    <ul>
-      <li>Input : Q(Queries), K(Keys), V(Values)</li>
-      <li><strong>compute the dot products query with all keys</strong>, divide each by root(dk), and apply a softmax function to obtain the weights on the values.
-  <img width="332" alt="스크린샷 2020-08-10 오후 12 13 01" src="https://user-images.githubusercontent.com/48315997/89760492-7b79aa80-db27-11ea-8bb9-0b99805583e1.png" /></li>
-    </ul>
-
-    <blockquote>
-      <p>We implement this inside of scaled dot-product attention by masking out (setting to −∞) all values in the input of the softmax which correspond to illegal connections.</p>
-    </blockquote>
-  </li>
-  <li><strong>Multi-Head Attention</strong>
-    <blockquote>
-      <p>linearly project the queries, keys and values h times with different, learned linear projections to dk, dk and dv dimensions, respectively.</p>
-    </blockquote>
-    <ul>
-      <li>perform the attention function in parallel yielding dv -dimensional output values.</li>
-      <li>위의 과정이 완료된 후에는 <code class="language-plaintext highlighter-rouge">concatenate</code> 시킴
-  <img width="487" alt="스크린샷 2020-08-10 오후 12 14 53" src="https://user-images.githubusercontent.com/48315997/89760505-83d1e580-db27-11ea-9402-fb704b743ab5.png" /></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="position-wise-feed-forward-networks">Position-wise Feed-Forward Networks</h3>
-
-<p><img width="303" alt="스크린샷 2020-08-10 오후 12 15 47" src="https://user-images.githubusercontent.com/48315997/89760526-8c2a2080-db27-11ea-971a-627a7fe808a4.png" /></p>
-
-<h3 id="positional-encoding">Positional Encoding</h3>
-
-<p>Transformer에서는 <code class="language-plaintext highlighter-rouge">시간의 연속성</code>을 모델의 핵심부에서 다루지 않음. -&gt; 그러나 시간의 순서는 실제 언어에서 중요하므로 단어의 위치 정보를 포함시키기 위해 Positional Encoding을 사용</p>
-
-<p><img width="342" alt="스크린샷 2020-08-10 오후 12 19 13" src="https://user-images.githubusercontent.com/48315997/89760545-951af200-db27-11ea-8b7d-07338663b53d.png" /></p>
-
-<p><img width="695" alt="스크린샷 2020-08-10 오후 12 19 18" src="https://user-images.githubusercontent.com/48315997/89760549-96e4b580-db27-11ea-817b-da7c7a09f7d9.png" /></p>
-
-<h3 id="why-self-attention">Why Self-Attention</h3>
-
-<ol>
-  <li>
-    <p>Total computational complexity per layer</p>
-  </li>
-  <li>
-    <p>The amount of computation that can be <strong>parallelized, as measured by the minimum number of sequential operations required.</strong></p>
-  </li>
-  <li>
-    <p>The path length between long-range dependencies in the network.</p>
-  </li>
-</ol>
-
-<p>A self-attention layer connects all positions with <strong>a constant number</strong> of sequentially executed operations, whereas a recurrent layer requires O(n) sequential operations.</p>
-
-<h3 id="training">Training</h3>
-
-<p>논문 참조.</p>
-
-<h2 id="additional-studies">Additional studies</h2>
-<p>(If you have some parts that cannot understand, you have to do additional studies for them. It’s optional.)</p>
-
-<p>[1] Jimmy Lei Ba, Jamie Ryan Kiros, and Geoffrey E Hinton. Layer normalization. arXiv preprint arXiv:1607.06450, 2016.</p>
-
-<p>[2] BERT</p>
-
-<h2 id="references">References</h2>
-<p>(References for your additional studies)</p>
-
-<p><a href="https://www.youtube.com/watch?v=EyXehqvkfF0">https://www.youtube.com/watch?v=EyXehqvkfF0</a></p>
-
-<p><a href="https://www.youtube.com/watch?v=mxGCEWOxfe8">https://www.youtube.com/watch?v=mxGCEWOxfe8</a></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1</pre></td><td class="code"><pre class="highlight"><code>wget <span class="nt">--load-cookies</span> /tmp/cookies.txt <span class="s2">"https://docs.google.com/uc?export=download&amp;confirm=</span><span class="si">$(</span>wget <span class="nt">--quiet</span> <span class="nt">--save-cookies</span> /tmp/cookies.txt <span class="nt">--keep-session-cookies</span> <span class="nt">--no-check-certificate</span> <span class="s1">'https://docs.google.com/uc?export=download&amp;id={파일ID}'</span> <span class="nt">-O-</span> | <span class="nb">sed</span> <span class="nt">-rn</span> <span class="s1">'s/.*confirm=([0-9A-Za-z_]+).*/\n/p'</span><span class="si">)</span><span class="s2">&amp;id={파일ID}"</span> <span class="nt">-O</span> <span class="o">{</span>파일이름<span class="o">}</span> <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /tmp/cookies.txt
+</code></pre></td></tr></tbody></table></div></div>
 
 
       
@@ -597,13 +463,10 @@
         <div class="post-tags">
           
             
-            <a href="/tag/#/Deep%20Learning" rel="tag"># Deep Learning</a>
+            <a href="/tag/#/linux" rel="tag"># linux</a>
           
             
-            <a href="/tag/#/NLP" rel="tag"># NLP</a>
-          
-            
-            <a href="/tag/#/Transformer" rel="tag"># Transformer</a>
+            <a href="/tag/#/google%20drive" rel="tag"># google drive</a>
           
         </div>
       
@@ -619,18 +482,14 @@
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/paper%20review/2020/08/14/Model-Agnostic-Meta/" rel="next" title="Model-Agnostic Meta-Learning for fast adaptation of deep networks">
-                <i class="fa fa-chevron-left"></i> Model-Agnostic Meta-Learning for fast adaptation of deep networks
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/paper%20review/2020/08/08/GAN/" rel="prev" title="Generative Adversarial Nets">
-                Generative Adversarial Nets <i class="fa fa-chevron-right"></i>
+              <a href="/paper%20review/2021/07/04/COOT/" rel="prev" title="COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning">
+                COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -700,17 +559,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/assets/images/avatar.gif"
@@ -805,34 +655,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-
-
-
-
-
-
-
-            
-              <div class="post-toc-content">
-    <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#attention-is-all-you-need"> <span class="nav-number">1</span> <span class="nav-text">Attention Is All You Need</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#overview"> <span class="nav-number">1.1</span> <span class="nav-text">Overview</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#related-work-basic-concepts"> <span class="nav-number">1.2</span> <span class="nav-text">Related work (Basic concepts)</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#methods"> <span class="nav-number">1.3</span> <span class="nav-text">Methods</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#architecture"> <span class="nav-number">1.3.1</span> <span class="nav-text">Architecture</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#attention"> <span class="nav-number">1.3.2</span> <span class="nav-text">Attention</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#position-wise-feed-forward-networks"> <span class="nav-number">1.3.3</span> <span class="nav-text">Position-wise Feed-Forward Networks</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#positional-encoding"> <span class="nav-number">1.3.4</span> <span class="nav-text">Positional Encoding</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#why-self-attention"> <span class="nav-number">1.3.5</span> <span class="nav-text">Why Self-Attention</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#training"> <span class="nav-number">1.3.6</span> <span class="nav-text">Training</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#additional-studies"> <span class="nav-number">1.4</span> <span class="nav-text">Additional studies</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#references"> <span class="nav-number">1.5</span> <span class="nav-text">References</span> </a> </li> </ol> </li>
-    </ol>
-  </div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

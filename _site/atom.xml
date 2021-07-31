@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-05T02:06:14+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning</title><link href="http://localhost:4000/paper%20review/2021/07/04/COOT/" rel="alternate" type="text/html" title="COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning" /><published>2021-07-04T00:00:00+09:00</published><updated>2021-07-04T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/07/04/COOT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/07/04/COOT/">&lt;p&gt;COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-31T17:31:12+09:00</updated><id>http://localhost:4000/atom.xml</id><title type="html">Yeonsoo Kim’s blog</title><author><name>Yeonsoo Kim</name></author><entry><title type="html">리눅스 혹은 서버에서 구글 드라이브 대용량 파일 다운로드 하기</title><link href="http://localhost:4000/troubleshooting/2021/07/31/download_drivefile_at_linux/" rel="alternate" type="text/html" title="리눅스 혹은 서버에서 구글 드라이브 대용량 파일 다운로드 하기" /><published>2021-07-31T00:00:00+09:00</published><updated>2021-07-31T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/07/31/download_drivefile_at_linux</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/07/31/download_drivefile_at_linux/">&lt;p&gt;리눅스 혹은 서버에서 구글 드라이브의 대용량 파일 다운로드 하기&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;share link : https://drive.google.com/file/d/{파일ID}/view?usp=sharing 일 때,
+terminal에 가서 아래와 같이 작성.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;--load-cookies&lt;/span&gt; /tmp/cookies.txt &lt;span class=&quot;s2&quot;&gt;&quot;https://docs.google.com/uc?export=download&amp;amp;confirm=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;--quiet&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--save-cookies&lt;/span&gt; /tmp/cookies.txt &lt;span class=&quot;nt&quot;&gt;--keep-session-cookies&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-check-certificate&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'https://docs.google.com/uc?export=download&amp;amp;id={파일ID}'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-O-&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rn&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/.*confirm=([0-9A-Za-z_]+).*/\1\n/p'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;amp;id={파일ID}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;파일이름&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /tmp/cookies.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Yeonsoo Kim</name></author><category term="linux" /><category term="google drive" /><summary type="html">리눅스 혹은 서버에서 구글 드라이브의 대용량 파일 다운로드 하기</summary></entry><entry><title type="html">COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning</title><link href="http://localhost:4000/paper%20review/2021/07/04/COOT/" rel="alternate" type="text/html" title="COOT:Cooperative Hierarchical Transformer for Video-Text Representation Learning" /><published>2021-07-04T00:00:00+09:00</published><updated>2021-07-04T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/07/04/COOT</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/07/04/COOT/">&lt;p&gt;COOT: Cooperative Hierarchical Transformer for Video-Text Representation Learning 을 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -460,124 +468,7 @@ sudo xcode-select –install&lt;/p&gt;
   &lt;li&gt;어느 단계인지 기억은 안나는데 Gemfile에 
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem 'commonmarker'&lt;/code&gt;
 를 추가하기는 했음. (이게 필수인지는… 순서가 뒤죽박죽이라 모르겠음, 근데 bundle instasll로 다 되지 않았을까 싶음. Bundle exec Jekyll serve 를 했을 때 1번과 같은 에러가 뜬다면 그 때 Gemfile에 써도 늦지 않을 듯.)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="jekyll" /><summary type="html">How to Solve “Mac OS BigSur 11.2.3 bundle exec jekyll serve Error”</summary></entry><entry><title type="html">Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks</title><link href="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/" rel="alternate" type="text/html" title="Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/Data2Vis</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/">&lt;p&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;data2vis-automatic-generation-of-data-visualizations-using-sequence-to-sequence-recurrent-neural-networks&quot;&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks&lt;/h1&gt;
-
-&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;end-to-end trainable neural translation model&lt;/li&gt;
-  &lt;li&gt;formulate visualization generation as &lt;strong&gt;a language translation problem&lt;/strong&gt;, where data specifications are mapped to visualization specifications in a declarative language &lt;strong&gt;(Vega-Lite)&lt;/strong&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;Vege-Lite -&amp;gt; JSON format&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;multilayered ateention-based encoder-decoder network with LSTM&lt;/li&gt;
-  &lt;li&gt;introduce 2 metrics - language syntax validity, visualization grammar syntax validity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
-&lt;h3 id=&quot;declarative-visualization-specification&quot;&gt;Declarative Visualization Specification&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;One of our aims with Data2Vis is to bridge this gap between the speed and expressivity in specifying visualizations.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;automated-visulaization&quot;&gt;Automated Visulaization&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We pose visualization specifica- tion as a machine translation problem and intro- duce Data2Vis, a deep neural translation model trained to automatically translate data specifica- tions to visualization specifications. Data2Vis emphasizes the creation of visualizations using rules learned from examples, without resorting to a predefined enumeration or extraction of con- straints, rules, heuristics, and features.&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;Machine Translation Problem&lt;/strong&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;dnns-for-machine-translation&quot;&gt;DNNs for Machine Translation&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Data2Vis is also a sequence- to-sequence model using the textual source and target specifications directly for translation, with- out relying on explicit syntax representations.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;754&quot; alt=&quot;스크린샷 2021-05-07 오전 1 43 49&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;the data visualization problem as a &lt;strong&gt;Seq2Seq translation problem&lt;/strong&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input : dataset (fields, values in JSON format)
-output : valid Vega-Lite visualization specification
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;encoder-decoder archi.&lt;/strong&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;where the encoder reads and encodes a source sequence into a fixed length vector, and a decoder outputs a translation based on this vec- tor.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Attention&lt;/strong&gt; Mechanism
-    &lt;blockquote&gt;
-      &lt;p&gt;Atten- tion mechanisms allow a model to focus on aspects of an input sequence while generating out- put tokens.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Beam Search algorithm&lt;/strong&gt;
-    &lt;blockquote&gt;
-      &lt;p&gt;The beam search algorithm used in sequence-to-sequence neural translation models keeps track of k most probable output tokens at each step of decoding, where k is known as the beamwidth. This enables the generation of k most likely output sequences for a given input sequence.&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;THREE techniques : &lt;strong&gt;bidirectional encoding, differential weighing of context via an attention mechanism, and beam search&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;character&lt;/strong&gt;-based sequence model&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;data-and-preprocessing&quot;&gt;Data and Preprocessing&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;the model must select a subset of fields to focus on when creating visual- izations (most datasets have multiple fields that cannot all be simultaneously visualized)&lt;/li&gt;
-  &lt;li&gt;the model must learn differences in data types across the data fields (numeric, string, temporal, ordinal, categorical, etc.), which in turn guides how each field is specified in the generation of a visualiza- tion specification.&lt;/li&gt;
-  &lt;li&gt;the model must learn the appropriate transformations to apply to a field given its data type (e.g., aggregate transform does not apply to string fields).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;view-level transforms : aggregate, bin, calculate, filter, timeUnit&lt;/li&gt;
-  &lt;li&gt;field-level transforms : aggregate, bin, sort, timeUnit&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;evaluation-metrics&quot;&gt;Evaluation Metrics&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;language syntax validity(lsv)
-    &lt;ul&gt;
-      &lt;li&gt;measure of how well a model learns the syntax of the underlying language used to specify the visualization.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;grammar syntax validity(gsv)
-    &lt;ul&gt;
-      &lt;li&gt;a measure of how well a model learns the syntax of the grammar for visualization specification.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
-
-&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
-&lt;p&gt;&lt;img width=&quot;887&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 00&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335706-66735180-aed6-11eb-90cc-95b38ea1224a.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;765&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 10&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335723-6bd09c00-aed6-11eb-8c0e-9e9d0e1348a2.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Field Selection and Transformation&lt;/li&gt;
-  &lt;li&gt;Training Data&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;future-work&quot;&gt;Future Work&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Training Data and Training Strategy&lt;/li&gt;
-  &lt;li&gt;Extending Data2Vis to Generate Multiple Plausible Visualizations&lt;/li&gt;
-  &lt;li&gt;Targeting Additional Grammars&lt;/li&gt;
-  &lt;li&gt;Natural Language and Visualization Specification&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Visualization" /><summary type="html">Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">VizML - A Machine Learning Approach to Visualization Recommendation</title><link href="http://localhost:4000/paper%20review/2021/05/06/VizML/" rel="alternate" type="text/html" title="VizML - A Machine Learning Approach to Visualization Recommendation" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/VizML</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/VizML/">&lt;p&gt;VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="jekyll" /><summary type="html">How to Solve “Mac OS BigSur 11.2.3 bundle exec jekyll serve Error”</summary></entry><entry><title type="html">VizML - A Machine Learning Approach to Visualization Recommendation</title><link href="http://localhost:4000/paper%20review/2021/05/06/VizML/" rel="alternate" type="text/html" title="VizML - A Machine Learning Approach to Visualization Recommendation" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/VizML</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/VizML/">&lt;p&gt;VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h1 id=&quot;vizml--a-machine-learning-approach-to-visualization-recommendation&quot;&gt;VizML : A Machine Learning Approach to Visualization Recommendation&lt;/h1&gt;
@@ -746,7 +637,124 @@ sualizations Using Sequence to Sequence Recurrent Neural Networks.&lt;/li&gt;
   &lt;li&gt;Draco-Learn : Formalizing Visualization Design Knowledge as Constraints: Actionable and Extensible Models in Draco.&lt;/li&gt;
   &lt;li&gt;Vega- Lite: A Grammar of Interactive Graphics.&lt;/li&gt;
   &lt;li&gt;Polaris: a system for query, analysis, and visualization of multidimensional databases&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Machine Learning" /><category term="Visualization" /><summary type="html">VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Stanford CS231n Lec 02. Image Classification</title><link href="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/" rel="alternate" type="text/html" title="Stanford CS231n Lec 02. Image Classification" /><published>2021-03-21T00:00:00+09:00</published><updated>2021-03-21T00:00:00+09:00</updated><id>http://localhost:4000/cs231n/2021/03/21/cs231n_lec02</id><content type="html" xml:base="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/">&lt;p&gt;Stanford CS231n 2017 강의를 듣고 개인적으로 정리한 글입니다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Machine Learning" /><category term="Visualization" /><summary type="html">VizML : A Machine Learning Approach to Visualization Recommendation 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks</title><link href="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/" rel="alternate" type="text/html" title="Data2Vis - Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks" /><published>2021-05-06T00:00:00+09:00</published><updated>2021-05-06T00:00:00+09:00</updated><id>http://localhost:4000/paper%20review/2021/05/06/Data2Vis</id><content type="html" xml:base="http://localhost:4000/paper%20review/2021/05/06/Data2Vis/">&lt;p&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;data2vis-automatic-generation-of-data-visualizations-using-sequence-to-sequence-recurrent-neural-networks&quot;&gt;Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks&lt;/h1&gt;
+
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;end-to-end trainable neural translation model&lt;/li&gt;
+  &lt;li&gt;formulate visualization generation as &lt;strong&gt;a language translation problem&lt;/strong&gt;, where data specifications are mapped to visualization specifications in a declarative language &lt;strong&gt;(Vega-Lite)&lt;/strong&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;Vege-Lite -&amp;gt; JSON format&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;multilayered ateention-based encoder-decoder network with LSTM&lt;/li&gt;
+  &lt;li&gt;introduce 2 metrics - language syntax validity, visualization grammar syntax validity&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
+&lt;h3 id=&quot;declarative-visualization-specification&quot;&gt;Declarative Visualization Specification&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;One of our aims with Data2Vis is to bridge this gap between the speed and expressivity in specifying visualizations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;automated-visulaization&quot;&gt;Automated Visulaization&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We pose visualization specifica- tion as a machine translation problem and intro- duce Data2Vis, a deep neural translation model trained to automatically translate data specifica- tions to visualization specifications. Data2Vis emphasizes the creation of visualizations using rules learned from examples, without resorting to a predefined enumeration or extraction of con- straints, rules, heuristics, and features.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Machine Translation Problem&lt;/strong&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;dnns-for-machine-translation&quot;&gt;DNNs for Machine Translation&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Data2Vis is also a sequence- to-sequence model using the textual source and target specifications directly for translation, with- out relying on explicit syntax representations.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;754&quot; alt=&quot;스크린샷 2021-05-07 오전 1 43 49&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335052-adad1280-aed5-11eb-9188-0b30c1cb9533.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the data visualization problem as a &lt;strong&gt;Seq2Seq translation problem&lt;/strong&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;input : dataset (fields, values in JSON format)
+output : valid Vega-Lite visualization specification
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;encoder-decoder archi.&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;where the encoder reads and encodes a source sequence into a fixed length vector, and a decoder outputs a translation based on this vec- tor.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Attention&lt;/strong&gt; Mechanism
+    &lt;blockquote&gt;
+      &lt;p&gt;Atten- tion mechanisms allow a model to focus on aspects of an input sequence while generating out- put tokens.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Beam Search algorithm&lt;/strong&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;The beam search algorithm used in sequence-to-sequence neural translation models keeps track of k most probable output tokens at each step of decoding, where k is known as the beamwidth. This enables the generation of k most likely output sequences for a given input sequence.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;THREE techniques : &lt;strong&gt;bidirectional encoding, differential weighing of context via an attention mechanism, and beam search&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;character&lt;/strong&gt;-based sequence model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data-and-preprocessing&quot;&gt;Data and Preprocessing&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;the model must select a subset of fields to focus on when creating visual- izations (most datasets have multiple fields that cannot all be simultaneously visualized)&lt;/li&gt;
+  &lt;li&gt;the model must learn differences in data types across the data fields (numeric, string, temporal, ordinal, categorical, etc.), which in turn guides how each field is specified in the generation of a visualiza- tion specification.&lt;/li&gt;
+  &lt;li&gt;the model must learn the appropriate transformations to apply to a field given its data type (e.g., aggregate transform does not apply to string fields).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;view-level transforms : aggregate, bin, calculate, filter, timeUnit&lt;/li&gt;
+  &lt;li&gt;field-level transforms : aggregate, bin, sort, timeUnit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;evaluation-metrics&quot;&gt;Evaluation Metrics&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;language syntax validity(lsv)
+    &lt;ul&gt;
+      &lt;li&gt;measure of how well a model learns the syntax of the underlying language used to specify the visualization.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;grammar syntax validity(gsv)
+    &lt;ul&gt;
+      &lt;li&gt;a measure of how well a model learns the syntax of the grammar for visualization specification.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+&lt;p&gt;&lt;img width=&quot;887&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 00&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335706-66735180-aed6-11eb-90cc-95b38ea1224a.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;765&quot; alt=&quot;스크린샷 2021-05-07 오전 1 49 10&quot; src=&quot;https://user-images.githubusercontent.com/48315997/117335723-6bd09c00-aed6-11eb-8c0e-9e9d0e1348a2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Field Selection and Transformation&lt;/li&gt;
+  &lt;li&gt;Training Data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;future-work&quot;&gt;Future Work&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Training Data and Training Strategy&lt;/li&gt;
+  &lt;li&gt;Extending Data2Vis to Generate Multiple Plausible Visualizations&lt;/li&gt;
+  &lt;li&gt;Targeting Additional Grammars&lt;/li&gt;
+  &lt;li&gt;Natural Language and Visualization Specification&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Deep Learning" /><category term="Visualization" /><summary type="html">Data2Vis: Automatic Generation of Data Visualizations Using Sequence-to-Sequence Recurrent Neural Networks 을 읽고 정리한 글입니다.</summary></entry><entry><title type="html">Stanford CS231n Lec 02. Image Classification</title><link href="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/" rel="alternate" type="text/html" title="Stanford CS231n Lec 02. Image Classification" /><published>2021-03-21T00:00:00+09:00</published><updated>2021-03-21T00:00:00+09:00</updated><id>http://localhost:4000/cs231n/2021/03/21/cs231n_lec02</id><content type="html" xml:base="http://localhost:4000/cs231n/2021/03/21/cs231n_lec02/">&lt;p&gt;Stanford CS231n 2017 강의를 듣고 개인적으로 정리한 글입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -1130,67 +1138,4 @@ Active Learning은 요약하자면 적은 데이터 수로 높은 성능을 낼 
   &lt;li&gt;건강한 음식 먹기(식단 관리) &amp;amp; 자주 걷기&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;특허 작성과 논문 작성이 가장 주가 될 듯 하다. 과연 2월안에 다 할 수 있을까? 해야만 한다ㅠ&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="월간 회고" /><summary type="html">2021년 1월 회고 글입니다.</summary></entry><entry><title type="html">Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결</title><link href="http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble/" rel="alternate" type="text/html" title="Ubuntu 18.04 clean, ***/*** files, ***/*** blocks 문제해결" /><published>2021-01-26T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble</id><content type="html" xml:base="http://localhost:4000/troubleshooting/2021/01/26/Ubuntu-clean-files-blocks-trouble/">&lt;p&gt;Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;잡소리&quot;&gt;잡소리&lt;/h2&gt;
-
-&lt;p&gt;오늘 연구실에서 정말 당황한 에러를 마주쳤습니다.&lt;/p&gt;
-
-&lt;p&gt;사건의 역시나 CUDA에서 시작… 저번주까지만 해도 잘 됐던 gpu사용이 오늘 하려니 갑자기 찾을 수 없다(?)는 에러가 떴습니다.&lt;/p&gt;
-
-&lt;p&gt;침착하게 그 에러 메시지를 구글링해서 스택오버플로우에서 하라는 대로 하고 재부팅했는데 아래와 같은 에러가 뜨고 무한 블랙스크린이었습니다 ㅜㅜ.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.stack.imgur.com/fBYUJ.jpg&quot; alt=&quot;&quot; /&gt; &lt;a href=&quot;https://askubuntu.com/questions/1222496/system-wont-boot-stuck-at-dev-sda5-clean-xxxx-xxxx-files-yyyy-yyyy-blocks&quot;&gt;이미지 출처&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;진심 저거 봤을 때 눈물이 찔끔 나올 뻔 했는데요 ..ㅋㅋㅋ 스택오버플로우보니까 아예 우분투를 재설치 해야 할 수도 있다는 글을 보고… 진짜 온몸이 오싹해졌습니다.&lt;/p&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;우선 다시 부팅하고 recovery mode (safe mode) 로 들어가야 합니다. 부팅될 때 무한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shift&lt;/code&gt; 누르십시오. (우분투 18.04 기준)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Advanced options for Ubuntu&lt;/code&gt; 를 클릭하고, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;recovery mode&lt;/code&gt;로 들어갑니다.
-제가 캡쳐할 상황은 아니었던지라 다 인터넷에서 들고 오는 점 이해 부탁드립니다^^; &lt;a href=&quot;https://askubuntu.com/questions/92556/how-do-i-boot-into-a-root-shell&quot;&gt;출처&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.stack.imgur.com/01e8n.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;https://i.stack.imgur.com/UP5j7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;이제 리커버리 모드에 들어왔는데요. 여기서 방향키를 사용해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt;로 이동하고 Enter합니다. 이제 터미널을 쓸 수 있습니다! 
-&lt;img src=&quot;https://i.stack.imgur.com/tHkmh.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이제 터미널에서&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get purge nvidia*&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;를 치면 됩니다만, 여기서 저는&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;라는 에러가 또 뜹니다.&lt;/p&gt;
-
-&lt;p&gt;여기서 제 부팅 실패의 원인을 유추해볼 수 있었습니다. 재부팅 전에 했던 동작들에서 뭔가를 건드렸고 그 결과 dpkg 패키지가 제대로 구성되지 않았던 겁니다.(maybe….)&lt;/p&gt;
-
-&lt;p&gt;아무튼 이 에러는 상대적으로 쉽게 해결할 수 있습니다.
-에러 메시지대로 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo dpkg --configure -a&lt;/code&gt; 를 해주면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;이제 다시&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get purge nvidia*&lt;/code&gt;
-를 하게 되면 잘 설치 됩니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reboot&lt;/code&gt; 를 써서 재부팅합니다 -&amp;gt; 성공!&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;이 일은 저에게 있어 정말 끔찍했던 순간이었습니다. 퇴사해야하나 생각도 했어요 ㅋㅋㅋ 아무튼 빠르게 고치고 퇴근했습니다^^.. 혹시 구글링하다 저와 같은 에러를 발견하시게 된다면, 위 과정을 통해 고치길 바라겠습니다.&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="Ubuntu" /><category term="Troubleshooting" /><summary type="html">Ubuntu 18.04에서 clean, ***/*** files, ***/*** blocks 에러가 떴을 때 고치는 방법을 정리한 글입니다.</summary></entry></feed>
+&lt;p&gt;특허 작성과 논문 작성이 가장 주가 될 듯 하다. 과연 2월안에 다 할 수 있을까? 해야만 한다ㅠ&lt;/p&gt;</content><author><name>Yeonsoo Kim</name></author><category term="월간 회고" /><summary type="html">2021년 1월 회고 글입니다.</summary></entry></feed>
